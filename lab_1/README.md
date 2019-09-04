@@ -56,13 +56,13 @@ In this section, we guide you through starting the docker container and running 
 1. Clone the lab repository:
 
 ```bash
-$ git clone https://github.mit.edu/mperron/6.S080_labs   # https
+$ git clone https://github.mit.edu/mitdbg/datascienceclass   # https
 ```
 
 or
 
 ```bash
-$ git clone git@github.com:mperron/6.S080_labs.git       # ssh
+$ git clone git@github.com:mitdbg/datascienceclass.git       # ssh
 ```
 
 2. Navigate to the lab_1 directory:
@@ -71,7 +71,7 @@ $ git clone git@github.com:mperron/6.S080_labs.git       # ssh
 $ cd 6.S080_labs/lab_1/
 ```
 
-3. Build the docker image we'll use for the course (**Joana: do we need to build it?  I believe there's a command that builds + runs, and already puts you in the workdir**):
+3. Build the docker image we'll use for the course :
 
 ```bash
 $ docker build -t 6.s080:lab1 .
@@ -165,3 +165,5 @@ Before the lecture, start the lab1-container and follow along.
 # Lab 1: Basic Tools (SQL / Pandas)
 
 Lab 1 will be released shortly before the lecture. It will have an in-class portion and a take-home portion.
+In the lab we will explore the publicly available Federal Election Comission regarding funding
+of political campaigns and politcal action comittees (PACs) in the 2016 eleciton.
