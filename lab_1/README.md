@@ -68,7 +68,7 @@ $ git clone git@github.com:mitdbg/datascienceclass.git       # ssh
 2. Navigate to the lab_1 directory:
 
 ```
-$ cd 6.S080_labs/lab_1/
+$ cd datascienceclass/lab_1/
 ```
 
 3. Build the docker image we'll use for the course :
