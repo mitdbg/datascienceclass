@@ -56,7 +56,7 @@ In this section, we guide you through starting the docker container and running 
 1. Clone the lab repository:
 
 ```bash
-$ git clone https://github.com:mitdbg/datascienceclass.git   # https
+$ git clone https://github.com/mitdbg/datascienceclass.git   # https
 ```
 
 or
