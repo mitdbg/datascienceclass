@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
-ADD . /lab0
-WORKDIR /lab0
+ADD . /lab1
+WORKDIR /lab1
 
 RUN apt update
 RUN apt install -y python3 python3-pip vim sqlite3
