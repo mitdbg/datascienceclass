@@ -14,7 +14,7 @@ A docker installation typically requires 10-20GB of hard disk space. Completing 
 
 Docker provides tutorials for installation on [OS X](https://docs.docker.com/v17.12/docker-for-mac/install/) and [Windows](https://docs.docker.com/v17.12/docker-for-windows/install/). For linux varients please follow instructions for your distribution [here](https://docs.docker.com/v17.12/install/#docker-ce).
 
-Some OS X users may also prefer to install Docker using [homebrew](https://brew.sh/), in which case the following commands suffice:
+Some OS X users may prefer installing Docker via [homebrew](https://brew.sh/), in which case the following commands suffice:
 
 ```bash
 $ brew cask install docker       # Install Docker
