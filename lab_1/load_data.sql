@@ -3,9 +3,9 @@
 DROP TABLE IF EXISTS DIST_POP;
 CREATE TABLE dist_pop(
   "state" char(2),
-  "district_id" INT,
+  "district_id" int,
   "district name" varchar(200),
-  "population" LONG
+  "population" long
 );
 
 .import data/dist_pop.txt dist_pop
@@ -29,21 +29,8 @@ CREATE TABLE candidate(
   "CAND_ST" VARCHAR(2),
   "CAND_ZIP" VARCHAR(9)
 );
-.import data/cn.txt candidate
+.import data/candidate.txt candidate
 DELETE FROM candidate LIMIT 1;
-
-DROP TABLE IF EXISTS cand_com_link;
-CREATE TABLE cand_com_link(
-  "CAND_ID" VARCHAR(9),
-  "CAND_ELECTION_YR" int,
-  "FEC_ELECTION_YR" int,
-  "CMTE_ID" VARCHAR(9),
-  "CMTE_TP" VARCHAR(1),
-  "CMTE_DSGN" VARCHAR(1),
-  "LINKAGE_ID" int
-);
-.import data/ccl.txt cand_com_link
-DELETE FROM cand_com_link LIMIT 1;
 
 DROP TABLE IF EXISTS COMMITTEE;
 
@@ -65,7 +52,7 @@ CREATE TABLE committee(
   "CAND_ID" VARCHAR(9)
 );
 
-.import data/cm.txt committee
+.import data/committee.txt committee
 DELETE FROM committee LIMIT 1;
 
 DROP TABLE IF EXISTS PAC_SUMMARY;
@@ -100,6 +87,42 @@ CREATE TABLE pac_summary(
   "CVG_END_DT" DATE 
 );
 
-.import data/webk16.txt pac_summary
+.import data/pac_summary.txt pac_summary
 DELETE FROM pac_summary LIMIT 1;
 
+
+DROP TABLE IF EXISTS cand_summary;
+CREATE TABLE cand_summary (
+  "CAND_ID" VARCHAR(9),
+  "CAND_NAME" VARCHAR(200),
+  "CAND_ICI" VARCHAR(1),
+  "PTY_CD" VARCHAR(1),
+  "PTY_AFFILIATION" VARCHAR(3),
+  "TTL_RECEIPTS" FLOAT,
+  "TRANS_FROM_AUTH" FLOAT,
+  "TTL_DISB" FLOAT,
+  "TRANS_TO_AUTH" FLOAT,
+  "COH_BOP" FLOAT,
+  "COH_COP" FLOAT,
+  "CAND_CONTRIB" FLOAT,
+  "CAND_LOANS" FLOAT,
+  "OTHER_LOANS" FLOAT,
+  "CAND_LOAN_REPAY" FLOAT,
+  "OTHER_LOAN_REPAY" FLOAT,
+  "DEBTS_OWED_BY" FLOAT,
+  "TTL_INDIV_CONTRIB" FLOAT,
+  "CAND_OFFICE_ST" FLOAT,
+  "CAND_OFFICE_DISTRICT" FLOAT,
+  "SPEC_ELECTION" FLOAT,
+  "PRIM_ELECTION" FLOAT,
+  "RUN_ELECTION" FLOAT,
+  "GEN_ELECTION" FLOAT,
+  "GEN_ELECTION_PERCENT" FLOAT,
+  "OTHER_POL_CMTE_CONTRIB" FLOAT,
+  "POL_PTY_CONTRIB" FLOAT,
+  "CVG_END_DT" FLOAT,
+  "INDIV_REFUNDS" FLOAT,
+  "CMTE_REFUNDS" FLOAT);
+
+.import data/cand_summary.txt cand_summary
+DELETE FROM cand_summary LIMIT 1;
