@@ -14,6 +14,13 @@ A docker installation typically requires 10-20GB of hard disk space. Completing 
 
 Docker provides tutorials for installation on [OS X](https://docs.docker.com/v17.12/docker-for-mac/install/) and [Windows](https://docs.docker.com/v17.12/docker-for-windows/install/). For linux varients please follow instructions for your distribution [here](https://docs.docker.com/v17.12/install/#docker-ce).
 
+Some OS X users may prefer installing Docker via [homebrew](https://brew.sh/), in which case the following commands suffice:
+
+```bash
+$ brew cask install docker       # Install Docker
+$ open /Applications/Docker.app  # Start Docker
+```
+
 On some older systems, the above installation procedures may not work. For instance, Windows 10 users who do not use Pro or Enterprise editions cannot use the above setup. In these cases, use the Docker Toolbox instead. The Docker Toolbox sets up a virtual machine using Oracle VirtualBox where Docker can run. Instructions are [here](https://docs.docker.com/v17.12/toolbox/overview/)
 
 If you do not have a machine capable of running Docker, contact the course staff on Piazza as soon as possible.
