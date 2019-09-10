@@ -3,13 +3,34 @@
 DROP TABLE IF EXISTS DIST_POP;
 CREATE TABLE dist_pop(
   "state" char(2),
-  "district_id" int,
+  "district_id" INT,
   "district name" varchar(200),
-  "population" long
+  "population" LONG
 );
 
 .import data/dist_pop.txt dist_pop
 DELETE FROM dist_pop LIMIT 1;
+
+DROP TABLE IF EXISTS candidate;
+CREATE TABLE candidate(
+  "CAND_ID" VARCHAR(9),
+  "CAND_NAME" VARCHAR(200),
+  "CAND_PTY_AFFILIATION" VARCHAR(3),
+  "CAND_ELECTION_YR" INT,
+  "CAND_OFFICE_ST" VARCHAR(2),
+  "CAND_OFFICE" VARCHAR(1),
+  "CAND_OFFICE_DISTRICT" INT,
+  "CAND_ICI" VARCHAR(1),
+  "CAND_STATUS" VARCHAR(1),
+  "CAND_PCC" VARCHAR(9),
+  "CAND_ST1" VARCHAR(34),
+  "CAND_ST2" VARCHAR(34),
+  "CAND_CITY" VARCHAR(30),
+  "CAND_ST" VARCHAR(2),
+  "CAND_ZIP" VARCHAR(9)
+);
+.import data/cn.txt candidate
+DELETE FROM candidate LIMIT 1;
 
 DROP TABLE IF EXISTS cand_com_link;
 CREATE TABLE cand_com_link(
