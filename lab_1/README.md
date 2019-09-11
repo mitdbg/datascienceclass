@@ -966,7 +966,7 @@ For convenience, you can run queries one at a time using the ``python3 queries.p
 In addition to your code, you will submit results of your code for each of the questions in a PDF. Put each answer on a new page.
 Detailed submission instructions are at the bottom of this document.
 
-It may be helpful to look at the detailed descriptions of each column on the FEC website. 
+It will be helpful to look at the detailed descriptions of the columns on the FEC website. 
 Below we describe each table briefly and link to the detailed description of each column.
 
 With the exception of the individual contributions table that we will create below, do not modify the database file after creation.
@@ -1032,6 +1032,8 @@ Some questions that would be helpful:
 
 ### Submission Instructions
 
+Sign up with gradescope for the course using your MIT account and the course sign up code **9J4JWK**
+
 The lab is due at 11:59pm Wednesday September 18, 2019.
 
 The submission comes in two parts. 
@@ -1039,4 +1041,4 @@ The submission comes in two parts.
 First create a **private** repository on GitHub for you and your partner to upload your code. Create a file ``students.txt`` in the ``lab_1`` directory that lists the MIT id of you and your partner, one per line. commit and push your queries.py and all the sql queries in the ``queries`` subdirectory. Add the TAs for the course as collaborators on Github (Usernames: MattPerron, and jmftrindade).
 Note that we will only look at commits made before the deadline.
 
-In addition submit the answers to each question (in some tabluar form, monospaced fonts copied from the command line are fine) as a PDF. Each answer should start a new page. Please include at the top of each problem both students' names, MIT ids, and a link to the repository of your code, and the commit hash you are submitting (By running ``git log | head -n 1`` outside the container).
+In addition, submit the answers to each question (in some tabluar form. Monospaced fonts copied from the command line are fine.) as a PDF. Each answer should start a new page. Please include at the top of each problem both students' names, MIT ids, a link to the repository of your code, and the commit hash you are submitting (By running ``git log | head -n 1`` outside the container).
