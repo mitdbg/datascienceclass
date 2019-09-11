@@ -989,7 +989,7 @@ With the exception of the individual contributions table that we will create bel
 
 3. **Which Super PACs (Independent expenditure-only PAC) had the most total receipts in 2016? Committee type codes are [here](https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/). Return a dataframe with comittee name and total receipts. List the top 10 ordered by total receipts.  Use the pac_summary table. (5 pts)**
 
-4. **What were the names of candidates, their campaign committe names, and addresses of all 2016 presidential candidates, containing the "HUCK"? Return a dataframe with the candidate name, campaign comittee name, and street address. Use the candidate and committees tables. (5 pts)**
+4. **What were the names of candidates, their campaign committe names, and addresses of all 2016 presidential candidates, where the name contains the substring "HUCK"? Return a dataframe with the candidate name, campaign comittee name, and street address. Use the candidate and committees tables. (5 pts)**
 
 5. **What are the names of the top 20 senate campaign committees that raised the most money per capita for a Senate race in 2016? Return a dataframe with the committee name, state, and total_receipts, and ratio of receipts per person in the district, ordered by the per capita money raised. Use the candidate, cand_summary, committee, and dist_pop tables. (10 pts)**
 
