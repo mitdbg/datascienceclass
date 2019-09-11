@@ -433,12 +433,12 @@ You can start to do more interesting things when you "join" data from multiple d
 
 In addition to doing aggregations like we did for the population data, we can also filter on conditions. Let's say we want to find the district that had the most candidates per capita by using the population and candidate data.
 
-First we have to find all the republican house candidates in 2016. (Party codes are [here](https://www.fec.gov/campaign-finance-data/party-code-descriptions/)) We'll load the CSV then filter. Note that we also have to filter "CAND_STATUS" retreiving only rows where the column takes values "C" and "N", meaning the candidate met the official requirements to run for office and appeared on a ballot (primary or general). We do this by creating a mask for each condition first. Construct a mask that fulfills this predicate.
+First we have to find all the house candidates in 2016. We'll load the CSV then filter. Note that we also have to filter "CAND_STATUS" retreiving only rows where the column takes values "C" and "N", meaning the candidate met the official requirements to run for office and appeared on a ballot (primary or general). We do this by creating a mask for each condition first. Construct a mask that fulfills this predicate.
 
 
 Now we'll filter the candidates that meet all our condidions.
 
-        >>> house_cand_2016 = candidates[all_conditions]
+        >>> house_cand_2016 = candidates[mask]
         >>> house_cand_2016
                 CAND_ID                    CAND_NAME  ... CAND_ST     CAND_ZIP
         1     H0AL02087                 ROBY, MARTHA  ...      AL      36101.0
