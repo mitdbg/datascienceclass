@@ -102,7 +102,7 @@ Note that the image id on your machine will be different.
 $ docker run -v "`pwd`":/lab1 -ti --name lab1-container 6.s080:lab1
 ```
 
-The ``-v "`pwd`":/lab1`` option in this command maps the folder you are in to the docker container so any work you do inside the ``/lab1`` directory in your container will remain on your local file system in the ``6.S080_labs/lab_0`` directory. If you are running this from a windows shell you may have to replace ``"`pwd`"`` with the full path to the lab directory, e.g. ``"/c/Users/your_user_name/.../lab_0"``. You should now have a shell inside the container like the following
+The ``-v "`pwd`":/lab1`` option in this command maps the folder you are in to the docker container so any work you do inside the ``/lab1`` directory in your container will remain on your local file system in the ``6.S080_labs/lab_1`` directory. If you are running this from a windows shell you may have to replace ``"`pwd`"`` with the full path to the lab directory, e.g. ``"/c/Users/your_user_name/.../lab_1"``. You should now have a shell inside the container like the following
 
         root@9ceb15d6ed26:/lab1#
         
@@ -435,6 +435,80 @@ In addition to doing aggregations like we did for the population data, we can al
 
 First we have to find all the house candidates in 2016. We'll load the CSV then filter. Note that we also have to filter "CAND_STATUS" retreiving only rows where the column takes values "C" and "N", meaning the candidate met the official requirements to run for office and appeared on a ballot (primary or general). We do this by creating a mask for each condition first. Construct a mask that fulfills this predicate.
 
+    >>> candidates = pd.read_csv("data/candidate.txt", delimiter="|")
+    >>> candidates
+            CAND_ID                  CAND_NAME  ... CAND_ST  CAND_ZIP
+    0     H0AK00097               COX, JOHN R.  ...      AK   99556.0
+    1     H0AL02087               ROBY, MARTHA  ...      AL   36101.0
+    2     H0AL02095          JOHN, ROBERT E JR  ...      AL   36054.0
+    3     H0AL05049  CRAMER, ROBERT E "BUD" JR  ...      AL   35804.0
+    4     H0AL05163                 BROOKS, MO  ...      AL   35802.0
+    ...         ...                        ...  ...     ...       ...
+    7636  S8WA00137             AMUNDSON, THOR  ...      WA   98502.0
+    7637  S8WA00186              SENN, DEBORAH  ...      WA   98122.0
+    7638  S8WA00194            CANTWELL, MARIA  ...      WA   98111.0
+    7639  S8WI00026     FEINGOLD, RUSSELL DANA  ...      WI   53562.0
+    7640  S8WI00158            NEUMANN, MARK W  ...      WI   53058.0
+
+[7641 rows x 15 columns]
+
+    >>> house_cand_mask = candidates["CAND_OFFICE"] == "H"
+    >>> house_cand_mask
+    0        True
+    1        True
+    2        True
+    3        True
+    4        True
+        ...
+    7636    False
+    7637    False
+    7638    False
+    7639    False
+    7640    False
+    Name: CAND_OFFICE, Length: 7641, dtype: bool
+    >>> cand_2016_mask = candidates["CAND_ELECTION_YR"]==2016
+    >>> cand_2016_mask
+    0       False
+    1        True
+    2        True
+    3       False
+    4        True
+        ...
+    7636     True
+    7637    False
+    7638    False
+    7639     True
+    7640    False
+    Name: CAND_ELECTION_YR, Length: 7641, dtype: bool
+    >>> qual_cand_mask = ((candidates["CAND_STATUS"] == "C") | (candidates["CAND_STATUS"] == "N"))
+    >>> qual_cand_mask
+    >>> qual_cand_mask
+    0        True
+    1        True
+    2        True
+    3       False
+    4        True
+        ...
+    7636     True
+    7637    False
+    7638    False
+    7639     True
+    7640    False
+    Name: CAND_STATUS, Length: 7641, dtype: bool
+    >>> mask = house_cand_mask & qual_cand_mask & cand_2016_mask
+    >>> mask
+    0       False
+    1        True
+    2        True
+    3       False
+    4        True
+        ...
+    7636    False
+    7637    False
+    7638    False
+    7639    False
+    7640    False
+    Length: 7641, dtype: bool
 
 Now we'll filter the candidates that meet all our condidions.
 
@@ -463,14 +537,14 @@ Let's count the number of candidates, and group by state and district by aggrega
     CAND_OFFICE_ST CAND_OFFICE_DISTRICT
     AK             0.0                               11
     AL             1.0                                2
-               2.0                                5
-               3.0                                3
-               4.0                                2
+                   2.0                                5
+                   3.0                                3
+                   4.0                                2
     ...                                             ...
     WI             8.0                                7
     WV             1.0                                3
-               2.0                                7
-               3.0                                4
+                   2.0                                7
+                   3.0                                4
     WY             0.0                               17
 
     [447 rows x 1 columns]
@@ -971,7 +1045,7 @@ Below we describe each table briefly and link to the detailed description of eac
 
 With the exception of the individual contributions table that we will create below, do not modify the database file after creation.
 
-``candidate`` contains data on each candidate who filed with the FEC in the 2016 election cycle (2015-2016). It also contains candidates from previous elections so you may have to filter by election year. Details [here](https://www.fec.gov/campaign-finance-data/candidate-master-file-description/). To get official candidates filter ``CAND_STATUS`` to include only ``C`` and ``N`` values.
+``candidate`` contains data on each candidate who filed with the FEC in the 2016 election cycle (2015-2016). It also contains candidates from previous elections so you may have to filter by election year. Details [here](https://www.fec.gov/campaign-finance-data/candidate-master-file-description/). To get official candidates filter ``CAND_STATUS`` to include only ``C`` and ``N`` values. **Note: For all questions below on the candidate table you must filter by ``CAND_STATUS``**.
 
 ``cand_summary`` contains summary data about each candidate's campaign committee's financial filings with the FEC. More info [here](https://www.fec.gov/campaign-finance-data/all-candidates-file-description/)
 
@@ -989,11 +1063,11 @@ With the exception of the individual contributions table that we will create bel
 
 3. **Which Super PACs (Independent expenditure-only PAC) had the most total receipts in 2016? Committee type codes are [here](https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/). Return a dataframe with comittee name and total receipts. List the top 10 ordered by total receipts.  Use the pac_summary table. (5 pts)**
 
-4. **What were the names of candidates, their campaign committe names, and addresses of all 2016 presidential candidates, where the name contains the substring "HUCK"? Return a dataframe with the candidate name, campaign comittee name, and street address. Use the candidate and committees tables. (5 pts)**
+4. **What were the names of candidates, their campaign committe names, and addresses of all 2016 presidential candidates, where the candidate's name contains the substring "HUCK"? Return a dataframe with the candidate name, campaign comittee name, and street address. Use the candidate and committees tables. (5 pts)**
 
 5. **What are the names of the top 20 senate campaign committees that raised the most money per capita for a Senate race in 2016? Return a dataframe with the committee name, state, and total_receipts, and ratio of receipts per person in the district, ordered by the per capita money raised. Use the candidate, cand_summary, committee, and dist_pop tables. (10 pts)**
 
-6. **List the names of House campaign committees and their associated party which raised at least $100,000 and had the lowest proportion of individual contributions to total receipts. List the lowest 10 in ascending order. Return a dataframe with candidate name, party code, individual contributions, total_receipts, and ratio of individual contributions to total receipts. Use the cand_summary, and candidate tables. (10 pts)**
+6. **List the names of House campaign committees for 2016 and their associated party which raised at least $100,000 and had the lowest proportion of individual contributions to total receipts. List the lowest 10 in ascending order. Return a dataframe with candidate name, party code, individual contributions, total_receipts, and ratio of individual contributions to total receipts. Use the cand_summary, and candidate tables. (10 pts)**
 
 7. **What is the ratio of individual contributions to total receipts in 2016 senate races by party? List the top 10 parties in descending order by their rate of individual contributions to total receipts. Return a data frame with the party code, individual contributions, total receipts, and ratio. Use the cand_summary and candidate tables. (15 pts)**
 
@@ -1038,7 +1112,7 @@ The lab is due at 11:59pm Wednesday September 18, 2019.
 
 The submission comes in two parts. 
 
-First create a **private** repository on GitHub for you and your partner to upload your code. Create a file ``students.txt`` in the ``lab_1`` directory that lists the MIT id of you and your partner, one per line. commit and push your queries.py and all the sql queries in the ``queries`` subdirectory. Add the TAs for the course as collaborators on Github (Usernames: MattPerron, and jmftrindade).
+First create a **private** repository on GitHub (either Public github.com or MIT github at github.mit.edu) for you and your partner to upload your code. Create a file ``students.txt`` in the ``lab_1`` directory that lists the MIT id of you and your partner, one per line. commit and push your queries.py and all the sql queries in the ``queries`` subdirectory. Add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon).
 Note that we will only look at commits made before the deadline.
 
 In addition, submit the answers to each question (in some tabluar form. Monospaced fonts copied from the command line are fine.) as a PDF. Each answer should start a new page. Please include at the top of each problem both students' names, MIT ids, a link to the repository of your code, and the commit hash you are submitting (By running ``git log | head -n 1`` outside the container).
