@@ -1112,7 +1112,7 @@ The lab is due at 11:59pm Wednesday September 18, 2019.
 
 The submission comes in two parts. 
 
-First create a **private** repository on GitHub (either Public github.com or MIT github at github.mit.edu) for you and your partner to upload your code. Create a file ``students.txt`` in the ``lab_1`` directory that lists the MIT id of you and your partner, one per line. commit and push your queries.py and all the sql queries in the ``queries`` subdirectory. Add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon).
+First create a **private** repository on GitHub (either Public github.com or MIT github at github.mit.edu) for you and your partner to upload your code. Create a file ``students.txt`` in the ``lab_1`` directory that lists the MIT Kerberos id (i.e. the username that comes before your @mit.edu email adddress). of you and your partner, one per line. commit and push your queries.py and all the sql queries in the ``queries`` subdirectory. Add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon).
 Note that we will only look at commits made before the deadline.
 
 In addition, submit the answers to each question (in some tabluar form. Monospaced fonts copied from the command line are fine.) as a PDF. Each answer should start a new page. Please include at the top of each problem both students' names, MIT ids, a link to the repository of your code, and the commit hash you are submitting (By running ``git log | head -n 1`` outside the container).
