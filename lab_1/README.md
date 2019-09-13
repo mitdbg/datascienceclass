@@ -877,8 +877,6 @@ Below are a couple ways of dealing with this show a couple of ways of doing this
         WHERE
                 cand_office_st = state
                 and cand_office_district = district_id
-        GROUP BY
-                state, district_id
         ORDER BY
                 per_capita_cand
         LIMIT 10;
