@@ -1065,7 +1065,7 @@ With the exception of the individual contributions table that we will create bel
 
 4. **What were the names of candidates, their campaign committe names, and addresses of all 2016 presidential candidates, where the candidate's name contains the substring "HUCK"? Return a dataframe with the candidate name, campaign comittee name, and street address. Use the candidate and committees tables. (5 pts)**
 
-5. **What are the names of the top 20 senate campaign committees that raised the most money per capita for a Senate race in 2016? Return a dataframe with the committee name, state, and total_receipts, and ratio of receipts per person in the district, ordered by the per capita money raised. Use the candidate, cand_summary, committee, and dist_pop tables. (10 pts)**
+5. **What are the names of the top 20 senate campaign committees that raised the most money per capita for a Senate race in 2016? Return a dataframe with the committee name, state, and total_receipts, and ratio of receipts per person in thir state, ordered by the per capita money raised. Use the candidate, cand_summary, committee, and dist_pop tables. (10 pts)**
 
 6. **List the names of House campaign committees for 2016 and their associated party which raised at least $100,000 and had the lowest proportion of individual contributions to total receipts. List the lowest 10 in ascending order. Return a dataframe with candidate name, party code, individual contributions, total_receipts, and ratio of individual contributions to total receipts. Use the cand_summary, and candidate tables. (10 pts)**
 
