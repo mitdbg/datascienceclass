@@ -945,8 +945,6 @@ Now we'll aggregate over districts to produce the same result as above.
         AND CAND_OFFICE = 'H'
         AND CAND_STATUS IN ('C', 'N')
         AND CAND_ELECTION_YR = 2016
-        GROUP BY
-                state, district_id
         ORDER BY
                 per_capita_cand
         LIMIT 10;
