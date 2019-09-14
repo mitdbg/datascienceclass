@@ -1063,7 +1063,7 @@ With the exception of the individual contributions table that we will create bel
 
 5. **What are the names of the top 20 senate campaign committees that raised the most money per capita for a Senate race in 2016? Return a dataframe with the committee name, state, and total_receipts, and ratio of receipts per person in thir state, ordered by the per capita money raised. Use the candidate, cand_summary, committee, and dist_pop tables. (10 pts)**
 
-6. **List the names of House campaign committees for 2016 and their associated party which raised at least $100,000 and had the lowest proportion of individual contributions to total receipts. List the lowest 10 in ascending order. Return a dataframe with candidate name, party code, individual contributions, total_receipts, and ratio of individual contributions to total receipts. Use the cand_summary, and candidate tables. (10 pts)**
+6. **List the names of House candidates for 2016 and their associated party which raised at least $100,000 and had the lowest proportion of individual contributions to total receipts. List the lowest 10 in ascending order. Return a dataframe with candidate name, party code, individual contributions, total_receipts, and ratio of individual contributions to total receipts. Use the cand_summary, and candidate tables. (10 pts)**
 
 7. **What is the ratio of individual contributions to total receipts in 2016 senate races by party? List the top 10 parties in descending order by their rate of individual contributions to total receipts. Return a data frame with the party code, individual contributions, total receipts, and ratio. Use the cand_summary and candidate tables. (15 pts)**
 
