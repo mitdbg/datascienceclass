@@ -1082,7 +1082,7 @@ These queries may take significantly longer than previous queries.
 
 9. **Which states had the most contributions from individuals (with proper entity type) per capita to Super PACs (see transaction type)? List the top 5 with their contributions per person. Return a dataframe with the name of the state, and a sum of individual contributions. use the indiv_contrib and dist_pop tables.(10 pts)**
 
-10. **Which candidates for senate in 2016 had the most contributions from individuals (listed in the individual contributions table) with an address outside the state of the race? List the candidate, the state, and the total amount for the top 5 races. Use the indiv_contrib, candidate, and cand_summary tables.(15 pts)**
+10. **Which candidates for senate in 2016 had the most contributions from individuals (listed in the individual contributions table) with an address outside the state of the race? List the candidate, the state, and the total amount for the top 5 races. Use the indiv_contrib and candidate tables.(15 pts)**
 
 11. **Finally, come up with a question over the data provided and write a SQL query to answer it. Your query must use data from at least two tables and have a group by and aggregate. Finally output a plot of your results. Include your question, and plot in the submitted PDF. (10 pts)**
 
