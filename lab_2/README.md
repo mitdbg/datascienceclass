@@ -36,10 +36,18 @@ In this lab, you will use various types of tools -- from command line tools like
 To start, check out/update the files for `lab_2`:
 
 ```bash
+# Path to the directory containing your local clone
+# of https://github.com/mitdbg/datascienceclass (this repo).
 $ cd /path/to/datascienceclass
+
+# Pull (fetch + merge) the latest changes from this repo.
 $ git pull
+
+# Change to lab 2's working directory.
 $ cd lab_2/
 ```
+
+**NOTE:** The commands above only pull the latest changes from this repo onto the local clone you have of it.  If you're using a "private fork" setup, and are trying to sync it with with the latest changes from this repo, then please refer to [this post](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private](this post) on specifics of how to do that.
 
 Startup your docker instance, and enter `lab 2`'s working directory.  We'll use the same base image as in lab1 to create a new container for this lab:
 ```bash
