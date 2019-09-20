@@ -120,7 +120,7 @@ The `synsets.txt` file is too large to load into the Wrangler GUI, so you need t
 
 **Q1:** Export the Python version of the wrangler script and save it to a file called `wrangler-synsets.py` in the same github repo you created for [`lab1`](../lab1) (5 pts).
 
-**Q2:** Use the script to clean the data (with *e.g.,* `python wrangler-synsets.py data/synsets.txt synsets-clean.txt`), then determine how many unique words there are in the dataset (5 pts).
+**Q2:** Use the script to clean the data (with *e.g.,* `python wrangler-synsets.py data/synsets.txt synsets-clean.txt`), then determine how many unique *words* (this is the first column in `synsets-clean.txt`) there are in the dataset. As mentioned in [Handing in your work](#handing-in-your-work), please paste in your answer for this question the script you wrote to count the number of words. (5 pts).
 
 ### worldcup-semiclean.txt
 
