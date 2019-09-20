@@ -382,7 +382,7 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 *This lab is due at 11:59pm Wednesday September 25th, 2019.*
 
 Almost exactly the same submission format as in [lab_1](../lab_1). That is, you will submit your PDF with answers to [Gradescope](https://www.gradescope.com/courses/61617/assignments) and your code to the **same private github repo**. The only changes for this lab are:
-*  save your `students.txt` and Wrangler scripts as separate files under a `lab_2` directory; paste your other scripts (*e.g.,* those using Unix tools, pandas, or SQL queries) inline with your PDF answers.
+*  save your `students.txt` and Wrangler scripts as separate files under a `lab_2` directory; paste your other scripts (*e.g.,* those using Unix tools, pandas, or SQL queries) inline with your PDF answers.  For this lab, with the exception of exported Wrangler scripts (which are rather long), all other scripts should be submitted as part of your answers in Gradescope.  We expect most of your script answers to be relatively short.  If your "non-Wrangler" scripts end up being too long (e.g., more than 200 lines), then note that in your Gradescope answer, adding a link to the corresponding file in your repo.
 
 As a reminder, answers to each question should:
 * be in tabular form
