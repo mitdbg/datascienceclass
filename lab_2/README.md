@@ -371,7 +371,7 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 **Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. (5 pts)
 
-**Q9:** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR over the years of 2017, 2018, and 2019? (10 pts)
+**Q9:** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), and show your answer sorted by year in descending order. (10 pts)
 
 **Q10:** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Show your answer sorted first by number of times played in descending order, and second by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. (15 pts)
 
