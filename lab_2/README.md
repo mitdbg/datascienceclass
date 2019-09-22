@@ -148,7 +148,7 @@ It may help to:
 
 #### Questions
 
-**Q3:** According to the dataset, how often has each country won the world cup? (10 pts)
+**Q3:** According to the dataset, how often has each country won the world cup? Describe the set of transforms you applied to clean the dataset, and include any code you wrote to count the number of times each country won. (10 pts)
 
 
 # Part 2: Unix Tools
