@@ -314,7 +314,7 @@ No need to re-answer the questions in the Wrangler section, but recompute them t
 
 #### Questions
 
-**Q4:** Submit the scripts you wrote to perform the cleaning tasks. (10 pts)
+**Q4:** Submit the scripts you wrote to perform the cleaning tasks as part of your answer for this question in Gradescope. In particular, prefix each script section with a line or two describing what they do. (10 pts)
 
 **Q5:** From your experience, briefly discuss the pro and cons between using Data Wrangler as compared to lower levels tools like sed/awk? (5 pts)
 
@@ -367,7 +367,7 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 **Q6:** Submit your cleaning scripts and queries. If using wrangler to clean `wmbr.txt`, include it as `wrangler-wmbr.py` in your github repo. For any other code (*e.g.,* SQL queries, pandas, or Unix scripts), submit as part of PDF answers in Gradescope. (15 pts)
 
-**Q7:** Which artists have either played or recorded live at WMBR? (5 pts)
+**Q7:** Which artists have either played or recorded live at WMBR? Show your answer sorted by artist name, in ascending order. (5 pts)
 
 **Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. Note: (5 pts)
 
