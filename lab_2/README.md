@@ -369,7 +369,7 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 **Q7:** Which artists have either played or recorded live at WMBR? Show your answer sorted by artist name, in ascending order. (5 pts)
 
-**Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. Note: (5 pts)
+**Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. (5 pts)
 
 **Q9:** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR over the years of 2017, 2018, and 2019? (10 pts)
 
