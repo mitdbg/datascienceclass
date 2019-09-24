@@ -61,7 +61,7 @@ $ docker run -v "`pwd`":/lab2 -ti \
 # Install onto the image the additional requirements for
 # this lab. Wrangler scripts don't support python3, so we
 # need to install python v2:
-$ apt install -y python python-pip
+$ apt update && apt install -y python python-pip
 ```
 
 If you accidentally exit your container (*e.g.,* by using **ctrl+d**), you can come back to it by running:
