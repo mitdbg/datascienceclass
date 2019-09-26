@@ -11,7 +11,7 @@ retailers and contain information on the products they sell.
 
 Rather than have you compete against yourself, we've turned this lab
 into a competition: students will submit their best matching
-algorihtms and try to beat one-another on a leaderboard to identify
+algorithms and try to beat one-another on a leaderboard to identify
 the best algorithm.  You may enter this competition yourself or as a
 team of up to two students.  We will give a nice prize to the winning
 team or teams.
@@ -37,7 +37,7 @@ $ git pull
 $ cd lab_3/
 ```
 
-**NOTE:** The commands above only pull the latest changes from this repo onto the local clone you have of it.  If you're using a "private fork" setup, and are trying to sync it with with the latest changes from this repo, then please refer to [this post](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private](this post) on specifics of how to do that.
+**NOTE:** The commands above only pull the latest changes from this repo onto the local clone you have of it.  If you're using a "private fork" setup, and are trying to sync it with with the latest changes from this repo, then please refer to [this post](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private) on specifics of how to do that.
 
 Startup your docker instance, and enter `lab 3`'s working directory.  We'll use the same base image as in lab1 to create a new container for this lab:
 ```bash
@@ -55,17 +55,19 @@ If you accidentally exit your container (*e.g.,* by using **ctrl+d**), you can c
 $ docker start -i lab3-container
 ```
 
-**IMPORTANT:** Inside the container run the following script. This unzips the data and fetches some neccesary dependencies
+**IMPORTANT:** Inside the container run the following script. This unzips the data and fetches some necessary dependencies
 ```bash
 $ bash RUN_ME_FIRST.sh
 ```
 
-The ``data`` directory should now contain the data you are to match on in three subdirectories, ``train``, ``test``, and ``val``.
+The ``data`` directory should now contain the data you are to match on in two subdirectories, ``train`` and ``test``.
 
-Each of these directories contains the following files.
+Both directories contains the following files.
  * retailer1.csv (a csv of products from retailer 1)
  * retailer2.csv (a csv of products from retailer 2)
- * matches.csv (containing a mapping of retailer1.custom_id to retailer2.custom_id, present only in train)
+ 
+The train directory also contains the following
+ * matches.csv (a mapping of retailer1.custom_id to retailer2.custom_id)
  
 The CSV files per retailer contain columns describing product details. Schema matching
 is already done for you, with matching columns from retailer1 and retailer2 sharing the same
@@ -84,7 +86,7 @@ That is, a csv with columns named id1 and id2, containing the matching ``custom_
 retailer2.
 
 Please write your script in the ``matching.py`` file provided. ``matching.py`` takes command line parameters
-to run on the training set, test set, and validation set. And outputs `[set]_output.csv` for each of these.
+to either train ``python3 matching.py --train data/train/``, or run on the test set ``python3 matching.py data/test/``. The scrip t should output ``train_output.csv`` and ``test_output.csv`` respectively (note that the output filename is set for you in the variable ``output_filename``
 
 You can use ``python3 score.py data/train/matches.csv train_output.csv`` To see the precision, recall, and F1 score on
 the training set.
@@ -103,13 +105,15 @@ the training set.
  Some more implementation hints:
  * Start with a very small subset of columns on each dataset and build from there.
  * You may find it helpful to fill in missing values for some columns.
- * First see how far direct field equality takes you before moving on to more complex tasks like similarity matching. You can do this without n^2 comparisons if you are clever with data structures. Move on to similarity matches like jaccard similairty, and weighted jaccard similarity only afterwards.
+ * First see how far direct field equality takes you before moving on to more complex tasks like similarity matching. You can do this without n^2 comparisons if you are clever with data structures. Move on to similarity matches like Jaccard similarity, and weighted Jaccard Similarity only afterwards.
  * Test out your similarity metric on a few rows before moving on to the whole dataset.
  * While you must implement some sort of blocking, you do not need to jump directly to using complex techniques like LSH with minhash. Try to find simple ways of blocking up the data using a single field. The goal is to decrease the number of similarity searches you have to use without excluding too many matches.
- * When doing similarity scoring, it is easiset to start with a single column. Check how far this gets you in terms of accuracty. Only after this is working should you consider using weighted averages from several columns.
+ * When doing similarity scoring, it is easiest to start with a single column. Check how far this gets you in terms of accuracy. Only after this is working should you consider using weighted averages from several columns.
  * If you want to use machine learning for some parts of this lab, you are welcome to. It is not required to get full credit on this assignment (But it may help move you up the leaderboard).
  * If your implementation is going slow, you may want to try your algorithms on a sample of the data. If you choose this, make sure you sample the data such that there are enough matches in your sample to be interesting.
- * Looking at the Lecture 5 [slides](http://dsg.csail.mit.edu/6.S080/lectures/lec5.pptx) and [code](http://dsg.csail.mit.edu/6.S080/lectures/lec5-code.py) may be very helpful..
+ 
+ **Restrictions**
+ You should use only the packages provided for you, namely, the default python libraries, pandas, sklearn (if you want to use machine learning), datasketch(for an LSH Minhash implementation). Note that you need not do machine learning or use LSH to achieve .7 on the test dataset.
 
 # Submission Instructions
 
@@ -133,15 +137,15 @@ This is a json file containing the following.
 
 The submission url will be posted on Piazza shortly. The group secret will be emailed to each student registered for the course. Please choose a team name and replace ``<your_team_name>`` with it. There is a limit on team names of 20 characters.
 
-After editing the submission details file, you can submit your matches to the test set to the leaderboard by running ``python3 submit.py test_output.csv`` in the lab3 directory in the container. 
+After editing ``submission_details.json``, you can submit your matches to the test set to the leaderboard by running ``python3 submit.py test_output.csv`` in the lab3 directory in the container. 
 
 ## Submission to Gradescope + Code Submission
 
-In addition to competing in the challenge, please upload a writeup to gradescope as the lab 3 assignment. As in previous labs please include the names of team members, mit email addresses, and the commit id of the code on git.
+In addition to competing in the challenge, please upload a writeup to gradescope as the lab 3 assignment. As in previous labs please include the names of team members, MIT email addresses, and the commit id of the code on git.
 
-For your github submission, please include all files needed to generate your ``test_output.csv`` and ``train_output.csv``. Ideally, this should be runnable just by running ``python3 matching.py --all``. 
+For your github submission, please include all files needed to generate your ``test_output.csv`` and ``train_output.csv``. We will run your code on new data so your code must run by executing ``python3 matching.py data/test``. If you require any external files (e.g. you are saving parameters of a model in some external file) you must include this in your github repository. **We will be running your code for this lab so this step is very important** In addition your code must run inside the container with the provided libraries. We will do this to validate that your submissions to the leaderboard are not hand tuned.
 
-Create a file students.txt in the lab_1 directory that lists the MIT Kerberos id (i.e. the username that comes before your @mit.edu email adddress). of you and your partner, one per line. commit and push your queries.py and all the sql queries in the queries subdirectory. Add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon). Note that we will only look at commits made before the deadline.
+Create a file students.txt in the lab_1 directory that lists the MIT Kerberos id (i.e. the username that comes before your @mit.edu email address). of you and your partner, one per line. commit and push your queries.py and all the sql queries in the queries subdirectory. Add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon). Note that we will only look at commits made before the deadline.
 
 You are free to use either a new **private** repository or use one from previous lab submission. Please include the commit hash in your submission however.
 
