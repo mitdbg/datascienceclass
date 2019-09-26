@@ -16,7 +16,7 @@ the best algorithm.  You may enter this competition yourself or as a
 team of up to two students.  We will give a nice prize to the winning
 team or teams.
 
-Unlike previous labs, this lab is significantly more open ended than
+This lab is significantly more open ended than
 previous labs. 
 
 You can work in pairs for this lab.
