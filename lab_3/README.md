@@ -74,7 +74,7 @@ is already done for you, with matching columns from retailer1 and retailer2 shar
 name. There are, however additional columns in each dataset. 
 
 Your job is to write a script that will load both datasets and
-identify matching venues in each dataset.  Measure the [precision,
+identify matching products in each dataset.  Measure the [precision,
 recall, and F1-score](https://en.wikipedia.org/wiki/F-score) of your
 algorithm against the ground truth in `data/train/matches.csv`.  Once
 you're satisfied with an algorithm that has high values for these
@@ -99,7 +99,7 @@ the training set.
  * There are many different features that can suggest similarity. Field equality is a good one: if the product's brand and model number are equal, the products might be equal.  But this is a relatively high-precision, low-recall feature (`Bob's Pizza` and `Bob's Pizzeria` aren't equal), and so you'll have to add other ones.  For example, [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between two strings offers finer granularity of how similar two strings are.  You could imagine many tens of features, ranging from field equality to more esoteric but useful ones (e.g., "Does the first numeric value in the address field match?").
  * Since there are many features, you may need some way to combine them.  A simple weighted average of values, where more important values (similar names) are weighed more highly will get you quite far.  In practice, you'd want to build a classifier that takes these features and learns the weights based on the training data.  If you're using Python and want to build a classifier, check out [scikit-learn](http://scikit-learn.org/).  We've seen good results with the decision tree ensemble/random forest techniques.  Note that this step will take time, so only do it if you've hand-rolled your own reasonable matcher already.
  * It's possible to be near 1 for precision/recall/F1 with enough training data and good enough machine learning models, but this could take many engineers several months to get right.
- * These datasets aren't too large, but in practice require matching several million venues across datasets.  Performing an `O(N^2)` comparison on all venues would take too long in those cases so some heuristics are needed to narrow down the likely candidates.
+ * These datasets aren't too large, but in practice require matching several million products across datasets.  Performing an `O(N^2)` comparison on all products would take too long in those cases so some heuristics are needed to narrow down the likely candidates.
  
  
  Some more implementation hints:
