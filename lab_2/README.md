@@ -47,7 +47,7 @@ $ git pull
 $ cd lab_2/
 ```
 
-**NOTE:** The commands above only pull the latest changes from this repo onto the local clone you have of it.  If you're using a "private fork" setup, and are trying to sync it with with the latest changes from this repo, then please refer to [this post](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private](this post) on specifics of how to do that.
+**NOTE:** The commands above only pull the latest changes from this repo onto the local clone you have of it.  If you're using a "private fork" setup, and are trying to sync it with with the latest changes from this repo, then please refer to [this post](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private) on specifics of how to do that.
 
 Startup your docker instance, and enter `lab 2`'s working directory.  We'll use the same base image as in lab1 to create a new container for this lab:
 ```bash
@@ -61,7 +61,7 @@ $ docker run -v "`pwd`":/lab2 -ti \
 # Install onto the image the additional requirements for
 # this lab. Wrangler scripts don't support python3, so we
 # need to install python v2:
-$ apt install -y python python-pip
+$ apt update && apt install -y python python-pip
 ```
 
 If you accidentally exit your container (*e.g.,* by using **ctrl+d**), you can come back to it by running:
@@ -148,7 +148,7 @@ It may help to:
 
 #### Questions
 
-**Q3:** According to the dataset, how often has each country won the world cup? (10 pts)
+**Q3:** According to the dataset, how often has each country won the world cup? Describe the set of transforms you applied to clean the dataset, and include any code you wrote to count the number of times each country won. (10 pts)
 
 
 # Part 2: Unix Tools
@@ -314,7 +314,7 @@ No need to re-answer the questions in the Wrangler section, but recompute them t
 
 #### Questions
 
-**Q4:** Submit the scripts you wrote to perform the cleaning tasks. (10 pts)
+**Q4:** Submit the scripts you wrote to perform the cleaning tasks as part of your answer for this question in Gradescope. In particular, prefix each script section with a line or two describing what they do. (10 pts)
 
 **Q5:** From your experience, briefly discuss the pro and cons between using Data Wrangler as compared to lower levels tools like sed/awk? (5 pts)
 
@@ -367,11 +367,11 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 **Q6:** Submit your cleaning scripts and queries. If using wrangler to clean `wmbr.txt`, include it as `wrangler-wmbr.py` in your github repo. For any other code (*e.g.,* SQL queries, pandas, or Unix scripts), submit as part of PDF answers in Gradescope. (15 pts)
 
-**Q7:** Which artists have either played or recorded live at WMBR? (5 pts)
+**Q7:** Which artists have either played or recorded live at WMBR? Show your answer sorted by artist name, in ascending order. (5 pts)
 
-**Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. Note: (5 pts)
+**Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. (5 pts)
 
-**Q9:** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR over the years of 2017, 2018, and 2019? (10 pts)
+**Q9:** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), and show your answer sorted by year in descending order. (10 pts)
 
 **Q10:** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Show your answer sorted first by number of times played in descending order, and second by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. (15 pts)
 
