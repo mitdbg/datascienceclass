@@ -46,10 +46,10 @@ $ docker run -v "`pwd`":/lab5 -ti \
 
 # Install onto the image the additional requirements for
 # this lab, and unzip the larger dataset.
-$ ./install.sh
+$ sh install.sh
 
 # Start out the jupyter server.
-$ ./run.sh
+$ sh run.sh
 ```
 
 If you accidentally exit your container (*e.g.,* by using **ctrl+d**), you can come back to it by running:
