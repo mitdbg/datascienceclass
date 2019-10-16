@@ -11,7 +11,7 @@ Table of Contents
 *Assigned: Wednesday, October 2nd.*
 *Due: N/A (no deliverables for this one)*
 
-In this lab, you will use some of the ML algorithms and techniques we've seen so far in class for 3 different tasks over a music tasks: similarity, genre prediction, popularity prediction. We will walk you through these tasks using the included [ML_reverse_lecture.ipynb](ML_reverse_lecture.ipynb) jupyter notebook.
+In this lab, you will use some of the ML algorithms and techniques we've seen so far in class for 3 different tasks over a music dataset: similarity, genre prediction, popularity prediction. We will walk you through these tasks using the included [ML_reverse_lecture.ipynb](ML_reverse_lecture.ipynb) jupyter notebook.
 
 There are no deliverables for this lab. We'll ask you some questions during class for you to answer on clicker. We also highlight tasks for you to try out on your own; some of these during class. We strongly encourage you to complete them after class if necessary.
 
