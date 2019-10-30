@@ -1,2 +1,7 @@
+dask-worker-space
 *.pyc
 .ipynb_checkpoints/
+
+# lab6 generated files
+lab_6/data/csv/
+lab_6/data/parquet/
