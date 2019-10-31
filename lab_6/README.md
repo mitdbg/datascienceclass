@@ -102,19 +102,17 @@ Once you open your notebook on the browser, and check that the cells are renderi
 
 ## Take Home
 
-For the out of class portion of this lab, your objective is to answer two programming assignments using two of the Python parallel data processing libraries we've seen in class: `multiprocessing` and `dask`.
+For the out of class portion of this lab, your objective is to answer programming assignments using two of the Python parallel data processing libraries we've seen in class: `multiprocessing` and `dask`.
 
 ### Submission Instructions
 
 Like previous labs, submission will come in two parts.
 
-1. Submit your writeup to Gradescope. Your writeup should include all student's names, mit email addresses, and the commit id of your code at the top of the page.
-
-2. Submit a PDF with your answers for the questions below:
+1. Submit your writeup to Gradescope. Your writeup should include all student's names, mit email addresses, and the commit id of your code at the top of the page. The PDF should include your answers for the questions below:
 
 #### Part 1
 
-**Q1:** In this question, you will use `multiprocessing` to implement a web data scraper. You will submit your code inline in the gradescope PDF submission, as well as under a `scraper.py` file in your github repo **(40 pts). NOTE: Base template code and more details will be provided by Wed Oct 30th EOD.**
+**Q1:** In this question, you will use `multiprocessing` to implement a parallel web data scraper, whose base code is available in the [`scraper/`](scraper/) directory.  Specifically, we provide you most of the actual scraping code, and you only need to fill out the multiprocessing parts. Code for this question should be submitted in your github repo in the same [`scraper/scraper.py`] file we provide here. In your PDF writeup, please report the runtimes for running your scraper using different number of workers (e.g., 1, 2, and 4) **(40 pts).**
 
 #### Part 2
 
@@ -125,6 +123,18 @@ Here you will use the `Dask` `Bag` and `DataFrame` APIs you've seen during the i
 **Q3** Using the same mybinder.org JSON data from in-class portion: who were the top 2 providers of notebooks in August 2019, and how many total runs did each of the 2 have? **(30 pts)**
 
 **NOTE: For all questions in part 2 above, please submit your plots and code snippets inline in your PDF. Please also submit the code for your answers in your github repo, either as a single Python script called `part2.py`, or as a jupyter notebook called `part2.ipynb`.**
+
+#### Part 3: extra credit
+
+For all questions below, please include instructions on how to run your code as part of the PDF submission.
+
+**Q4** The included [`queue_test.py`] script implements a parallel aggregate operation over a single column of input JSON data (unzip [`data/json.zip`] before running it). Use this code as example to implement a parallel filter (choose any column and filter value, let us know which ones you chose in your writeup). **(10 pts)**
+
+**Q5** Similar to Q4, only this time implement a [`hash join`](https://en.wikipedia.org/wiki/Hash_join#Classic_hash_join). **(20 pts)**
+
+**Q6** Pick one or more JSON datasets from https://github.com/jdorfman/awesome-json-datasets and write a script using either `dask`'s `Bag` or `multiprocessing` to answer a non-trivial question (i.e., more than just a single-column filter) about the data you picked. **(20 pts)**
+
+**Q7** The [recipe scrapers GitHub project](https://github.com/hhursev/recipe-scrapers) provides an impressive collection of scrapers for food recipe websites. However, their example usage shows only one URL scraped at a time. Write a script that uses their library (`pip install recipe-scrapers` and `scrape_me` class) and the parallel data analytics libraries we've seen so far to scrape multiple recipes in parallel. **(20 pts)**
 
 Optionally, include feedback in your write as below. (This does not count toward your writeup above)
 
@@ -142,4 +152,4 @@ Some questions that would be helpful:
 * How is the pace of the course so far?
 
 
-2. Submit your code to a **Private** github repository, add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon). Note that we will only look at commits made before the deadline.
+2. Submit your code (including instructions on how to run it, if necessary) to a **Private** github repository, add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon). Note that we will only look at commits made before the deadline.
