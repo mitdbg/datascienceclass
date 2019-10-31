@@ -37,7 +37,7 @@ def main_task(cnt):
 
     # Enqueue filenames to be processed in parallel.
     for i in range(100):
-        f = "data/mybinder03d.json" % (i)
+        f = "data/mybinder%03d.json" % (i)
         q.put(f)
 
     procs = []
