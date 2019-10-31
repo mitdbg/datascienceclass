@@ -112,15 +112,15 @@ Like previous labs, submission will come in two parts.
 
 #### Part 1
 
-**Q1:** In this question, you will use `multiprocessing` to implement a parallel web data scraper, whose base code is available in the [`scraper/`](scraper/) directory.  Specifically, we provide you most of the actual scraping code, and you only need to fill out the multiprocessing parts. Code for this question should be submitted in your github repo in the same [`scraper/scraper.py`](scraper/scraper.py) file we provide here. In your PDF writeup, please report the runtimes for running your scraper using different number of workers (e.g., 1, 2, and 4) **(40 pts).**
+**Q1:** In this question, you will use `multiprocessing` to implement a parallel web data scraper, whose base code is available in the [`scraper/`](scraper/) directory.  Specifically, we provide you most of the actual scraping code, and you only need to fill out the multiprocessing parts. Code for this question should be submitted in your github repo in the same [`scraper/scraper.py`](scraper/scraper.py) file we provide here. In your PDF writeup, please report the runtimes for running your scraper using different number of workers (e.g., 1, 2, and 4) **(30 pts).**
 
 #### Part 2
 
 Here you will use the `Dask` `Bag` and `DataFrame` APIs you've seen during the in-class portion of the lab to answer some questions below.  In each question, you will scale your cluster from 1 up to 8 cores (or however many cores or machine has) in multiples of 2, **as we did for Q4 during the in-class portion of this lab**. You will measure and plot the total runtime for each of the cluster configurations (bar plot with `x` axis as #cores, `y` axis as runtime in milliseconds) for the following tasks:
 
-**Q2** Using the same timeseries dask dataframe from in-class portion, compute a rolling 5m average `y` value for data only from January 2018. How does the min and the max runtimes you observed using dask compare to what you observed when using pandas? **(30 pts)**
+**Q2** Using the same timeseries dask dataframe from in-class portion, compute a rolling 5m average `y` value for data only from January 2018. How does the min and the max runtimes you observed using dask compare to what you observed when using pandas? **(35 pts)**
 
-**Q3** Using the same mybinder.org JSON data from in-class portion: who were the top 2 providers of notebooks in August 2019, and how many total runs did each of the 2 have? **(30 pts)**
+**Q3** Using the same mybinder.org JSON data from in-class portion: who were the top 2 providers of notebooks in August 2019, and how many total runs did each of the 2 have? **(35 pts)**
 
 **NOTE: For all questions in part 2 above, please submit your plots and code snippets inline in your PDF. Please also submit the code for your answers in your github repo, either as a single Python script called `part2.py`, or as a jupyter notebook called `part2.ipynb`.**
 
