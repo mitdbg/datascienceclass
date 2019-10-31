@@ -112,7 +112,7 @@ Like previous labs, submission will come in two parts.
 
 #### Part 1
 
-**Q1:** In this question, you will use `multiprocessing` to implement a parallel web data scraper, whose base code is available in the [`scraper/`](scraper/) directory.  Specifically, we provide you most of the actual scraping code, and you only need to fill out the multiprocessing parts. Code for this question should be submitted in your github repo in the same [`scraper/scraper.py`] file we provide here. In your PDF writeup, please report the runtimes for running your scraper using different number of workers (e.g., 1, 2, and 4) **(40 pts).**
+**Q1:** In this question, you will use `multiprocessing` to implement a parallel web data scraper, whose base code is available in the [`scraper/`](scraper/) directory.  Specifically, we provide you most of the actual scraping code, and you only need to fill out the multiprocessing parts. Code for this question should be submitted in your github repo in the same [`scraper/scraper.py`](scraper/scraper.py) file we provide here. In your PDF writeup, please report the runtimes for running your scraper using different number of workers (e.g., 1, 2, and 4) **(40 pts).**
 
 #### Part 2
 
@@ -128,7 +128,7 @@ Here you will use the `Dask` `Bag` and `DataFrame` APIs you've seen during the i
 
 For all questions below, please include instructions on how to run your code as part of the PDF submission.
 
-**Q4** The included [`queue_test.py`] script implements a parallel aggregate operation over a single column of input JSON data (unzip [`data/json.zip`] before running it). Use this code as example to implement a parallel filter (choose any column and filter value, let us know which ones you chose in your writeup). **(10 pts)**
+**Q4** The included [`queue_test.py`](queue_test.py) script implements a parallel aggregate operation over a single column of input JSON data (unzip [`data/json.zip`](data/json.zip) before running it). Use this code as example to implement a parallel filter (choose any column and filter value, let us know which ones you chose in your writeup). **(10 pts)**
 
 **Q5** Similar to Q4, only this time implement a [`hash join`](https://en.wikipedia.org/wiki/Hash_join#Classic_hash_join). **(20 pts)**
 
