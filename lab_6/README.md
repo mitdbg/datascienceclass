@@ -108,7 +108,9 @@ For the out of class portion of this lab, your objective is to answer programmin
 
 Like previous labs, submission will come in two parts.
 
-1. Submit your writeup to Gradescope. Your writeup should include all student's names, mit email addresses, and the commit id of your code at the top of the page. The PDF should include your answers for the questions below:
+1. Submit your writeup to Gradescope. Your writeup should include all student's names, mit email addresses, and the commit id of your code at the top of the page. The PDF should include your answers for the questions in the next section below.
+
+2. Submit your code (including instructions on how to run it, if necessary) to a **Private** github repository, add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon). Note that we will only look at commits made before the deadline.
 
 #### Part 1
 
@@ -124,7 +126,7 @@ Here you will use the `Dask` `Bag` and `DataFrame` APIs you've seen during the i
 
 **NOTE: For all questions in part 2 above, please submit your plots and code snippets inline in your PDF. Please also submit the code for your answers in your github repo, either as a single Python script called `part2.py`, or as a jupyter notebook called `part2.ipynb`.**
 
-#### Part 3: extra credit
+#### Part 3: extra credit (optional)
 
 For all questions below, please include instructions on how to run your code as part of the PDF submission.
 
@@ -150,6 +152,3 @@ Some questions that would be helpful:
 * Did you look forward to any exercise that the lab did not cover?
 * Which parts of the lab were interesting or valuable towards understanding the material?
 * How is the pace of the course so far?
-
-
-2. Submit your code (including instructions on how to run it, if necessary) to a **Private** github repository, add the TAs for the course as collaborators on github.com (Usernames: MattPerron and jmftrindade) or github.mit.edu (Usernames: mperron and jfon). Note that we will only look at commits made before the deadline.
