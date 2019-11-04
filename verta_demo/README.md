@@ -1,6 +1,6 @@
 # Verta.ai / ModelDB demo
 
-In this lab, you [Manasi Vartak](https://www.linkedin.com/in/manasi-vartak/), CEO of [Verta.ai](http://verta.ai) will run a demo of end-to-end model data management features.
+In this lab, [Manasi Vartak](https://www.linkedin.com/in/manasi-vartak/), CEO of [Verta.ai](http://verta.ai) will run a demo of end-to-end model data management features from her company's product.
 
 ## Setup
 
