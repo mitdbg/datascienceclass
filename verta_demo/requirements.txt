@@ -1,0 +1,12 @@
+boto3
+jupyter
+matplotlib
+notebook
+numpy
+pandas
+pyarrow
+seaborn
+sklearn
+six==1.12.0
+verta
+wget
