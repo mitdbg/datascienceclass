@@ -5,20 +5,16 @@ to scrape content from a list of URLs. Specifically, the script takes as
 input URLS from the http://regexlib.com website, and scrapes tuples of
 "category" and "regex", storing the results on a CSV file.
 
+**UPDATE (Nov 7th 2019): We now use Python3 instead of Python2 below.**
+
 # Requirements
 * Python 3.X
 * Python pip3
 
 To install all requirements, run the following from your Docker container:
-
 ```
 # Pip packages
 $ pip3 install -r requirements.txt
-
-# NEW as of Nov 7th: unzip pre-downloaded html files
-$ cd downloaded_html/
-$ unzip html_files.zip
-$ cd -  # to get back to previous directory
 ```
 
 # Usage
