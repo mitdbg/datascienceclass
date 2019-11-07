@@ -1,0 +1,1249 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	
+        Regular Expression Library
+    
+</title><meta content="Regular Expression Library provides a searchable database of regular expressions.  Users can add, edit, rate, and test regular expressions." name="description" /><meta content="perl regular expression awk sed grep library regex regx regexlib asp.net asp net dotnet  tutorial example test build find search" name="keywords" />
+    <script type="text/javascript">
+        <!--
+        // Preload the image used in overlibmws popups
+        myExit = new Image();
+        myExit.src = "/Scripts/overlibmws/exit.gif"
+
+        // Always include the width and height for any images)
+        var closeimg =
+          '<img src="/Scripts/overlibmws/exit.gif" alt="Click to Close" '
+         + 'width="12" height="11" border="0">';
+	   
+         // -->
+    </script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_draggable.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_filter.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_overtwo.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_shadow.js"></script>
+<link href="App_Themes/Green/default.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Green/Form.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Green/Tester.css" type="text/css" rel="stylesheet" /></head>
+<body>
+    <!--[if IE 6]><link href="/ie6styles.css" type="text/css" rel="stylesheet"  /><![endif]-->
+    <div id="overDiv" style="position: absolute; visibility: hidden; z-index: 10000">
+    </div>
+    <div id="backdrop" style="position: absolute; visibility: hidden;">
+    </div>
+    <form name="aspnetForm" method="post" action="./DisplayPatterns.aspx?cattabindex=4&amp;categoryId=5&amp;p=1&amp;AspxAutoDetectCookieSupport=1" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTIzNzMxNDE1OGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgIFI2N0bDAwJExvZ2luVmlldzEkTG9naW5TdGF0dXMxJGN0bDAxBSNjdGwwMCRMb2dpblZpZXcxJExvZ2luU3RhdHVzMSRjdGwwM6yfAvFQzyq3PIGx93aUJ1Uk9GjP04z7pIX6j/yn+NX6" />
+
+
+<script src="/ScriptResource.axd?d=n7oAe63vG7WYYot28aoGBPugCcUcIzol4UQMlrpDK0isGE7vdG1VUu0n4n09X90yUjXNzVlSzS27hzARaP_g4cE19a5qFBG9ciUXVAQcuUgqH_scV3jVyUk3S1pqjGYiC287Lof_KmGnTKCsBg0vF4E4bx6UGbaMah4CnzNTqUQ1&amp;t=ffffffffb0622999" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="38E1D26C" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAKXpnq7ik8Xfl08devMpsD9BWceBit8e6/TdPqOU5fZbb/53LziJlBKTHR+WkmodhUrKNMKj3DgcUcgP6gRZ3sa" />
+    
+    
+    <div id="siteTop">
+        <h1>
+            RegExLib.com - The first Regular Expression Library on the Web!</h1>
+        <div id="topNav" class="commonContainerHeader">
+            <ul>
+                <li><a href="/Default.aspx"">Home</a></li><li><a href="/Search.aspx"">Search</a></li><li><a href="/RETester.aspx"">Regex Tester</a></li><li><a href="/DisplayPatterns.aspx"">Browse Expressions</a></li><li><a href="/Add.aspx"">Add Regex</a></li>
+    
+
+
+
+                
+                        <li>
+                            <a id="ctl00_LoginView1_LoginStatus1" href="javascript:__doPostBack(&#39;ctl00$LoginView1$LoginStatus1$ctl02&#39;,&#39;&#39;)">Login</a>
+                        </li>
+                    
+            </ul>
+        </div>
+        <div class="commonContainer">
+            <div class="supportSponsors">
+                <p>
+                    Please support RegExLib Sponsors</p>
+            </div>
+            <div id="leaderboardAdTop">
+            
+            <script type="text/javascript"><!--
+                google_ad_client = "ca-pub-4053580011448835";
+                /* RegExLib-728x90 */
+                google_ad_slot = "7871445173";
+                google_ad_width = 728;
+                google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+            </div>
+        </div>
+    </div>
+    <div id="siteBody">
+        <div id="sidebarLeft">
+            <div class="commonContainerHeader">
+                <h3>
+                    Subscribe</h3>
+            </div>
+            <div class="commonContainer">
+                <ul class="sidebarList">
+                    <li class="rssLink"><a href='http://feeds.feedburner.com/Regexlibcom-RecentPatterns'>
+                        Recent Expressions</a></li>
+                </ul>
+                <p style="margin-left: 17px;">
+                    <a href="http://feeds.feedburner.com/Regexlibcom-RecentPatterns">
+                        <img src="http://feeds.feedburner.com/~fc/Regexlibcom-RecentPatterns?bg=99CCFF&amp;fg=444444&amp;anim=1"
+                            height="26" width="88" style="border: 0" alt="" /></a></p>
+            </div>
+            
+
+    <div class="commonContainerHeader"><h3>Site Links</h3></div>
+    <div class="commonContainer">
+        <ul class="sidebarList">
+            
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl00_ListItem1" class="starLink"><a href='/CheatSheet.aspx'>Regex Cheat Sheet</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl02_ListItem1"><a href='/Search.aspx'>Search</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl03_ListItem1"><a href='/RETester.aspx'>Regex Tester</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl04_ListItem1"><a href='/DisplayPatterns.aspx'>Browse Expressions</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl05_ListItem1"><a href='/Add.aspx'>Add Regex</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl06_ListItem1"><a href='/UserPatterns.aspx'>Manage My Expressions</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl07_ListItem1"><a href='/Contributors.aspx'>Contributors</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl11_ListItem1"><a href='/Resources.aspx'>Regex Resources</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl12_ListItem1"><a href='/WebServices.asmx'>Web Services</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl13_ListItem1"><a href='http://lakequincy.com/advertisers/publisherinfo/regExLib.aspx'>Advertise</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl14_ListItem1"><a href='/Contact.aspx'>Contact Us</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl15_ListItem1"><a href='/Register.aspx'>Register</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl16_ListItem1" class="rssLink"><a href='http://feeds.feedburner.com/Regexlibcom-RecentPatterns'>Recent Expressions</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl17_ListItem1" class="rssLink"><a href='http://feeds.feedburner.com/Regexlibcom-RecentComments'>Recent Comments</a></li>
+                
+        </ul>
+    </div>
+
+
+
+            
+
+    <div class="commonContainerHeader"><h3>Community</h3></div>
+    <div class="commonContainer">
+        <ul class="sidebarList">
+            
+                    <li id="ctl00_CommunityNavigation_LeftMenu_ctl08_ListItem1"><a href='http://regexadvice.com/forums/'>Regex Forums</a></li>
+                
+                    <li id="ctl00_CommunityNavigation_LeftMenu_ctl09_ListItem1"><a href='http://regexadvice.com/blogs/'>Regex Blogs</a></li>
+                
+                    <li id="ctl00_CommunityNavigation_LeftMenu_ctl10_ListItem1"><a href='http://aspadvice.com/lists/SignUp/list.aspx?l=68&c=16'>Regex Mailing List</a></li>
+                
+        </ul>
+    </div>
+
+
+
+            
+    <div class="commonContainerHeader"><h3>Top Contributors</h3></div>
+    <div class="commonContainer">
+        <ul class="sidebarList">
+            
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=8a71bef2-8e15-421e-b9da-b2af49627e73'>Cristiano Ronaldo (430)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=b6141b2b-63f0-4620-83aa-0d75a83ba9e0'>tomcruse (421)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=58e11289-0ce0-4e9e-9954-486014703459'>alex flintoff (291)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=ab27831d-8da4-4344-8dc6-4067d5a14577'>Jofra Archer (238)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=d0b854cb-85cf-4cf5-b5d3-79c740c772e4'>CRISHGAYLE (235)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=6e70f58d-10b2-4563-b9aa-a16afa5e006f'>alaska james (218)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=ec75c16d-9cff-461a-8933-1248bb82adce'>jhonphython (195)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=d457c867-643f-4cc4-84ce-9d66a0ae26ae'>brock lean (179)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=24fb0b7f-05cf-4a04-9bf6-979820980f3c'>jameschel (159)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=9f0a65df-b886-4db3-9127-ce02d76d91c4'>davidwilliam569898@gmail.com (159)</a>
+                    </li>
+                
+                
+            <li style="margin-top: 12px; font-weight: bold;"><a id="ctl00_ucTopContributors_contributorslink" href="Contributors.aspx">All Contributors</a></li>
+        </ul>
+    </div>
+
+            <div class="commonContainerHeader">
+                <h3>
+                    Advertise with us</h3>
+            </div>
+        </div>
+        <div id="sidebarRight">
+            <div class="commonContainerHeader">
+                <h3>
+                    Sponsors</h3>
+            </div>
+            <div class="commonContainer paddingNoneSides center">
+                <div class="lqm_ad" lqm_publisher="lqm.regexlib.site" lqm_zone="ron" lqm_format="1x2"></div>
+            </div>
+            <div class="commonContainer paddingNoneSides center">
+                <div class="lqm_ad" lqm_publisher="lqm.regexlib.site" lqm_zone="ron" lqm_format="160x600"></div>
+            </div>
+        </div>
+        <div id="mainContentArea">
+            
+    
+    <div class="commonContainerHeader">
+        <h2>Browse Expressions by Category</h2>
+    </div>
+    <div class="highlightContainer searchContainer">
+        <ul class="tabnav">
+            
+                    <li><a href='DisplayPatterns.aspx?cattabindex=0&categoryId=1'>Email</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=1&categoryId=2'>Uri</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=2&categoryId=3'>Numbers</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=3&categoryId=4'>Strings</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=4&categoryId=5'>Dates and Times</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=5&categoryId=6'>Misc</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=6&categoryId=7'>Address/Phone</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=7&categoryId=8'>Markup/Code</a></li>
+                
+        </ul>
+        <h3><span id="ctl00_ContentPlaceHolder1_lblResultCount" style="text-decoration: underline;">134</span> regular expressions found in this category!</h3>
+    </div>
+    
+    <div class="commonContainerHeader">
+        <h2>Expressions in category: <span id="ctl00_ContentPlaceHolder1_CategoryShownLabel" style="color: #000000;">Dates and Times</span></h2>
+    </div>
+	<div class="commonContainerSubHead">
+	    <span id="ctl00_ContentPlaceHolder1_Pager1_PagerPanel1">
+Change page:
+<a id="ctl00_ContentPlaceHolder1_Pager1_StepForwardOneHyperLink" alt="Step forward one page >" border="0" href="/DisplayPatterns.aspx?cattabindex=4&amp;categoryid=5&amp;p=2" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_1.png" alt="" border="0" /></a><a id="ctl00_ContentPlaceHolder1_Pager1_StepForwardAllHyperLink" alt="Step forward to last page >>" border="0" href="/DisplayPatterns.aspx?cattabindex=4&amp;categoryid=5&amp;p=7" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_all.png" alt="" border="0" /></a>
+&nbsp;&nbsp;|
+</span>
+&nbsp;&nbsp; Displaying page
+<span id="ctl00_ContentPlaceHolder1_Pager1_CurrentPageLabel">1</span>
+of
+<span id="ctl00_ContentPlaceHolder1_Pager1_TotalPagesLabel">7</span> pages;
+Items <span id="ctl00_ContentPlaceHolder1_Pager1_FirstItemLabel">1</span> to <span id="ctl00_ContentPlaceHolder1_Pager1_LastItemLabel">20</span>
+	</div>    
+    
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=144' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=144' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=144'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^((([0]?[1-9]|1[0-2])(:|\.)[0-5][0-9]((:|\.)[0-5][0-9])?( )?(AM|am|aM|Am|PM|pm|pM|Pm))|(([0]?[0-9]|1[0-9]|2[0-3])(:|\.)[0-5][0-9]((:|\.)[0-5][0-9])?))$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Matches times seperated by either : or . will match a 24 hour time, or a 12 hour time with AM or PM specified. Allows 0-59 minutes, and 0-59 seconds. Seconds are not required.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">1:01 AM <span class='separator'>|</span> 23:52:01 <span class='separator'>|</span> 03.24.36 AM</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">19:31 AM <span class='separator'>|</span> 9:9 PM <span class='separator'>|</span> 25:60:61</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl00_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=8d82b4e7-e0e3-440d-82ea-9e8b5e009812'>
+                            Steve Valaitis
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=504' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=504' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=504'>
+                            mm/dd/yyyy  hh:MM:ss AM/PM DateTime
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">(?n:^(?=\d)((?&lt;month&gt;(0?[13578])|1[02]|(0?[469]|11)(?!.31)|0?2(?(.29)(?=.29.((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(16|[2468][048]|[3579][26])00))|(?!.3[01])))(?&lt;sep&gt;[-./])(?&lt;day&gt;0?[1-9]|[12]\d|3[01])\k&lt;sep&gt;(?&lt;year&gt;(1[6-9]|[2-9]\d)\d{2})(?(?=\x20\d)\x20|$))?(?&lt;time&gt;((0?[1-9]|1[012])(:[0-5]\d){0,2}(?i:\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$)</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">New DateTime Regex. Rebuilt better than before, better, stronger, faster. </div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">1/31/2002 10 AM <span class='separator'>|</span> 2/29/2004 <span class='separator'>|</span> 4:15:04 PM</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">2/29/2003 <span class='separator'>|</span> 12/32/2003 <span class='separator'>|</span> 4:00</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl02_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=151' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=151' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=151'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This expression validates dates in the ITALIAN d/m/y format from 1/1/1600 - 31/12/9999. The days are validated for the given month and year. Leap years are validated for all 4 digits years from 1600-9999, and all 2 digits years except 00 since it could be any century (1900, 2000, 2100). Days and months must be 1 or 2 digits and may have leading zeros. Years must be 2 or 4 digit years. 4 digit years must be between 1600 and 9999. Date separator may be a slash (/), dash (-), or period (.) 
+
+Thanks to Michael Ash for US Version</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">29/02/1972 <span class='separator'>|</span> 5-9-98 <span class='separator'>|</span> 10-11-2002</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">29/02/2003 <span class='separator'>|</span> 12/13/2002 <span class='separator'>|</span> 1-1-1500</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl04_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=1c3fae73-b6ad-46ea-ad0d-6d32892549aa'>
+                            Marco Storti
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+        
+	    <div class="commonContainer paddingNoneSides marginNoneBottom center">
+		    <div class="lqm_ad" lqm_channel="1" lqm_publisher="50" lqm_format="1" lqm_zone="1"
+height="0" width="0"></div><span id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl05_LQBannerControl1"></span>
+        </div>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=320' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=320' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=320'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^((((0?[1-9]|[12]\d|3[01])[\.\-\/](0?[13578]|1[02])[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|((0?[1-9]|[12]\d|30)[\.\-\/](0?[13456789]|1[012])[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|((0?[1-9]|1\d|2[0-8])[\.\-\/]0?2[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|(29[\.\-\/]0?2[\.\-\/]((1[6-9]|[2-9]\d)?(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00)|00)))|(((0[1-9]|[12]\d|3[01])(0[13578]|1[02])((1[6-9]|[2-9]\d)?\d{2}))|((0[1-9]|[12]\d|30)(0[13456789]|1[012])((1[6-9]|[2-9]\d)?\d{2}))|((0[1-9]|1\d|2[0-8])02((1[6-9]|[2-9]\d)?\d{2}))|(2902((1[6-9]|[2-9]\d)?(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00)|00))))$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Date with leap years. Accepts &#39;.&#39; &#39;-&#39; and &#39;/&#39; as separators
+d.m.yy to dd.mm.yyyy (or d.mm.yy, etc)
+Ex: dd-mm-yyyy   d.mm/yy   dd/m.yyyy  etc etc
+Accept 00 years also.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">29.2.2004 <span class='separator'>|</span> 31121975 <span class='separator'>|</span> 29/2-00</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">29.2.2005 <span class='separator'>|</span> 32121975 <span class='separator'>|</span> 29.2/01</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl06_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=81355952-f53d-4142-bc5c-aab2beae19f3'>
+                            Dany Lauener
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=1071' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=1071' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=1071'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(((0?[1-9]|1[012])/(0?[1-9]|1\d|2[0-8])|(0?[13456789]|1[012])/(29|30)|(0?[13578]|1[02])/31)/(19|[2-9]\d)\d{2}|0?2/29/((19|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([2468][048]|[3579][26])00)))$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">MM/dd/yyyy with 100% leap years. Valid since year 1900.
+MM and DD could have 1 or 2 digits : M/d/yyyy or MM/d/yyyy or M/dd/yyyy
+
+This was a request from a user in http://www.regexlib.com/REDetails.aspx?regexp_id=1038</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">01/31/1905 <span class='separator'>|</span> 1/9/1900 <span class='separator'>|</span> 2/29/1904</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">31/01/2005 <span class='separator'>|</span> 02/29/2005 <span class='separator'>|</span> 2/29/2005</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl08_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=81355952-f53d-4142-bc5c-aab2beae19f3'>
+                            Dany Lauener
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=59' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=59' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=59'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([0-1][0-9]|[2][0-3]):([0-5][0-9])$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Matches a string if it is a valid time in the format of HH:MM</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">02:04 <span class='separator'>|</span> 16:56 <span class='separator'>|</span> 23:59</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">02:00 PM <span class='separator'>|</span> PM2:00 <span class='separator'>|</span> 24:00</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl10_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=0537ba48-ec50-475d-99ab-887a787ea9d4'>
+                            Koen Hoorelbeke
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+        
+	    <div class="commonContainer paddingNoneSides marginNoneBottom center">
+		    <div class="lqm_ad" lqm_channel="1" lqm_publisher="50" lqm_format="1" lqm_zone="1"
+height="0" width="0"></div><span id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl11_LQBannerControl1"></span>
+        </div>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=326' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=326' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=326'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^((\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|([02468][048]|[13579][26])0229)$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Date expression validator with format YYMMDD
+Validates leap years.
+Of course, as year has only 2 digits, it&#39;s not possible to invalidate years like 2100, 2200, 2300, etc as a non-leap years !</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">751231 <span class='separator'>|</span> 000229 <span class='separator'>|</span> 040229</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">750431 <span class='separator'>|</span> 010229 <span class='separator'>|</span> 050229</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl12_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=81355952-f53d-4142-bc5c-aab2beae19f3'>
+                            Dany Lauener
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=1038' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=1038' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=1038'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(((0[1-9]|1[012])/(0[1-9]|1\d|2[0-8])|(0[13456789]|1[012])/(29|30)|(0[13578]|1[02])/31)/[2-9]\d{3}|02/29/(([2-9]\d)(0[48]|[2468][048]|[13579][26])|(([2468][048]|[3579][26])00)))$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">MM/dd/yyyy with 100% leap year validation starting from year 2000.
+
+If this one doesn&#39;t fit your needs, just tell me.
+Sorry for starting &amp;quot;only&amp;quot; from year 2000, this is so simple to change this, please ask if needed.
+Enjoy</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">02/29/2000 <span class='separator'>|</span> 02/29/2004 <span class='separator'>|</span> 12/31/2001</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">02/29/2100 <span class='separator'>|</span> 02/29/2001 <span class='separator'>|</span> 1/1/2001</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl14_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=81355952-f53d-4142-bc5c-aab2beae19f3'>
+                            Dany Lauener
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=190' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=190' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=190'>
+                            yy/mm/dd Date
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?:(?:(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)(?:0?2\1(?:29)))|(?:(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:(?:0?[13578]|1[02])\2(?:31))|(?:(?:0?[1,3-9]|1[0-2])\2(29|30))|(?:(?:0?[1-9])|(?:1[0-2]))\2(?:0?[1-9]|1\d|2[0-8]))))$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This expression validates dates in the y/m/d format from 1600/1/1 - 9999/12/31. Follows the same validation rules for dates as my other date validator (m/d/y format) located in this library.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">04/2/29 <span class='separator'>|</span> 2002-4-30 <span class='separator'>|</span> 02.10.31</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">2003/2/29 <span class='separator'>|</span> 02.4.31 <span class='separator'>|</span> 00/00/00</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl16_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=762' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=762' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=762'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?=\d)(?:(?!(?:(?:0?[5-9]|1[0-4])(?:\.|-|\/)10(?:\.|-|\/)(?:1582))|(?:(?:0?[3-9]|1[0-3])(?:\.|-|\/)0?9(?:\.|-|\/)(?:1752)))(31(?!(?:\.|-|\/)(?:0?[2469]|11))|30(?!(?:\.|-|\/)0?2)|(?:29(?:(?!(?:\.|-|\/)0?2(?:\.|-|\/))|(?=\D0?2\D(?:(?!000[04]|(?:(?:1[^0-6]|[2468][^048]|[3579][^26])00))(?:(?:(?:\d\d)(?:[02468][048]|[13579][26])(?!\x20BC))|(?:00(?:42|3[0369]|2[147]|1[258]|09)\x20BC))))))|2[0-8]|1\d|0?[1-9])([-.\/])(1[012]|(?:0?[1-9]))\2((?=(?:00(?:4[0-5]|[0-3]?\d)\x20BC)|(?:\d{4}(?:$|(?=\x20\d)\x20)))\d{4}(?:\x20BC)?)(?:$|(?=\x20\d)\x20))?((?:(?:0?[1-9]|1[012])(?::[0-5]\d){0,2}(?:\x20[aApP][mM]))|(?:[01]\d|2[0-3])(?::[0-5]\d){1,2})?$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">dd/mm/yyyy hh:MM:ss Datetime for all AD years, including leap years.
+Javascript safe version of http://regexlib.com/REDetails.aspx?regexp_id=691.  Please see that regex for details of what is being checked</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">31.12.6008 <span class='separator'>|</span> 5:30 AM <span class='separator'>|</span> 30-04-1066</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">00/00/0000 <span class='separator'>|</span> 99:99:99 <span class='separator'>|</span> 29/02/2005</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl18_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=262' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=262' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=262'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^((0[1-9])|(1[0-2]))\/(\d{2})$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Validates MM/YY for rough checking credit card expiration dates.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">11/03 <span class='separator'>|</span> 01/04</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">13/03 <span class='separator'>|</span> 10/2003</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl20_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=79131cef-ab54-429e-8189-746c088aac40'>
+                            Kevin Coleman
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=581' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=581' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=581'>
+                            yyyy/mm/dd hhMMss Date
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?ni:(?=\d)((?&#39;year&#39;((1[6-9])|([2-9]\d))\d\d)(?&#39;sep&#39;[/.-])(?&#39;month&#39;0?[1-9]|1[012])\2(?&#39;day&#39;((?&lt;!(\2((0?[2469])|11)\2))31)|(?&lt;!\2(0?2)\2)(29|30)|((?&lt;=((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(16|[2468][048]|[3579][26])00)\2\3\2)29)|((0?[1-9])|(1\d)|(2[0-8])))(?:(?=\x20\d)\x20|$))?((?&lt;time&gt;((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2}))?)$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">YYYY/MM/DD hh:mm:ss format DateTime Regex. 
+This regex will validate a date, time or a datetime. 
+It will also capture the date fields and the time. 
+Dates are in the YYYY/MM/DD format and validated for months, number of days in a month and leap years (29/2)
+Date field can be separated by matched periods(.), dashes(-) or forward slashes(/) 
+Time is either 12 hour AM/PM format (hh:mm:ss AM), where minutes and seconds are optional. 
+AM or PM required. or 24 hour military format (hh:mm:ss), from 00:00:00 to 23:59:59, 
+where hours and minutes fields are required, including leading 0 for hours less than 10. 
+Please refer to http://blogs.regexadvice.com/mash/archive/2004/04/23/1021.aspx for additional info
+Datetime is the above date and time formats separated by a space, 
+with the date first (YYYY/MM/DD hh:mm:ss) 
+
+!IMPORTANT NOTE: your regex engine must support lookbehinds and named groups to use this expression</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">12:30 PM <span class='separator'>|</span> 2004-02-29 <span class='separator'>|</span> 2004/3/31 02:31:35 AM</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">2:00 <span class='separator'>|</span> 2200.2.29 <span class='separator'>|</span> 0000/00/00 00:00:00 AM</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl22_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=610' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=610' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=610'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?=\d)(?:(?:31(?!.(?:0?[2469]|11))|(?:30|29)(?!.0?2)|29(?=.0?2.(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(?:\x20|$))|(?:2[0-8]|1\d|0?[1-9]))([-./])(?:1[012]|0?[1-9])\1(?:1[6-9]|[2-9]\d)?\d\d(?:(?=\x20\d)\x20|$))?(((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">DateTime Validator. This RE validates both dates and/or times patterns. Days in Feb. are also validated for Leap years. Dates: in  dd/mm/yyyy or d/m/yy format between 1/1/1600 - 31/12/9999. Leading zeroes are optional. Date separators can be either matching dashes(-), slashes(/) or periods(.) Times: in the hh:MM:ss AM/PM 12 hour format (12:00 AM - 11:59:59 PM) or hh:MM:ss military time format (00:00:00 - 23:59:59). The 12 hour time format: 1) may have a leading zero for the hour. 2) Minutes and seconds are optional for the 12 hour format 3) AM or PM is required and case sensitive. Military time 1) must have a leading zero for all hours less than 10. 2) Minutes are manditory. 3) seconds are optional. Datetimes: combination of the above formats. A date first then a time separated by a space. ex) dd/mm/yyyy hh:MM:ss This RE is an variation of one of my other Datetime (mm/dd/yyyy) validator already in this library http://www.regexlib.com/REDetails.aspx?regexp_id=369, so the same rules for leap year apply. All 4 digit year and all two digit years except 00, which might not be a leap year.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">31/12/2003 11:59:59 PM <span class='separator'>|</span> 29-2-2004 <span class='separator'>|</span> 01:45:02</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">12/31/2003 <span class='separator'>|</span> 29.02.2005 <span class='separator'>|</span> 13:30 PM</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl24_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=93' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=93' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=93'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">20\d{2}(-|\/)((0[1-9])|(1[0-2]))(-|\/)((0[1-9])|([1-2][0-9])|(3[0-1]))(T|\s)(([0-1][0-9])|(2[0-3])):([0-5][0-9]):([0-5][0-9])</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Sql date format tester. </div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">2099-12-31T23:59:59 <span class='separator'>|</span> 2002/02/09 16:30:00 <span class='separator'>|</span> 2000-01-01T00:00:00</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">2000-13-31T00:00:00 <span class='separator'>|</span> 2002/02/33 24:00:00 <span class='separator'>|</span> 2000-01-01 60:00:00</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl26_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=e32a652f-3793-422c-819f-7867518d6b02'>
+                            Peter Pfeifer
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=230' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=230' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=230'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([0]\d|[1][0-2])\/([0-2]\d|[3][0-1])\/([2][01]|[1][6-9])\d{2}(\s([0-1]\d|[2][0-3])(\:[0-5]\d){1,2})?$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This is a regular expression to validate a date string in &amp;quot;MM/DD/YYYY&amp;quot; format, a date time string in &amp;quot;MM/DD/YYYY HH:MM&amp;quot; or a date time string in &amp;quot;MM/DD/YYYY HH:MM:SS&amp;quot; format.
+It can validate date from 1600 to 2199.
+</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">12/30/2002 <span class='separator'>|</span> 01/12/1998 13:30 <span class='separator'>|</span> 01/28/2002 22:35:00</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">13/30/2002 <span class='separator'>|</span> 01/12/1998 24:30 <span class='separator'>|</span> 01/28/2002 22:35:64</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl28_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=96d30b9e-0296-40be-af1c-9a521b3e30c6'>
+                            Spring Zhang
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=981' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=981' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=981'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Time in 24 hours format with optional seconds</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">12:15 <span class='separator'>|</span> 10:26:59 <span class='separator'>|</span> 22:01:15</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">24:10:25 <span class='separator'>|</span> 13:2:60</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl30_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=ab5df2b5-c9ea-441e-8d9e-839ec34b61c4'>
+                            Carlos R. L. Rodrigues
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=932' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=932' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=932'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([0]?[1-9]|[1][0-2])[./-]([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0-9]{4}|[0-9]{2})$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Validate american date formats: mm/dd/yyyy or m/d/yy or m.d.yyyy with separators: . - /
+Valid dates only! m (1-12)/ d (1-31)/ y (0..)
+(rizzipereira.com.br)
+For Brazilian date format: http://www.regexlib.com/REDetails.aspx?regexp_id=250</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">10.03.1979 <span class='separator'>|</span> 12/30/2004 <span class='separator'>|</span> 01/01/2004</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">09--02--2004 <span class='separator'>|</span> 15-15-2004 <span class='separator'>|</span> 13/12/2004</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl32_RatingImage1_Image2" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating2.png" border="0" />
+
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=3d540250-f79e-49cb-b591-3cc8382f57fa'>
+                            Diego dos Santos
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=319' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=319' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=319'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(([1-9]|[0-2]\d|[3][0-1])\.([1-9]|[0]\d|[1][0-2])\.[2][0]\d{2})$|^(([1-9]|[0-2]\d|[3][0-1])\.([1-9]|[0]\d|[1][0-2])\.[2][0]\d{2}\s([1-9]|[0-1]\d|[2][0-3])\:[0-5]\d)$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Correct German DateTime. Does not check leap year rules!
+
+Possible Formats of date part: 
+D.M.YYYY or D.MM.YYYY or DD.MM.YYYY or DD.M.YYYY
+
+Possible formats of time part:
+h:mm or hh:mm</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">20.10.2003 08:10 <span class='separator'>|</span> 24.12.2003 <span class='separator'>|</span> 1.1.2004 8:15</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">25.13.2004 <span class='separator'>|</span> 20.10.2003 08:9</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl34_RatingImage1_Image2" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating2.png" border="0" />
+
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=dd33a787-5bda-4663-9d8a-6af4e0055d55'>
+                            Markus Unterauer
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=763' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=763' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=763'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?=\d)(?:(?!(?:1582(?:\.|-|\/)10(?:\.|-|\/)(?:0?[5-9]|1[0-4]))|(?:1752(?:\.|-|\/)0?9(?:\.|-|\/)(?:0?[3-9]|1[0-3])))(?=(?:(?!000[04]|(?:(?:1[^0-6]|[2468][^048]|[3579][^26])00))(?:(?:\d\d)(?:[02468][048]|[13579][26]))\D0?2\D29)|(?:\d{4}\D(?!(?:0?[2469]|11)\D31)(?!0?2(?:\.|-|\/)(?:29|30))))(\d{4})([-\/.])(0?\d|1[012])\2((?!00)[012]?\d|3[01])(?:$|(?=\x20\d)\x20))?((?:(?:0?[1-9]|1[012])(?::[0-5]\d){0,2}(?:\x20[aApP][mM]))|(?:[01]\d|2[0-3])(?::[0-5]\d){1,2})?$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">yyyy/mm/dd hh:MM:ss Datetime for all AD years, including leap years.
+Javascript safe version of http://regexlib.com/REDetails.aspx?regexp_id=760.  Please see that regex for details of what is being checked</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">0008-02-29 <span class='separator'>|</span> 2:34:59 PM <span class='separator'>|</span> 9999/12/31 11:59 PM</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">04/04/04 <span class='separator'>|</span> 1:00 <span class='separator'>|</span> 1999/1/32</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl36_RatingImage1_Image2" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating2.png" border="0" />
+
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=250' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=250' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=250'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Validate brazilian date formats: dd/mm/yyyy or d/m/yy or d.m.yyyy
+with separators: . - /
+Valid dates only! d (1-31)/ m (1-12)/ y (0..)
+(rizzipereira.com.br)
+For American date format: http://www.regexlib.com/REDetails.aspx?regexp_id=932</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">10/03/1979 <span class='separator'>|</span> 1-1-02 <span class='separator'>|</span> 01.1.2003</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">10/03/197 <span class='separator'>|</span> 09--02--2004 <span class='separator'>|</span> 01 02 03</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl38_RatingImage1_Image2" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating2.png" border="0" />
+
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=3d540250-f79e-49cb-b591-3cc8382f57fa'>
+                            Diego dos Santos
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+	<div class="commonContainerSubHead">
+	    <span id="ctl00_ContentPlaceHolder1_Pager2_PagerPanel1">
+Change page:
+<a id="ctl00_ContentPlaceHolder1_Pager2_StepForwardOneHyperLink" alt="Step forward one page >" border="0" href="/DisplayPatterns.aspx?cattabindex=4&amp;categoryid=5&amp;p=2" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_1.png" alt="" border="0" /></a><a id="ctl00_ContentPlaceHolder1_Pager2_StepForwardAllHyperLink" alt="Step forward to last page >>" border="0" href="/DisplayPatterns.aspx?cattabindex=4&amp;categoryid=5&amp;p=7" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_all.png" alt="" border="0" /></a>
+&nbsp;&nbsp;|
+</span>
+&nbsp;&nbsp; Displaying page
+<span id="ctl00_ContentPlaceHolder1_Pager2_CurrentPageLabel">1</span>
+of
+<span id="ctl00_ContentPlaceHolder1_Pager2_TotalPagesLabel">7</span> pages;
+Items <span id="ctl00_ContentPlaceHolder1_Pager2_FirstItemLabel">1</span> to <span id="ctl00_ContentPlaceHolder1_Pager2_LastItemLabel">20</span>
+	</div>
+
+    
+        
+    
+
+
+        </div>
+    </div>
+    <div id="copyrightLine">
+        <p>
+            Copyright © 2001-2019, <a href="http://regexadvice.com/">RegexAdvice.com</a>
+            | <a href="http://aspalliance.com/">ASP.NET Tutorials</a></p>
+    </div>
+    
+    </form>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        _uacct = "UA-470225-2";
+        urchinTracker();
+    </script>
+    <!-- Start Quantcast tag -->
+    <script type="text/javascript">
+        _qoptions = {
+            qacct: "p-a3-n3YcLyLJ56"
+        };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-a3-n3YcLyLJ56.gif" style="display: none;"
+            border="0" height="1" width="1" alt="Quantcast" />
+    </noscript>
+    <!-- End Quantcast tag -->
+    <script type='text/javascript' language='Javascript' src='http://s1.lqcdn.com/m.min.js?dt=2.3.110104.1'></script>
+</body>
+</html>
