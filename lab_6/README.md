@@ -132,7 +132,7 @@ Here you will use the `Dask` `Bag` and `DataFrame` APIs you've seen during the i
 
 For all questions below, please include instructions on how to run your code as part of the PDF submission.
 
-**Q4** The included [`queue_test.py`](queue_test.py) script implements a parallel aggregate operation over a single column of input JSON data (unzip [`data/json.zip`](data/json.zip) before running it). Use this code as example to implement a parallel filter (choose any column and filter value, let us know which ones you chose in your writeup). **(10 pts)**
+**Q4** The included [`queue_test.py`](queue_test.py) (Python2.X, Python3.X version at [`queue_test-python3.py`](queue_test-python3.py)) script implements a parallel aggregate operation over a single column of input JSON data (unzip [`data/json.zip`](data/json.zip) before running it). Use this code as example to implement a parallel filter (choose any column and filter value, let us know which ones you chose in your writeup). **(10 pts)**
 
 **Q5** Similar to Q4, only this time implement a [`hash join`](https://en.wikipedia.org/wiki/Hash_join#Classic_hash_join). **(20 pts)**
 
