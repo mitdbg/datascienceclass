@@ -43,7 +43,7 @@ def download_html(url, out_filename):
 # Scrapes list of <category,regex> entries from previously downloaded HTML
 # content, and enqueues them for later processing.
 def scrape_html(out_queue, category, html_filename):
-    with open(html_filename, 'r') as f:
+    with open(html_filename, 'r', encoding='utf-8') as f:
         contents = f.read()
         tree = html.fromstring(contents)
 
