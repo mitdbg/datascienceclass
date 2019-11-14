@@ -139,7 +139,7 @@ def main_task(urls_df, output_file, n_workers, redownload_html):
     try:
         while True:
             # https://bugs.python.org/issue20147
-            csv_rows += out_queue.get(block=True, timeout=1)
+            csv_rows += out_queue.get(block=True, timeout=5)
     except queue.Empty:
         log('Done!')
 

@@ -116,7 +116,7 @@ Like previous labs, submission will come in two parts.
 
 **Q1:** In this question, you will use `multiprocessing` to implement a parallel web data scraper, whose base code is available in the [`scraper/`](scraper/) directory.  Specifically, we provide you most of the actual scraping code, and you only need to fill out the multiprocessing parts. Code for this question should be submitted in your github repo in the same [`scraper/scraper.py`](scraper/scraper.py) file we provide here. In your PDF writeup, please report the runtimes for running your scraper using different number of workers (e.g., 1, 2, and 4) **(30 pts).**
 
-**UPDATE (Nov 7th 2019):** We've updated the scraper assignment slightly to instead scrape from a collection of local HTML files which we now include under the ['scraper/downloaded_html/'] directory. This is to avoid additional sources of non-determinism that were unrelated to concurrency issues. Specifically: regexlib.com arbitrarily reorders its list of regexes upon page refresh, which was leading the number of scraped regexes to vary across different runs of an otherwise correct solution.
+**UPDATE (Nov 7th 2019):** We've updated the scraper assignment slightly to instead scrape from a collection of local HTML files which we now include under the [`scraper/downloaded_html/`](scraper/downloaded_html/) directory. This is to avoid additional sources of non-determinism that were unrelated to concurrency issues. Specifically: regexlib.com arbitrarily reorders its list of regexes upon page refresh, which was leading the number of scraped regexes to vary across different runs of an otherwise correct solution.
 
 #### Part 2
 
