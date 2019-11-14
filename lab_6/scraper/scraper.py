@@ -13,9 +13,14 @@ from html.parser import HTMLParser
 from lxml import html
 from multiprocessing import Queue
 
+#VERBOSE = False
+VERBOSE = True
 
+# Useful for debugging concurrency issues.
 def log(msg):
-    print(sys.stderr, multiprocessing.current_process().name, msg)
+    if not VERBOSE:
+        return
+    print(multiprocessing.current_process().name, msg, sys.stderr)
 
 
 def get_urls(csv_file):

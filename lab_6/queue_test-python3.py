@@ -3,10 +3,16 @@ import queue
 import json
 import sys
 
+#VERBOSE = False
+VERBOSE = True
+
 
 # Useful for debugging concurrency issues.
 def log(msg):
-    print(sys.stderr, multiprocessing.current_process().name, msg)
+    if not VERBOSE:
+        return
+
+    print(multiprocessing.current_process().name, msg, file=sys.stderr)
 
 
 # Each worker reads the json file, computes a sum and a count for the target

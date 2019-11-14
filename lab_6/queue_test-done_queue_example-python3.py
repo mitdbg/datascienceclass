@@ -4,8 +4,8 @@ import json
 import sys
 import time
 
-#VERBOSE = True
-VERBOSE = False
+#VERBOSE = False
+VERBOSE = True
 
 
 # Useful for debugging concurrency issues.
@@ -13,7 +13,7 @@ def log(msg):
     if not VERBOSE:
         return
 
-    print(sys.stderr, multiprocessing.current_process().name, msg)
+    print(multiprocessing.current_process().name, msg, file=sys.stderr)
 
 
 # Each worker reads the json file, computes a sum and a count for the target
