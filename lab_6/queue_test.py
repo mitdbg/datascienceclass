@@ -52,8 +52,8 @@ def main_task(cnt):
 
     for p in procs:
         (p_sum, p_count) = out_q.get()
-    sum = sum + p_sum
-    cnt = cnt + p_count
+        sum = sum + p_sum
+        cnt = cnt + p_count
 
     print "average = %.2f" % (sum / cnt)
 

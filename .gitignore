@@ -5,3 +5,5 @@ dask-worker-space
 # lab6 generated files
 lab_6/data/csv/
 lab_6/data/parquet/
+lab_6/data/*.json
+lab_6/data/spotify_songs.csv
