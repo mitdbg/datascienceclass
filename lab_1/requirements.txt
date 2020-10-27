@@ -1,5 +1,5 @@
 asn1crypto==0.24.0
-cryptography==2.3
+cryptography==3.2
 idna==2.6
 joblib==0.13.2
 keyring==10.6.0
