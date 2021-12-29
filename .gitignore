@@ -1,9 +1,9 @@
-dask-worker-space
-*.pyc
-.ipynb_checkpoints/
+fall_2019/dask-worker-space
+fall_2019/*.pyc
+fall_2019/.ipynb_checkpoints/
 
 # lab6 generated files
-lab_6/data/csv/
-lab_6/data/parquet/
-lab_6/data/*.json
-lab_6/data/spotify_songs.csv
+fall_2019/lab_6/data/csv/
+fall_2019/lab_6/data/parquet/
+fall_2019/lab_6/data/*.json
+fall_2019/lab_6/data/spotify_songs.csv
