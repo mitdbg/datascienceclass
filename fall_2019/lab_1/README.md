@@ -219,7 +219,6 @@ Let's open a python shell (in our container), load the data and have a look. We 
         Python 3.6.8 (default, Jan 14 2019, 11:02:34)
         [GCC 8.0.1 20180414 (experimental) [trunk revision 259383]] on linux
         Type "help", "copyright", "credits" or "license" for more information.
-        >>> import pandas as pd
         >>> dist_pop = pd.read_csv("data/dist_pop.txt")
         >>> dist_pop
                                                            state|district_id|district name|population
