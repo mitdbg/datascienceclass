@@ -172,7 +172,7 @@ Before the lecture, start the lab1-container and follow along.
 # Lab 1: Basic Tools (SQL / Pandas)
 
 * **Learning Objective**: Learn to load data and manipulate it using both Pandas and SQL
-* **Deliverables**: Students will submit python source code, SQL queries, and answer some questions. Answers will be submitted through Greadescope.
+* **Deliverables**: Students will submit python source code, SQL queries, and answer some questions. Answers will be submitted through Gradescope.
 
 This lab will use both Pandas and SQL to explore  Federal Election Commission data from the 2016 election.
 
