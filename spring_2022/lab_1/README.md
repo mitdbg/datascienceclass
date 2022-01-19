@@ -653,8 +653,6 @@ To join two or more tables, we first list them in the `FROM` clause. We specify 
 
 Here is how to compute the join we computed using pandas.
 
-But this is a bit unweidly, Let's join the two tables (with filters), inspect the output. After we'll add the group by and aggregation back in.
-
 ```sql
 SELECT 
         t.primary_title, t.premiered, r.rating, r.votes
