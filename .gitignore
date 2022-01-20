@@ -7,3 +7,5 @@ fall_2019/lab_6/data/csv/
 fall_2019/lab_6/data/parquet/
 fall_2019/lab_6/data/*.json
 fall_2019/lab_6/data/spotify_songs.csv
+
+.DS_Store

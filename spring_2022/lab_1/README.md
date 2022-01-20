@@ -683,8 +683,109 @@ Maa Kathalu    2021        9.9         708
 Half Stories   2022        9.9         1699
 ```    
 
-#### 4. CTEs & Window Functions. TODO.
 We now discuss a few useful SQL-only features.
+
+
+#### 4. Common Table Expressions
+Common Table Expressions (CTEs) are a useful mechanism to simplify complex queries. They allow us to compute temporary tables that can be used in other parts of the queries. While the join above is not complex enough to warrent using CTEs, we will use it as an example to get you started. Suppose that, like in our pandas example, we wanted to first compute the set of excellent ratings and the set of movies before using them in the join.
+
+```sql
+WITH 
+excellent (title_id, rating, votes) AS ( -- Precomputed the excellent ratings
+        SELECT * FROM ratings WHERE rating >= 9 AND votes >= 100
+),
+movies (title_id, primary_title, premiered) AS ( -- Precomputed movies
+        SELECT title_id, primary_title, premiered FROM titles WHERE type='movie'
+)
+
+SELECT rating, votes, primary_title, premiered  -- Join.
+FROM excellent AS e, movies AS m
+WHERE e.title_id = m.title_id
+ORDER BY rating LIMIT 10;
+
++++++++++++++++++++++++++++
+
+rating      votes       primary_title  premiered
+----------  ----------  -------------  ----------
+10          754         Hulchul        2019
+10          205         Days of Géant  2019
+10          188         Days of Géant  2020
+10          1909        Veyi Subhamul  2022
+10          4885        The Silence o  2021
+9.9         747         Ajinkya        2021
+9.9         446         Tari Sathe     2021
+9.9         121         Rite of the S  2022
+9.9         708         Maa Kathalu    2021
+9.9         1699        Half Stories   2022
+```
+
+In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We the perform the join using these temporary tables. 
+
+#### 5. Window Functions
+Whereas groupby aggregations allow to aggregate partitions of the data, window functions allow to perform computations on each partition without aggregating the data.
+
+For example, suppose that for every given year, we wanted to assign a rank to the set of excellent movies according to their ratings. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
+
+
+```sql
+WITH 
+excellent_movies (primary_title, premiered, rating, votes) AS (
+        SELECT 
+                t.primary_title, t.premiered, r.rating, r.votes
+        FROM 
+                titles AS t, ratings AS r
+        WHERE
+                t.title_id = r.title_id -- Join condition 
+                AND t.type = 'movie'
+                AND r.rating >= 9 AND r.votes >= 100
+)
+SELECT
+        primary_title, premiered, rating, votes,
+        RANK() OVER (PARTITION BY premiered ORDER BY rating DESC)
+FROM excellent_movies
+ORDER BY premiered;
+
+++++++++++++++++++++++++++
+
+primary_title  premiered   rating      votes       year_rank
+-------------  ----------  ----------  ----------  ----------
+Druglawed      2015        9.5         134         1
+Red Right Ret  2015        9.4         140         2
+The Ataxian    2015        9.3         214         3
+Major!         2015        9.3         245         3
+The Epic Jour  2015        9.2         880         5
+Darkest Befor  2015        9.1         129         6
+The Call       2015        9           191         7
+The Last Tear  2015        9           145         7
+Love & Contem  2016        9.7         268         1
+Time Framed    2016        9.4         285         2
+Paint Drying   2016        9.3         444         3
+Mirror Game    2016        9.1         25499       4
+That Vitamin   2016        9.1         956         4
+O Jehovah, ..  2016        9.1         114         4
+Legends of Fr  2016        9           520         7
+Born Warriors  2016        9           744         7
+All the Rage   2016        9           273         7
+The Unnamed    2016        9           4903        7
+The Barn Thea  2017        9.4         124         1
+Genius Montis  2017        9.4         142         1
+Mama's Heart.  2017        9.3         536         3
+Behind the Al  2017        9.3         278         3
+...
+```
+
+In this query we first compute the table of excellent movies as a CTE to simplify the query. We then select the rows of this table in addition to a yearly ranking computed as follow:
+
+* First partition rows by year (`PARTITION BY premiered`).
+* Order the items within each partition (`ORDER BY rating DESC`).
+* Assign a rank to each element in accordance with their order (`RANK()`).
+
+As you can see from the results, the `year_rank` column is order within each year, and resets across different years.
+
+This captures the general idea behind functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
+
+
+#### 6. Speeding
 
 ### Pandas + SQL
 
@@ -716,4 +817,20 @@ For convenience, you can run queries one at a time using the ``python3 queries.p
 In addition to your code, you will submit results of your code for each of the questions in a PDF. Put each answer on a new page.
 Detailed submission instructions are at the bottom of this document.
 
-### Fill in questions and submission instructions.
+### TODO: Solve this questions using both SQL and Pandas
+1. (5 points) Simple single table query.
+2. (5 points) Simple single table query. 
+3. (5 points) Simple 2-way join.
+4. (10 points) Multiway join Query.
+5. (10 points) Multiway Query.
+6. (15 points) Complex subqueries. Best done with CTEs.
+7. (15 points) Complex subqueries. Best done with CTEs.
+
+### TODO: Solve these using only SQL
+1. (15 points) Window functions
+2. (15 points) Window Functions.
+3. (10 points) Timed Query?
+
+### TODO: Fill in questions and submission instructions.
+
+
