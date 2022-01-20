@@ -552,16 +552,17 @@ This matches the result we got from pandas so we are on the right track. We can 
 ```sql
 SELECT
         MAX(premiered),
-        MAX(runtime_minutes)
+        MAX(runtime_minutes),
+        COUNT(DISTINCT genres) AS num_genres -- Compute the number of unique genres.
 FROM
         titles;
 
 +++++++++++++++++++++++
 
 sqlite> .read scratch.sql
-MAX(premiered)  MAX(runtime_minutes)
---------------  --------------------
-2029            43200
+MAX(premiered)  MAX(runtime_minutes)  num_genres
+--------------  --------------------  ----------
+2029            43200                 1876
 ```
 
 Now as above we'll group by release year again.
@@ -785,7 +786,7 @@ As you can see from the results, the `year_rank` column is order within each yea
 This captures the general idea behind functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
 
 
-#### 6. Speeding up queries with indices? Is this needed?
+#### 6. TODO: Recursive CTEs? I've only ever seen a CSV unroller.
 
 ### Pandas + SQL
 
@@ -817,19 +818,13 @@ For convenience, you can run queries one at a time using the ``python3 queries.p
 In addition to your code, you will submit results of your code for each of the questions in a PDF. Put each answer on a new page.
 Detailed submission instructions are at the bottom of this document.
 
-### TODO: Solve this questions using both SQL and Pandas
-1. (5 points) Simple single table query.
-2. (5 points) Simple single table query. 
-3. (5 points) Simple 2-way join.
-4. (10 points) Multiway join Query.
-5. (10 points) Multiway Query.
-6. (15 points) Complex subqueries. Best done with CTEs.
-7. (15 points) Complex subqueries. Best done with CTEs.
-
-### TODO: Solve these using only SQL
-1. (15 points) Window functions
-2. (15 points) Window Functions.
-3. (10 points) Timed Query?
+### Questions Ideas
+1. Find the tv shows release in 2021, with an action genre, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
+2. Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category ('actor' or 'actress') and the count. Order by category.
+3. Find the actors/actresses who played in the largest number of titles. Use the crew and people table. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name.
+4. Find the directors with at least 10 titles, that has the highest average rating on his titles. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by name.
+5. (Window function required) For each year, find the top 3 actors that appear in the biggest number of above average movies (with a rating >= 5). If multiple actors are tied in the top 3, return all of them. Return the name, number of above average movies, and the ranking. Sort by year, ranking and name to break ties. 
+6. (Recursive CTE required) Find the genres of movies with the highest average rating. Note that the text `action,thriller` should be treated as two genres (`action` and `thriller`). You may reuse the recursive CTE csv parser. Return the genre and the average rating. Sort by average rating and genre to break ties.
 
 ### TODO: Fill in questions and submission instructions.
 
