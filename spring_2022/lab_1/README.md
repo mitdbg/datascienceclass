@@ -687,18 +687,18 @@ We now discuss a few useful SQL-only features.
 
 
 #### 4. Common Table Expressions
-Common Table Expressions (CTEs) are a useful mechanism to simplify complex queries. They allow us to compute temporary tables that can be used in other parts of the queries. While the join above is not complex enough to warrent using CTEs, we will use it as an example to get you started. Suppose that, like in our pandas example, we wanted to first compute the set of excellent ratings and the set of movies before using them in the join.
+Common Table Expressions (CTEs) are a useful mechanism to simplify complex queries. They allow us to precompute temporary tables that can be used in other parts of the queries. While the join above is not complex enough to warrent using CTEs, we will use it as an example to get you started. Suppose that, like in our pandas example, we wanted to first compute the set of excellent ratings and the set of movies before joining them.
 
 ```sql
 WITH 
-excellent (title_id, rating, votes) AS ( -- Precomputed the excellent ratings
+excellent (title_id, rating, votes) AS ( -- Precompute excellent ratings
         SELECT * FROM ratings WHERE rating >= 9 AND votes >= 100
 ),
 movies (title_id, primary_title, premiered) AS ( -- Precomputed movies
         SELECT title_id, primary_title, premiered FROM titles WHERE type='movie'
 )
 
-SELECT rating, votes, primary_title, premiered  -- Join.
+SELECT rating, votes, primary_title, premiered  -- Join them.
 FROM excellent AS e, movies AS m
 WHERE e.title_id = m.title_id
 ORDER BY rating LIMIT 10;
@@ -719,7 +719,7 @@ rating      votes       primary_title  premiered
 9.9         1699        Half Stories   2022
 ```
 
-In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We the perform the join using these temporary tables. 
+In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We then perform the join using these temporary tables. 
 
 #### 5. Window Functions
 Whereas groupby aggregations allow to aggregate partitions of the data, window functions allow to perform computations on each partition without aggregating the data.
@@ -785,7 +785,7 @@ As you can see from the results, the `year_rank` column is order within each yea
 This captures the general idea behind functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
 
 
-#### 6. Speeding
+#### 6. Speeding up queries with indices? Is this needed?
 
 ### Pandas + SQL
 
