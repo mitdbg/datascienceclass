@@ -819,8 +819,8 @@ In addition to your code, you will submit results of your code for each of the q
 Detailed submission instructions are at the bottom of this document.
 
 ### Questions Ideas
-1. Find the tv shows release in 2021, with an action genre, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
-2. Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category ('actor' or 'actress') and the count. Order by category.
+1. Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category ('actor' or 'actress') and the count. Order by category.
+2. Find the action TV shows released in 2021, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
 3. Find the actors/actresses who played in the largest number of titles. Use the crew and people table. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name.
 4. Find the directors with at least 10 titles, that has the highest average rating on his titles. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by name.
 5. (Window function required) For each year, find the top 3 actors that appear in the biggest number of above average movies (with a rating >= 5). If multiple actors are tied in the top 3, return all of them. Return the name, number of above average movies, and the ranking. Sort by year, ranking and name to break ties. 
