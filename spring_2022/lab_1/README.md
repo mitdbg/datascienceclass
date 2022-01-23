@@ -191,7 +191,7 @@ This lab will use both Pandas and SQL to explore IMDB data from 2015 onwards.
 One of the most popular tools for working with relatively small datasets (i.e. that fit in the main memory of a single machine) is a python library called Pandas. Pandas uses an abstraction called dataframes to manipulate tabular data. It natively supports reading data from a variety of common file formats including CSVs, fixed-width files, columnar formats, HDF5, and JSON. It also allows you to import data from common database management systems (DBMSs). A comprehensive list is [here](https://pandas.pydata.org/pandas-docs/stable/reference/io.html).
 
 #### 1. Reading and parsing files
-First, lets start up the container, and have a look at the first few lines of data file for IMDB titles.
+First, lets start up the container, and have a look at the first few lines of the data file for IMDB titles.
 
 ```bash
 root@27d54bf8c84b:/lab1# head data/titles.csv
@@ -232,15 +232,15 @@ Note that Pandas represents all strings as object types and automatically recogn
 
 
 #### 2. Filtering & Aggregation
-Now let's get to answering some simple questions! The obvious one is to get the average duration of the titles.
-We select the `runtime_minutes` column and compute the mean over it as follows.
+Now let's get to answering some simple questions! One obvious one is to get the average duration of the titles.
+We select the `runtime_minutes` column and compute the mean over it as follows:
 
 ```py
 >>> titles['runtime_minutes'].mean()
 39.21965306698209
 ```
 
-We can also aggregate over multiple columns simultaneously.  
+We can also aggregate over multiple columns simultaneously:
 
 ```py
 >>> titles[["premiered", "runtime_minutes"]].max()
@@ -249,7 +249,7 @@ runtime_minutes    43200.0
 dtype: float64
 ```
 
-Now let's find the length of the longest movies in each year. We'll first select the columns we want, then group rows by year, and compute the max over the groups
+Now let's find the length of the longest movies in each year. We'll first select the columns we want, then group rows by year, and compute the max over the groups:
 
 ```py
 >>> tmp = titles[["premiered", "runtime_minutes"]]
@@ -376,7 +376,7 @@ premiered
 
 #### 3. Joining
         
-You can start to do more interesting things when you "join" data from multiple data sources together. ``data/ratings.csv`` contains the ratings of each title.
+You can start to do more interesting things when you "join" data from multiple data sources together. The file ``data/ratings.csv`` contains the ratings of each title.
 
 In addition to doing aggregations like we did for the titles data, we can also filter on conditions. Let's say we wanted to list the movies with a rating > 9 having at least 100 votes.
 
@@ -482,7 +482,7 @@ There are a lot of things you can do with Pandas that we have not covered, inclu
 
 While Pandas is undoubtedly a useful tool and is great for exploring small datasets. There are a number of cases where it may not be the right tool for the task. 
 
-Pandas runs exclusively in memory. With even moderate sized data you may exceed available memory. Additionally, pandas materializes each intermediate result, so the memory consumption can easily reach several times your input data if you are not very careful. Materializing after each operation is also inefficient, even when data fits in memory. If you want to save results, you have to manage a set of output files. With small data sets like we show in this lab, this is not a problem, but as your datasets grow larger or more complex this becomes an increasingly difficult task.
+Pandas runs exclusively in memory. With even moderately sized data you may exceed available memory. Additionally, pandas materializes each intermediate result, so the memory consumption can easily reach several times your input data if you are not very careful. Materializing after each operation is also inefficient, even when data fits in memory. If you want to save results, you have to manage a set of output files. With small data sets like we show in this lab, this is not a problem, but as your datasets grow larger or more complex this becomes an increasingly difficult task.
 
 Furthermore, above we had to define all of the physical operations to transform the data. Choosing to or add or remove columns, the order to apply filters, etc.
 
@@ -598,7 +598,7 @@ premiered   MAX(runtime_minutes)
 2029        14
 ```
    
-and order by descending . Let's just get the first few rows by using ``LIMIT``;
+and order by descending. Let's just get the first few rows by using ``LIMIT``;
 
 ```sql
 SELECT 
@@ -650,9 +650,9 @@ tt10008922  9.4         1666
 We'll again join these ratings with their corresponding movies.
 
 #### 3. Joining
-To join two or more tables, we first list them in the `FROM` clause. We specify how to join in the `WHERE` clause clause. The `WHERE` clause may further contain additional filters for each individual tables.
+To join two or more tables, we first list them in the `FROM` clause. We specify how to join in the `WHERE` clause. The `WHERE` clause may further contain additional filters for each individual tables.
 
-Here is how to compute the join we computed using pandas.
+Here is how to compute in SQL the same join we computed using pandas:
 
 ```sql
 SELECT 
@@ -723,7 +723,7 @@ rating      votes       primary_title  premiered
 In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We then perform the join using these temporary tables. 
 
 #### 5. Window Functions
-Whereas groupby aggregations allow to aggregate partitions of the data, window functions allow to perform computations on each partition without aggregating the data.
+Whereas groupby aggregations let us aggregate partitions of the data, window functions allow us to perform computations on each partition without aggregating the data.
 
 For example, suppose that for every given year, we wanted to assign a rank to the set of excellent movies according to their ratings. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
 
@@ -783,7 +783,7 @@ In this query we first compute the table of excellent movies as a CTE to simplif
 
 As you can see from the results, the `year_rank` column is order within each year, and resets across different years.
 
-This captures the general idea behind functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
+This captures the general idea behind window functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
 
 
 #### 6. TODO: Recursive CTEs? I've only ever seen a CSV unroller.
@@ -815,7 +815,7 @@ For the rest of the lab we will ask you to answer a few questions about the FEC 
 
 For convenience, you can run queries one at a time using the ``python3 queries.py -q [query_num]`` command to run a single query (in both Pandas and SQL, whena applicable).
 
-In addition to your code, you will submit results of your code for each of the questions in a PDF. Put each answer on a new page.
+In addition to your code, you will submit the results of your code for each of the questions in a PDF. Put each answer on a new page.
 Detailed submission instructions are at the bottom of this document.
 
 ### Questions Ideas
