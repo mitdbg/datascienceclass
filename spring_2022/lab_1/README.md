@@ -723,7 +723,7 @@ rating      votes       primary_title  premiered
 In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We then perform the join using these temporary tables. 
 
 #### 5. Recursive CTEs.
-In addition to regular CTEs, you will need recursive CTEs to answer some of the questions in this lab. SQLite has an [excellent tutorial](https://www.sqlite.org/lang_with.html) about them. You should read up to and including section 3.2 of the tutoral. The topic is too complex for this introductory labs, but feel free to ask us questions during office hours.
+In addition to regular CTEs, you will need recursive CTEs to answer some of the questions in this lab. SQLite has an [excellent tutorial](https://www.sqlite.org/lang_with.html) about them. You should read up to and including section 3.2 of the tutoral. The topic is too complex for this introductory lab, but feel free to ask us questions during office hours.
 
 
 #### 6. Window Functions
