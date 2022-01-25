@@ -191,7 +191,7 @@ This lab will use both Pandas and SQL to explore IMDB data from 2015 onwards.
 One of the most popular tools for working with relatively small datasets (i.e. that fit in the main memory of a single machine) is a python library called Pandas. Pandas uses an abstraction called dataframes to manipulate tabular data. It natively supports reading data from a variety of common file formats including CSVs, fixed-width files, columnar formats, HDF5, and JSON. It also allows you to import data from common database management systems (DBMSs). A comprehensive list is [here](https://pandas.pydata.org/pandas-docs/stable/reference/io.html).
 
 #### 1. Reading and parsing files
-First, lets start up the container, and have a look at the first few lines of data file for IMDB titles.
+First, lets start up the container, and have a look at the first few lines of the data file for IMDB titles.
 
 ```bash
 root@27d54bf8c84b:/lab1# head data/titles.csv
@@ -232,15 +232,15 @@ Note that Pandas represents all strings as object types and automatically recogn
 
 
 #### 2. Filtering & Aggregation
-Now let's get to answering some simple questions! The obvious one is to get the average duration of the titles.
-We select the `runtime_minutes` column and compute the mean over it as follows.
+Now let's get to answering some simple questions! One obvious one is to get the average duration of the titles.
+We select the `runtime_minutes` column and compute the mean over it as follows:
 
 ```py
 >>> titles['runtime_minutes'].mean()
 39.21965306698209
 ```
 
-We can also aggregate over multiple columns simultaneously.  
+We can also aggregate over multiple columns simultaneously:
 
 ```py
 >>> titles[["premiered", "runtime_minutes"]].max()
@@ -249,7 +249,7 @@ runtime_minutes    43200.0
 dtype: float64
 ```
 
-Now let's find the length of the longest movies in each year. We'll first select the columns we want, then group rows by year, and compute the max over the groups
+Now let's find the length of the longest movies in each year. We'll first select the columns we want, then group rows by year, and compute the max over the groups:
 
 ```py
 >>> tmp = titles[["premiered", "runtime_minutes"]]
@@ -376,7 +376,7 @@ premiered
 
 #### 3. Joining
         
-You can start to do more interesting things when you "join" data from multiple data sources together. ``data/ratings.csv`` contains the ratings of each title.
+You can start to do more interesting things when you "join" data from multiple data sources together. The file ``data/ratings.csv`` contains the ratings of each title.
 
 In addition to doing aggregations like we did for the titles data, we can also filter on conditions. Let's say we wanted to list the movies with a rating > 9 having at least 100 votes.
 
@@ -482,7 +482,7 @@ There are a lot of things you can do with Pandas that we have not covered, inclu
 
 While Pandas is undoubtedly a useful tool and is great for exploring small datasets. There are a number of cases where it may not be the right tool for the task. 
 
-Pandas runs exclusively in memory. With even moderate sized data you may exceed available memory. Additionally, pandas materializes each intermediate result, so the memory consumption can easily reach several times your input data if you are not very careful. Materializing after each operation is also inefficient, even when data fits in memory. If you want to save results, you have to manage a set of output files. With small data sets like we show in this lab, this is not a problem, but as your datasets grow larger or more complex this becomes an increasingly difficult task.
+Pandas runs exclusively in memory. With even moderately sized data you may exceed available memory. Additionally, pandas materializes each intermediate result, so the memory consumption can easily reach several times your input data if you are not very careful. Materializing after each operation is also inefficient, even when data fits in memory. If you want to save results, you have to manage a set of output files. With small data sets like we show in this lab, this is not a problem, but as your datasets grow larger or more complex this becomes an increasingly difficult task.
 
 Furthermore, above we had to define all of the physical operations to transform the data. Choosing to or add or remove columns, the order to apply filters, etc.
 
@@ -598,7 +598,7 @@ premiered   MAX(runtime_minutes)
 2029        14
 ```
    
-and order by descending . Let's just get the first few rows by using ``LIMIT``;
+and order by descending. Let's just get the first few rows by using ``LIMIT``;
 
 ```sql
 SELECT 
@@ -650,9 +650,9 @@ tt10008922  9.4         1666
 We'll again join these ratings with their corresponding movies.
 
 #### 3. Joining
-To join two or more tables, we first list them in the `FROM` clause. We specify how to join in the `WHERE` clause clause. The `WHERE` clause may further contain additional filters for each individual tables.
+To join two or more tables, we first list them in the `FROM` clause. We specify how to join in the `WHERE` clause. The `WHERE` clause may further contain additional filters for each individual tables.
 
-Here is how to compute the join we computed using pandas.
+Here is how to compute in SQL the same join we computed using pandas:
 
 ```sql
 SELECT 
@@ -722,12 +722,12 @@ rating      votes       primary_title  premiered
 
 In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We then perform the join using these temporary tables. 
 
-#### 6. Recursive CTEs.
-In addition to CTEs, you will need recursive CTEs to answer some of the questions in this lab. SQLite has an [excellent tutorial](https://www.sqlite.org/lang_with.html) about them. The topic is too complex for this introductory labs, but feel free to ask us questions during office hours.
+#### 5. Recursive CTEs.
+In addition to regular CTEs, you will need recursive CTEs to answer some of the questions in this lab. SQLite has an [excellent tutorial](https://www.sqlite.org/lang_with.html) about them. You should read up to and including section 3.2 of the tutoral. The topic is too complex for this introductory labs, but feel free to ask us questions during office hours.
 
 
 #### 6. Window Functions
-Whereas groupby aggregations allow to aggregate partitions of the data, window functions allow to perform computations on each partition without aggregating the data.
+Whereas groupby aggregations let us aggregate partitions of the data, window functions allow us to perform computations on each partition without aggregating the data.
 
 For example, suppose that for every given year, we wanted to assign a rank to the set of excellent movies according to their ratings. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
 
@@ -787,7 +787,7 @@ In this query we first compute the table of excellent movies as a CTE to simplif
 
 As you can see from the results, the `year_rank` column is order within each year, and resets across different years.
 
-This captures the general idea behind functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
+This captures the general idea behind window functions: compute a result in accordance with a certain partitioning of the data. Many more things can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
 
 
 
@@ -813,23 +813,46 @@ with sql.connect("lab1.sqlite") as conn, open("scratch.sql") as in_query:
 
 ## Part 2: Questions
 
-You are allowed to work in pairs for this assignment.
+You are allowed to work in pairs for this assignment. In addition, you can lookup general SQL or Pandas functionalities on the internet, but not specific solutions to our questions.
 
-For the rest of the lab we will ask you to answer a few questions about the FEC dataset using pandas and writing SQL queries. You will edit ``queries.py`` and fill in each function with a query to answer the question. The Pandas functions (e.g. Q1Pandas) have a space to fill in your code. Fill in SQL queries in the ``queries`` directory. Do not make other edits to the repository or database, except when instructed.
+For the rest of the lab we will ask you to answer a few questions using pandas and writing SQL queries. You will edit ``queries.py`` and fill in each function with a query to answer the question. The Pandas functions (e.g. Q1Pandas) have a space to fill in your code. Fill in SQL queries in the ``queries`` directory. Do not make other edits to the repository or database, except when instructed.
 
-For convenience, you can run queries one at a time using the ``python3 queries.py -q [query_num]`` command to run a single query (in both Pandas and SQL, whena applicable).
+We recommend implementing the solutions in Pandas first, and then reformulate the imperative code into SQL.
 
-In addition to your code, you will submit results of your code for each of the questions in a PDF. Put each answer on a new page.
+For convenience, you can run queries one at a time using the ``python3 queries.py -q [query_num]`` command to run a single query (in both Pandas and SQL).
+
+In addition to your code, you will submit the results of your code for each of the questions in a PDF. Put each answer on a new page.
 Detailed submission instructions are at the bottom of this document.
 
-### Questions Ideas
-1. Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category ('actor' or 'actress') and the count. Order by category.
-2. Find the tv shows release in 2021, with an action genre, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
-3. Find the actors/actresses who played in the largest number of titles. Use the crew and people table. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name.
-4. Find the directors with at least 10 titles, that have the highest average rating on his titles. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by name.
-5. (Window function required) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top 3, return all of them. Return the name, number of above average movies, and the ranking. Sort by year, ranking and name to break ties. 
-6. (Recursive CTE required) Find the genres of movies with the highest average rating. Note that the text `action,thriller` should be treated as two genres (`action` and `thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating and genre to break ties. 
-7. (Recursive CTE required) Degrees of separation. Recursively compute the set of actors that contains:
+### Speeding up queries
+If you wish to speedup some of the queries at the expanse of additional space. Run the following SQL queries:
+```sql
+CREATE INDEX ix_people_name ON people (name);
+CREATE INDEX ix_titles_type ON titles (type);
+CREATE INDEX ix_titles_primary_title ON titles (primary_title);
+CREATE INDEX ix_titles_original_title ON titles (original_title);
+CREATE INDEX ix_akas_title_id ON akas (title_id);
+CREATE INDEX ix_akas_title ON akas (title);
+CREATE INDEX ix_crew_title_id ON crew (title_id);
+CREATE INDEX ix_crew_person_id ON crew (person_id);
+```
+
+### Questions
+#### Fairly Easy
+
+1. (Simple aggregation and ordering) Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category (`actor` or `actress`) and the count. Order by category.
+2. (Simple filtering and join) Find the action TV shows (`title.type=tvSeries`) released in 2021, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
+3. (Simple aggregation and join) Find the movie (`title.type=movie`) with the most amount of actors and actresses. If multiple movies qualify are tied, return the one with the alphabetically smallest primary title. Return the primary title, release year and number of actors.
+4. (Simple subquery/CTE) Find the movie with the most amount of actors and actresses. Unlike in question (3), you should return all such movies, ordered by primary title. Again, return the primary title, release year and number of actors.
+5. (Simple window function) Rank the movies, TV Shows released in 2021 with a rating >= 8 with at least 100 votes. Movies and TV shows should receive separate rankings. Order by type (`movie` or `tvSeries`), then rating, then name to break ties. Return the type, name, rating and rank.
+
+#### Fairly Challenging
+
+1. (Subqueries/CTEs) Find the actors/actresses who played in the largest number of titles. Use the crew and people table. The result set may contain one or many persons. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name.
+2. (Subqueries/CTEs) Find the directors with at least 10 titles, that have the highest average rating on his titles. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by name.
+3. (Window Functions) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top , return all of them. Return the name, number of above average movies, and the ranking. Sort by year, ranking and name to break ties. 
+4. (Recursive CTEs) Find the genres of movies with the highest average rating. Note that the text `action,thriller` should be treated as two genres (`action` and `thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating and genre to break ties. 
+5. (Recursive CTEs) Degrees of separation. Recursively compute the set of actors that contains:
         1. Samuel L. Jackson (person_id='nm0000168')
         2. Actors who played with Samuel L. Jackson, played with someone who played with him, and so on.
 
