@@ -722,7 +722,11 @@ rating      votes       primary_title  premiered
 
 In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We then perform the join using these temporary tables. 
 
-#### 5. Window Functions
+#### 6. Recursive CTEs.
+In addition to CTEs, you will need recursive CTEs to answer some of the questions in this lab. SQLite has an [excellent tutorial](https://www.sqlite.org/lang_with.html) about them. The topic is too complex for this introductory labs, but feel free to ask us questions during office hours.
+
+
+#### 6. Window Functions
 Whereas groupby aggregations allow to aggregate partitions of the data, window functions allow to perform computations on each partition without aggregating the data.
 
 For example, suppose that for every given year, we wanted to assign a rank to the set of excellent movies according to their ratings. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
@@ -786,7 +790,7 @@ As you can see from the results, the `year_rank` column is order within each yea
 This captures the general idea behind functions: compute a result in accordance with a certain partitioning of the data. Many more this can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
 
 
-#### 6. TODO: Recursive CTEs? I've only ever seen a CSV unroller.
+
 
 ### Pandas + SQL
 
@@ -819,12 +823,16 @@ In addition to your code, you will submit results of your code for each of the q
 Detailed submission instructions are at the bottom of this document.
 
 ### Questions Ideas
-1. Find the tv shows release in 2021, with an action genre, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
-2. Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category ('actor' or 'actress') and the count. Order by category.
+1. Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category ('actor' or 'actress') and the count. Order by category.
+2. Find the tv shows release in 2021, with an action genre, a rating >= 8 with at least 100 votes. Order by rating and name to break ties.
 3. Find the actors/actresses who played in the largest number of titles. Use the crew and people table. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name.
-4. Find the directors with at least 10 titles, that has the highest average rating on his titles. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by name.
-5. (Window function required) For each year, find the top 3 actors that appear in the biggest number of above average movies (with a rating >= 5). If multiple actors are tied in the top 3, return all of them. Return the name, number of above average movies, and the ranking. Sort by year, ranking and name to break ties. 
-6. (Recursive CTE required) Find the genres of movies with the highest average rating. Note that the text `action,thriller` should be treated as two genres (`action` and `thriller`). You may reuse the recursive CTE csv parser. Return the genre and the average rating. Sort by average rating and genre to break ties.
+4. Find the directors with at least 10 titles, that have the highest average rating on his titles. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by name.
+5. (Window function required) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top 3, return all of them. Return the name, number of above average movies, and the ranking. Sort by year, ranking and name to break ties. 
+6. (Recursive CTE required) Find the genres of movies with the highest average rating. Note that the text `action,thriller` should be treated as two genres (`action` and `thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating and genre to break ties. 
+7. (Recursive CTE required) Degrees of separation. Recursively compute the set of actors that contains:
+        1. Samuel L. Jackson (person_id='nm0000168')
+        2. Actors who played with Samuel L. Jackson, played with someone who played with him, and so on.
+
 
 ### TODO: Fill in questions and submission instructions.
 
