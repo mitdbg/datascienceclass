@@ -184,7 +184,7 @@ Before the lecture, start the lab1-container and follow along.
 
 This lab will use both Pandas and SQL to explore IMDB data from 2015 onwards.
 
-## Part 1. A brief walkthrough of tools (In class)
+## Part 1. A brief walkthrough of tools
 **To get started, run ``bash setup.sh`` in the container. This installs some missing dependencies and downloads data files.**
 
 ### Pandas
