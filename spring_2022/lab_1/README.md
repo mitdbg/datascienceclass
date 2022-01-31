@@ -884,6 +884,5 @@ For each of these questions, you get half the points for getting each implementa
         * Actors who played with Samuel L. Jackson in 2021, played with someone who played with him in 2021, and so on.
 Return the person_id, and the name ordered by name. This query should take no longer than 5 minutes to run (ours takes 2.5 minutes). Make sure you understand the difference between `UNION` and `UNION ALL` in recursive CTEs.
 
-### TODO: Fill in questions and submission instructions.
-
-
+### Submission Instruction
+We will release the autograder on Gradescope later. We will make a post an Piazza to inform you all.
