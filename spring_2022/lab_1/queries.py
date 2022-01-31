@@ -44,32 +44,7 @@ def Q6Pandas():
     """
     return None
 
-def Q7Pandas():
-    """
-    TODO: Write your Pandas query here, return a dataframe to answer the question
-    """
-    return None
-
-def Q8Pandas():
-    """
-    TODO: Write your Pandas query here, return a dataframe to answer the question
-    """
-    return None
-
-def Q9Pandas():
-    """
-    TODO: Write your Pandas query here, return a dataframe to answer the question
-    """
-    return None
-
-def Q10Pandas():
-    """
-    TODO: Write your Pandas query here, return a dataframe to answer the question
-    """
-    return None
-
-
-pandas_queries = [Q1Pandas, Q2Pandas, Q3Pandas, Q4Pandas, Q5Pandas, Q6Pandas, Q7Pandas, Q8Pandas, Q9Pandas, Q10Pandas]
+pandas_queries = [Q1Pandas, Q2Pandas, Q3Pandas, Q4Pandas, Q5Pandas, Q6Pandas]
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--query", "-q", help="Run a specific query", type=int)
@@ -80,7 +55,9 @@ if __name__ == "__main__":
         queries = [args.query]
     for query in queries:
         print("\nQuery {}".format(query))
-        print("\nPandas Output")
-        print(pandas_queries[query-1]())
+        if query <= 6:
+            print("\nPandas Output")
+            print(pandas_queries[query-1]())
         print("\nSQLite Output")
-        print(runSQL(query))
+        df = runSQL(query)
+        print(df)

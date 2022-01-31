@@ -352,9 +352,10 @@ premiered
 We can also compute multiple aggregations simultaneously. Suppose we wanted to compute the maximum duration and the number of distinct title genre in each year.
 
 ```py
->>> titles[['premiered', 'runtime_minutes', 'genres']].groupby('premiered').agg({'runtime_minutes': ['max'], 'genres': ['nunique']})
-        runtime_minutes  genres
-                max nunique
+>>> df = titles[['premiered', 'runtime_minutes', 'genres']].groupby('premiered').agg({'runtime_minutes': ['max'], 'genres': ['nunique']})
+>>> df
+          runtime_minutes  genres
+                      max nunique
 premiered
 2015               6000.0    1321
 2016               2070.0    1291
@@ -372,7 +373,30 @@ premiered
 2028                  NaN       3
 2029                 14.0       1
 ```
-    
+
+After aggregation, the columns of the dataframe are in a different format: group by columns are now treated as indices and aggregate columns have a subcolumn for each aggregate. This makes them more difficult to manipulate. In this lab, the autograder expects you to restore the default format of dataframes, as follows:
+
+```py
+>>> df.columns = ['max_runtime_minutes', 'unique_genres']
+>>> df = df.reset_index()
+>>> df
+    premiered  max_runtime_minutes  unique_genres
+0        2015               6000.0           1321
+1        2016               2070.0           1291
+2        2017               5760.0           1281
+3        2018               7777.0           1268
+4        2019              28643.0           1239
+5        2020              43200.0           1166
+6        2021               6000.0           1127
+7        2022                400.0            678
+8        2023                240.0            232
+9        2024                360.0             83
+10       2025                125.0             30
+11       2026                360.0             12
+12       2027                360.0             12
+13       2028                  NaN              3
+14       2029                 14.0              1
+```
 
 #### 3. Joining
         
@@ -837,25 +861,28 @@ CREATE INDEX ix_crew_title_id ON crew (title_id);
 CREATE INDEX ix_crew_person_id ON crew (person_id);
 ```
 
+### Output Format
+For each question, we will specify both the order of the output columns and the order of the output rows. These must be strictly respected for the autograder to work. For Pandas, you must use `dataframe.reset_index()` before outputting the dataframe as we showed in the tutorial. It does not matter how you name the columns as long as they are in the correct order.
+
 ### Questions
 #### SQL and Pandas
 For each of these questions, you get half the points for getting each implementation correctly. For full credit, both implementations should be correct.
 
-1. (Simple aggregation and ordering, 5 pts) Compute the number of distinct actors and actresses in the dataset. Use the crew table. Return the category (`actor` or `actress`) and the count. Order by category (asceding).
+1. (Simple aggregation and ordering, 5 pts) Using the crew table, compute the number of distinct actors and actresses. Return the category (`actor` or `actress`) and the count. Order by category (asceding).
 2. (Simple filtering and join, 5 pts) Find the action TV shows (`titles.type=tvSeries` and `titles.genres` contains `Action`) released in 2021, a rating >= 8 with at least 100 votes. Return title_id, name, and rating. Order by rating (descending), name (asceding) to break ties.
 3. (Simple aggregation and join, 10 pts) Find the movie (`titles.type=movie`) with the most amount of actors and actresses. If multiple movies qualify are tied, return the one with the alphabetically smallest name. Return the title_id, primary title, and number of actors.
-4. (Simple subquery/CTE, 10 pts) Find the movie with the most amount of actors and actresses. Unlike in question (3), you should return all such movies. Again, return the primary title and number of actors. Order by name (ascending).
-5. (Subqueries/CTEs, 10 pts) Find the actors/actresses who played in the largest number of movies. Use the crew and people table. The result set may contain one or many persons. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name (ascending).
-6. (Subqueries/CTEs, 15 pts) Find the actors/actresses with at least 5 movies, that have the highest average ratings on their movies. Return the name, the number of titles, the average rating and the total number of votes for these ratings. Order the result by average rating (descending), name (ascending).
+4. (Simple subquery/CTE, 10 pts) Find the movie with the most amount of actors and actresses. Unlike in question (3), you should return all such movies. Again, return the title_id, primary title and number of actors. Order by name (ascending).
+5. (Subqueries/CTEs, 10 pts) Find the actors/actresses who played in the largest number of movies. The result set may contain one or many persons. Return the category ('actor' or 'actress'), the name, and the number of appearances. Order the result by name (ascending) if there are multiple people. Use the `people` table to get the name of actors.
+6. (Subqueries/CTEs, 15 pts) Find the actors/actresses with at least 5 movies that have the highest average ratings on their movies. Return the name, the number of titles, the average rating. Order the result by average rating (descending), name (ascending).
 
 #### SQL Only
-1. (SQL Only: Simple window function, 5 pts) Rank the movies, TV Shows released in 2021 with a rating >= 8 with at least 100 votes. Movies and TV shows should receive separate rankings. Order by type (`movie` or `tvSeries`, ascending), then rating (descending), then name (ascending) to break ties. Return the type, name, rating and rank.
-2. (SQL Only: Window Functions, 10 pts) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top , return all of them. Return the name, number of above average movies, and the ranking. Sort by year (ascending), ranking (ascending) and name (ascending) to break ties. 
-3. (SQL Only: Recursive CTEs, 10 pts) Find the genres of movies with the highest average rating. Note that the text `Action,Thriller` should be treated as two genres (`Action` and `Thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating (descending) and genre (ascending) to break ties. 
-4. (SQL Only: Recursive CTEs, 15 pts) Degrees of separation. Recursively compute the set of actors that contains:
-        1. Samuel L. Jackson (person_id='nm0000168')
-        2. Actors who played with Samuel L. Jackson, played with someone who played with him, and so on.
-
+7. (SQL Only: Simple window function, 5 pts) Rank the movies, TV Shows released in 2021 with a rating >= 8 with at least 100 votes. Movies and TV shows should receive separate rankings. Order by type (`movie` or `tvSeries`, ascending), then rating (descending), then name (ascending) to break ties. Return the type, name, rating and rank.
+8. (SQL Only: Window Functions, 10 pts) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top , return all of them. Return the year, the name, number of above average movies, and the ranking. Sort by year (ascending), ranking (ascending) and name (ascending) to break ties. 
+9. (SQL Only: Recursive CTEs, 10 pts) Find the genres of movies with the highest average rating. Note that the text `Action,Thriller` should be treated as two genres (`Action` and `Thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating (descending) and genre (ascending) to break ties. Be sure to filter out the null genre (`genres='\N'`).
+10. (SQL Only: Recursive CTEs, 10 pts) Degrees of separation. Recursively compute the set of actors that contains:
+        * Samuel L. Jackson (person_id='nm0000168')
+        * Actors who played with Samuel L. Jackson in 2021, played with someone who played with him in 2021, and so on.
+Return the person_id, and the name ordered by name. This query should take no longer than 5 minutes to run (ours takes 2.5 minutes). Make sure you understand the difference between `UNION` and `UNION ALL` in recursive CTEs.
 
 ### TODO: Fill in questions and submission instructions.
 

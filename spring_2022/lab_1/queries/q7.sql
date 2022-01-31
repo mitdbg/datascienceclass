@@ -1,2 +1,2 @@
--- Write you query here.
+-- Write your query here.
 SELECT 1;
