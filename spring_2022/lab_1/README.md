@@ -497,9 +497,6 @@ Now let's find the top 10 of these movies with the highest rating.
 49   tt13181612                   Tari Sathe     9.9    446
 ```
 
-
-### TODO: Add some plots?
-
 There are a lot of things you can do with Pandas that we have not covered, including different kinds of aggregation, plots, joins, input and output formats, etc. You are encouraged to use online resources to explore this for yourself when completing the take-home part of this lab.
 
 ### SQL
