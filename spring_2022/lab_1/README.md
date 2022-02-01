@@ -17,7 +17,7 @@ Docker provides tutorials for installation on [OS X](https://docs.docker.com/v17
 Some OS X users may prefer installing Docker via [homebrew](https://brew.sh/), in which case the following commands suffice:
 
 ```bash
-$ brew cask install docker       # Install Docker
+$ brew install --cask docker     # Install Docker
 $ open /Applications/Docker.app  # Start Docker
 ```
 
@@ -77,7 +77,7 @@ $ git clone git@github.com:mitdbg/datascienceclass.git       # ssh
 2. Navigate to the lab_1 directory:
 
 ```
-$ cd datascienceclass/lab_1/
+$ cd datascienceclass/spring_2022/lab_1/
 ```
 
 3. Build the docker image we'll use for the course :
