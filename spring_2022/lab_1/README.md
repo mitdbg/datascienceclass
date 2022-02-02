@@ -882,4 +882,16 @@ For each of these questions, you get half the points for getting each implementa
 Return the person_id, and the name ordered by name. This query should take no longer than 5 minutes to run (ours takes 2.5 minutes). Make sure you understand the difference between `UNION` and `UNION ALL` in recursive CTEs.
 
 ### Submission Instruction
-We will release the autograder on Gradescope later. We will make a post an Piazza to inform you all.
+Make sure you are registered on Gradescope for this class. The course ID is `ZRE8VN`.
+
+To submit responses:
+```sh
+# Generate response for a query in the submission/ folder.
+# Do this for every query once implemented.
+python queries.py -q [query_num] -s
+# Zip the submission folder
+cd submission
+zip submission.zip *.csv
+```
+
+Submit the generated `submission.zip` file to Gradescope.
