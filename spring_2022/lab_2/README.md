@@ -2,19 +2,13 @@ Table of Contents
 =================
 - [Lab 2](#lab-2)
 - [Setup](#setup)
-- [Part 1: Wrangler](#part-1-wrangler)
-  * [Tasks:](#tasks)
-    + [synsets.txt](#synsetstxt)
-      - [Questions](#questions)
-    + [worldcup-semiclean.txt](#worldcup-semicleantxt)
-      - [Questions](#questions-1)
-- [Part 2: Unix Tools](#part-2-unix-tools)
+- [Part 1: Unix Tools](#part-1-unix-tools)
   * [grep](#grep)
   * [sed](#sed)
   * [awk](#awk)
   * [Examples](#examples)
-  * [Tasks:](#tasks-1)
-      - [Questions](#questions-2)
+  * [Tasks](#tasks)
+- [Part 2: Missing value imputation](#part-2-missing-value-imputation)
 - [Part 3: Choose your own adventure](#part-3-choose-your-own-adventure)
   * [Datasets](#datasets)
     + [wmbr.txt](#wmbrtxt)
@@ -44,24 +38,19 @@ $ cd /path/to/datascienceclass
 $ git pull
 
 # Change to lab 2's working directory.
-$ cd lab_2/
+$ cd spring_2022/lab_2/
 ```
 
 **NOTE:** The commands above only pull the latest changes from this repo onto the local clone you have of it.  If you're using a "private fork" setup, and are trying to sync it with with the latest changes from this repo, then please refer to [this post](https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private) on specifics of how to do that.
 
 Startup your docker instance, and enter `lab 2`'s working directory.  We'll use the same base image as in lab1 to create a new container for this lab:
 ```bash
-# We specify the same "6.s080:lab1" base image, mount /lab2
+# We specify the same "6.s079:lab1" base image, mount /lab2
 # from current dir (-v) set it as working directory (-w).
 $ docker run -v "`pwd`":/lab2 -ti \
   -w"/lab2" \
   --name lab2-container \
-  6.s080:lab1
-
-# Install onto the image the additional requirements for
-# this lab. Wrangler scripts don't support python3, so we
-# need to install python v2:
-$ apt update && apt install -y python python-pip
+  6.s079:lab1
 ```
 
 If you accidentally exit your container (*e.g.,* by using **ctrl+d**), you can come back to it by running:
@@ -76,82 +65,9 @@ The `lab2` directory contains a number of datasets under data directory. **For p
 ID,<synonyms separated by spaces>,<different meanings separated by semicolons>
 ```
 
-2. `worldcup-semiclean.txt`: A dataset with a snippet of the following Wikipedia webpage on [FIFA (Soccer) World Cup](http://en.wikipedia.org/wiki/FIFA_World_Cup). Specifically it is a partially cleaned-up wiki source for the table toward the end of the page that lists teams finishing in the top 4. 
+2. `worldcup-semiclean.txt`: A dataset with a snippet of the following Wikipedia webpage on [FIFA (Soccer) World Cup](https://en.wikipedia.org/wiki/FIFA_World_Cup#Teams_reaching_the_top_four). Specifically it is a partially cleaned-up wiki source for the table toward the end of the page that lists teams finishing in the top 4. 
 
-
-# Part 1: Wrangler
-
-Go to the [Data Wrangler website](http://vis.stanford.edu/wrangler/app/).  Load both of the datasets (we recommend cutting out a small subset -- 100~ lines) into Data Wrangler and try playing with the tool.
-
-
-Some tips using Wrangler:
-
-* Wrangler responds to mouse highlights and clicks on the displayed table cells by suggesting operations on the left sidebar. 
-* Hovering over each element shows the result in the table view.  
-* Clicking adds the operation.  
-* Clear the sidebar by clicking the colored row above the schema row
-
-The [Lecture 4 readings](http://dsg.csail.mit.edu/6.S080/sched.php) on Wrangler are also useful, especially the [video demo](http://vimeo.com/19185801). **Note:** the location of the delete transform has changed since the video was recorded. It is now located at the top menu bar, instead of under the "rows" dropdown menu in the transform editor (shown in the video).
-
-## Tasks:
-
-Use Data Wrangler for the following two datasets.  
-
-### synsets.txt
-
-Generate a list of word-meaning pairs. The output should look like:
-
-```
-'hood,(slang) a neighborhood
-1530s,the decade from 1530 to 1539
-...
-angstrom,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-angstrom, used to specify wavelengths of electromagnetic radiation
-angstrom_unit,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-angstrom_unit, used to specify wavelengths of electromagnetic radiation
-...
-```
-
-The `synsets.txt` file is too large to load into the Wrangler GUI, so you need to *use the GUI to wrangle a subset of the data, then run a command line script on the complete data set.*
-
-**note**: `lab_2/wrangler` contains a modified python wrangler module, which you should use for this lab.  This means that the python scripts that you export when using Data Wrangler should be run in the `lab_2/` folder.
-
-#### Questions
-
-**Q1:** Export the Python version of the wrangler script and save it to a file called `wrangler-synsets.py` in the same github repo you created for [`lab1`](../lab1) (5 pts).
-
-**Q2:** Use the script to clean the data (with *e.g.,* `python wrangler-synsets.py data/synsets.txt synsets-clean.txt`), then determine how many unique *words* (this is the first column in `synsets-clean.txt`) there are in the dataset. As mentioned in [Handing in your work](#handing-in-your-work), please paste in your answer for this question the script you wrote to count the number of words. (5 pts).
-
-### worldcup-semiclean.txt
-
-Use Wrangler to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4).
-
-```
-BRA, 1962, 1
-BRA, 1970, 1
-BRA, 1994, 1
-BRA, 2002, 1
-BRA, 1958, 1
-BRA, 1998, 2
-BRA, 1950, 2
-...
-```
-
-It may help to:
-
-1. Remove one or more transformations that Wrangler applies by default once it loads your data.
-2. Modify default transform options (**hint:** for Split transforms, take a look at split "once" vs split "repeatedly").
-3. Use the wrap operation, which creates a new row at the specified token (**hint:** are there any tokens in `worldcup-semiclean.txt` that you can use to indicate a new row?).
-4. Use the fold operation (**hint:** it is possible to use the *column header* value as key for a fold transform).
-
-**NOTE:** Unlike in the cleaning task for `synsets.txt`, we *do not* require that you export the script Wrangler generates for your cleaning of `worldcup-semiclean.txt`. This dataset is small (less than 200 lines), can be pasted entirely onto Wrangler, and you should use the CSV data export option for this question.
-
-#### Questions
-
-**Q3:** According to the dataset, how often has each country won the world cup? Describe the set of transforms you applied to clean the dataset, and include any code you wrote to count the number of times each country won. (10 pts)
-
-
-# Part 2: Unix Tools
+# Part 1: Unix Tools
 
 The set of three `UNIX` tools we saw in class, `sed`, `awk`, and `grep`, can be very useful for quickly cleaning up and transforming data for further analysis (and have been around since the inception of UNIX). 
 
@@ -317,6 +233,8 @@ No need to re-answer the questions in the Wrangler section, but recompute them t
 **Q4:** Submit the scripts you wrote to perform the cleaning tasks as part of your answer for this question in Gradescope. In particular, prefix each script section with a line or two describing what they do. (10 pts)
 
 **Q5:** From your experience, briefly discuss the pro and cons between using Data Wrangler as compared to lower levels tools like sed/awk? (5 pts)
+
+# Part 2: Missing value imputation
 
 # Part 3: Choose your own adventure
 
