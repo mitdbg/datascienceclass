@@ -25,10 +25,10 @@ Table of Contents
     + [Feedback (optional, but valuable)](#feedback-optional-but-valuable)
 
 # Lab 2
-*Assigned: Wednesday, September 18th.*
-*Due: Wednesday, September 25th, 11:59 PM ET.*
+*Assigned: Wednesday, February 16th.*
+*Due: Monday, February 28th, 11:59 PM ET.*
 
-In this lab, you will use various types of tools -- from command line tools like `sed` and `awk` to high-level tools like Data Wrangler -- to perform data wrangling and integration tasks from data encoded into a text file.  The goal of this lab is simply to gain experience with these tools and compare and contrast their usage.
+In this lab, you will use various types of tools -- from command line tools like `sed` and `awk` to high-level tools like Data Wrangler -- to perform data cleaning and transformation tasks from data encoded into a text file.  The goal of this lab is simply to gain experience with these tools and compare and contrast their usage.
 
 
 # Setup
@@ -379,7 +379,7 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 # Handing in your work
 
-*This lab is due at 11:59pm Wednesday September 25th, 2019.*
+*This lab is due at 11:59pm on Monday February 28th, 2022.*
 
 Almost exactly the same submission format as in [lab_1](../lab_1). That is, you will submit your PDF with answers to [Gradescope](https://www.gradescope.com/courses/61617/assignments) and your code to the **same private github repo**. The only changes for this lab are:
 *  save your `students.txt` and Wrangler scripts as separate files under a `lab_2` directory; paste your other scripts (*e.g.,* those using Unix tools, pandas, or SQL queries) inline with your PDF answers.  For this lab, with the exception of exported Wrangler scripts (which are rather long), all other scripts should be submitted as part of your answers in Gradescope.  We expect most of your script answers to be relatively short.  If your "non-Wrangler" scripts end up being too long (e.g., more than 200 lines), then note that in your Gradescope answer, adding a link to the corresponding file in your repo.
