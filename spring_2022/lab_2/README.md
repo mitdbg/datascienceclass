@@ -67,7 +67,7 @@ ID,<synonyms separated by spaces>,<different meanings separated by semicolons>
 
 2. `worldcup-semiclean.txt`: A dataset with a snippet of the following Wikipedia webpage on [FIFA (Soccer) World Cup](https://en.wikipedia.org/wiki/FIFA_World_Cup#Teams_reaching_the_top_four). Specifically it is a partially cleaned-up wiki source for the table toward the end of the page that lists teams finishing in the top 4. 
 
-# Part 1: Unix Tools
+# Part 1: Unix Tools (30 points)
 
 The set of three `UNIX` tools we saw in class, `sed`, `awk`, and `grep`, can be very useful for quickly cleaning up and transforming data for further analysis (and have been around since the inception of UNIX). 
 
@@ -129,15 +129,17 @@ $ cat data/worldcup.txt \
   | sed \
     's/\[\[\([0-9]*\)[^]]*\]\]/\1/g;
     s/.*fb|\([A-Za-z]*\)}}/\1/g; 
+    s/data-sort[^|]*//g;
     s/<sup><\/sup>//g;
-    s/ <br\/>//g;
-    s/|bgcolor[^|]*//g;
+    s/<br \/>//g;
+    s/|style=[^|]*//g;
     s/|align=center[^|]*//g;
-    s/|[0-9] /|/g;
+    s/|[ ]*[0-9] /|/g;
     s/.*div.*//g;
     s/| .*/|0/g;
     s|[()]||g;
     s/ //g;
+    s/|[a-z]*{{N\/a\|}}//g;
     /^$/d;' > data/worldcup-semiclean.txt
 ```
 
@@ -219,20 +221,51 @@ $ cat data/crime-unclean.txt \
 
 We provided the last example to show how powerful `awk` can be. However if you need to write a long command like this, you may be better off using a proper scripting language, such as `python`!
 
+## Questions
 
-## Tasks:
+*Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).*
 
-Perform the above cleaning tasks over `synsets.txt` and `worldcup-semiclean.txt`, only this time using Unix tools. Hints:
+**Q1:** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
 
-1. Use `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).
+```
+'hood,(slang) a neighborhood
+1530s,the decade from 1530 to 1539
+...
+angstrom,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
+angstrom, used to specify wavelengths of electromagnetic radiation
+angstrom_unit,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
+angstrom_unit, used to specify wavelengths of electromagnetic radiation
+...
+```
 
-No need to re-answer the questions in the Wrangler section, but recompute them to ensure your answers are consistent.
+Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (10 pts)
 
-#### Questions
+**Q2:** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (5 pts)
 
-**Q4:** Submit the scripts you wrote to perform the cleaning tasks as part of your answer for this question in Gradescope. In particular, prefix each script section with a line or two describing what they do. (10 pts)
+**Q3:** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
 
-**Q5:** From your experience, briefly discuss the pro and cons between using Data Wrangler as compared to lower levels tools like sed/awk? (5 pts)
+```
+BRA,1958,1
+BRA,1962,1
+BRA,1970,1
+BRA,1994,1
+BRA,2002,1
+BRA,1950,2
+BRA,1998,2
+...
+```
+
+Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (10 pts)
+
+**Q4:** According to the dataset, how often has each country won the world cup? Write a script to compute this, by generating output as follows:
+
+```
+BRA,5
+GER,4
+...
+```
+
+Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (5 pts)
 
 # Part 2: Missing value imputation
 
