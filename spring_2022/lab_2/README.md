@@ -320,15 +320,15 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 ## Part 3 Questions
 
-**Q7 (5 pts):** Which artists have either played or recorded live at WMBR? Place your answer in a `.txt` file with one artist per line, sorted by artist name, in ascending order. 
+**Q8 (5 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q8.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. 
 
-**Q8 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. 
+**Q9 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, together with the number of tracks each of them played. Submit your answer as `q9.csv`, with one record per line (each record should have two columns - the name of the DJ and the number of tracks), sorted by number of tracks played, in descending order. Break ties among DJs using their names, in ascending order.
 
-**Q9 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), and show your answer sorted by year in descending order. 
+**Q10 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to the overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019? Submit your answer as `q10.csv`, with one record per line (each record should have two columns - the year and the ratio), sorted by year in descending order. Make sure to include all 3 years (even if the ratio is 0).
 
-**Q10 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Show your answer sorted first by number of times played in descending order, and second by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
+**Q11 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q11.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
-**Q11 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. 
+**Q12 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the artist name and the song title).
 
 [*Back to top*](#table-of-contents)
 
