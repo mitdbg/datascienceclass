@@ -9,11 +9,13 @@ Table of Contents
   * [Examples](#examples)
   * [Part 1 Questions](#part-1-questions)
 - [Part 2: Missing value imputation (30 points)](#part-2-missing-value-imputation-30-points)
-- [Part 3: Putting it all together (40 points)](#part-3-putting-it-all-together-40-points)
+  * [Importing the data](#importing-the-data)
+  * [Part 2 Questions](#part-2-questions)
+- [Part 3: Working across formats (40 points)](#part-3-working-across-formats-40-points)
   * [Datasets](#datasets)
-    + [wmbr.txt](#wmbrtxt)
-    + [lizzo_appearances.json](#lizzo-appearancesjson)
-    + [top2018.csv](#top2018csv)
+    + [Dataset 1: wmbr.txt](#dataset-1-wmbrtxt)
+    + [Dataset 2: lizzo_appearances.json](#dataset-2-lizzoappearancesjson)
+    + [Dataset 3: top2018.csv](#dataset-3-top2018csv)
   * [Part 3 Questions](#part-3-questions)
 - [Handing in your work](#handing-in-your-work)
 
@@ -21,7 +23,12 @@ Table of Contents
 *Assigned: Wednesday, February 16th.*
 *Due: Monday, February 28th, 11:59 PM ET.*
 
-In this lab, you will use various types of tools -- from command line tools like `sed` and `awk` to high-level tools like Data Wrangler -- to perform data cleaning and transformation tasks from data encoded into a text file.  The goal of this lab is simply to gain experience with these tools and compare and contrast their usage.
+In this lab, you will deal with the all-too-frequent problem of bringing your data into a format that makes analysis possible. The 3 parts of the lab will take you through several  tasks commonly involved in this process:
+- In part 1, you will use the command line tools `sed` and `awk` to efficiently clean and transform data originating in inconvenient formats.
+- In part 2, you will deal with the issue of missing values, examining appropriate ways to impute them based on your intended analysis.
+- In part 3, you will perform analysis tasks that involve datasets in 3 different formats: a simple text file, a JSON file and a CSV file.
+
+Let's get started!
 
 [*Back to top*](#table-of-contents)
 
@@ -271,9 +278,15 @@ Submit your script to Gradescope. Make sure you accompany each script section wi
 
 # Part 2: Missing value imputation (30 points)
 
+In this part we will examine the impact of different data imputation approaches on the results of an analysis. We will work with a dataset resulting from a survey of [salaries](https://data.world/brandon-telle/2016-hacker-news-salary-survey-results), which can be found at `data/salaries.csv`. As is often the case when using user survey data, this dataset contains many missing values, which we must decide how to handle.
+
+## Importing the data
+
+## Part 2 Questions
+
 [*Back to top*](#table-of-contents)
 
-# Part 3: Putting it all together (40 points)
+# Part 3: Working across formats (40 points)
 
 In this part you will look at music data in different formats (CSV, JSON, and text) and answer questions on the data.  You will have to use one or more of the data wrangling tools we covered above to clean your data, as well as any of the tools we covered in lab1 (*i.e.,* SQL and Pandas) to perform queries over the clean data.
 
@@ -281,7 +294,7 @@ You may find that using a common format (*e.g.,* CSV or JSON) for the cleaned da
 
 ## Datasets
 
-### wmbr.txt
+### Dataset 1: `wmbr.txt`
 A text file containing days when songs were played at [WMBR, MIT's student radio](https://wmbr.org/), for a subset of DJs and Artists.  Sample snippet:
 
 ```
@@ -304,7 +317,7 @@ DJ:Claire Traweek
 
 **Note:** All fields are present for every song, but some of them might be empty. Some artist names contain typos (*e.g.,* "Billie Ellish" and "Billie Eilish" both occur), some songs may be repeated, and artists may collaborate (*e.g.,* "Dua Lipa" or  "Cardi B" both have songs in collaboration with other artists).  It is your job to make sure that your data cleaning scripts can correctly handle these cases.  Hint: [`pandas.unique()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.unique.html) or the `uniq` Unix tool may come in handy.
 
-### lizzo_appearances.json
+### Dataset 2: `lizzo_appearances.json`
 
 A JSON file scraped from Wikipedia containing a list of appearances of the artist [Lizzo](https://en.wikipedia.org/wiki/Lizzo) at different events.  Sample snippet:
 
@@ -314,7 +327,7 @@ A JSON file scraped from Wikipedia containing a list of appearances of the artis
 
 **Note:** Entries in the JSON file are not separated by a new line.  Special characters (*e.g.,* accents, backslashes) may be present. It is your job to make sure that your data cleaning scripts can correctly handle these cases. 
 
-### top2018.csv
+### Dataset 3: `top2018.csv`
 
 A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018) with attributes such as "danceability", "loudness", "time_signature", etc.
 
