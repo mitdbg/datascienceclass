@@ -2,21 +2,20 @@ Table of Contents
 =================
 - [Lab 2](#lab-2)
 - [Setup](#setup)
-- [Part 1: Unix Tools](#part-1-unix-tools)
-  * [grep](#grep)
-  * [sed](#sed)
-  * [awk](#awk)
+- [Part 1: Unix tools (30 points)](#part-1-unix-tools-30-points)
+  * [Tool 1: grep](#tool-1-grep)
+  * [Tool 2: sed](#tool-2-sed)
+  * [Tool 3: awk](#tool-3-awk)
   * [Examples](#examples)
-  * [Tasks](#tasks)
-- [Part 2: Missing value imputation](#part-2-missing-value-imputation)
-- [Part 3: Choose your own adventure](#part-3-choose-your-own-adventure)
+  * [Part 1 Questions](#part-1-questions)
+- [Part 2: Missing value imputation (30 points)](#part-2-missing-value-imputation-30-points)
+- [Part 3: Putting it all together (40 points)](#part-3-putting-it-all-together-40-points)
   * [Datasets](#datasets)
     + [wmbr.txt](#wmbrtxt)
     + [lizzo_appearances.json](#lizzo-appearancesjson)
     + [top2018.csv](#top2018csv)
-  * [Questions](#questions-3)
+  * [Part 3 Questions](#part-3-questions)
 - [Handing in your work](#handing-in-your-work)
-    + [Feedback (optional, but valuable)](#feedback-optional-but-valuable)
 
 # Lab 2
 *Assigned: Wednesday, February 16th.*
@@ -24,6 +23,7 @@ Table of Contents
 
 In this lab, you will use various types of tools -- from command line tools like `sed` and `awk` to high-level tools like Data Wrangler -- to perform data cleaning and transformation tasks from data encoded into a text file.  The goal of this lab is simply to gain experience with these tools and compare and contrast their usage.
 
+[*Back to top*](#table-of-contents)
 
 # Setup
 
@@ -67,7 +67,9 @@ ID,<synonyms separated by spaces>,<different meanings separated by semicolons>
 
 2. `worldcup-semiclean.txt`: A dataset with a snippet of the following Wikipedia webpage on [FIFA (Soccer) World Cup](https://en.wikipedia.org/wiki/FIFA_World_Cup#Teams_reaching_the_top_four). Specifically it is a partially cleaned-up wiki source for the table toward the end of the page that lists teams finishing in the top 4. 
 
-# Part 1: Unix Tools (30 points)
+[*Back to top*](#table-of-contents)
+
+# Part 1: Unix tools (30 points)
 
 The set of three `UNIX` tools we saw in class, `sed`, `awk`, and `grep`, can be very useful for quickly cleaning up and transforming data for further analysis (and have been around since the inception of UNIX). 
 
@@ -101,7 +103,7 @@ $ zgrep "created\_at" data/twitter.json.gz \
 
 To get into some details:
 
-## grep
+## Tool 1: `grep`
 
 The basic syntax for `grep` is: 
 ```bash
@@ -114,7 +116,7 @@ $ cat filename | grep 'regexp'
 
 The output contains only those lines from the file that match the regular expression. Two options to grep are useful: `grep -v` will output those lines that *do not* match the regular expression, and `grep -i` will ignore case while matching. See the manual (`man grep`), [Lecture 4 readings](http://dsg.csail.mit.edu/6.S080/sched.php), or online resources for more details.
 
-## sed
+## Tool 2: `sed`
 Sed stands for _stream editor_. Basic syntax for `sed` is:
 ```bash
 $ sed 's/regexp/replacement/g' filename
@@ -143,7 +145,7 @@ $ cat data/worldcup.txt \
     /^$/d;' > data/worldcup-semiclean.txt
 ```
 
-## awk 
+## Tool 3: `awk` 
 
 Finally, `awk` is a powerful scripting language. The basic syntax of `awk` is: 
 ```bash
@@ -155,8 +157,6 @@ $ awk -F',' \
 ```
 
 For each line, the regular expressions are matched in order, and if there is a match, the corresponding command is executed (multiple commands may be executed for the same line). `BEGIN` and `END` are both optional. The `-F','` specifies that the lines should be _split_ into fields using the separator `','` (single comma), and those fields are available to the regular expressions and the commands as `$1`, `$2`, etc.  See the manual (`man awk`), [Lecture 4 readings](http://dsg.csail.mit.edu/6.S080/sched.php), or online resources for further details. 
-
-
 
 ## Examples 
 
@@ -221,11 +221,11 @@ $ cat data/crime-unclean.txt \
 
 We provided the last example to show how powerful `awk` can be. However if you need to write a long command like this, you may be better off using a proper scripting language, such as `python`!
 
-## Questions
+## Part 1 Questions
 
 *Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).*
 
-**Q1:** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
+**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
 
 ```
 'hood,(slang) a neighborhood
@@ -238,11 +238,11 @@ angstrom_unit, used to specify wavelengths of electromagnetic radiation
 ...
 ```
 
-Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (10 pts)
+Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
 
-**Q2:** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (5 pts)
+**Q2 (5 pts):** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
 
-**Q3:** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
+**Q3 (10 pts):** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
 
 ```
 BRA,1958,1
@@ -255,9 +255,9 @@ BRA,1998,2
 ...
 ```
 
-Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (10 pts)
+Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
 
-**Q4:** According to the dataset, how often has each country won the world cup? Write a script to compute this, by generating output as follows:
+**Q4 (5 pts):** According to the dataset, how often has each country won the world cup? Write a script to compute this, by generating output as follows:
 
 ```
 BRA,5
@@ -265,13 +265,17 @@ GER,4
 ...
 ```
 
-Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. (5 pts)
+Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
 
-# Part 2: Missing value imputation
+[*Back to top*](#table-of-contents)
 
-# Part 3: Choose your own adventure
+# Part 2: Missing value imputation (30 points)
 
-In this part you will look at music data in different formats (CSV, JSON, and text) and answer questions on the data.  You will have to use one or more of the data wrangling approaches we covered above (*i.e.,* Unix tools and Wrangler) to clean your data, as well as any of the tools we covered in lab1 (*i.e.,* SQL and Pandas) to perform queries over the clean data.
+[*Back to top*](#table-of-contents)
+
+# Part 3: Putting it all together (40 points)
+
+In this part you will look at music data in different formats (CSV, JSON, and text) and answer questions on the data.  You will have to use one or more of the data wrangling tools we covered above to clean your data, as well as any of the tools we covered in lab1 (*i.e.,* SQL and Pandas) to perform queries over the clean data.
 
 You may find that using a common format (*e.g.,* CSV or JSON) for the cleaned datasets will significantly help you integrate them.  Functions such as [`pandas.read_json()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html) may also come in handy.
 
@@ -314,19 +318,19 @@ A JSON file scraped from Wikipedia containing a list of appearances of the artis
 
 A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com/nadintamer/top-spotify-tracks-of-2018) with attributes such as "danceability", "loudness", "time_signature", etc.
 
-## Questions
+## Part 3 Questions
 
-**Q6:** Submit your cleaning scripts and queries. If using wrangler to clean `wmbr.txt`, include it as `wrangler-wmbr.py` in your github repo. For any other code (*e.g.,* SQL queries, pandas, or Unix scripts), submit as part of PDF answers in Gradescope. (15 pts)
+**Q7 (5 pts):** Which artists have either played or recorded live at WMBR? Place your answer in a `.txt` file with one artist per line, sorted by artist name, in ascending order. 
 
-**Q7:** Which artists have either played or recorded live at WMBR? Show your answer sorted by artist name, in ascending order. (5 pts)
+**Q8 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. 
 
-**Q8:** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, with the number of tracks each of them played. Show your answer sorted by number of times played, in descending order. (5 pts)
+**Q9 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), and show your answer sorted by year in descending order. 
 
-**Q9:** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), and show your answer sorted by year in descending order. (10 pts)
+**Q10 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Show your answer sorted first by number of times played in descending order, and second by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
-**Q10:** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Show your answer sorted first by number of times played in descending order, and second by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. (15 pts)
+**Q11 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. 
 
-**Q11:** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. (15 pts)
+[*Back to top*](#table-of-contents)
 
 # Handing in your work
 
@@ -340,17 +344,4 @@ As a reminder, answers to each question should:
 * start a new page
 * include at the top of each answer *both students' names, MIT ids, a link to the repository of your code, and the commit hash*
 
-### Feedback (optional, but valuable)
-
-**Q12:** If you have any comments about this lab, or any thoughts about the
-class so far, we would greatly appreciate them.  Your comments will
-be strictly used to improve the rest of the labs and classes and have
-no impact on your grade.
-
-Some questions that would be helpful:
-
-* Is the lab too difficult or too easy?  
-* How much time (minutes or hours) did you spend on it?
-* Did you look forward to any exercise that the lab did not cover?
-* Which parts of the lab were interesting or valuable towards understanding the material?
-* How is the pace of the course so far?
+[*Back to top*](#table-of-contents)
