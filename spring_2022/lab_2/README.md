@@ -283,7 +283,9 @@ We provided the last example to show how powerful `awk` can be. However if you n
 
 ## Part 1 Questions
 
-**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. Remember that, in each line, fields are separated by commas, synonyms are separated by spaces and meanings are separated by semicolons. The output should look like:
+*Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).
+
+**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
 
 ```
 'hood,(slang) a neighborhood
