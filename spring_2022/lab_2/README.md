@@ -3,6 +3,7 @@ Table of Contents
 - [Lab 2](#lab-2)
 - [Setup](#setup)
 - [Part 1: Unix tools (30 points)](#part-1-unix-tools-30-points)
+  * [General-purpose tools](#general-purpose-tools)
   * [Tool 1: grep](#tool-1-grep)
   * [Tool 2: sed](#tool-2-sed)
   * [Tool 3: awk](#tool-3-awk)
@@ -110,6 +111,47 @@ $ zgrep "created\_at" data/twitter.json.gz \
 
 To get into some details:
 
+## General-purpose tools
+
+- `cat` can be used to list the contents of a file:
+
+```bash
+$ cat data/worldcup-semiclean.txt
+!Team!!Titles!!Runners-up!!Thirdplace!!Fourthplace!!|Top4Total
+|-
+BRA
+|1958,1962,1970,1994,2002
+|1950,1998
+...
+```
+
+- `tail` is in the same vein, but provides the convenient option of specifying the (1-indexed) starting line. This can be useful when e.g. omitting the header of a CSV file:
+
+```bash
+$ tail +3 data/worldcup-semiclean.txt
+BRA
+|1958,1962,1970,1994,2002
+|1950,1998
+...
+```
+
+- Similar to how `tail` can help us omit lines, `cut` can help us omit fields. We can use `-d` to specify the delimiter and `-f` to pick one or more fields to print. By using `--complement -f` we can instead specify which field(s) to *not* print.
+
+```bash
+$ cut -d "," -f 1 data/synsets.txt
+1
+2
+3
+4
+...
+```
+
+-  `sort` can be used to sort the lines of a text file. It provides many useful flags for specifying things like case sensitivity, sort key location (i.e. which filed in each line to sort by) etc. You can see the complete list of flags using `sort --help`
+
+- `uniq` can be used to remove *adjacent* duplicate lines from a file. Specifying the flag `-c` will prepend the count of such duplicates to each printed line.
+
+- `wc` can be used to count characters (`-c`), words (`-w`) or lines (`-l`) in a text file.
+
 ## Tool 1: `grep`
 
 The basic syntax for `grep` is: 
@@ -145,10 +187,9 @@ $ cat data/worldcup.txt \
     s/|align=center[^|]*//g;
     s/|[ ]*[0-9] /|/g;
     s/.*div.*//g;
-    s/| .*/|0/g;
+    s/|[a-z]*{{N\/a|}}/|0/g;
     s|[()]||g;
     s/ //g;
-    s/|[a-z]*{{N\/a\|}}//g;
     /^$/d;' > data/worldcup-semiclean.txt
 ```
 
@@ -167,9 +208,12 @@ For each line, the regular expressions are matched in order, and if there is a m
 
 ## Examples 
 
-A few examples to give you a flavor of the tools and what one can do with them.
+A few examples to give you a flavor of the tools and what one can do with them. Make sure that you go through them, since some of the idioms used will be helpful for the questions that follow.
 
-1. Perform the equivalent of Wrangler's _wrap_ on `labor.csv` (*i.e.,* merge consecutive groups of lines referring to the same record)
+1. Merge consecutive groups of lines referring to the same record on `labor.csv` (a process sometimes called a *wrap*).
+
+   We keep a "running record" in `combined`, which we print and re-intialize each time we encounter a line starting with `Series Id:`. For all other lines, we simply append them (after a comma separator) to `combined`. Finally, we make sure to print the last running record before returning.
+
 ```bash
 $ cat data/labor.csv \
   | awk \
@@ -178,35 +222,44 @@ $ cat data/labor.csv \
     END {print combined}'
 ```
 
-2. On  `crime-clean.txt`, the following command does a _fill_ (first row of output: "Alabama, 2004, 4029.3".
+2. On  `crime-clean.txt`, the following command does a *fill* (first row of output: "Alabama, 2004, 4029.3"). 
+
+   We first use `grep` to exclude the lines that only contain a comma. We then use `awk` to either extract the state (4th word) for lines starting with a capital letter (i.e. those starting with `Reported crime in ...`), or to print the state name followed by the data for lines that contain data.
 
 ```bash
 $ cat data/crime-clean.txt \
    | grep -v '^,$' \
-   | awk '/^[A-Z]/ {state = $4} !/^[A-Z]/ {print state, $0}'
+   | awk \
+   '/^[A-Z]/ {state = $4} 
+    !/^[A-Z]/ {print state, $0}'
 ```
     
-3. On `crime-clean.txt`, the following script cleans the data as was done in the Wrangler demo in class. The following works assuming perfectly homogenous data (as the example on the Wrangler website is).
+3. On `crime-clean.txt`, the following script converts the data to table format in CSV, where the columns are `[State, 2004, 2005, 2006, 2007, 2008]`. Note that it only works assuming perfectly homogenous data (i.e. no missing/extraneous values, years always in the same order). 
+
+   We again begin by using `grep` to exclude the lines that only contain a comma. We then use `sed` to remove trailing commas, remove the phrase `Reported crime in `, and remove the year (first comma-separated field) from the data lines. Finally, using `awk`, we print the table header and then perform a *wrap* (see example 1 above).
 
 ```bash
 $ cat data/crime-clean.txt \
    | grep -v '^,$' \
    | sed 's/,$//g; s/Reported crime in //; s/[0-9]*,//' \
-   | awk -F',' \
-     'BEGIN {printf "State, 2004, 2005, 2006, 2007, 2008"} 
-      /^[A-Z]/ {print c; c=$0}  
-      !/^[A-Z]/ {c=c", "$0;}    
-      END {print c}'
+   | awk \
+   'BEGIN {printf "State, 2004, 2005, 2006, 2007, 2008"} \
+    /^[A-Z]/ {print c; c=$0}  
+    !/^[A-Z]/ {c=c", "$0;}    
+    END {print c}'
 ```
 
 4. On `crime-unclean.txt` the following script performs the same cleaning as above, but allows incomplete information (*e.g.,* some years may be missing).
+
+   We again begin by using `grep` to exclude the lines that only contain a comma. We then use `sed` to remove the phrase `Reported crime in `. Finally, using `awk`, we first split data lines into comma-separated fields (so that `$1` is the year and `$2` is the value); then, whenever we encounter such a line while parsing, we place the value into `array` using the year as an index; finally, whenever we encounter a line with text, we print the previous `state` and the associated `array`, delete `array`, and remember the state in the current line for future printing.
+
 ```bash
 $ cat data/crime-unclean.txt \
    | grep -v '^,$' \
    | sed 's/Reported crime in //;' \
    | awk -F',' \
      'BEGIN {
-     printf "State, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008"}
+     printf "State, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008\n"}
      /^[A-Z]/ || /^$/ {
        if(state) {
          printf(state); 
@@ -230,9 +283,7 @@ We provided the last example to show how powerful `awk` can be. However if you n
 
 ## Part 1 Questions
 
-*Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).*
-
-**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
+**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. Remember that, in each line, fields are separated by commas, synonyms are separated by spaces and meanings are separated by semicolons. The output should look like:
 
 ```
 'hood,(slang) a neighborhood
@@ -245,9 +296,9 @@ angstrom_unit, used to specify wavelengths of electromagnetic radiation
 ...
 ```
 
-Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
+Submit your script to Gradescope as `q1.sh`. Make sure you include comments describing your approach.
 
-**Q2 (5 pts):** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
+**Q2 (5 pts):** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Submit your script to Gradescope as `q2.sh`. Make sure you include comments describing your approach.
 
 **Q3 (10 pts):** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
 
@@ -262,17 +313,18 @@ BRA,1998,2
 ...
 ```
 
-Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
+Submit your script to Gradescope as `q3.sh`. Make sure you include comments describing your approach.
 
 **Q4 (5 pts):** According to the dataset, how often has each country won the world cup? Write a script to compute this, by generating output as follows:
 
 ```
 BRA,5
 GER,4
+ITA,4
 ...
 ```
 
-Submit your script to Gradescope. Make sure you accompany each script section with a line or two describing what they do. 
+Submit your script to Gradescope as `q4.sh`. Make sure you include comments describing your approach.
 
 [*Back to top*](#table-of-contents)
 
@@ -282,7 +334,66 @@ In this part we will examine the impact of different data imputation approaches 
 
 ## Importing the data
 
+Let's launch a python shell (within our container), import the data and examine the resulting dataset:
+```
+>>> import pandas as pd
+>>> data = pd.read_csv("data/salaries.csv", encoding = "ISO-8859-1")
+>>> data
+      salary_id                employer_name      location_name location_state  ... annual_bonus  stock_value_bonus          comments   submitted_at
+0             1                       opower  san francisco, ca             CA  ...          0.0        5000 shares  Don't work here.  3/21/16 12:58
+1             3                      walmart    bentonville, ar             AR  ...       5000.0              3,000               NaN  3/21/16 12:58
+2             4           vertical knowledge      cleveland, oh             OH  ...       6000.0                  0               NaN  3/21/16 12:59
+3             6                       netapp            waltham            NaN  ...       8500.0                  0               NaN  3/21/16 13:00
+4            12                        apple          cupertino            NaN  ...       7000.0             150000               NaN  3/21/16 13:02
+...         ...                          ...                ...            ...  ...          ...                ...               ...            ...
+1650       3289         sparkfun electronics        boulder, co             CO  ...        800.0                  0               NaN   3/23/16 8:24
+1651       3290                        intel             europe            NaN  ...      20000.0          30000 USD               NaN   3/23/16 8:27
+1652       3293  $2bn valuation tech company                nyc            NaN  ...          0.0                  0               NaN   3/23/16 8:41
+1653       3294                  of maryland   college park, md             MD  ...          NaN                NaN               NaN   3/23/16 8:43
+1654       3298                     linkedin          sunnyvale            NaN  ...          0.0                  0               NaN   3/23/16 9:12
+
+[1655 rows x 18 columns]
+```
+
+We can now examine the degree of prevalence of null values in the dataset:
+```
+>>> print(data.isnull().sum())
+salary_id                       0
+employer_name                   4
+location_name                   0
+location_state               1097
+location_country              863
+location_latitude             863
+location_longitude            863
+job_title                       0
+job_title_category              0
+job_title_rank               1230
+total_experience_years         47
+employer_experience_years      47
+annual_base_pay                 4
+signing_bonus                 323
+annual_bonus                  319
+stock_value_bonus             402
+comments                     1363
+submitted_at                    0
+dtype: int64
+```
+
+As you can see, certain fields have been filled in by every user. Such fields include both information that was probably generated by the survey form itself (e.g. `salary_id`, `submitted_at`), as well as information that all users happened to consider essential to their responses (e.g. `location_name`, `job_title`). However, most fields contain at least a few null values. Interestingly, some of these fields we might also have considered essential (e.g. `employer_name`). 
+
 ## Part 2 Questions
+
+**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use each of these approaches to determine the average `annual_base_pay` among the survey respondents and submit your answer as `q5.csv`, with one record per line (each record should have three columns - the name of the deletion technique used, the number of records actually used in the analysis and the calculated average `annual_base_pay`).
+
+**Q6 (5 pts):** 
+
+**Q7 (5 pts):**
+
+
+
+**Q8 (5 pts):** Examine the type of each column using `<your-dataframe-name>.dtypes`. Do you see any problems? (*Hint: you can also see the issue from the dataset preview above*) Describe them. Also describe at lest two ways in which the survey designers could have mitigated this issue when creating the response form. Submit `q8.txt` with your answers. Assuming that most respondents made consistent assumptions about the intended type of each field, use the tools from Part 1 to transform the dataset as needed and the re-load it into python. Submit your script to Gradescope as `q8.sh` and make sure you describe your approach in `q8.txt`. 
+
+**Q9 (10 pts):** We would like to determine the employer that offers the highest total compensation in the first year, which includes the values of `annual_base_pay`, `signing_bonus`, `annual_bonus` and `stock_value_bonus`, as well as the corresponding value of total first-year compensation. Use each of the four methods above **on the transformed dataset you obtained in Question 8** to obtain an answer and submit your answer as `q9.csv`, with one record per line (each record should have two columns - the employer name and the total first-year compensation).
 
 [*Back to top*](#table-of-contents)
 
@@ -333,15 +444,15 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 ## Part 3 Questions
 
-**Q8 (5 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q8.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. 
+**Q10 (5 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q10.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. 
 
-**Q9 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, together with the number of tracks each of them played. Submit your answer as `q9.csv`, with one record per line (each record should have two columns - the name of the DJ and the number of tracks), sorted by number of tracks played, in descending order. Break ties among DJs using their names, in ascending order.
+**Q11 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, together with the number of tracks each of them played. Submit your answer as `q11.csv`, with one record per line (each record should have two columns - the name of the DJ and the number of tracks), sorted by number of tracks played, in descending order. Break ties among DJs using their names, in ascending order.
 
-**Q10 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to the overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019? Submit your answer as `q10.csv`, with one record per line (each record should have two columns - the year and the ratio), sorted by year in descending order. Make sure to include all 3 years (even if the ratio is 0).
+**Q12 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to the overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019? Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the year and the ratio), sorted by year in descending order. Make sure to include all 3 years (even if the ratio is 0).
 
-**Q11 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q11.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
+**Q13 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q13.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
-**Q12 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the artist name and the song title).
+**Q14 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Submit your answer as `q14.csv`, with one record per line (each record should have two columns - the artist name and the song title).
 
 [*Back to top*](#table-of-contents)
 
