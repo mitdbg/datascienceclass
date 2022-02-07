@@ -223,7 +223,7 @@ We provided the last example to show how powerful `awk` can be. However if you n
 
 ## Part 1 Questions
 
-*Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).*
+*Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)). Yo might also find the linux `tail` command handy.*
 
 **Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
 
