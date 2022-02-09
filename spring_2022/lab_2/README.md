@@ -385,23 +385,21 @@ As you can see, certain fields have been filled in by every user. Such fields in
 
 ## Part 2 Questions
 
-**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use each of these approaches to determine the average `annual_base_pay` among the survey respondents and submit your answer as `q5.csv`, with one record per line (each record should have three columns - the name of the deletion technique used, the number of records actually used in the analysis and the calculated average `annual_base_pay`).
+**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use pairwise deletion to determine the average `annual_base_pay` among the survey respondents and submit your code as `q5.py`.
 
-**Q6 (5 pts):** 
+**Q6 (5 pts):** A slightly more sophisticated approach is to replace all missing values in a column with the same value (often the column average). Use this approach to determine the average `signing_bonus` among the survey respondents and submit your code as `q6.py`. Justify your choice of imputed value in a comment.
 
-**Q7 (5 pts):**
-
-
+**Q7 (5 pts):** Imputing missing values with the same value preserves the number of data points, but can create skew in the dataset. One way to combat this issue is by instead using regression to individually determine each imputed value. Use this approach to determine the average `annual_bonus` among the survey respondents, regressing missing values based on the `annual_base_pay` column, and submit your code as `q7.py`.
 
 **Q8 (5 pts):** Examine the type of each column using `<your-dataframe-name>.dtypes`. Do you see any problems? (*Hint: you can also see the issue from the dataset preview above*) Describe them. Also describe at lest two ways in which the survey designers could have mitigated this issue when creating the response form. Submit `q8.txt` with your answers. Assuming that most respondents made consistent assumptions about the intended type of each field, use the tools from Part 1 to transform the dataset as needed and the re-load it into python. Submit your script to Gradescope as `q8.sh` and make sure you describe your approach in `q8.txt`. 
 
-**Q9 (10 pts):** We would like to determine the employer that offers the highest total compensation in the first year, which includes the values of `annual_base_pay`, `signing_bonus`, `annual_bonus` and `stock_value_bonus`, as well as the corresponding value of total first-year compensation. Use each of the four methods above **on the transformed dataset you obtained in Question 8** to obtain an answer and submit your answer as `q9.csv`, with one record per line (each record should have two columns - the employer name and the total first-year compensation).
+**Q9 (10 pts):** We would like to determine the employer that offers the highest total compensation in the first year, which includes the values of `annual_base_pay`, `signing_bonus`, `annual_bonus` and `stock_value_bonus`, as well as the corresponding value of total first-year compensation. Use each of the three methods above **on the transformed dataset you obtained in Question 8** to obtain an answer and submit your answer as `q9.csv`, with one record per line (each record should have two columns - the employer name and the total first-year compensation).
 
 [*Back to top*](#table-of-contents)
 
 # Part 3: Working across formats (40 points)
 
-In this part you will look at music data in different formats (CSV, JSON, and text) and answer questions on the data.  You will have to use one or more of the data wrangling tools we covered above to clean your data, as well as any of the tools we covered in lab1 (*i.e.,* SQL and Pandas) to perform queries over the clean data.
+In this part you will look at music data in different formats (CSV, JSON, and text) and answer questions on the data.  You will have to use both the Unix tools we covered above and Pandas to clean and perform queries over the clean data.
 
 You may find that using a common format (*e.g.,* CSV or JSON) for the cleaned datasets will significantly help you integrate them.  Functions such as [`pandas.read_json()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html) may also come in handy.
 
@@ -446,15 +444,13 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 ## Part 3 Questions
 
-**Q10 (5 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q10.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. 
+**Q10 (10 pts):** Clean and *wrap* (see Part 1 of this lab) the data in `wmbr.txt` to obtain an easily queriable representation of the same information. Submit the cleaned up data as `q10.csv`. Note that there is some flexibility in your choice of cleaning approaches, but the resulting file should be formatted consistently. Also submit your code as `q10.sh`, including comments on the transformations ou applied.
 
-**Q11 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack, together with the number of tracks each of them played. Submit your answer as `q11.csv`, with one record per line (each record should have two columns - the name of the DJ and the number of tracks), sorted by number of tracks played, in descending order. Break ties among DJs using their names, in ascending order.
+**Q11 (10 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q11.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. Also submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
 
-**Q12 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to the overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019? Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the year and the ratio), sorted by year in descending order. Make sure to include all 3 years (even if the ratio is 0).
+**Q12 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, use Pandas to list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Also submit your code as `q12.py`. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
-**Q13 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q13.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
-
-**Q14 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Submit your answer as `q14.csv`, with one record per line (each record should have two columns - the artist name and the song title).
+**Q13 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Submit your answer as `q13.csv`, with a single line with three columns: the artist name, song title and danceability score. Also submit your code as `q13.sh` if you used command line tools, or as `q13.py` if you used Pandas.
 
 [*Back to top*](#table-of-contents)
 
