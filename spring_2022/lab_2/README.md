@@ -9,10 +9,10 @@ Table of Contents
   * [Tool 3: awk](#tool-3-awk)
   * [Examples](#examples)
   * [Part 1 Questions](#part-1-questions)
-- [Part 2: Missing value imputation (30 points)](#part-2-missing-value-imputation-30-points)
+- [Part 2: Missing value imputation (20 points)](#part-2-missing-value-imputation-20-points)
   * [Importing the data](#importing-the-data)
   * [Part 2 Questions](#part-2-questions)
-- [Part 3: Working across formats (40 points)](#part-3-working-across-formats-40-points)
+- [Part 3: Working across formats (50 points)](#part-3-working-across-formats-50-points)
   * [Datasets](#datasets)
     + [Dataset 1: wmbr.txt](#dataset-1-wmbrtxt)
     + [Dataset 2: lizzo_appearances.json](#dataset-2-lizzoappearancesjson)
@@ -330,7 +330,7 @@ Submit your script to Gradescope as `q4.sh`. Make sure you include comments desc
 
 [*Back to top*](#table-of-contents)
 
-# Part 2: Missing value imputation (30 points)
+# Part 2: Missing value imputation (20 points)
 
 In this part we will examine the impact of different data imputation approaches on the results of an analysis. We will work with a dataset resulting from a survey of [salaries](https://data.world/brandon-telle/2016-hacker-news-salary-survey-results), which can be found at `data/salaries.csv`. As is often the case when using user survey data, this dataset contains many missing values, which we must decide how to handle.
 
@@ -338,46 +338,51 @@ In this part we will examine the impact of different data imputation approaches 
 
 Let's launch a python shell (within our container), import the data and examine the resulting dataset:
 ```
+$ docker start -i lab2-container
+root@4d2bb3edd81c:/lab2# cd spring_2022/lab_2
+root@4d2bb3edd81c:/lab2/spring_2022/lab_2# python3
+``` 
+```python
 >>> import pandas as pd
 >>> data = pd.read_csv("data/salaries.csv", encoding = "ISO-8859-1")
 >>> data
-      salary_id                employer_name      location_name location_state  ... annual_bonus  stock_value_bonus          comments   submitted_at
-0             1                       opower  san francisco, ca             CA  ...          0.0        5000 shares  Don't work here.  3/21/16 12:58
-1             3                      walmart    bentonville, ar             AR  ...       5000.0              3,000               NaN  3/21/16 12:58
-2             4           vertical knowledge      cleveland, oh             OH  ...       6000.0                  0               NaN  3/21/16 12:59
-3             6                       netapp            waltham            NaN  ...       8500.0                  0               NaN  3/21/16 13:00
-4            12                        apple          cupertino            NaN  ...       7000.0             150000               NaN  3/21/16 13:02
-...         ...                          ...                ...            ...  ...          ...                ...               ...            ...
-1650       3289         sparkfun electronics        boulder, co             CO  ...        800.0                  0               NaN   3/23/16 8:24
-1651       3290                        intel             europe            NaN  ...      20000.0          30000 USD               NaN   3/23/16 8:27
-1652       3293  $2bn valuation tech company                nyc            NaN  ...          0.0                  0               NaN   3/23/16 8:41
-1653       3294                  of maryland   college park, md             MD  ...          NaN                NaN               NaN   3/23/16 8:43
-1654       3298                     linkedin          sunnyvale            NaN  ...          0.0                  0               NaN   3/23/16 9:12
+     salary_id           employer_name      location_name location_state location_country  ...  signing_bonus  annual_bonus stock_value_bonus                                           comments   submitted_at
+0            1                  opower  san francisco, ca             CA               US  ...         5000.0           0.0       5000 shares                                   Don't work here.  3/21/16 12:58
+1            3                 walmart    bentonville, ar             AR               US  ...            NaN        5000.0             3,000                                                NaN  3/21/16 12:58
+2            4      vertical knowledge      cleveland, oh             OH               US  ...         5000.0        6000.0                 0                                                NaN  3/21/16 12:59
+3            6                  netapp            waltham            NaN              NaN  ...         5000.0        8500.0                 0                                                NaN  3/21/16 13:00
+4           12                   apple          cupertino            NaN              NaN  ...         5000.0        7000.0            150000                                                NaN  3/21/16 13:02
+..         ...                     ...                ...            ...              ...  ...            ...           ...               ...                                                ...            ...
+502       1093               microsoft        redmond, wa             WA               US  ...        30000.0       10000.0              8000                                                NaN  3/21/16 14:19
+503       1094               (private)         boston, ma             MA               US  ...            0.0           0.0                 0  Retirement benefits very good... ~7% to ~14% (...  3/21/16 14:22
+504       1097                 dropbox      san francisco            NaN              NaN  ...        25000.0           0.0             40000                                                NaN  3/21/16 14:19
+505       1098  pricewaterhousecoopers          australia            NaN               AU  ...            0.0        2000.0                 0                                                NaN  3/21/16 14:20
+506       1100                   apple          sunnyvale            NaN              NaN  ...        20000.0       10000.0            100000                                                NaN  3/21/16 14:20
 
-[1655 rows x 18 columns]
+[507 rows x 18 columns]
 ```
 
 We can now examine the degree of prevalence of null values in the dataset:
 ```
 >>> print(data.isnull().sum())
-salary_id                       0
-employer_name                   4
-location_name                   0
-location_state               1097
-location_country              863
-location_latitude             863
-location_longitude            863
-job_title                       0
-job_title_category              0
-job_title_rank               1230
-total_experience_years         47
-employer_experience_years      47
-annual_base_pay                 4
-signing_bonus                 323
-annual_bonus                  319
-stock_value_bonus             402
-comments                     1363
-submitted_at                    0
+salary_id                      0
+employer_name                  1
+location_name                  0
+location_state               309
+location_country             255
+location_latitude            255
+location_longitude           255
+job_title                      0
+job_title_category             0
+job_title_rank               364
+total_experience_years        15
+employer_experience_years      9
+annual_base_pay                0
+signing_bonus                 96
+annual_bonus                  92
+stock_value_bonus            112
+comments                     421
+submitted_at                   0
 dtype: int64
 ```
 
@@ -385,19 +390,17 @@ As you can see, certain fields have been filled in by every user. Such fields in
 
 ## Part 2 Questions
 
-**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use pairwise deletion to determine the average `annual_base_pay` among the survey respondents and submit your code as `q5.py`.
+This part will ask you to comment on your results. All such comments should go into the same file, `part2.txt`, which you must also submit.
 
-**Q6 (5 pts):** A slightly more sophisticated approach is to replace all missing values in a column with the same value (often the column average). Use this approach to determine the average `signing_bonus` among the survey respondents and submit your code as `q6.py`. Justify your choice of imputed value in a comment.
+**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use pairwise deletion to determine the average `annual_bonus` among the survey respondents and submit your code as `q5a.py`; then use listwise deletion for the same task instead and submit your code as `q5b.py`. In `part2.txt`, report your results using each method and comment on the difference between the two results, if any. Argue which approach you consider most suitable in this case.
 
-**Q7 (5 pts):** Imputing missing values with the same value preserves the number of data points, but can create skew in the dataset. One way to combat this issue is by instead using regression to individually determine each imputed value. Use this approach to determine the average `annual_bonus` among the survey respondents, regressing missing values based on the `annual_base_pay` column, and submit your code as `q7.py`.
+**Q6 (5 pts):** A slightly more sophisticated approach is to replace all missing values in a column with the same value (often the column average). Use this approach to determine the average `annual_bonus` among the survey respondents and submit your code as `q6.py`. In `part2.txt`, justify your choice of imputed value, report your result and explain any discrepancy between your answers to questions 5 and 6.
 
-**Q8 (5 pts):** Examine the type of each column using `<your-dataframe-name>.dtypes`. Do you see any problems? (*Hint: you can also see the issue from the dataset preview above*) Describe them. Also describe at lest two ways in which the survey designers could have mitigated this issue when creating the response form. Submit `q8.txt` with your answers. Assuming that most respondents made consistent assumptions about the intended type of each field, use the tools from Part 1 to transform the dataset as needed and the re-load it into python. Submit your script to Gradescope as `q8.sh` and make sure you describe your approach in `q8.txt`. 
-
-**Q9 (10 pts):** We would like to determine the employer that offers the highest total compensation in the first year, which includes the values of `annual_base_pay`, `signing_bonus`, `annual_bonus` and `stock_value_bonus`, as well as the corresponding value of total first-year compensation. Use each of the three methods above **on the transformed dataset you obtained in Question 8** to obtain an answer and submit your answer as `q9.csv`, with one record per line (each record should have two columns - the employer name and the total first-year compensation).
+**Q7 (10 pts):** Imputing missing values with the same value preserves the number of data points, but can create skew in the dataset. One way to combat this issue is by instead determining each imputed value from other existing values for the same record. Based on all respondents that report a non-zero `annual_bonus`, calculate the average `annual_bonus`/`annual_base_pay` fraction. Then, assume any respondent that didn't include `annual_bonus` information will actually receive that average fraction of their `annual_base_pay` as an annual bonus. Use this approach to determine the average `annual_bonus` among the survey respondents and submit your code as `q7.py`. In `part2.txt`, include both the average fraction you used for the imputation and your final result.
 
 [*Back to top*](#table-of-contents)
 
-# Part 3: Working across formats (40 points)
+# Part 3: Working across formats (50 points)
 
 In this part you will look at music data in different formats (CSV, JSON, and text) and answer questions on the data.  You will have to use both the Unix tools we covered above and Pandas to clean and perform queries over the clean data.
 
@@ -444,9 +447,13 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 ## Part 3 Questions
 
-**Q10 (10 pts):** Clean and *wrap* (see Part 1 of this lab) the data in `wmbr.txt` to obtain an easily queriable representation of the same information. Submit the cleaned up data as `q10.csv`. Note that there is some flexibility in your choice of cleaning approaches, but the resulting file should be formatted consistently. Also submit your code as `q10.sh`, including comments on the transformations ou applied.
+**Q8 (10 pts):** Clean and *wrap* (see Part 1 of this lab) the data in `wmbr.txt` to obtain an easily queriable representation of the same information. Submit the cleaned up data as `q8.csv`. Note that there is some flexibility in your choice of cleaning approaches, but the resulting file should be formatted consistently. Also submit your code as `q8.sh`, including comments on the transformations ou applied.
 
-**Q11 (10 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q11.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. Also submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
+**Q9 (5 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q9.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. Also submit your code as `q9.sh` if you used command line tools, or as `q9.py` if you used Pandas.
+
+**Q10 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack. Submit your answer as `q10.csv`, with one record per line (each record should have two columns - the DJ name, and the number of such tracks they played), sorted first by number of tracks played in descending order, and then by DJ name in ascending lexicographical order. Also submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas.
+
+**Q11 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), Submit your answer as `q11.csv`, with one record per line (each record should have two columns - the year and the ratio), sorted first by year in descending order. Also submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
 
 **Q12 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, use Pandas to list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Also submit your code as `q12.py`. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
