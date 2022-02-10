@@ -68,9 +68,8 @@ $ docker start -i lab2-container
 
 Now create a directory into which you should place your solution files:
 ```
-root@4d2bb3edd81c:/lab2# cd spring_2022/lab_2
-root@4d2bb3edd81c:/lab2/spring_2022/lab_2# mkdir solutions
-root@4d2bb3edd81c:/lab2/spring_2022/lab_2# cd solutions
+root@4d2bb3edd81c:/lab2/# mkdir solutions
+root@4d2bb3edd81c:/lab2/# cd solutions
 ```
 
 The `lab2` directory contains a number of datasets under data directory. **For parts 1 and 2**, you will be answering questions on the following datasets:
@@ -94,7 +93,7 @@ You are encouraged to play with these tools and familiarize yourselves with thei
 
 As an example, the following sequence of commands can be used to answer the question "Find the five twitter user ids (uids) that have tweeted the most".  Note that in the example below, we're using the `zgrep` variant of `grep`, which allows us to operate over [gzipped data](https://en.wikipedia.org/wiki/Gzip).
 ```bash
-$ zgrep "created\_at" data/twitter.json.gz \
+$ zgrep "created\_at" ../data/twitter.json.gz \
    | sed 's/"user":{"id":\([0-9]*\).*/XXXXX\1/' \
    | sed 's/.*XXXXX\([0-9]*\)$/\1/' \
    | sort \
@@ -108,7 +107,7 @@ The first stage (`zgrep`) discards the deleted tweets, the `sed` commands extrac
 Note that, combining the two `sed` commands as follows does not do the right thing -- we will let you figure out why.
 
 ```bash
-$ zgrep "created\_at" data/twitter.json.gz \
+$ zgrep "created\_at" ../data/twitter.json.gz \
   | sed 's/.*"user":{"id":\([0-9]*\).*/\1/' \
   | sort \
   | uniq -c \
@@ -123,7 +122,7 @@ To get into some details:
 - `cat` can be used to list the contents of a file:
 
 ```bash
-$ cat data/worldcup-semiclean.txt
+$ cat ../data/worldcup-semiclean.txt
 !Team!!Titles!!Runners-up!!Thirdplace!!Fourthplace!!|Top4Total
 |-
 BRA
@@ -135,7 +134,7 @@ BRA
 - `tail` is in the same vein, but provides the convenient option of specifying the (1-indexed) starting line. This can be useful when e.g. omitting the header of a CSV file:
 
 ```bash
-$ tail +3 data/worldcup-semiclean.txt
+$ tail +3 ../data/worldcup-semiclean.txt
 BRA
 |1958,1962,1970,1994,2002
 |1950,1998
@@ -145,7 +144,7 @@ BRA
 - Similar to how `tail` can help us omit lines, `cut` can help us omit fields. We can use `-d` to specify the delimiter and `-f` to pick one or more fields to print. By using `--complement -f` we can instead specify which field(s) to *not* print.
 
 ```bash
-$ cut -d "," -f 1 data/synsets.txt
+$ cut -d "," -f 1 ../data/synsets.txt
 1
 2
 3
@@ -183,7 +182,7 @@ For each line in the input, the portion of the line that matches _regexp_ (if an
 As an example, the command below is what we used to clean `worldcup.txt` and produce `worldcup-semiclean.txt`:
 
 ```bash
-$ cat data/worldcup.txt \
+$ cat ../data/worldcup.txt \
   | sed \
     's/\[\[\([0-9]*\)[^]]*\]\]/\1/g;
     s/.*fb|\([A-Za-z]*\)}}/\1/g; 
@@ -197,7 +196,7 @@ $ cat data/worldcup.txt \
     s/|[a-z]*{{N\/a|}}/|0/g;
     s|[()]||g;
     s/ //g;
-    /^$/d;' > data/worldcup-semiclean.txt
+    /^$/d;' > ../data/worldcup-semiclean.txt
 ```
 
 ## Tool 3: `awk` 
@@ -222,7 +221,7 @@ A few examples to give you a flavor of the tools and what one can do with them. 
    We keep a "running record" in `combined`, which we print and re-intialize each time we encounter a line starting with `Series Id:`. For all other lines, we simply append them (after a comma separator) to `combined`. Finally, we make sure to print the last running record before returning.
 
 ```bash
-$ cat data/labor.csv \
+$ cat ../data/labor.csv \
   | awk \
     '/^Series Id:/ {print combined; combined = $0}
     !/^Series Id:/ {combined = combined", "$0;}
@@ -234,7 +233,7 @@ $ cat data/labor.csv \
    We first use `grep` to exclude the lines that only contain a comma. We then use `awk` to either extract the state (4th word) for lines starting with a capital letter (i.e. those starting with `Reported crime in ...`), or to print the state name followed by the data for lines that contain data.
 
 ```bash
-$ cat data/crime-clean.txt \
+$ cat ../data/crime-clean.txt \
    | grep -v '^,$' \
    | awk \
    '/^[A-Z]/ {state = $4} 
@@ -246,7 +245,7 @@ $ cat data/crime-clean.txt \
    We again begin by using `grep` to exclude the lines that only contain a comma. We then use `sed` to remove trailing commas, remove the phrase `Reported crime in `, and remove the year (first comma-separated field) from the data lines. Finally, using `awk`, we print the table header and then perform a *wrap* (see example 1 above).
 
 ```bash
-$ cat data/crime-clean.txt \
+$ cat ../data/crime-clean.txt \
    | grep -v '^,$' \
    | sed 's/,$//g; s/Reported crime in //; s/[0-9]*,//' \
    | awk \
@@ -261,7 +260,7 @@ $ cat data/crime-clean.txt \
    We again begin by using `grep` to exclude the lines that only contain a comma. We then use `sed` to remove the phrase `Reported crime in `. Finally, using `awk`, we first split data lines into comma-separated fields (so that `$1` is the year and `$2` is the value); then, whenever we encounter such a line while parsing, we place the value into `array` using the year as an index; finally, whenever we encounter a line with text, we print the previous `state` and the associated `array`, delete `array`, and remember the state in the current line for future printing.
 
 ```bash
-$ cat data/crime-unclean.txt \
+$ cat ../data/crime-unclean.txt \
    | grep -v '^,$' \
    | sed 's/Reported crime in //;' \
    | awk -F',' \
@@ -305,9 +304,9 @@ angstrom_unit, used to specify wavelengths of electromagnetic radiation
 ...
 ```
 
-Submit your script to Gradescope as `q1.sh`. Make sure you include comments describing your approach.
+Save your script as `q1.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
-**Q2 (5 pts):** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Submit your script to Gradescope as `q2.sh`. Make sure you include comments describing your approach.
+**Q2 (5 pts):** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Save your script as `q2.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
 **Q3 (10 pts):** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
 
@@ -322,7 +321,7 @@ BRA,1998,2
 ...
 ```
 
-Submit your script to Gradescope as `q3.sh`. Make sure you include comments describing your approach.
+Place the output in `data/worldcup-clean.csv` for future use. Save your script as `q3.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
 **Q4 (5 pts):** According to the dataset, how often has each country won the world cup? Write a script to compute this, by generating output as follows:
 
@@ -333,7 +332,7 @@ ITA,4
 ...
 ```
 
-Submit your script to Gradescope as `q4.sh`. Make sure you include comments describing your approach.
+Save your script as `q4.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
 [*Back to top*](#table-of-contents)
 
@@ -346,8 +345,8 @@ In this part we will examine the impact of different data imputation approaches 
 Let's launch a python shell (within our container), import the data and examine the resulting dataset:
 ```
 $ docker start -i lab2-container
-root@4d2bb3edd81c:/lab2# cd spring_2022/lab_2/solutions
-root@4d2bb3edd81c:/lab2/spring_2022/lab_2/solutions# python3
+root@4d2bb3edd81c:/lab2# cd solutions
+root@4d2bb3edd81c:/lab2/solutions# python3
 ``` 
 ```python
 >>> import pandas as pd
