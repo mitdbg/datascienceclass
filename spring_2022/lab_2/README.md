@@ -66,6 +66,13 @@ If you accidentally exit your container (*e.g.,* by using **ctrl+d**), you can c
 $ docker start -i lab2-container
 ```
 
+Now create a directory into which you should place your solution files:
+```
+root@4d2bb3edd81c:/lab2# cd spring_2022/lab_2
+root@4d2bb3edd81c:/lab2/spring_2022/lab_2# mkdir solutions
+root@4d2bb3edd81c:/lab2/spring_2022/lab_2# cd solutions
+```
+
 The `lab2` directory contains a number of datasets under data directory. **For parts 1 and 2**, you will be answering questions on the following datasets:
 
 1. `synsets.txt`: A dataset of synonyms and their meanings. Each line contains one synset with the following format:
@@ -339,12 +346,12 @@ In this part we will examine the impact of different data imputation approaches 
 Let's launch a python shell (within our container), import the data and examine the resulting dataset:
 ```
 $ docker start -i lab2-container
-root@4d2bb3edd81c:/lab2# cd spring_2022/lab_2
-root@4d2bb3edd81c:/lab2/spring_2022/lab_2# python3
+root@4d2bb3edd81c:/lab2# cd spring_2022/lab_2/solutions
+root@4d2bb3edd81c:/lab2/spring_2022/lab_2/solutions# python3
 ``` 
 ```python
 >>> import pandas as pd
->>> data = pd.read_csv("data/salaries.csv", encoding = "ISO-8859-1")
+>>> data = pd.read_csv("../data/salaries.csv", encoding = "ISO-8859-1")
 >>> data
      salary_id           employer_name      location_name location_state location_country  ...  signing_bonus  annual_bonus stock_value_bonus                                           comments   submitted_at
 0            1                  opower  san francisco, ca             CA               US  ...         5000.0           0.0       5000 shares                                   Don't work here.  3/21/16 12:58
@@ -465,12 +472,42 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 *This lab is due at 11:59pm on Monday February 28th, 2022.*
 
-Almost exactly the same submission format as in [lab_1](../lab_1). That is, you will submit your PDF with answers to [Gradescope](https://www.gradescope.com/courses/61617/assignments) and your code to the **same private github repo**. The only changes for this lab are:
-*  save your `students.txt` and Wrangler scripts as separate files under a `lab_2` directory; paste your other scripts (*e.g.,* those using Unix tools, pandas, or SQL queries) inline with your PDF answers.  For this lab, with the exception of exported Wrangler scripts (which are rather long), all other scripts should be submitted as part of your answers in Gradescope.  We expect most of your script answers to be relatively short.  If your "non-Wrangler" scripts end up being too long (e.g., more than 200 lines), then note that in your Gradescope answer, adding a link to the corresponding file in your repo.
+Make sure you are registered on Gradescope for this class. The course ID is `ZRE8VN`.
 
-As a reminder, answers to each question should:
-* be in tabular form
-* start a new page
-* include at the top of each answer *both students' names, MIT ids, a link to the repository of your code, and the commit hash*
+Check the contents of your `solutions` directory. It should contain 21 files, as follows:
+
+- Part 1:
+  - `q1.sh`
+  - `q2.sh`
+  - `q3.sh`
+  - `q4.sh`
+- Part 2:
+  - `part2.txt`
+  - `q5a.py`
+  - `q5b.py`
+  - `q6.py`
+  - `q7.py`
+- Part 3:
+  - `q8.csv`
+  - `q8.sh`
+  - `q9.csv`
+  - `q9.sh` or `q9.py`
+  - `q10.csv`
+  - `q10.sh` or `q10.py`
+  - `q11.csv`
+  - `q11.sh` or `q11.py`
+  - `q12.csv`
+  - `q12.py`
+  - `q13.csv`
+  - `q13.sh` or `q13.py`
+
+To submit responses:
+```sh
+# Zip the solutions directory.
+cd solutions
+zip solutions.zip *
+```
+
+Submit the generated `solutions.zip` file to Gradescope.
 
 [*Back to top*](#table-of-contents)
