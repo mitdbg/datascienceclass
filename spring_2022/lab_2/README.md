@@ -291,7 +291,7 @@ We provided the last example to show how powerful `awk` can be. However if you n
 
 *Hint: Look into `awk`'s `split` function, and `for loop` constructs (*e.g.,* [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html)).
 
-**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. The output should look like:
+**Q1 (10 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs and outputs it to `q1.csv` in the `solutions` directory. The output should look like:
 
 ```
 'hood,(slang) a neighborhood
@@ -306,9 +306,9 @@ angstrom_unit, used to specify wavelengths of electromagnetic radiation
 
 Save your script as `q1.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
-**Q2 (5 pts):** Starting with the output of question 1, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of the output of question 1) that appear in this dataset. Save your script as `q2.sh` in the `solutions` directory. Make sure you include comments describing your approach.
+**Q2 (5 pts):** Starting with `q1.csv`, write another script that determines the number of unique *words* (that is, the number of distinct entries in the first column of `q1.csv`) that appear in this dataset and outputs it to `q2.csv` in the `solutions` directory. Save your script as `q2.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
-**Q3 (10 pts):** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
+**Q3 (10 pts):** Starting with `worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows and outputs it to `q3.csv` in the `solutions` directory, *i.e.,* each line in the output contains a country, a year, and the position of the county in that year (if within top 4):
 
 ```
 BRA,1958,1
@@ -321,9 +321,9 @@ BRA,1998,2
 ...
 ```
 
-Place the output in `data/worldcup-clean.csv` for future use. Save your script as `q3.sh` in the `solutions` directory. Make sure you include comments describing your approach.
+Save your script as `q3.sh` in the `solutions` directory. Make sure you include comments describing your approach.
 
-**Q4 (5 pts):** According to the dataset, how often has each country won the world cup? Write a script to compute this, by generating output as follows:
+**Q4 (5 pts):** According to `q3.csv`, how often has each country won the world cup? Write a script to compute this, by generating output as follows and outputting it to `q4.csv` in the `solutions` directory:
 
 ```
 BRA,5
@@ -396,13 +396,11 @@ As you can see, certain fields have been filled in by every user. Such fields in
 
 ## Part 2 Questions
 
-This part will ask you to comment on your results. All such comments should go into the same file, `part2.txt`, which you must also submit.
+**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use pairwise deletion to determine the mean and standard deviation of `annual_bonus` among the survey respondents and submit your code as `q5a.py`; your code should write its output into `q5a.csv` in the `solutions` directory, in the format `<mean>, <std>`, where each of the values has been truncated to 0 decimal digits. Then, use listwise deletion for the same task instead and submit your code as `q5b.py`; your code should write its output into `q5b.csv` in the `solutions` directory, in the format `<mean>, <std>`, where each of the values has been truncated to 0 decimal digits.
 
-**Q5 (5 pts):** The easiest way to deal with missing values is to simply exclude the incomplete records from our analysis. In lecture, two deletion approaches were presented: pairwise deletion, where we only exclude records that have missing values in the column(s) of interest, and listwise deletion, where we exclude all records that have at least one missing value. Use pairwise deletion to determine the mean and standard deviation of `annual_bonus` among the survey respondents and submit your code as `q5a.py`; then use listwise deletion for the same task instead and submit your code as `q5b.py`. In `part2.txt`, report your results using each method and comment on the difference between the results of the two methods, if any. Argue which approach you consider most suitable in this case.
+**Q6 (5 pts):** A slightly more sophisticated approach is to replace all missing values in a column with the same value (often the average of the existing values in the same column, or a special value like 0). Use this approach to determine the mean and standard deviation of `annual_bonus` among the survey respondents and submit your code as `q6.py`; your code should write its output into `q6.csv` in the `solutions` directory, in the format `<mean>, <std>`, where each of the values has been truncated to 0 decimal digits.
 
-**Q6 (5 pts):** A slightly more sophisticated approach is to replace all missing values in a column with the same value (often the average of the existing values in the same column, or a special value like 0). Use this approach to determine the mean and standard deviation of `annual_bonus` among the survey respondents and submit your code as `q6.py`. In `part2.txt`, justify your choice of imputed value, report your results and explain any discrepancy between your answers to questions 5 and 6.
-
-**Q7 (10 pts):** Imputing missing values with the same value preserves the number of data points, but can create skew in the dataset. One way to combat this issue is by instead determining each imputed value from other existing values for the same record. Based on all respondents that report a **non-zero** `annual_bonus`, calculate the average `annual_bonus`/`annual_base_pay` ratio. Then, assume any respondent that didn't include `annual_bonus` information will actually receive that same ratio of their `annual_base_pay` as an annual bonus. Use this approach to determine the mean and standard deviation of  `annual_bonus` among the survey respondents and submit your code as `q7.py`. In `part2.txt`, include both the ratio you used for the imputation and your final results.
+**Q7 (10 pts):** Imputing missing values with the same value preserves the number of data points, but can create skew in the dataset. One way to combat this issue is by instead determining each imputed value from other existing values for the same record. Based on all respondents that report a **non-zero** `annual_bonus`, calculate the average `annual_bonus`/`annual_base_pay` ratio. Then, assume any respondent that didn't include `annual_bonus` information will actually receive that same ratio of their `annual_base_pay` as an annual bonus. Use this approach to determine the mean and standard deviation of  `annual_bonus` among the survey respondents and submit your code as `q7.py`; your code should write its output into `q7.csv` in the `solutions` directory, in the format `<mean>, <std>`, where each of the values has been truncated to 0 decimal digits.
 
 [*Back to top*](#table-of-contents)
 
@@ -455,15 +453,15 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 **Q8 (10 pts):** Clean and *wrap* (see Part 1 of this lab) the data in `wmbr.txt` to obtain an easily queriable representation of the same information. Submit the cleaned up data as `q8.csv`. Note that there is some flexibility in your choice of cleaning approaches, but the resulting file should be formatted consistently. Also submit your code as `q8.sh`, including comments on the transformations ou applied.
 
-**Q9 (5 pts):** Which artists have either played or recorded live at WMBR? Submit your answer as `q9.csv` with one artist per line, sorted by artist name, in ascending lexicographical order. Also submit your code as `q9.sh` if you used command line tools, or as `q9.py` if you used Pandas.
+**Q9 (5 pts):** Which artists have either played or recorded live at WMBR? Output your answer to `q9.csv` in the `solutions` directory, with one artist per line, sorted by artist name, in ascending lexicographical order. Submit your code as `q9.sh` if you used command line tools, or as `q9.py` if you used Pandas.
 
-**Q10 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack. Submit your answer as `q10.csv`, with one record per line (each record should have two columns - the DJ name, and the number of such tracks they played), sorted first by number of tracks played in descending order, and then by DJ name in ascending lexicographical order. Also submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas.
+**Q10 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack. Output your answer to `q10.csv` in the `solutions` directory, with one record per line (each record should have two columns - the DJ name, and the number of such tracks they played), sorted first by number of tracks played in descending order, and then by DJ name in ascending lexicographical order. Submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas.
 
-**Q11 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0), Submit your answer as `q11.csv`, with one record per line (each record should have two columns - the year and the ratio), sorted first by year in descending order. Also submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
+**Q11 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0). Output your answer to `q11.csv` in the `solutions` directory, with one record per line (each record should have two columns - the year and the ratio), sorted first by year in descending order. Submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
 
-**Q12 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, use Pandas to list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Submit your answer as `q12.csv`, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Also submit your code as `q12.py`. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
+**Q12 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, use Pandas to list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Output your answer to `q12.csv` in the `solutions` directory, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Submit your code as `q12.py`. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
-**Q13 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Submit your answer as `q13.csv`, with a single line with three columns: the artist name, song title and danceability score. Also submit your code as `q13.sh` if you used command line tools, or as `q13.py` if you used Pandas.
+**Q13 (10 pts):** For the artists whose songs were played at WMBR, and made to the top 100 tracks at Spotify in 2018, who had the most danceable track, and what was it? Note: here we consider collaborations, so "Calvin Harris, Dua Lipa" means you'd also include "Dua Lipa" in your search for artists in the top 100. Output your answer to `q13.csv` in the `solutions` directory, with a single line with three columns: the artist name, song title and danceability score. Submit your code as `q13.sh` if you used command line tools, or as `q13.py` if you used Pandas.
 
 [*Back to top*](#table-of-contents)
 
@@ -473,7 +471,7 @@ A CSV file containing the [top 100 Spotify songs in 2018](https://www.kaggle.com
 
 Make sure you are registered on Gradescope for this class. The course ID is `ZRE8VN`.
 
-Check the contents of your `solutions` directory. It should contain 21 files, as follows:
+Check the contents of your `solutions` directory. It should contain 15 files, as follows:
 
 - Part 1:
   - `q1.sh`
@@ -481,7 +479,6 @@ Check the contents of your `solutions` directory. It should contain 21 files, as
   - `q3.sh`
   - `q4.sh`
 - Part 2:
-  - `part2.txt`
   - `q5a.py`
   - `q5b.py`
   - `q6.py`
@@ -489,15 +486,10 @@ Check the contents of your `solutions` directory. It should contain 21 files, as
 - Part 3:
   - `q8.csv`
   - `q8.sh`
-  - `q9.csv`
   - `q9.sh` or `q9.py`
-  - `q10.csv`
   - `q10.sh` or `q10.py`
-  - `q11.csv`
   - `q11.sh` or `q11.py`
-  - `q12.csv`
   - `q12.py`
-  - `q13.csv`
   - `q13.sh` or `q13.py`
 
 To submit responses:
