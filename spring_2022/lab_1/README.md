@@ -877,8 +877,8 @@ For each of these questions, you get half the points for getting each implementa
 8. (SQL Only: Window Functions, 10 pts) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top , return all of them. Return the year, the name, number of above average movies, and the ranking. Sort by year (ascending), ranking (ascending) and name (ascending) to break ties. 
 9. (SQL Only: Recursive CTEs, 10 pts) Find the genres of movies with the highest average rating. Note that the text `Action,Thriller` should be treated as two genres (`Action` and `Thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating (descending) and genre (ascending) to break ties. Be sure to filter out the null genre (`genres='\N'`).
 10. (SQL Only: Recursive CTEs, 10 pts) Degrees of separation. Recursively compute the set of actors that contains:
-        * Samuel L. Jackson (person_id='nm0000168')
-        * Actors who played with Samuel L. Jackson in 2021, played with someone who played with him in 2021, and so on.
+* Samuel L. Jackson (person_id='nm0000168')
+* Actors who played in a movie with Samuel L. Jackson in 2021, played with someone who played with him in a movie in 2021, and so on.
 Return the person_id, and the name ordered by name. This query should take no longer than 5 minutes to run (ours takes 2.5 minutes). Make sure you understand the difference between `UNION` and `UNION ALL` in recursive CTEs.
 
 ### Submission Instruction
