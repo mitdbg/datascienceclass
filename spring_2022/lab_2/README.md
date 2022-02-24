@@ -90,6 +90,17 @@ root@4d2bb3edd81c:/lab2/submission# ls
 q1.csv q1.sh
 ```
 
+Please also note that new files you create are by default not executable. Trying to run them will give rise to a "Permission denied" error. In order to avoid this for your `q[X].sh` files, make sure you edit the permissions to make the files executable:
+```
+root@4d2bb3edd81c:/lab2/submission# ./q1.sh
+bash: ./q1.sh: Permission denied
+root@4d2bb3edd81c:/lab2/submission# chmod +x q1.sh
+root@4d2bb3edd81c:/lab2/submission# ./q1.sh
+root@4d2bb3edd81c:/lab2/submission# ls
+q1.csv q1.sh
+```
+
+
 ## Submission
 
 Make sure you are registered on Gradescope for this class. The course ID is `ZRE8VN`.
