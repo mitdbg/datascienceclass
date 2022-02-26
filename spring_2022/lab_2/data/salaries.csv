@@ -1,0 +1,506 @@
+salary_id,employer_name,location_name,location_state,location_country,location_latitude,location_longitude,job_title,job_title_category,job_title_rank,total_experience_years,employer_experience_years,annual_base_pay,signing_bonus,annual_bonus,stock_value_bonus,comments,submitted_at
+1,opower,"san francisco, ca",CA,US,37.77,-122.41,systems engineer,Engineering,,13,2,125000,5000,0,5000 shares,Don't work here.,3/21/16 12:58
+3,walmart,"bentonville, ar",AR,US,36.36,-94.2,senior developer,Software,Senior,15,8,65000,,5000,"3,000",,3/21/16 12:58
+4,vertical knowledge,"cleveland, oh",OH,US,41.47,-81.67,software engineer,Software,,4,1,86000,5000,6000,0,,3/21/16 12:59
+6,netapp,waltham,,,,,mts,Other,,4,0,105000,5000,8500,0,,3/21/16 13:00
+12,apple,cupertino,,,,,software engineer,Software,,4,3,110000,5000,7000,150000,,3/21/16 13:02
+14,casino,eastern oregon,OR,US,38,-97,it technician,Other,,5,1.5,40000,0,500,0,,3/21/16 13:03
+16,tetra tech,"madison, wi",WI,US,43.1,-89.5,lead interviewer,Other,,4,2.5,45000,0,1500,,,3/21/16 13:03
+17,knewton,new york city,NY,US,38,-97,senior software engineer,Software,Senior,8,2,135000,0,0,,,3/21/16 13:03
+21,amplify,nyc,,,,,software engineer,Software,,2,1,105000,0,47000,0,,3/21/16 13:04
+23,sqor,san francisco,,,,,infrastructure/platform engineer,Engineering,,1,1,80000,0,0,500,,3/21/16 13:04
+24,pensco trust company,"denver, co",CO,US,39.82,-105.1,senior software engineer,Software,Senior,10,1.5,120000,0,6000,0,,3/21/16 13:04
+25,thoughtworks,chicago,,,,,"software developer, consultant",Software,,2,2,78000,0,0,0,,3/21/16 13:04
+30,purdue,"west lafayette, in",IN,US,40.44,-86.91,web developer,Web,,2,1.5,60000,,,,Discounted education for employees.,3/21/16 13:05
+34,small b2b company,minneapolis,,,,,analyst,Data,,4,1,63000,0,2000,0,,3/21/16 13:05
+35,small b2b company,minneapolis,,,,,analyst,Data,,4,1,63000,0,2000,0,,3/21/16 13:05
+36,sqli,bordeaux,,,,,it project manager,Management,,8,3,38,0,0,0,,3/21/16 13:05
+37,slalom,seattle,,,,,senior engineer,Engineering,Senior,5,1,93000,0,15000,0,,3/21/16 13:05
+39,magento commerce,"charleston, sc",SC,US,32.78,-79.99,member of technical staff,Other,,19,1,131000,,,80000,Remote,3/21/16 13:06
+40,oracle,"bala cynwyd, pa",PA,US,40.01,-75.22,student intern co-op,Other,Intern,0,0,24,0,0,$0,,3/21/16 13:06
+45,klick,"toronto, canada",,CA,60,-95,full stack developer,Web,,5,3,85000,0,5000,0,,3/21/16 13:06
+46,small consulting shop,"durham, nc",NC,US,35.98,-78.91,developer,Software,,10,3.5,150000,,,,,3/21/16 13:06
+47,amazon,seattle,,,,,sde1,Software,1,0,0,95000,20000,,30000,this was in 2012,3/21/16 13:06
+48,nbc universal,new york,NY,US,38,-97,senior analyst,Data,Senior,2,1.5,55000,0,0,0,Dont go there,3/21/16 13:07
+50,30 person startup,san francisco,,,,,software engineer,Software,,5,2,125000,0,0,0,options were granted but have no real monetary value,3/21/16 13:07
+53,liveops,santa clara,,,,,sr engineer,Engineering,Senior,6,3,145000,0,20000,15000,,3/21/16 13:07
+55,expedia,chicago,,,,,software engineer,Software,,,2.5,78000,5000,4000,,Expedia sucks! Don't come here...,3/21/16 13:08
+59,quick left,boulder co,CO,US,38,-97,senior developer,Software,Senior,6,1,120000,0,0,500,,3/21/16 13:08
+60,1&1 development srl,"bucharest, romania",,OM,21,57,software developer,Software,,5,2,17264,0,0,0,,3/21/16 13:08
+62,early-stage startup,"stockholm, sweden",,SE,62,15,ios developer,Software,,8,0.8,36.5,0,0,0,"Yup. That's what I make. And trust me, I'm a pretty decent developer.",3/21/16 13:09
+64,rei systems,"sterling, va",VA,US,38.86,-77.05,associate software engineer,Software,,1,1,55000,,,,,3/21/16 13:09
+69,mitsubishi hitachi power systems america,"orlando, florida",FL,US,28.5,-81.37,steam turbine service engineer,Engineering,,4,1,80001,10000,,,$10k was relocation.,3/21/16 13:10
+70,startup,"detroit, mi",MI,US,42.38,-83.1,senior engineer,Engineering,Senior,8,3,100000,0,0,80000,,3/21/16 13:10
+74,sf startup,"san francisco, ca",CA,US,37.77,-122.41,web developer,Web,,5,0.5,125000,5000,10,n/a,,3/21/16 13:10
+77,intel,"hillsboro, oregon",OR,US,45.52,-122.85,product development engineer,Software,,2.5,2.5,82000,,,,,3/21/16 13:11
+79,city of austin,"austin, tx",TX,US,30.26,-97.74,it programmer,Other,,40,15,103000,0,1500,0,,3/21/16 13:11
+88,early-stage startup,"denver, co",CO,US,39.82,-105.1,director of product,Management,,5,3,80000,,,50000,,3/21/16 13:11
+89,social tables,washington dc,WA,US,38,-97,engineer,Engineering,,2,1,80000,5000,,,,3/21/16 13:11
+90,loyalty new zealand,"wellington, new zealand",,NZ,-41,174,software engineer,Software,,2,2,50000,,5000,,,3/21/16 13:12
+91,freelance,"denver, co",CO,US,39.82,-105.1,software engineer,Software,,20,11,190000,0,0,0,Estimated - bill @ $145-180/hr; don't work year-round.,3/21/16 13:12
+95,.gov,"albany, ny",NY,US,42.66,-73.79,architect,Other,,18,16,119000,0,2000,0,,3/21/16 13:12
+100,hedge fund,ct,,,,,investment professional,Other,,10,3.5,500000,50000,250000,150000,This is low relative to field/experience.,3/21/16 13:12
+101,twilio,san francisco,,,,,software engineer new grad,Software,,1,1,115000,10000,,~80k options,,3/21/16 13:12
+103,stronghold data,joplin mo,MO,US,38,-97,teir two tech,Other,,9,4,38000,0,1000,0,,3/21/16 13:12
+104,self-employed,"jersey city, nj",,JE,49.25,-2.17,"consultant, cto as needed",Other,,8,1,325000,0,0,0,,3/21/16 13:13
+105,employer x,phils,,,,,web developer,Web,,8,2,100000,,,,,3/21/16 13:13
+106,financial sector,"bristol, uk",,,,,software analyst,Data,,2,1,23000,0,500,0,,3/21/16 13:13
+109,comcast,"philadelphia, pa",PA,US,39.95,-75.16,python engineer,Engineering,,5,1,138000,0,0,0,"W2 Contractor, 70$/hr. ",3/21/16 13:13
+112,linkedin,"san jose, ca",CA,US,37.38,-121.89,site reliability engineer,Engineering,,4,1,140000,,14000,43750,,3/21/16 13:13
+114,nara logics,"cambridge, ma",MA,US,42.35,-71.06,software developer,Software,,12,4,115000,,,,"Startup, granted ~0.4% stock options",3/21/16 13:14
+115,cloudflare,san francisco,,,,,solution eningeer,Other,,,,83000,,25000,,,3/21/16 13:14
+117,mckinsey & company,san francisco,,,,,business analyst,Data,,1.5,1.5,90000,10000,22000,0,,3/21/16 13:14
+118,small b2b company,"barcelona, spain",,ES,40,-4,system administrator,Management,,10,10,1575,0,3000,0,,3/21/16 13:14
+120,microsoft,"redmond, wa",WA,US,47.68,-122.12,software engineer 1,Software,1,1,1,105000,15000,,50000,,3/21/16 13:14
+125,startup,"san francisco, ca",CA,US,37.77,-122.41,software engineer,Software,,2.5,1,100000,0,0,,Completed coding bootcamp in 2013,3/21/16 13:14
+127,cornell,"ithaca, ny",NY,US,42.44,-76.5,phd student,Other,,4,4,28500,0,0,0,,3/21/16 13:14
+128,microsoft,"redmond, wa",WA,US,47.68,-122.12,sde,Software,,4,2,275000,0,2,Part of Annual Bonus,,3/21/16 13:14
+130,amazon,seattle,,,,,software development engineer,Software,,0,1,95000,22000,20000,52000,,3/21/16 13:15
+132,too small to say,"oklahoma city, ok",OK,US,35.46,-97.51,web developer general it,Web,,10,7.5,88000,0,8000,2500,,3/21/16 13:15
+135,ibm,chicago,,,,,linux engineer,Engineering,,1,1,84000,,,,,3/21/16 13:15
+136,synopsys,san francisco,,,,,"software engineer, sr 1",Software,1,3,2,115000,0,10000,5000,,3/21/16 13:15
+138,analytics company,"raleigh, nc",NC,US,35.82,-78.65,software developer,Software,,11,2,103000,,12000,,,3/21/16 13:16
+142,epic,"verona, wisconsin",WI,US,42.98,-89.53,software developer,Software,,4,2,94000,,2000,,,3/21/16 13:16
+143,evry,"karlstad, sweden",,SE,62,15,consultant,Other,,3,2,380000,,,,,3/21/16 13:16
+151,b2b,nj,,,,,senior developer,Software,Senior,10,3,140000,0,10000,0,,3/21/16 13:17
+152,texas tech  system,"lubbock, tx",TX,US,33.57,-101.87,programmer analyst iii,Data,3,7,3,55000,0,0,0,,3/21/16 13:17
+153,unc-ch/ncsu joint biomedical engr. dept,"raleigh, nc",NC,US,35.82,-78.65,phd student,Other,,4,1,24073,0,0,0,NIH Paygrade covers Health+Tuition,3/21/16 13:17
+156,investment bank,"new york, ny",NY,US,40.71,-73.99,m&a analyst,Data,,1,1,85000,15000,70000,0,Soul sucking,3/21/16 13:17
+158,microsoft,"london, uk",,,,,software engineer,Software,,3,0,86742,0,8532,�3500,,3/21/16 13:17
+159,apple,sunnyvale,,,,,senior software engineer,Software,Senior,10,2,151000,20000,40000,10000,,3/21/16 13:17
+161,ihs,poland,,PL,52,20,software engineer,Software,,4,2,30000,,,2500,,3/21/16 13:17
+162,conde nast,"new york city, ny",NY,US,40.71,-73.99,software engineer - level 2,Software,2,8,4,112000,0,2,0,,3/21/16 13:17
+166,pariveda solutions,dallas,,,,,consultant ii,Other,2,3,2,77000,5000,0,,Pay is uniform across all markets with exception of NY and SF. Insane  benefits.,3/21/16 13:18
+167,mid-size fundraising startup,"san francisco, ca",CA,US,37.77,-122.41,senior software engineer,Software,Senior,11,0,165000,0,0,0.15%,,3/21/16 13:18
+168,starbucks coffee company,"seattel, wa",WA,US,38,-97,senior application developer,Software,Senior,10,3,127000,0,15,10,,3/21/16 13:18
+175,tumblr,2,,,,,content strategist/blogger advocate,Other,,,2,129857,,,,,3/21/16 13:19
+176,linkedin,1,,,,,senior web developer,Web,Senior,10,4,165000,,15000,50000,,3/21/16 13:19
+180,yahoo!,1,,,,,senior software development engineer,Software,Senior,10,6,93000,15000,9000,,,3/21/16 13:20
+182,factset,1,,,,,software engineer,Software,,5,3,120000,5000,0,0,,3/21/16 13:20
+184,tango.me,1,,,,,senior data engineer,Data,Senior,10,1,130000,,,,,3/21/16 13:20
+185,jp morgan,114,,,,,senior java dev,Other,Senior,8,5,45000,0,3000,0,,3/21/16 13:21
+186,microsoft,2,,,,,sde ii,Software,2,4,4,125000,50000,10000,5000,,3/21/16 13:21
+187,google nyc,1,,,,,swe iii,Software,3,10,1,135500,50000,22300,43700,signing bonus in form of paid relocation,3/21/16 13:21
+189,rockfish interactive,1,,,,,developer ii,Software,2,5,2,65000,0,1950,0,,3/21/16 13:21
+191,apple,95014,CA,US,37.3,-122.09,senior system engineer,Engineering,Senior,9,1,130000,20000,,40000,,3/21/16 13:21
+193,amazon,98102,WA,US,47.61,-122.33,ux designer ii,Other,2,1,1,12000,55000,15000,20000,,3/21/16 13:21
+195,walmartlabs,94086,CA,US,37.38,-122.01,principal/lead software engineer,Software,,14,4,190000,150000,50000,75000,,3/21/16 13:21
+211,intel,"hillsboro, oregon",OR,US,45.52,-122.85,computer hardware engineer,Engineering,,1.5,1.5,72000,0,0,0,,3/21/16 13:23
+212,google,mountain view,,,,,senior software engineer,Software,Senior,15,5,178000,15000,50000,100000,Love every day of my job,3/21/16 13:23
+214,vertafore,bothell,,,,,software engineer in devops i,Software,1,1,1,50000,0,,0,"perks include onsite barristas, free drinks several expense paid corporate events a year (party cruise, etc.)",3/21/16 13:23
+215,amazon,98105,WA,US,47.61,-122.33,ux designer ii,Other,2,1,1,120000,0,0,0,,3/21/16 13:26
+216,caesartenders,0,,,,,software engineer,Software,,7,2,62000,0,0,0,,3/21/16 13:23
+217,small ~15 startup,israel,,IL,31.47,35.13,senior software engineer,Software,Senior,8,2,90000,,,,Annual stock exists but don't remember what it is,3/21/16 13:23
+219,municipality,"bremerhaven, germany",,DE,51,9,software developer,Software,,11,7,54100,,3595,,,3/21/16 13:23
+222,microsoft,98004,WA,US,47.61,-122.21,software engineer 2,Software,2,4,3.5,115000,50000,15000,7500,,3/21/16 13:23
+223,startup,berlin,,,,,lead engineer,Engineering,,7,0,78000,,,,,3/21/16 13:23
+227,small web biz,palo alto,,,,,engineer,Engineering,,2,0.2,140,10,,,,3/21/16 13:24
+230,analyst warehouse,dallas tx,TX,US,38,-97,software developer,Software,,10,1,90000,0,0,0,,3/21/16 13:24
+231,self,austin,,,,,owner,Other,,12,5,80000,0,120000,0,,3/21/16 13:24
+234,vmware,seattle,,,,,sr. mts,Other,Senior,10,1,155000,25000,15000,,,3/21/16 13:24
+235,amazon,san francisco,,,,,sdeii,Software,,6,4,130000,,,150000,Via Acquisition,3/21/16 13:24
+237,fyber gmbh,berlin,,,,,senior software developer,Software,Senior,9,4,65000,3000,0,0,,3/21/16 13:24
+239,twilio,san francisco,,,,,senior software engineer,Software,Senior,2.5,2.5,132000,5000,0,,,3/21/16 13:24
+245,facebook,seattle,,,,,software engineer,Software,,6,4,225000,50000,45000,200000,,3/21/16 13:24
+249,dupont pioneer,"johnston, iowa",IA,US,41.68,-93.7,software developer,Software,,10,3,125000,10000,15000,0,,3/21/16 13:25
+252,newspaper company,california,CA,US,38,-97,cto,Management,,8,1,100000,0,0,0,,3/21/16 13:25
+253,bhhc,"omaha, ne",NE,US,41.15,-95.92,fp&a analyst,Data,,3,3,46500,0,0,0,,3/21/16 13:25
+254,optum,"plymouth, mn",MN,US,44.96,-93.26,software engineer,Software,,6,1,85000,3000,5000,1000,,3/21/16 13:25
+255,mathworks,boston metro,,,,,senior software engineer,Software,Senior,10,4,115000,0,10000,0,,3/21/16 13:25
+256,american express,"phoenix, arizona",AZ,US,33.45,-112.06,intern,Other,Intern,0,0,60000,5000,,,"Summer Intern, June-August",3/21/16 13:25
+261,hewlett packard enterprise,sunnyvale,,,,,software engineer,Software,,1,1,100000,10000,0,3000,,3/21/16 13:26
+262,salesforce,"seattle, wa",WA,US,47.61,-122.33,senior software engineer,Software,Senior,,2,125000,,18000,,,3/21/16 13:26
+264,autodesk,san francisco,,,,,software engineer,Software,,5,0,130000,0,13000,5000,,3/21/16 13:26
+265,directv/at&t,"culver city, ca",CA,US,33.99,-118.39,application engineer,Engineering,,5,4,79000,0,10000,0,"Easy job, lots of training. But things might change when AT&T starts taking over.",3/21/16 13:26
+267,facebook,menlo park,,,,,software engineer,Software,,3,1,150000,50000,15000,100000,,3/21/16 13:26
+268,accretive technology group,seattle,,,,,software developer,Software,,1,1,75000,0,2000,0,,3/21/16 13:26
+273,sunpower,"richmond, ca",CA,US,37.96,-122.38,financial engineer,Engineering,,0,1,87000,0,8000,0,Mainly software for finance,3/21/16 13:26
+276,mri software llc,"solon, oh",OH,US,41.38,-81.44,software engineer,Software,,3,1,48500,,,,,3/21/16 13:27
+277,amazon,seattle,,,,,sde,Software,,4,4,91000,20000,0,35000,,3/21/16 13:27
+280,-,remote us,,,,,senior security engineer,Engineering,Senior,12,3,115000,0,46000,0,,3/21/16 13:27
+282,microsoft,redmond,,,,,sde ii,Software,2,3,3,145000,50000,28000,,,3/21/16 13:27
+283,synapticon,stuttgart,,,,,robotics/embedded systems engineer,Engineering,,0,0,43000,0,0,0,5 years old company,3/21/16 13:27
+287,dropbox,san francisco,,,,,software engineer,Software,,5,2.5,140,30,0,,,3/21/16 13:27
+292,quattro folia,helsinki,,,,,senior software engineer,Software,Senior,9,1,6000,6000,0,0,,3/21/16 13:27
+294,justice systems,"albuquerque, nm",NM,US,35.11,-106.62,software engineer,Software,,2,1,51000,0,0,0,,3/21/16 13:27
+297,google,mountain view,,,,,software engineer ii,Software,2,2,2,131000,15000,20000,50000,,3/21/16 13:28
+301,apple,cupertino,,,,,data engineer/software engineer,Data,,6,2.5,145000,25000,20,100k $ annually,,3/21/16 13:28
+302,pariveda solutions,dallas,,,,,consultant 2,Other,2,2,2,77000,5000,0,0,,3/21/16 13:28
+305,a stealth startup,washington d.c.,WA,US,38,-97,lead,Other,,17,1,175000,0,10000,0,,3/21/16 13:28
+306,vmware,palo alto,,,,,member of technical staff,Other,,4,3,125000,40000,16000,,,3/21/16 13:28
+311,myself,"rennes, france",,FR,46,2,3d graphics engineer,Engineering,,5,1.5,15000,,,,4,3/21/16 13:28
+313,iqmetrix,"regina, sk canada",,CA,60,-95,software developer,Software,,0,1,55000,0,0,0,,3/21/16 13:29
+317,delaware north,"buffalo, ny",NY,US,42.88,-78.85,data visualization engineer,Data,,3,0,80000,,,,,3/21/16 13:29
+318,pindrop,atlanta,,,,,operations engineer,Engineering,,4,1,85000,,8500,,,3/21/16 13:29
+319,twitter,sf,,,,,senior software engineer,Software,Senior,8,1,170000,0,0,35000,,3/21/16 13:29
+324,series c saas provider,"san francisco, ca",CA,US,37.77,-122.41,full stack engineer,Web,,16,2,132000,0,0,0,,3/21/16 13:29
+325,garmin,"olathe, ks",KS,US,38.88,-94.81,software engineer 2,Software,2,2.75,2.75,72200,4000,0,0,No annual stock bonus but you get offered an ESPP with discounted stock rates that guarantees a 15% return on up to 10% invested every 6 months. 75 cents on the dollar 401k matching and a an additional 5% of your base salary added to it for free. Rest of the benefits are great as well. Boring to work for.,3/21/16 13:29
+326,of oklahoma,"norman, ok",OK,US,35.22,-97.34,it support technician iii,Other,3,16,14,37500,0,0,0,,3/21/16 13:29
+327,aig,"wilton, ct usa",CT,US,41.18,-73.42,microsoft developer for release management (grade 22),Software,,20,2,165000,20000,0,0,,3/21/16 13:29
+329,picwell,philadelphia,,,,,data scientist,Data,,2,1,75000,0,0,0,,3/21/16 13:30
+337,nope,united states,,US,38,-97,software developer,Software,,5,4,61000,1000,1000,0,,3/21/16 13:30
+340,amazon,"seattle, wa",WA,US,47.61,-122.33,sde i,Software,1,2,0.5,105000,30000,,,,3/21/16 13:30
+342,igs energy,"columbus, oh",OH,US,39.98,-82.98,application developer,Software,,3,1,65000,0,5000,0,,3/21/16 13:30
+347,software company,palo alto,,,,,ceo,Management,,10,2,100000,,,,,3/21/16 13:30
+351,spotx,"denver, co",CO,US,39.82,-105.1,software engineer,Software,,7,2,84000,1500,1500,0,,3/21/16 13:31
+352,solarcity,sf,,,,,software engineer,Software,,3,2,120000,0,0,30000,,3/21/16 13:31
+355,perk,"austin, tx",TX,US,30.26,-97.74,developer,Software,,2,0,54000,2500,0,0,,3/21/16 13:31
+358,building robotics,"oakland, ca",CA,US,37.72,-122.2,senior backend engineer,Engineering,Senior,9,2,145000,,,,,3/21/16 13:31
+363,pomeroy,cincinatti,,,,,solutions architect,Other,,23,2,130000,,10000,0,,3/21/16 13:31
+364,ibm,"san diego, ca",CA,US,32.71,-117.16,software developer,Software,,9,8,151000,15000,5000,5000,,3/21/16 13:31
+365,quicken loans,"detroit, mi",MI,US,42.38,-83.1,sr. software engineer,Software,Senior,5,3,82000,0,13000,0,,3/21/16 13:32
+366,bank,"stockholm, sweden",,SE,62,15,junior developer,Software,Junior,1,1,48000,0,3000,3000 USD,,3/21/16 13:32
+367,ericsson,"southampton, uk",,,,,support engineer,Engineering,,3,3,62568,0,0,0,,3/21/16 13:32
+368,goldman sachs,london,,,,,analyst (technology),Data,,0,0,60000,13000,5000,0,Amounts converted from GBP to USD,3/21/16 13:32
+371,of washington,"seattle, wa",WA,US,47.61,-122.33,data scientist,Data,,10,4,101000,0,0,0,,3/21/16 13:32
+373,verizon,tampa,,,,,internal help desk,Other,Intern,4,4,38000,0,3000,,,3/21/16 13:32
+374,state of oregon,oregon,OR,US,38,-97,senior software developer,Software,Senior,10,5,80000,0,0,0,,3/21/16 13:32
+378,evertec,puerto rico,,PR,18.25,-66.5,software developer,Software,,2.5,1.5,40000,,2,,,3/21/16 13:33
+379,nist,"gaithersburg, md",MD,US,39.14,-77.21,postdoc,Other,,7,1,67000,0,0,0,,3/21/16 13:33
+386,emc,seattle,,,,,senior sde,Software,Senior,5,5,132000,10000,15000,47600,,3/21/16 13:33
+387,bank,"warsaw, poland",,PL,52,20,data mining analyst,Data,,6,5,30000,0,0,0,,3/21/16 13:33
+388,digital agency,nyc,,,,,analyst,Data,,3,2,80000,0,1000,0,,3/21/16 13:33
+389,nasdaq,philadelphia,,,,,engineer,Engineering,,8,6,105000,,21000,21000,Stock doesnt seem to vest on a consistent schedule. Right now seems to be a 25/25/50% vest over 3 years.,3/21/16 13:33
+390,microsoft,redmond,,,,,sde 2,Software,2,5,3,125000,5000,14000,3000,,3/21/16 13:33
+394,spotify,nyc,,,,,engineer,Engineering,,10,2,187500,10,,20000,,3/21/16 13:34
+395,new york mets,"new york, new york",NE,US,38,-97,pitcher,Other,,20,3,1000000,4500000,500000,0,Bartolo Colon,3/21/16 13:34
+399,ticket broker,northern california,CA,US,38,-97,chief of technology,Other,,15,3,125000,0,6000,8000,,3/21/16 13:34
+401,ibm canada,"toronto, canada",,CA,60,-95,peoplesoft administrator,Management,,15,10,112000,0,0,0,,3/21/16 13:34
+402,microsoft,seattle,,,,,software engineer,Software,,1,1,105000,10000,,,,3/21/16 13:34
+403,freelance/consulting,"vancouver, canada",,CA,60,-95,software engineer,Software,,9,7,270000,,,,,3/21/16 13:34
+405,cisco,canada,,CA,60,-95,software engineer,Software,,15,3,110000,0,14000,20000,,3/21/16 13:35
+406,boutique development consulting,"denver,  co",CO,US,39.82,-105.1,consultant,Other,,4,1,88000,,4500,,,3/21/16 13:35
+407,self-employed,"kingston, canada",,CA,60,-95,consultant,Other,,10,,180000,,,,,3/21/16 13:35
+410,test,boston,,,,,test,Other,,2,2,80000,0,0,0,,3/21/16 13:35
+411,missouri  of science and technology,"rolla, mo, usa",MO,US,37.94,-91.76,secondary cluster administrator,Management,,3,1,43000,0,0,0,,3/21/16 13:35
+415,non-profit,boston,,,,,techops manager,Management,,5,3,28800,0,500,0,,3/21/16 13:35
+416,canonical,remote,,,,,software engineer,Software,,10,1,120000,0,0,0,,3/21/16 13:35
+417,solidfire,"boulder, co",CO,US,40.02,-105.25,senior software engineer,Software,Senior,4,2,113000,0,9000,15000,Recently acquired by NetApp,3/21/16 13:35
+420,zillow group,san francisco,,,,,senior software engineer,Software,Senior,5,2,145000,10000,0,10000,,3/21/16 13:36
+423,stealth startup,san francisco,,,,,programmer,Other,,15,1,175000,0,0,0,,3/21/16 13:36
+428,microsoft,redmond,,,,,sde ii,Software,2,11,4,102000,6000,13000,22000,,3/21/16 13:36
+429,google,mountain view,,,,,software engineer,Software,,4,1,130000,20000,20000,"40,000","negotiated from 0 signing bonus to 20k, and from 160 GSUs to 200",3/21/16 13:36
+432,microsoft,seattle,,,,,product manager,Management,,0,1,105000,20000,0,20000,,3/21/16 13:36
+433,facebook,menlo park,,,,,data scientist,Data,,4,4,206000,50000,50000,100000,,3/21/16 13:36
+434,ibm,chicago,,,,,managing consultant,Other,,10,10,123000,2000,1000,0,,3/21/16 13:36
+435,amazon,"seattle, wa",WA,US,47.61,-122.33,sr. product manager,Management,Senior,7,2.7,128000,50000,,70000,,3/21/16 13:36
+440,sfdc,san francisco,,,,,principle member of technical staff,Other,,13,3,156000,60000,40000,25000,,3/21/16 13:37
+441,microsoft,"seattle, wa",WA,US,47.61,-122.33,software development engineer,Software,,10,10,190000,0,65000,68000,,3/21/16 13:37
+443,simplotel,"bangalore, india",,IN,20,77,senior software engineer,Software,Senior,3.5,1,18000,0,,2250,,3/21/16 13:37
+445,interactive development agency,salt lake city,,,,,software developer,Software,,2,2,60000,0,0,0,,3/21/16 13:37
+446,popsugar,"san francisco, ca",CA,US,37.77,-122.41,senior software engineer,Software,Senior,12,1,135000,0,0,0,,3/21/16 13:37
+447,facebook,menlo park,,,,,software engineer,Software,,3,1,152000,22000,15000,80000,,3/21/16 13:37
+449,amazon,cape town,,,,,software development engineer ii,Software,2,6,6,675000,,,"ZAR 675,000",Total value of RSUs dependent on USD / ZAR exchange rate and value of NASDAQ:AMZN. Grows roughly 20% YoY,3/21/16 13:37
+451,med size us based it co.,"bristol, uk",,,,,software engineer,Software,,6,2,45000,,5,n/a,,3/21/16 13:38
+453,google,london,,,,,web solutions engineer,Web,,8,4,88000,0,15000,35000,WSE is not a SWE,3/21/16 13:38
+454,intergen,wellington,,,,,senior developer,Software,Senior,6,2,90000,,,,,3/21/16 13:38
+457,epam systems,mountain view,,,,,lead software engineer,Software,,5,2,130000,0,20000,,,3/21/16 13:38
+459,self,houston,,,,,consultant,Other,,15,1,275000,0,0,0,,3/21/16 13:38
+464,google,mountain view,,,,,analyst,Data,,7,4,101000,7500,15000,50000,,3/21/16 13:38
+465,tapjoy,boston,,,,,senior engineer,Engineering,Senior,6,3,110406.48,0,11040,0,,3/21/16 13:38
+466,private,"stuart, fl",FL,US,27.19,-80.24,web developer,Web,,10,2,75000,0,0,0,,3/21/16 13:38
+469,cisco,boston,,,,,architect,Other,,15,6,162000,,48000,10000,,3/21/16 13:39
+470,facebook,menlo park,,,,,software engineering intern,Software,Intern,1,0,96000,0,0,0,,3/21/16 13:39
+473,bk engineering,nc,,,,,software engineer,Software,,4,4,90000,5000,8000,0,,3/21/16 13:39
+475,i.b.m.,north carolina,NC,US,38,-97,senior software engineer,Software,Senior,18,12,29000,0,0,0,Thank you for this service!,3/21/16 13:39
+477,anon,los angeles,,,,,software developer,Software,,2,1,60000,0,0,0,,3/21/16 13:39
+478,series a ($8mm) funded startup,bengaluru,,,,,tech lead,Software,,3.5,0.25,33000,0,7500,0,Bangalore guys n gals please contribute. :-),3/21/16 13:39
+479,liveperson,"atlanta, georgia",,GE,42,43.5,devops engineer,Engineering,,1,1,46999,0,0,0,,3/21/16 13:39
+480,facebook,"seattle, wa usa",WA,US,47.61,-122.33,software engineer,Software,,7,3,167000,25000,25000,"Signing grant: 9,600 RSUs (250k) vesting over 4 years (25% at year 1, 1/36 every quarter after), currently worth $1m due to stock price, $50k-100k in refreshers on same vesting schedule each year thereafter","Strict 40 hr / wk. 8 months parental leave taken. Always ""meets"" or ""exceeds"" performance rating.",3/21/16 13:39
+481,tableau software,chicago,,,,,solution architect,Other,,16,2,103000,,15000,28000,,3/21/16 13:40
+484,microsoft,redmon,,,,,software engineer,Software,,,0,106000,15000,20000,30000,,3/21/16 13:40
+487,typical norwegian consulting firm,"oslo, norway",,NO,62,10,android developer,Software,,2,0.5,450000,0,0,0,,3/21/16 13:40
+488,netflix,los gatos,,,,,senior software engineer,Software,Senior,10,1,350000,0,0,some,"Proof: see the ""Wage Offer From"" column on http://visadoor.com/h1bvisa-by-companies-2015-netflix-inc , which is the actual offered salary. And these are just the H-1Bs.",3/21/16 13:40
+489,ignition one,new york city,NY,US,38,-97,software engineer,Software,,8,1,155000,0,36000,,Don't work here.,3/21/16 13:40
+490,< 5 person startup,san francisco,,,,,software engineer,Software,,6,1,125000,0,0,25000,,3/21/16 13:40
+492,lockheed martin,"owego, ny",NY,US,42.1,-76.26,associate electrical engineer,Engineering,,1,1,60528,0,0,3%,,3/21/16 13:40
+495,optum,"boston, ma",MA,US,42.35,-71.06,junior systems engineer,Engineering,Junior,1,3,80000,0,5,0,,3/21/16 13:40
+496,a company in sf,vancouver,,,,,software engineer,Software,,20,2,125000,0,1250,0,,3/21/16 13:40
+499,intel,"santa clara, ca",CA,US,37.34,-121.95,senior software engineer,Software,Senior,12,4,145000,0,30000,,,3/21/16 13:40
+500,lendup,san francisco,,,,,growth team (title would give me away),Other,,10,1,120000,0,0,10000,,3/21/16 13:40
+501,viacom,new york city,NY,US,38,-97,ios developer,Software,,1,0,92000,0,0,0,,3/21/16 13:40
+502,education,florida,FL,US,38,-97,it director,Management,,20,10,75000,,,,,3/21/16 13:40
+503,netflix,los gatos,,,,,user interface engineer,Engineering,,15,4,260000,0,0,0,,3/21/16 13:41
+506,oracle,london,,,,,developer,Software,,2,1.5,46000,0,4000,0,,3/21/16 13:41
+510,series e funded > $100m,san francisco,,,,,cto,Management,,10,2,310000,0,85000,45000,,3/21/16 13:41
+511,microsoft,frankfurt,,,,,software engineer,Software,,6,2,73200,,,,,3/21/16 13:41
+517,paychex,"rochester, ny",NY,US,43.16,-77.61,junior java developer,Software,Junior,2,0,60000,0,,,,3/21/16 13:41
+518,midstage startup,"san francisco, ca",CA,US,37.77,-122.41,software developer,Software,,1,1,120000,0,12000,1000,,3/21/16 13:41
+519,microsoft,"redmond, wa",WA,US,47.68,-122.12,software developer,Software,,2,2,120000,8000,8000,8000,,3/21/16 13:41
+521,nokia,canada,,CA,60,-95,software development engineer,Software,,3,3,57450,,7,,,3/21/16 13:41
+522,uber,san francisco,,,,,software engineer,Software,,1.5,1.5,137000,0,,192000,,3/21/16 13:42
+523,city of college station,"college station, tx",TX,US,30.6,-96.31,systems analyst,Data,,2,1,51000,0,0,0,,3/21/16 13:42
+525,a series b startup,san francisco,,,,,ios software engineer,Software,,5,0.6,115000,,,30000,,3/21/16 13:42
+530,xoom,sf,,,,,software engineer,Software,,4,4,125000,0,0,10000,,3/21/16 13:42
+531,harvard,"cambridge, ma",MA,US,42.35,-71.06,graduate student / research assistant,Other,,6,6,32000,0,0,0,"Work over 80 h a week, 7 days a week. Life of a graduate student!",3/21/16 13:42
+532,nasa,washington dc,WA,US,38,-97,software engineer,Software,,1,1,78000,,,,,3/21/16 13:42
+534,google,mountain view,,,,,software engineer,Software,,5,2,140000,30000,50000,50000,,3/21/16 13:42
+537,amex,new york,NY,US,38,-97,software engineer,Software,,,,98000,9000,,,,3/21/16 13:42
+538,linklaters,new york city,NY,US,38,-97,it support engineer,Engineering,,6,0,50000,0,0,0,"Position is a physical Help Desk. Lot's of working perks. Stocked Pantries with teas, coffees, espressos for free. Every Friday there is a 'Drink Carts' misc snack food and drinks (alcoholic and non). Every Month there is a Popcorn day. Plus more working perks. ",3/21/16 13:43
+539,small startup,san francisco,,,,,senior security researcher,Other,Senior,13,2,155000,0,0,0,,3/21/16 13:43
+542,exl landa,chico ca,CA,US,38,-97,software qa tech,Software,,5,5,45000,,2000,,,3/21/16 13:43
+543,navy,ca,,,,,grad student,Other,,1,1,70000,15000,0,0,,3/21/16 13:43
+544,netsuite,"oklahoma city, ok",OK,US,35.46,-97.51,sr. software engineer ii,Software,2,15,1,120000,0,0,10000,,3/21/16 13:43
+546,netlight consulting,"stockholm, sweden",,SE,62,15,consultant,Other,,2,1,52200,0,0,0,,3/21/16 13:43
+547,large german energy company,nordrhein-westfalen,,,,,platform engineer,Engineering,,4,2,42000,0,3000,0,,3/21/16 13:43
+551,mozilla,paris,,,,,software engineer,Software,,5,2,64960,0,21000,0,,3/21/16 13:44
+552,airbnb,san francisco,,,,,software engineer,Software,,3,1.5,118000,0,0,40000,New Grad,3/21/16 13:44
+555,apple,austin,,,,,sr. developer,Software,Senior,15,3,101000,,7000,25000,,3/21/16 13:44
+556,quintiq,"radnor, pa",PA,US,39.96,-75.35,algorithm expert,Other,,5,1,80000,0,4000,500,They totally underpay here.,3/21/16 13:44
+558,salesforce,san francisco,,,,,lead member of technical staff,Other,,5,0,190000,15000,30000,37000,,3/21/16 13:44
+559,startup,nyc,,,,,cto,Management,,21,2,150000,,,,,3/21/16 13:44
+561,vml,"kansas city, mo",KS,US,39.1,-94.62,interactive web developer,Web,,4,1,55000,0,0,0,,3/21/16 13:44
+562,c2s tech,"redmond, wa",WA,US,47.68,-122.12,front end developer,Web,,5,0.5,60000,0,0,0,,3/21/16 13:44
+564,earwigs,monaco,,MC,43.73,7.4,lead earwig specialist,Other,,10,10,1000000,1000000,1000000,"1,000,000 USD",wat,3/21/16 13:44
+566,12 employee startup,"calgary, canada",,CA,60,-95,front end web developer,Web,,3,1,70000,0,0,TBD,,3/21/16 13:44
+568,ibm watson research,"yorktown,ny",,,,,research intern,Other,Intern,0,1,100000,0,0,0,,3/21/16 13:44
+570,amazon,"seattle, wa",WA,US,47.61,-122.33,software development engineer ii,Software,2,4,2,121000,38000,0,10500,,3/21/16 13:44
+571,of rochester brain and cognitive sciences,rochester ny,NY,US,38,-97,graduate student,Other,,3,3,26000,0,0,0,Stipend does not depend on TA duties,3/21/16 13:45
+578,startup,austin,,,,,software engineer,Software,,2,1,85000,,,5000,,3/21/16 13:45
+580,yahoo,sf,,,,,software engineer,Software,,5,3,157500,0,5000,80000,,3/21/16 13:45
+582,mobiquity,"gainesville, fl",FL,US,29.67,-82.33,ios developer,Software,,2,1.25,55000,0,0,0,,3/21/16 13:45
+583,telus,vancouver,,,,,business systems analyst,Data,,4,3,60200,0,10,40% match on 6 percent you buy,,3/21/16 13:45
+584,adobe,san francisco,,,,,web developer,Web,,4,1,155000,5000,,12000,,3/21/16 13:45
+591,intel,hillsboro,,,,,device yield engineer,Engineering,,0,0,117000,8000,13000,1000,,3/21/16 13:45
+592,d-wave,vancouver bc,BC,CA,60,-95,algorithmic software developer,Software,,3,1,90000,0,0,0,,3/21/16 13:46
+593,meltwater,sweden,,SE,62,15,developer,Software,,6,0,56000,0,4000,0,,3/21/16 13:46
+596,wyle,"lexington park, md",MD,US,38.26,-76.44,software engineer,Software,,7,3,79000,0,0,0,,3/21/16 13:46
+598,50-person startup post series a,"washington, dc",WA,US,38,-97,software engineer,Software,,,1,115000,10000,,5000 shares,,3/21/16 13:46
+599,lockheed martin,"austin, tx",TX,US,30.26,-97.74,senior business analyst,Data,Senior,7,3,99500,0,4000,0,,3/21/16 13:46
+600,an unnamed advertising agency,"halifax, ns, canada",,CA,60,-95,devops lead,Other,,3,1,53000,0,1500,0,,3/21/16 13:46
+601,logic technology,"schenectady, ny",NY,US,42.85,-73.9,technical director,Management,,13,12,93500,0,15000,0,,3/21/16 13:46
+607,self,"washington, dc",WA,US,38,-97,independent software engineer,Software,,14,6,230000,0,0,,,3/21/16 13:46
+609,jp morgan,london,,,,,associate developer,Software,,5,1,74000,0,15000,0,,3/21/16 13:46
+610,government/higher education,arizona,AZ,US,38,-97,developer / system analyst,Data,,6,3,46000,0,0,0,Job duties are likely the same as a full stack web developer in private industry.,3/21/16 13:46
+611,farmers,woodland hills,,,,,analyst programmer iii,Data,3,20,7,103000,,25000,,,3/21/16 13:46
+615,openx,pasadena,,,,,software engineer,Software,,3,1.5,120000,20000,16000,,,3/21/16 13:47
+619,google,nyc,,,,,software engineer,Software,,20,10,152000,0,27000,50000,,3/21/16 13:47
+624,random startup,berlin,,,,,devops,Operations,,5,0.5,65000,0,0,30000,,3/21/16 13:47
+625,code for america,san francisco,,,,,designer,Other,,8,1,96000,0,0,0,,3/21/16 13:47
+626,aecom,"richmond, ky",KY,US,37.74,-84.29,automation engineer,Engineering,,17,4,112000,0,0,0,,3/21/16 13:47
+629,business insider,"new york, ny",NY,US,40.71,-73.99,director of infrastructure,Management,,,1,125000,0,10000,0,,3/21/16 13:47
+630,seattlestartupco,seattle,,,,,senior software engineer,Software,Senior,5,1.5,115000,0,10000,10000,,3/21/16 13:47
+631,gnaa,compton ca,CA,US,38,-97,nigger in cheif,Other,,12,12,690000,,,,,3/21/16 13:47
+632,tibco software,palo alto,,,,,architect / principal engineer,Engineering,,10,8,140000,0,10000,0,,3/21/16 13:47
+633,financial software company,"washington, dc",WA,US,38,-97,software engineer,Software,,4,2,140000,0,0,0,,3/21/16 13:47
+636,secretsecretsecret,canada,,CA,60,-95,team lead,Management,,6,3,72600,0,0,90000,,3/21/16 13:48
+638,consulting company,"chicago, il",IL,US,41.85,-87.65,devops engineer,Engineering,,6,3,95000,0,0,0,Consulting for a Fortune 500 company,3/21/16 13:53
+643,microsoft,seattle,,,,,software engineer,Software,,0,0,106000,60000,10000,20000,New Grad,3/21/16 13:48
+644,freelance,amsterdam,,,,,software engineer,Software,,10,2,90000,0,0,,,3/21/16 13:48
+645,facebook,menlo park,,,,,software engineer,Software,,15,8,420420,6969,4200,690069,,3/21/16 13:48
+646,yext,new york,NY,US,38,-97,engineer,Engineering,,,2,100000,,,,,3/21/16 13:48
+647,18f,new york city,NY,US,38,-97,innovation specialist,Other,,7,0,145000,0,0,0,,3/21/16 13:48
+648,shell oil,"houston, tx",TX,US,29.76,-95.38,application developer,Software,,10,2,216000,,,,Contractor at $120/hour for approximately 1800 hours/year.,3/21/16 13:48
+649,logic technology,"schenectady, ny",NY,US,42.85,-73.9,technical director,Management,,13,12,73000,0,5000,0,,3/21/16 13:48
+653,self emplyed,"warsaw, poland",,PL,52,20,developer,Software,,6,3,28,0,0,0,,3/21/16 13:49
+656,microsoft,redmond,,,,,software engineer,Software,,0,0.5,105000,10000,10000,15000,,3/21/16 13:49
+657,capital one,toronto,,,,,senior software engineer,Software,Senior,7,1,95000,0,6000,8000,,3/21/16 13:49
+658,livingsocial,"portland, or",OR,US,45.44,-122.52,sr. software engineer,Software,Senior,7,2,108000,,2000,,,3/21/16 13:49
+659,arbor networks,"ann arbor, mi",MI,US,42.27,-83.73,software engineer,Software,,,,105000,,,,,3/21/16 13:49
+660,verificient technologies,nyc,,,,,web developer,Web,,8,2,65000,0,0,0,,3/21/16 13:49
+665,m.h. frank ltd.,"clemson, sc",SC,US,34.68,-82.81,sales associate,Other,,3,3,12000,0,100,0,I am a college student.,3/21/16 13:49
+667,an agency,uk,,,,,head of front end,Web,,16,15,59724,500,1422,0,,3/21/16 13:49
+668,luminoso,"cambridge, ma",MA,US,42.35,-71.06,software engineer,Software,,2,1,75000,0,0,0,,3/21/16 13:49
+671,medium-size sf biotech,south san francisco,,,,,software developer,Software,,8,2,130000,20000,,,,3/21/16 13:49
+672,startup,"san francisco (palo alto), ca",CA,US,38,-97,software engineer,Software,,3,1,100000,2500,1500,,2% equity over 4 years,3/21/16 13:49
+676,google,new york,NY,US,38,-97,software engineer,Software,,1,1,115000,15000,15000,45000,,3/21/16 13:50
+677,google,san francisco,,,,,cto google rail product,Management,,12,5,356000,190000,70000,0,,3/21/16 13:50
+678,tomtom,amsterdam,,,,,expert software engineer,Software,,10,6,60000,,9000,3000,,3/21/16 13:50
+679,telecom company,san jose,,,,,lead engineer,Engineering,,15,3,152000,,18000,,,3/21/16 13:50
+683,deloitte,south africa,,ZA,-29,24,assistant manager,Management,,5,0.5,45000,0,800,0,,3/21/16 13:50
+684,united states government,"fayetteville, ar",AR,US,36.04,-94.24,it technician,Other,,2,1,49300,,150,,,3/21/16 13:50
+685,tableau software,seattle,,,,,senior software engineer,Software,Senior,5,5,135000,300000,13500,120000,,3/21/16 13:50
+686,refme,london,,,,,head of mobile,Other,,2,2,45000,0,0,30000,,3/21/16 13:50
+694,enterprise software company,"pleasanton, ca",CA,US,37.65,-121.85,front end developer,Web,,15,1,105000,0,0,15000,,3/21/16 13:50
+695,ebay,"san jose, ca",CA,US,37.38,-121.89,mts ii software engineer,Software,,20,8,181000,,20000,45000,,3/21/16 13:51
+697,teksystems,"lincoln, ne",NE,US,40.81,-96.68,senior applications developer,Software,Senior,10,3,80000,0,0,0,"Contractor.  No sick time, no holiday time, no overtime, no insurance,  etc.",3/21/16 13:51
+700,neustar,"sterling, va",VA,US,38.86,-77.05,software engineer ii,Software,2,4,3,89000,,10,,,3/21/16 13:51
+701,startup,san francisco,,,,,cto,Management,,14,2,135000,,,,,3/21/16 13:51
+705,twitter,san francisco,,,,,senior software engineer,Software,Senior,9.75,3.75,164000,0,0,200000,,3/21/16 13:51
+707,s,p,,,,,aws solutions architect,Other,,10,2,54000,0,0,0,,3/21/16 13:51
+711,here,chicago,,,,,software engineer i,Software,1,1.5,0,80800,0,7000,0,,3/21/16 13:52
+712,alliant energy,"madison, wi",WI,US,43.1,-89.5,senior it analyst,Data,Senior,8,1,103000,0,15450,0,This place is good for your wallet but bad for your career,3/21/16 13:51
+714,gg,dsvao,,,,,pres,Other,,35,20,75000,2000,3000,0,,3/21/16 13:52
+715,expedia,"bellevue, wa",WA,US,47.61,-122.21,software development engineer i,Software,1,1,0,105500,20000,10,"10,000",,3/21/16 13:52
+719,best buy,"minneapolis, mn",MN,US,44.96,-93.26,web engineer ii,Web,2,7,2,125000,5000,15000,0,,3/21/16 13:52
+721,propeller studios,toronto,,,,,principal developer,Software,,4,1,27557.6,0,0,0,"Converted 36k/y CAD to USD on March 21st, 2016.",3/21/16 13:52
+722,airbnb,san francisco,,,,,software engineer,Software,,0,1,110000,50000,,,,3/21/16 13:52
+724,amazon,seattle,,,,,sde,Software,,4,2,105000,45000,,15000,,3/21/16 13:52
+728,iac applications,"yonkers, ny",NY,US,40.94,-73.86,senior engineer,Engineering,Senior,16,10,124000,3000,10000,0,,3/21/16 13:53
+729,scientific programmer,austin,,,,,scientific associate,Applied Science,,10,4,80000,0,0,0,,3/21/16 13:53
+730,microsoft,"redmond, wa",WA,US,47.68,-122.12,software development engineer 2,Software,2,7,3,124000,55000,2600,"4,000",,3/21/16 13:53
+734,bloomberg,new york city,NY,US,38,-97,software engineer,Software,,0,0,117000,0,17000,0,Starting later this year...,3/21/16 13:53
+735,squaretrade,san francisco,,,,,senior software engineer,Software,Senior,10,1,135000,5000,0,0,,3/21/16 13:53
+736,avl germany,munich,,,,,software engineer,Software,,2,2,60,0,0,0,,3/21/16 13:53
+737,microsoft,seattle,,,,,software engineer,Software,,1,2,120000,200000,,,"I don't know off the top of my head if what the bonus is.  Also the signing bonus was $50,000 cash, $150,000 in MSFT vested over 4 years with a 1 year cliff.",3/21/16 13:53
+740,tealium,san diego,,,,,software deveoper,Software,,2,1,55000,,2000,,,3/21/16 13:54
+743,mathworks,natick,,,,,software enginee,Software,,2,1,70000,0,4000,0,,3/21/16 13:54
+744,iversity,berlin,,,,,javascript developer,Software,,3,2,35000,0,0,0,,3/21/16 13:54
+748,bulletproof,"sydney, australia",,AU,-27,133,engineer,Engineering,,15,3.5,160000,0,0,1000,AUD,3/21/16 13:54
+749,stripe,san francisco,,,,,support,Other,,2,0,55000,0,0,unknown,,3/21/16 13:54
+753,nbcuniversal,"boise, id (remote, job is based in nyc)",ID,US,43.62,-116.32,senior software engineer,Software,Senior,10,1.5,113375,0,0,5000-ish,,3/21/16 13:54
+758,google,mountain view,,,,,swe,Software,,5,0,135000,30000,20000,60000,,3/21/16 13:54
+760,move2,sao paulo,,,,,developer,Software,,7,2,120000,0,0,0,,3/21/16 13:54
+761,google,bay area,,,,,software engineer,Software,,5,1.4,125000,10000,25000,50000,,3/21/16 13:54
+762,yelp,sf,,,,,software engineer,Software,,3,1.5,130,0,0,50,,3/21/16 13:55
+766,amazon,toronto,,,,,sde1,Software,1,2,1,80000,25000,5000,"20,000",,3/21/16 13:55
+767,sparefoot,"austin, tx",TX,US,30.26,-97.74,php developer,Software,,,,150000,20000,10000,"40,000",,3/21/16 13:55
+778,brazilian startup,brazil,,BR,-10,-55,senior developer,Software,Senior,10,3,90000,0,0,0,"For brazilian standards, this is pretty decent salary.",3/21/16 13:55
+780,wpp,new york,NY,US,38,-97,executive director of user experience,Management,,18,2,195000,15000,10,,,3/21/16 13:56
+781,square,"san francisco, ca",CA,US,37.77,-122.41,software engineer,Software,,4,3,110000,0,0,250000,Annual stock value will be much lower after 4 years,3/21/16 13:56
+783,google,london,,,,,engineer,Engineering,,3,0.5,65000,0,5000,25000,,3/21/16 13:56
+794,google,san francisco,,,,,software engineer,Software,,10,4,130000,,20000,30000,,3/21/16 13:56
+802,cconsultancy firm,dublin ireland,,IE,53,-8,senior software developer,Software,Senior,8.5,7,62500,0,3000,0,,3/21/16 13:57
+804,qlogic,pune,,,,,senior engineer,Engineering,Senior,5,5,20000,,,,,3/21/16 13:57
+809,cisco startup,berlin,,,,,senior software developer,Software,Senior,15,0.75,65000,0,0,0,,3/21/16 13:57
+813,startup,"cambridge, ma",MA,US,42.35,-71.06,engineer,Engineering,,2,2,130000,0,10000,0,,3/21/16 13:58
+814,amazon,seattle,,,,,sde ii,Software,2,2,2,118000,53500,,50000,,3/21/16 13:58
+815,financial times,london,,,,,web developer,Web,,12,5,65412,0,1422,0,,3/21/16 13:58
+816,intuit,san francisco,,,,,software engineer ii,Software,2,1,1,110000,5000,10000,15000,,3/21/16 13:58
+818,online training company,ireland,,IE,53,-8,software development manager,Management,,10,1,70000,0,30000,0,,3/21/16 13:58
+821,facebook,menlo park,,,,,engineer,Engineering,,2,2,124000,50000,10000,57000,Great service!,3/21/16 13:58
+823,test,test,,,,,ceo,Management,,4,2,300000,10000,33333,22333,none,3/21/16 13:58
+825,trading technologies,chicago,,,,,software developer,Software,,9,7,150000,,12000,,,3/21/16 13:58
+827,amazon,seattle,,,,,sde i,Software,1,2,2,101000,25000,0,25000,,3/21/16 13:58
+828,medium sized isv,"montreal, quebec, canada",,CA,60,-95,application analyst,Data,,16,6,81500,0,3000,0,,3/21/16 13:58
+829,microsoft,seattle,,,,,program manager ii,Management,2,3,3,124000,5000,13000,19000,,3/21/16 13:59
+830,startup,mississippi,MS,US,38,-97,software developer,Software,,3,2,49000,0,700,0,,3/21/16 13:59
+831,foobar,foobar,,,,,developer,Software,,2,1,12000,0,0,0,,3/21/16 13:59
+834,sef,"san francisco, ca",CA,US,37.77,-122.41,founder,Management,,20,1,0,0,0,0,Kill me,3/21/16 13:59
+835,google,mountain view,,,,,software engineer,Software,,2,2,110000,0,18000,55000,,3/21/16 13:59
+836,stanford,"stanford, ca",CA,US,37.41,-122.17,graduate student researcher,Other,,,6,32000,0,0,0,,3/21/16 14:00
+838,sandia national laboratories,"albuquerque, new mexico",,MX,23,-102,research intern,Other,Intern,2,0,46000,0,0,0,,3/21/16 14:00
+840,x,bosnia,,,,,senior developer,Software,Senior,7,5,300000,0,0,0,,3/21/16 14:00
+844,vision critical,vancouver,,,,,product manager,Management,,15,3,60000,3000,2000,"$1,000","CAD, not USD",3/21/16 14:00
+845,a national reference laboratory,mountain west,,,,,"bioinformatics scientist, sr",Applied Science,,5,1,92000,5000,3000,0,,3/21/16 14:00
+847,careworks tech,"columbus, oh",OH,US,39.98,-82.98,lead front-end web developer,Web,,5,2,77957.56,0,0,0,,3/21/16 14:00
+848,sacramento county,"sacramento, ca",CA,US,38.58,-121.49,it analyst i,Data,1,4,1,61000,0,0,0,,3/21/16 14:01
+849,unnamed pre-series a startup,"cologne, germany",,DE,51,9,software engineer,Software,,2,0,48000,0,4000,0,,3/21/16 14:01
+850,airbnb,san francisco,,,,,manager,Management,,10,2,180000,12000,,,,3/21/16 14:01
+852,niehs,"durham, nc",NC,US,35.98,-78.91,software developer,Software,,2,1,68000,0,0,0,,3/21/16 14:01
+854,netspend,"austin, tx",TX,US,30.26,-97.74,front-end developer,Web,,1,1,72000,0,5500,,,3/21/16 14:01
+855,automotive sector,bavaria,,,,,software engineer,Software,,2,2,60000,0,4000,0,,3/21/16 14:01
+857,groupon,seattle,,,,,sr. engineering manager,Management,Senior,14,3,160000,,,"100,000",,3/21/16 14:01
+862,google,los angeles,,,,,staff software engineer,Software,,20,7,200000,,45000,"105,000",,3/21/16 14:01
+868,ad-tech,new york,NY,US,38,-97,senior data analyst,Data,Senior,8,2,110000,0,10000,pre-ipo so techniclly 0,I still can't believe people pay me to do what I would be doing for fun anyway,3/21/16 14:02
+869,lab126 (amazon),sunnyvale,,,,,sde3,Software,3,26,1,155000,,50000,,RSUs Vest after 2 years. Bonus ends after 2 years.,3/21/16 14:02
+871,open access publisher,london,,,,,technical architect,Other,,4,2,60000,0,0,1000,,3/21/16 14:02
+873,deka research,"manchester, nh",NH,US,42.99,-71.45,software engineer,Software,,5,3,69000,2000,3000,0,,3/21/16 14:03
+878,small consulting shop,nyc,,,,,sr consultant (software  engineer),Software,Senior,20,2.5,1500,,,na,,3/21/16 14:03
+879,sitecrafting,tacoma,,,,,web application developer,Web,,5,1,52500,0,0,0,Tacoma has a relatively low cost of living...but still...,3/21/16 14:03
+880,verizon,"waltham, ma",MA,US,42.38,-71.24,senior software engineer,Software,Senior,7,2,110000,,,0,,3/21/16 14:03
+881,instructure,salt lake city,,,,,software engineer,Software,,1,0,75000,0,0,20000,,3/21/16 14:03
+882,domo,"american fork, ut",UT,US,40.39,-111.78,account executive,Management,,5,1,80000,25000,140000,50000,,3/21/16 14:03
+883,hp,bulgaria,,BG,43,25,unix support engineer level 1,Engineering,1,1,1,5600,0,0,0,,3/21/16 14:03
+888,moven,"radnor, pa",PA,US,39.96,-75.35,software engineer,Software,,8,1,105000,0,0,0,Don't work here :'(,3/21/16 14:04
+889,insureon,chicago,,,,,sr full-stack develop,Other,Senior,7,1,85000,0,0,0,,3/21/16 14:04
+891,compas technology llc,san francisco,,,,,full stack software engineer,Web,,3,1,75000,0,7500,0,,3/21/16 14:04
+893,facebook,menlo park,,,,,software engineer,Software,,2,0,145000,10000,14500,,,3/21/16 14:04
+896,aol,los angeles,,,,,senior product manager,Management,Senior,3,1,120000,0,12000,5000,,3/21/16 14:04
+898,infosys,chicago,,,,,technology architect,Other,,12,7,90000,0,10,0,,3/21/16 14:04
+900,minted,san francisco,,,,,software intern,Software,Intern,1,0,74400,,,,,3/21/16 14:05
+902,microsoft,"redmond, wa",WA,US,47.68,-122.12,sde,Software,,5,1,115000,15000,,65000,,3/21/16 14:05
+908,large retailer,"new york, ny",NY,US,40.71,-73.99,interactive designer,Other,,9,4,67000,0,0,0,,3/21/16 14:05
+909,here,berlin,,,,,software engeneer,Software,,5,2,65000,,10000,,,3/21/16 14:05
+910,uber,san francisco,,,,,senior software engineer,Software,Senior,3,1.5,150000,0,25000,100000,,3/21/16 14:05
+911,shipwire,sunnyvale,,,,,software engineer,Software,,4,2,91000,0,5,0,,3/21/16 14:05
+912,twitter,new york city,NY,US,38,-97,senior software engineer,Software,Senior,15,2,155000,0,0,325000,,3/21/16 14:06
+918,salesforce,seattle,,,,,lead member of technical staff,Other,,10,5,150000,0,15000,30000,I love working here.,3/21/16 14:06
+919,consulting llc,midwest,,,,,technical architect,Other,,,3,92000,0,10000,0,,3/21/16 14:06
+922,costco,issaquah,,,,,analyst,Data,,15,3,110000,0,0,0,,3/21/16 14:06
+924,oracle,southern california,CA,US,38,-97,ux developer,Software,,10,5,100000,,,,,3/21/16 14:07
+927,1st4connect,"lahore, pakistan",,PK,30,70,software developer engineer,Software,,3,1,100000,,,,,3/21/16 14:07
+932,nike,"beaverton, or",OR,US,45.49,-122.8,senior technical project manager,Management,Senior,10,1,124000,0,0,0,,3/21/16 14:07
+934,fresh code,"salt lake city, utah",UT,US,40.75,-111.9,software engineer,Software,,5,0.5,95000,0,0,0,,3/21/16 14:07
+935,ericsson,ireland,,IE,53,-8,software engineer,Software,,4,1,40000,0,0,0,,3/21/16 14:07
+936,google,sydney,,,,,swe,Software,,15,5,130000,0,20000,~40000,,3/21/16 14:07
+939,ak systems,new york,NY,US,38,-97,software engineer,Software,,10,6,120000,,10000,,,3/21/16 14:07
+941,self-employed,dc-va-md area,,,,,consultant,Other,,3,3,300000,0,0,40000,Annual base pay is average between last year's revenue and this year's expected revenue,3/21/16 14:08
+944,freelance,peru,,PE,-10,-76,software engineer,Software,,5,2,200000,0,0,40000,Rough (low end) estimate on salary. Hard to predict. Depends on workflow,3/21/16 14:08
+946,autodesk,san francisco,,,,,senior software qa engineer,Software,Senior,8,5,108000,250,,30% Salary as Stock,"After 4 years, 6 week sabbatical",3/21/16 14:08
+948,cox automotive,"burlington, vt",VT,US,44.48,-73.22,ui developer,Software,,4,1.5,73500,0,5,0,,3/21/16 14:08
+950,square,san francisco,,,,,software engineer,Software,,3,3,115000,0,0,60000,White guy here,3/21/16 14:09
+955,generic engineering consultant,toronto,,,,,consultant it/sec/infrastructure,Other,,15,1,105000,,4000,0,have I hit the ceiling?,3/21/16 14:09
+956,formidable labs,seattle,,,,,senior front-end developer,Web,Senior,4,2,130000,0,12000,0,Good benefits,3/21/16 14:09
+957,mediamath,chicago,,,,,sr engagement associate,Other,Senior,3,1,57000,,,,,3/21/16 14:09
+958,state farm,"phoenix, az",AZ,US,33.45,-112.06,software developer,Software,,2,1,63000,4000,6000,,,3/21/16 14:09
+960,plain vanilla,iceland,,IS,65,-18,software developer,Software,,3,1,62000,0,0,0,,3/21/16 14:09
+963,directv,los angeles,,,,,software engineer,Software,,2,2,80000,0,0,0,,3/21/16 14:10
+964,digitalocean,new york,NY,US,38,-97,sre,Other,Senior,10,2,173000,25000,5000,,,3/21/16 14:10
+966,b2b,remote us,,,,,senior developer,Software,Senior,14,11,110000,0,0,0,,3/21/16 14:10
+969,stealth startup,"london, uk (working remote)",,,,,developer,Software,,10,0,46000,0,,,"Recently accepted offer, haven't started yet.",3/21/16 14:10
+970,shoretel,milwaukee,,,,,developer,Software,,8,4,80000,0,8000,0,"Bonus is dependent on company performance, said to be ~10% of salary for most people, but as an aquisition I'm not even eligible until 2017.",3/21/16 14:10
+972,johns hopkins,baltimore,,,,,phd student,Other,,2,4,24000,0,0,0,,3/21/16 14:10
+973,logmein,san francisco,,,,,senior software engineer,Software,Senior,4,2,110000,0,0,0,,3/21/16 14:10
+977,google,new york city,NY,US,38,-97,software engineer ii (level 3),Software,,4,1,117500,0,18000,45000,,3/21/16 14:10
+978,startup,nyc,,,,,sr. ops analyst,Data,Senior,2,1.5,70000,0,0,0,,3/21/16 14:10
+979,twitter,"san francisco, ca",CA,US,37.77,-122.41,software engineer,Software,,3,1,140000,0,0,50000,,3/21/16 14:10
+983,self,usa,,,,,telecom engineering consultant,Engineering,,22,20,200000,0,0,0,,3/21/16 14:11
+984,audible,newark,,,,,sde 2,Software,2,3,3,120000,15000,0,40000,,3/21/16 14:11
+985,amundi,paris,,,,,it engineer,Engineering,,2,0,47000,,,,,3/21/16 14:11
+988,facebook,north carolina,NC,US,38,-97,software engineer,Software,,12,2,198000,25000,40000,100000,,3/21/16 14:11
+989,--,san francisco,,,,,infrastructure engineer,Engineering,,10,,188000,0,0,,,3/21/16 14:11
+990,-,"brisbane, australia",,AU,-27,133,senior software engineer,Software,Senior,15,1,115000,0,0,0,,3/21/16 14:11
+991,workday,pleasanton,,,,,summer intern,Other,Intern,0,0,32,0,0,0,housing + food,3/21/16 14:11
+992,civil engineering company,memphis,,,,,project manager e.i,Management,,5,5,65000,0,0,0,,3/21/16 14:11
+993,l-mobile software solutions gmbh,"sulzbach an der murr, germany",,DE,51,9,software engineer,Software,,6,4,40000,0,0,0,,3/21/16 14:11
+997,bioinformatics company,nijmegen,,,,,internship,Other,Intern,0,0,12000,0,0,0,This is my final internship after which I will be graduating as a BS in Bioinformatics. The company has offered me a job for after graduation.,3/21/16 14:12
+998,intel,"folsom, ca",CA,US,38.67,-121.14,application developer,Software,,2,2,74000,6000,3000,15000,,3/21/16 14:12
+999,sovrn holdings,"boulder, co",CO,US,40.02,-105.25,software engineer,Software,,6,1,105000,0,0,0,,3/21/16 14:12
+1003,n/a,"interior bc, canada",,CA,60,-95,software engineer (intermediate),Software,,7,0,100000,0,0,0,,3/21/16 14:12
+1004,small agency,midwest,,,,,web developer,Web,,4,2,62000,0,0,0,,3/21/16 14:12
+1006,thomson reuters,london,,,,,senior software engineer,Software,Senior,4,3,40000,,,,,3/21/16 14:13
+1007,vitelity communications,"englewood, co",CO,US,39.76,-104.87,software engineer,Software,,5,3,70000,,,,Wore many hats. Decent place to work.,3/21/16 14:13
+1008,midsized company,midwest,,,,,data architect,Data,,1,1,74000,0,3000,5000,,3/21/16 14:13
+1009,amazon,"santa monica, ca",CA,US,34.01,-118.49,sde i,Software,1,1,1,95000,27000,0,15000,,3/21/16 14:13
+1011,digitalocean,virginia,VA,US,38,-97,ruby engineer,Engineering,,10,1,130000,0,7000,15000,,3/21/16 14:13
+1012,misc,halifax,,,,,data scientist,Data,,1,1,55000,0,2000,0,,3/21/16 14:13
+1013,nvidia,santa clara,,,,,software engineer ic2,Software,2,2,2,115000,,,,,3/21/16 14:13
+1017,tdispatch,berlin,,,,,senior developer,Software,Senior,15,1,60000,,,1%,,3/21/16 14:13
+1019,photo hosting company,"mountain view, ca",CA,US,37.41,-122.05,engineer,Engineering,,13,3,150000,0,2000,0,,3/21/16 14:14
+1025,ixl learning,"san mateo, ca",CA,US,37.57,-122.32,sr. software engineer,Software,Senior,4,3,125000,0,0,0,,3/21/16 14:14
+1026,mitre,bedford ma,MA,US,38,-97,lead software systems engineer,Software,,10,6,111500,3500,0,0,,3/21/16 14:14
+1027,ibm,south carolina,SC,US,38,-97,senior systems analyst,Data,Senior,16,10,94000,,0,,,3/21/16 14:14
+1028,google,mtv,,,,,software engineer,Software,,2.5,1.5,108000,,19000,52000,,3/21/16 14:14
+1029,6 person startup,"san francisco, ca",CA,US,37.77,-122.41,software engineer,Software,,2,0,105000,5000,,,,3/21/16 14:14
+1030,wovenware,"san juan, pr",,,,,software developer,Software,,3,0.25,45000,0,3000,0,,3/21/16 14:14
+1032,google,seattle,,,,,sde,Software,,0,0,110,5,15,45,New Hire - College Grad (MS),3/21/16 14:14
+1033,self,"minneapolis, mn",MN,US,44.96,-93.26,senior front-end/full-stack developer,Web,Senior,8,,135000,,,,,3/21/16 14:14
+1035,expedia,seattle,,,,,software development engineer ii,Software,2,3,3,105000,0,12000,0,,3/21/16 14:15
+1036,microsoft,uk,,,,,support escalation engineer,Engineering,,10,3,85320,4000,5000,"$4,000",,3/21/16 14:15
+1038,cgi,canada,,CA,60,-95,senior consultant,Other,Senior,5,4,40000,0,800,3%,,3/21/16 14:15
+1040,ecommerce startup,"salt lake city, ut",UT,US,40.75,-111.9,magento developer,Software,,6,1.5,37500,0,15,,flexible hours; 5-minute commute; socially progressive atmosphere,3/21/16 14:15
+1041,state of california,"sacramento, ca",CA,US,38.58,-121.49,staff programmer,Other,,4,3,65000,,,,Defined Benefit Pension,3/21/16 14:15
+1042,startup,"adelaide, australia",,AU,-27,133,senior software engineer,Software,Senior,15,4,85000,0,0,0,,3/21/16 14:15
+1043,dish,"denver, co",CO,US,39.82,-105.1,software engineer,Software,,1,1,70000,0,0,0,,3/21/16 14:15
+1044,uppsala,sweden,,SE,62,15,post-doc,Other,,6,6,51000,,,,,3/21/16 14:15
+1051,rentpath,atlanta,,,,,sr software engineer,Software,Senior,5,4,108000,,,,,3/21/16 14:16
+1052,google,mountain view,,,,,developer programs engineer,Software,,,,114000,,,,,3/21/16 14:16
+1053,the motley fool,"alexandria, va",VA,US,38.86,-77.05,systems administrator,Management,,5,2,85000,0,,,,3/21/16 14:16
+1054,ut dallas,plano tx,TX,US,38,-97,programmer iii,Other,3,4,2.5,67500,0,0,0,,3/21/16 14:16
+1055,teradata,san diego,,,,,software engineer,Software,,6,3,78000,0,300,0,,3/21/16 14:16
+1058,datis hr cloud,"tampa, fl",FL,US,27.95,-82.48,software developer,Software,,15,0,115000,5000,2500,0,,3/21/16 14:16
+1059,reddit,san francisco,,,,,software engineer,Software,,15,1,150000,,,,,3/21/16 14:16
+1061,radius,san francisco,,,,,software engineer,Software,,5,2,135000,0,0,30000,,3/21/16 14:16
+1062,lever,san francisco,,,,,it administrator,Management,,10,1,75000,5000,,,,3/21/16 14:16
+1063,microsoft,"redmond, wa",WA,US,47.68,-122.12,software engineer,Software,,7,7,144000,0,20000,10000,,3/21/16 14:16
+1064,ibm,"austin, tx",TX,US,30.26,-97.74,software engineer,Software,,1,1,101000,10000,,,,3/21/16 14:16
+1065,washington post,"washington, dc",WA,US,38,-97,full stack developer,Web,,,,80000,5000,0,0,,3/21/16 14:17
+1066,big  via middleman agency,south of france,,FR,46,2,front-end engineer,Web,,5,3,42000,1000,0,0,,3/21/16 14:17
+1067,springfield power company,"springsfield, co",CO,US,38,-97,nuclear safety inspector,Other,,30,30,24395.8,0,0,0,,3/21/16 14:17
+1068,small agency,south west uk,,,,,front-end developer,Web,,5,0.25,41238,,,No Stock,,3/21/16 14:17
+1069,groupon,palo alto,,,,,production engineer,Engineering,,7,2.5,125000,10000,,500,,3/21/16 14:17
+1074,ssu,vancouver,,,,,web developer,Web,,5,1,550000,0,0,0,,3/21/16 14:17
+1075,ontact,"salt lake city, ut",UT,US,40.75,-111.9,senior software engineer,Software,Senior,7,4,95000,0,8000,0,,3/21/16 14:18
+1076,small consulting firm,"arlington, va",VA,US,38.86,-77.05,software developer,Software,,0.5,0.5,70000,5000,,,,3/21/16 14:18
+1080,accenture,washington dc,WA,US,38,-97,analyst,Data,,2,2,72000,5000,5000,1000,,3/21/16 14:18
+1084,client in hr,france - lyon,,FR,46,2,developer,Software,,1,1,25000,0,0,0,,3/21/16 14:19
+1085,school of visual arts,"new york, ny",NY,US,40.71,-73.99,systems administration,Management,,15,3,45000,,,No,"Free Tuition for any degree include family or relative, free Lynda.com, hourly 24.00 - 31.00",3/21/16 14:19
+1087,onera,"toulouse, france",,FR,46,2,phd candidate,Other,,5,4,32000,0,0,0,PhD candidates dont get paid well,3/21/16 14:19
+1088,amazon,"seattle, wa",WA,US,47.61,-122.33,technical program manager,Management,,10,0,130000,37000,,20000,,3/21/16 14:19
+1091,think big,"mountain view, ca",CA,US,37.41,-122.05,senior data engineer,Data,Senior,5,4,145000,0,15000,8000,,3/21/16 14:19
+1093,microsoft,"redmond, wa",WA,US,47.68,-122.12,software engineer ii,Software,2,7,7,128000,30000,10000,8000,,3/21/16 14:19
+1094,(private),"boston, ma",MA,US,42.35,-71.06,creative director + designer/developer,Management,,12,4,100000,0,0,0,Retirement benefits very good... ~7% to ~14% (age/salary dependent),3/21/16 14:22
+1097,dropbox,san francisco,,,,,online marketing,Other,,5,1,110000,25000,0,40000,,3/21/16 14:19
+1098,pricewaterhousecoopers,australia,,AU,-27,133,senior software engineer,Software,Senior,5,1,97000,0,2000,0,,3/21/16 14:20
+1100,apple,sunnyvale,,,,,software engineer,Software,,2,2,118000,20000,10000,100000,,3/21/16 14:20
