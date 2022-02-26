@@ -482,7 +482,7 @@ root@4d2bb3edd81c:/lab2/submission# python3
 505       1098  pricewaterhousecoopers          australia            NaN               AU  ...            0.0        2000.0                 0                                                NaN  3/21/16 14:20
 506       1100                   apple          sunnyvale            NaN              NaN  ...        20000.0       10000.0            100000                                                NaN  3/21/16 14:20
 
-[507 rows x 18 columns]
+[505 rows x 18 columns]
 ```
 
 We can now examine the degree of prevalence of null values in the dataset:
@@ -491,20 +491,20 @@ We can now examine the degree of prevalence of null values in the dataset:
 salary_id                      0
 employer_name                  1
 location_name                  0
-location_state               309
-location_country             255
-location_latitude            255
-location_longitude           255
+location_state               307
+location_country             253
+location_latitude            253
+location_longitude           253
 job_title                      0
 job_title_category             0
-job_title_rank               364
+job_title_rank               362
 total_experience_years        15
 employer_experience_years      9
 annual_base_pay                0
-signing_bonus                 96
+signing_bonus                 94
 annual_bonus                  92
 stock_value_bonus            112
-comments                     421
+comments                     419
 submitted_at                   0
 dtype: int64
 ```
