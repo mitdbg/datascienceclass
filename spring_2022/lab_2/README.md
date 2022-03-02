@@ -482,7 +482,7 @@ root@4d2bb3edd81c:/lab2/submission# python3
 505       1098  pricewaterhousecoopers          australia            NaN               AU  ...            0.0        2000.0                 0                                                NaN  3/21/16 14:20
 506       1100                   apple          sunnyvale            NaN              NaN  ...        20000.0       10000.0            100000                                                NaN  3/21/16 14:20
 
-[507 rows x 18 columns]
+[505 rows x 18 columns]
 ```
 
 We can now examine the degree of prevalence of null values in the dataset:
@@ -491,20 +491,20 @@ We can now examine the degree of prevalence of null values in the dataset:
 salary_id                      0
 employer_name                  1
 location_name                  0
-location_state               309
-location_country             255
-location_latitude            255
-location_longitude           255
+location_state               307
+location_country             253
+location_latitude            253
+location_longitude           253
 job_title                      0
 job_title_category             0
-job_title_rank               364
+job_title_rank               362
 total_experience_years        15
 employer_experience_years      9
 annual_base_pay                0
-signing_bonus                 96
+signing_bonus                 94
 annual_bonus                  92
 stock_value_bonus            112
-comments                     421
+comments                     419
 submitted_at                   0
 dtype: int64
 ```
@@ -531,11 +531,11 @@ You may find that using a common format (*e.g.,* CSV or JSON) for the cleaned da
 
 **Q8 (10 pts):** Clean and *wrap* (see Part 1 of this lab) the data in `wmbr.txt` to obtain an easily queriable representation of the same information. Note that all fields are present for every song, but some of them might be empty. Some artist names contain typos (*e.g.,* "Billie Ellish" and "Billie Eilish" both occur), some songs may be repeated, and artists may collaborate (*e.g.,* "Dua Lipa" or  "Cardi B" both have songs in collaboration with other artists).  It is your job to make sure that your data cleaning scripts can correctly handle these cases (hint: the `uniq` Unix tool may come in handy). Submit the cleaned up data as `q8.csv`. Note that there is some flexibility in your choice of cleaning approaches, but the resulting file should be formatted consistently. Also submit your code as `q8.sh`, including comments on the transformations you applied.
 
-**Q9 (5 pts):** Which artists have either played live or recorded live at WMBR? Output your answer to `q9.csv` in the `submission` directory, with one artist per line, sorted by artist name, in ascending lexicographical order. Submit your code as `q9.sh` if you used command line tools, or as `q9.py` if you used Pandas.
+**Q9 (5 pts):** Which artists have either played *live* or recorded *live* at WMBR? Output your answer to `q9.csv` in the `submission` directory, with one artist per line, sorted by artist name, in ascending lexicographical order. Submit your code as `q9.sh` if you used command line tools, or as `q9.py` if you used Pandas.
 
-**Q10 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack. Output your answer to `q10.csv` in the `submission` directory, with one record per line (each record should have two columns - the DJ name, and the number of such tracks they played), sorted first by number of tracks played in descending order, and then by DJ name in ascending lexicographical order. Submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas.
+**Q10 (5 pts):** List the DJs that have played at least one song off of a [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) season soundtrack. Output your answer to `q10.csv` in the `submission` directory, with one record per line (each record should have two columns - the DJ name, and the number of times they have played a track from Stranger Things), sorted first by number of tracks played in descending order, and then by DJ name in ascending lexicographical order. Submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas.
 
-**Q11 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) songs to overall number of songs played at WMBR *over the years* of 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0). Output your answer to `q11.csv` in the `submission` directory, with one record per line (each record should have two columns - the year and the ratio with 4 digits of precision after the decimal point), sorted first by year in descending order. Submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
+**Q11 (10 pts):** What was the ratio of [Billie Eilish](https://en.wikipedia.org/wiki/Billie_Eilish) song plays to the overall number of song plays at WMBR *over each year* among 2017, 2018, and 2019?  Make sure to include all 3 years (even if the ratio is 0). Output your answer to `q11.csv` in the `submission` directory, with one record per line (each record should have two columns - the year and the ratio with 4 digits of precision after the decimal point, with appropriate rounding), sorted first by year in descending order. Submit your code as `q11.sh` if you used command line tools, or as `q11.py` if you used Pandas.
 
 **Q12 (10 pts):** For the years in which [Lizzo](https://en.wikipedia.org/wiki/Lizzo) appeared on talk shows, use Pandas to list all the songs where she was either lead singer or collaborator (e.g., "featured" also counts) that were played at WMBR, together with how many times they were played. Note that entries in `lizzo_appearances.json` are not separated by a new line.  Special characters (*e.g.,* accents, backslashes) may be present. Output your answer to `q12.csv` in the `submission` directory, with one record per line (each record should have two columns - the song title and the number of times it was played), sorted first by number of times played in descending order, and then by track name in ascending order. Submit your code as `q12.py`. Note: here we assume that talk shows are identifiable by explicitly having the word "show" on its title. 
 
