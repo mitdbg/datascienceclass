@@ -3,7 +3,7 @@ FROM python:3.9-buster
 RUN apt-get update
 RUN apt-get install build-essential
 RUN pip install jupyterlab
-RUN pip install sklearn matplotlib numpy pandas xgboost
+RUN pip install sklearn matplotlib numpy pandas xgboost nltk sentence_transformers
 
 WORKDIR /lab4
 
