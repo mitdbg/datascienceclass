@@ -18,7 +18,7 @@ git pull
 # Change to lab 4's working directory.
 cd spring_2022/lab_4/
 
-# Build docker
+# Build docker. This might take several minutes.
 docker build -t 6s079_lab4 .
 
 # Run
