@@ -1,0 +1,9 @@
+jupyterlab
+matplotlib
+pandas
+seaborn
+altair
+vega
+notebook
+vega_datasets
+

@@ -1,0 +1,436 @@
+state|district_id|district name|population
+AK|0|Congressional District (at Large) (115th Congress), Alaska|739795.0
+AL|1|Congressional District 1 (115th Congress), Alabama|713410.0
+AL|2|Congressional District 2 (115th Congress), Alabama|673776.0
+AL|3|Congressional District 3 (115th Congress), Alabama|710488.0
+AL|4|Congressional District 4 (115th Congress), Alabama|685553.0
+AL|5|Congressional District 5 (115th Congress), Alabama|718713.0
+AL|6|Congressional District 6 (115th Congress), Alabama|700401.0
+AL|7|Congressional District 7 (115th Congress), Alabama|672406.0
+AR|1|Congressional District 1 (115th Congress), Arkansas|722287.0
+AR|2|Congressional District 2 (115th Congress), Arkansas|765193.0
+AR|3|Congressional District 3 (115th Congress), Arkansas|807421.0
+AR|4|Congressional District 4 (115th Congress), Arkansas|709378.0
+AZ|1|Congressional District 1 (115th Congress), Arizona|765810.0
+AZ|2|Congressional District 2 (115th Congress), Arizona|720429.0
+AZ|3|Congressional District 3 (115th Congress), Arizona|773297.0
+AZ|4|Congressional District 4 (115th Congress), Arizona|771214.0
+AZ|5|Congressional District 5 (115th Congress), Arizona|822497.0
+AZ|6|Congressional District 6 (115th Congress), Arizona|783087.0
+AZ|7|Congressional District 7 (115th Congress), Arizona|833654.0
+AZ|8|Congressional District 8 (115th Congress), Arizona|777208.0
+AZ|9|Congressional District 9 (115th Congress), Arizona|769074.0
+CA|1|Congressional District 1 (115th Congress), California|718214.0
+CA|2|Congressional District 2 (115th Congress), California|717999.0
+CA|3|Congressional District 3 (115th Congress), California|750271.0
+CA|4|Congressional District 4 (115th Congress), California|748410.0
+CA|5|Congressional District 5 (115th Congress), California|732438.0
+CA|6|Congressional District 6 (115th Congress), California|764344.0
+CA|7|Congressional District 7 (115th Congress), California|750860.0
+CA|8|Congressional District 8 (115th Congress), California|721449.0
+CA|9|Congressional District 9 (115th Congress), California|774266.0
+CA|10|Congressional District 10 (115th Congress), California|758005.0
+CA|11|Congressional District 11 (115th Congress), California|764135.0
+CA|12|Congressional District 12 (115th Congress), California|774736.0
+CA|13|Congressional District 13 (115th Congress), California|766731.0
+CA|14|Congressional District 14 (115th Congress), California|756389.0
+CA|15|Congressional District 15 (115th Congress), California|785387.0
+CA|16|Congressional District 16 (115th Congress), California|729788.0
+CA|17|Congressional District 17 (115th Congress), California|771078.0
+CA|18|Congressional District 18 (115th Congress), California|742728.0
+CA|19|Congressional District 19 (115th Congress), California|770105.0
+CA|20|Congressional District 20 (115th Congress), California|744295.0
+CA|21|Congressional District 21 (115th Congress), California|723549.0
+CA|22|Congressional District 22 (115th Congress), California|760328.0
+CA|23|Congressional District 23 (115th Congress), California|745328.0
+CA|24|Congressional District 24 (115th Congress), California|740039.0
+CA|25|Congressional District 25 (115th Congress), California|721740.0
+CA|26|Congressional District 26 (115th Congress), California|732091.0
+CA|27|Congressional District 27 (115th Congress), California|717980.0
+CA|28|Congressional District 28 (115th Congress), California|719156.0
+CA|29|Congressional District 29 (115th Congress), California|713745.0
+CA|30|Congressional District 30 (115th Congress), California|771201.0
+CA|31|Congressional District 31 (115th Congress), California|762208.0
+CA|32|Congressional District 32 (115th Congress), California|725317.0
+CA|33|Congressional District 33 (115th Congress), California|705588.0
+CA|34|Congressional District 34 (115th Congress), California|763303.0
+CA|35|Congressional District 35 (115th Congress), California|745237.0
+CA|36|Congressional District 36 (115th Congress), California|737403.0
+CA|37|Congressional District 37 (115th Congress), California|713530.0
+CA|38|Congressional District 38 (115th Congress), California|718428.0
+CA|39|Congressional District 39 (115th Congress), California|736480.0
+CA|40|Congressional District 40 (115th Congress), California|738618.0
+CA|41|Congressional District 41 (115th Congress), California|765770.0
+CA|42|Congressional District 42 (115th Congress), California|826899.0
+CA|43|Congressional District 43 (115th Congress), California|745656.0
+CA|44|Congressional District 44 (115th Congress), California|717097.0
+CA|45|Congressional District 45 (115th Congress), California|777871.0
+CA|46|Congressional District 46 (115th Congress), California|734649.0
+CA|47|Congressional District 47 (115th Congress), California|723526.0
+CA|48|Congressional District 48 (115th Congress), California|721632.0
+CA|49|Congressional District 49 (115th Congress), California|747350.0
+CA|50|Congressional District 50 (115th Congress), California|754388.0
+CA|51|Congressional District 51 (115th Congress), California|746496.0
+CA|52|Congressional District 52 (115th Congress), California|768240.0
+CA|53|Congressional District 53 (115th Congress), California|774182.0
+CO|1|Congressional District 1 (115th Congress), Colorado|826995.0
+CO|2|Congressional District 2 (115th Congress), Colorado|799734.0
+CO|3|Congressional District 3 (115th Congress), Colorado|749478.0
+CO|4|Congressional District 4 (115th Congress), Colorado|817251.0
+CO|5|Congressional District 5 (115th Congress), Colorado|799622.0
+CO|6|Congressional District 6 (115th Congress), Colorado|814636.0
+CO|7|Congressional District 7 (115th Congress), Colorado|799438.0
+CT|1|Congressional District 1 (115th Congress), Connecticut|710509.0
+CT|2|Congressional District 2 (115th Congress), Connecticut|705217.0
+CT|3|Congressional District 3 (115th Congress), Connecticut|716547.0
+CT|4|Congressional District 4 (115th Congress), Connecticut|737616.0
+CT|5|Congressional District 5 (115th Congress), Connecticut|718295.0
+DE|0|Congressional District (at Large) (115th Congress), Delaware|961939.0
+FL|1|Congressional District 1 (115th Congress), Florida|770361.0
+FL|2|Congressional District 2 (115th Congress), Florida|731845.0
+FL|3|Congressional District 3 (115th Congress), Florida|739130.0
+FL|4|Congressional District 4 (115th Congress), Florida|800494.0
+FL|5|Congressional District 5 (115th Congress), Florida|729175.0
+FL|6|Congressional District 6 (115th Congress), Florida|764500.0
+FL|7|Congressional District 7 (115th Congress), Florida|772969.0
+FL|8|Congressional District 8 (115th Congress), Florida|756993.0
+FL|9|Congressional District 9 (115th Congress), Florida|868945.0
+FL|10|Congressional District 10 (115th Congress), Florida|830014.0
+FL|11|Congressional District 11 (115th Congress), Florida|770114.0
+FL|12|Congressional District 12 (115th Congress), Florida|779151.0
+FL|13|Congressional District 13 (115th Congress), Florida|730650.0
+FL|14|Congressional District 14 (115th Congress), Florida|776940.0
+FL|15|Congressional District 15 (115th Congress), Florida|804652.0
+FL|16|Congressional District 16 (115th Congress), Florida|814209.0
+FL|17|Congressional District 17 (115th Congress), Florida|778091.0
+FL|18|Congressional District 18 (115th Congress), Florida|772184.0
+FL|19|Congressional District 19 (115th Congress), Florida|814074.0
+FL|20|Congressional District 20 (115th Congress), Florida|776092.0
+FL|21|Congressional District 21 (115th Congress), Florida|788240.0
+FL|22|Congressional District 22 (115th Congress), Florida|757352.0
+FL|23|Congressional District 23 (115th Congress), Florida|753950.0
+FL|24|Congressional District 24 (115th Congress), Florida|770480.0
+FL|25|Congressional District 25 (115th Congress), Florida|780826.0
+FL|26|Congressional District 26 (115th Congress), Florida|797160.0
+FL|27|Congressional District 27 (115th Congress), Florida|755809.0
+GA|1|Congressional District 1 (115th Congress), Georgia|747334.0
+GA|2|Congressional District 2 (115th Congress), Georgia|674100.0
+GA|3|Congressional District 3 (115th Congress), Georgia|738066.0
+GA|4|Congressional District 4 (115th Congress), Georgia|765854.0
+GA|5|Congressional District 5 (115th Congress), Georgia|784370.0
+GA|6|Congressional District 6 (115th Congress), Georgia|756389.0
+GA|7|Congressional District 7 (115th Congress), Georgia|807492.0
+GA|8|Congressional District 8 (115th Congress), Georgia|702262.0
+GA|9|Congressional District 9 (115th Congress), Georgia|755181.0
+GA|10|Congressional District 10 (115th Congress), Georgia|736838.0
+GA|11|Congressional District 11 (115th Congress), Georgia|768968.0
+GA|12|Congressional District 12 (115th Congress), Georgia|722937.0
+GA|13|Congressional District 13 (115th Congress), Georgia|752631.0
+GA|14|Congressional District 14 (115th Congress), Georgia|716957.0
+HI|1|Congressional District 1 (115th Congress), Hawaii|714328.0
+HI|2|Congressional District 2 (115th Congress), Hawaii|713210.0
+IA|1|Congressional District 1 (115th Congress), Iowa|774043.0
+IA|2|Congressional District 2 (115th Congress), Iowa|780802.0
+IA|3|Congressional District 3 (115th Congress), Iowa|835190.0
+IA|4|Congressional District 4 (115th Congress), Iowa|755676.0
+ID|1|Congressional District 1 (115th Congress), Idaho|890052.0
+ID|2|Congressional District 2 (115th Congress), Idaho|826891.0
+IL|1|Congressional District 1 (115th Congress), Illinois|720977.0
+IL|2|Congressional District 2 (115th Congress), Illinois|702756.0
+IL|3|Congressional District 3 (115th Congress), Illinois|725538.0
+IL|4|Congressional District 4 (115th Congress), Illinois|700585.0
+IL|5|Congressional District 5 (115th Congress), Illinois|729300.0
+IL|6|Congressional District 6 (115th Congress), Illinois|720542.0
+IL|7|Congressional District 7 (115th Congress), Illinois|697263.0
+IL|8|Congressional District 8 (115th Congress), Illinois|713012.0
+IL|9|Congressional District 9 (115th Congress), Illinois|732614.0
+IL|10|Congressional District 10 (115th Congress), Illinois|714681.0
+IL|11|Congressional District 11 (115th Congress), Illinois|721823.0
+IL|12|Congressional District 12 (115th Congress), Illinois|695178.0
+IL|13|Congressional District 13 (115th Congress), Illinois|698295.0
+IL|14|Congressional District 14 (115th Congress), Illinois|746748.0
+IL|15|Congressional District 15 (115th Congress), Illinois|701482.0
+IL|16|Congressional District 16 (115th Congress), Illinois|690420.0
+IL|17|Congressional District 17 (115th Congress), Illinois|689744.0
+IL|18|Congressional District 18 (115th Congress), Illinois|701065.0
+IN|1|Congressional District 1 (115th Congress), Indiana|714257.0
+IN|2|Congressional District 2 (115th Congress), Indiana|722928.0
+IN|3|Congressional District 3 (115th Congress), Indiana|744914.0
+IN|4|Congressional District 4 (115th Congress), Indiana|758815.0
+IN|5|Congressional District 5 (115th Congress), Indiana|781441.0
+IN|6|Congressional District 6 (115th Congress), Indiana|720147.0
+IN|7|Congressional District 7 (115th Congress), Indiana|755875.0
+IN|8|Congressional District 8 (115th Congress), Indiana|714623.0
+IN|9|Congressional District 9 (115th Congress), Indiana|753818.0
+KS|1|Congressional District 1 (115th Congress), Kansas|702327.0
+KS|2|Congressional District 2 (115th Congress), Kansas|715120.0
+KS|3|Congressional District 3 (115th Congress), Kansas|770493.0
+KS|4|Congressional District 4 (115th Congress), Kansas|725183.0
+KY|1|Congressional District 1 (115th Congress), Kentucky|716177.0
+KY|2|Congressional District 2 (115th Congress), Kentucky|760681.0
+KY|3|Congressional District 3 (115th Congress), Kentucky|746559.0
+KY|4|Congressional District 4 (115th Congress), Kentucky|760043.0
+KY|5|Congressional District 5 (115th Congress), Kentucky|696337.0
+KY|6|Congressional District 6 (115th Congress), Kentucky|774392.0
+LA|1|Congressional District 1 (115th Congress), Louisiana|808968.0
+LA|2|Congressional District 2 (115th Congress), Louisiana|797298.0
+LA|3|Congressional District 3 (115th Congress), Louisiana|788118.0
+LA|4|Congressional District 4 (115th Congress), Louisiana|753143.0
+LA|5|Congressional District 5 (115th Congress), Louisiana|740217.0
+LA|6|Congressional District 6 (115th Congress), Louisiana|796589.0
+MA|1|Congressional District 1 (115th Congress), Massachusetts|736460.0
+MA|2|Congressional District 2 (115th Congress), Massachusetts|744124.0
+MA|3|Congressional District 3 (115th Congress), Massachusetts|769115.0
+MA|4|Congressional District 4 (115th Congress), Massachusetts|752077.0
+MA|5|Congressional District 5 (115th Congress), Massachusetts|766210.0
+MA|6|Congressional District 6 (115th Congress), Massachusetts|774450.0
+MA|7|Congressional District 7 (115th Congress), Massachusetts|806820.0
+MA|8|Congressional District 8 (115th Congress), Massachusetts|762640.0
+MA|9|Congressional District 9 (115th Congress), Massachusetts|747923.0
+MD|1|Congressional District 1 (115th Congress), Maryland|734002.0
+MD|2|Congressional District 2 (115th Congress), Maryland|765155.0
+MD|3|Congressional District 3 (115th Congress), Maryland|763763.0
+MD|4|Congressional District 4 (115th Congress), Maryland|761353.0
+MD|5|Congressional District 5 (115th Congress), Maryland|768507.0
+MD|6|Congressional District 6 (115th Congress), Maryland|779616.0
+MD|7|Congressional District 7 (115th Congress), Maryland|718158.0
+MD|8|Congressional District 8 (115th Congress), Maryland|761623.0
+ME|1|Congressional District 1 (115th Congress), Maine|683279.0
+ME|2|Congressional District 2 (115th Congress), Maine|652628.0
+MI|1|Congressional District 1 (115th Congress), Michigan|698974.0
+MI|2|Congressional District 2 (115th Congress), Michigan|737365.0
+MI|3|Congressional District 3 (115th Congress), Michigan|743830.0
+MI|4|Congressional District 4 (115th Congress), Michigan|702994.0
+MI|5|Congressional District 5 (115th Congress), Michigan|677788.0
+MI|6|Congressional District 6 (115th Congress), Michigan|718436.0
+MI|7|Congressional District 7 (115th Congress), Michigan|701645.0
+MI|8|Congressional District 8 (115th Congress), Michigan|736333.0
+MI|9|Congressional District 9 (115th Congress), Michigan|720890.0
+MI|10|Congressional District 10 (115th Congress), Michigan|717703.0
+MI|11|Congressional District 11 (115th Congress), Michigan|727901.0
+MI|12|Congressional District 12 (115th Congress), Michigan|708060.0
+MI|13|Congressional District 13 (115th Congress), Michigan|674157.0
+MI|14|Congressional District 14 (115th Congress), Michigan|696235.0
+MN|1|Congressional District 1 (115th Congress), Minnesota|675755.0
+MN|2|Congressional District 2 (115th Congress), Minnesota|705074.0
+MN|3|Congressional District 3 (115th Congress), Minnesota|714299.0
+MN|4|Congressional District 4 (115th Congress), Minnesota|714075.0
+MN|5|Congressional District 5 (115th Congress), Minnesota|721389.0
+MN|6|Congressional District 6 (115th Congress), Minnesota|716009.0
+MN|7|Congressional District 7 (115th Congress), Minnesota|662695.0
+MN|8|Congressional District 8 (115th Congress), Minnesota|667310.0
+MO|1|Congressional District 1 (115th Congress), Missouri|729026.0
+MO|2|Congressional District 2 (115th Congress), Missouri|764043.0
+MO|3|Congressional District 3 (115th Congress), Missouri|792954.0
+MO|4|Congressional District 4 (115th Congress), Missouri|769533.0
+MO|5|Congressional District 5 (115th Congress), Missouri|770628.0
+MO|6|Congressional District 6 (115th Congress), Missouri|773740.0
+MO|7|Congressional District 7 (115th Congress), Missouri|777380.0
+MO|8|Congressional District 8 (115th Congress), Missouri|736228.0
+MS|1|Congressional District 1 (115th Congress), Mississippi|764896.0
+MS|2|Congressional District 2 (115th Congress), Mississippi|701238.0
+MS|3|Congressional District 3 (115th Congress), Mississippi|749247.0
+MS|4|Congressional District 4 (115th Congress), Mississippi|768719.0
+MT|0|Congressional District (at Large) (115th Congress), Montana|1050493.0
+NC|1|Congressional District 1 (115th Congress), North Carolina|759049.0
+NC|2|Congressional District 2 (115th Congress), North Carolina|835806.0
+NC|3|Congressional District 3 (115th Congress), North Carolina|755647.0
+NC|4|Congressional District 4 (115th Congress), North Carolina|856104.0
+NC|5|Congressional District 5 (115th Congress), North Carolina|758376.0
+NC|6|Congressional District 6 (115th Congress), North Carolina|768546.0
+NC|7|Congressional District 7 (115th Congress), North Carolina|800096.0
+NC|8|Congressional District 8 (115th Congress), North Carolina|789484.0
+NC|9|Congressional District 9 (115th Congress), North Carolina|788020.0
+NC|10|Congressional District 10 (115th Congress), North Carolina|760410.0
+NC|11|Congressional District 11 (115th Congress), North Carolina|759358.0
+NC|12|Congressional District 12 (115th Congress), North Carolina|860866.0
+NC|13|Congressional District 13 (115th Congress), North Carolina|781657.0
+ND|0|Congressional District (at Large) (115th Congress), North Dakota|755393.0
+NE|1|Congressional District 1 (115th Congress), Nebraska|648060.0
+NE|2|Congressional District 2 (115th Congress), Nebraska|668800.0
+NE|3|Congressional District 3 (115th Congress), Nebraska|603216.0
+NH|1|Congressional District 1 (115th Congress), New Hampshire|673194.0
+NH|2|Congressional District 2 (115th Congress), New Hampshire|669601.0
+NJ|1|Congressional District 1 (115th Congress), New Jersey|729675.0
+NJ|2|Congressional District 2 (115th Congress), New Jersey|713380.0
+NJ|3|Congressional District 3 (115th Congress), New Jersey|746035.0
+NJ|4|Congressional District 4 (115th Congress), New Jersey|756825.0
+NJ|5|Congressional District 5 (115th Congress), New Jersey|746385.0
+NJ|6|Congressional District 6 (115th Congress), New Jersey|742483.0
+NJ|7|Congressional District 7 (115th Congress), New Jersey|754222.0
+NJ|8|Congressional District 8 (115th Congress), New Jersey|777484.0
+NJ|9|Congressional District 9 (115th Congress), New Jersey|769504.0
+NJ|10|Congressional District 10 (115th Congress), New Jersey|781893.0
+NJ|11|Congressional District 11 (115th Congress), New Jersey|729569.0
+NJ|12|Congressional District 12 (115th Congress), New Jersey|758189.0
+NM|1|Congressional District 1 (115th Congress), New Mexico|696688.0
+NM|2|Congressional District 2 (115th Congress), New Mexico|694692.0
+NM|3|Congressional District 3 (115th Congress), New Mexico|696690.0
+NV|1|Congressional District 1 (115th Congress), Nevada|720730.0
+NV|2|Congressional District 2 (115th Congress), Nevada|720704.0
+NV|3|Congressional District 3 (115th Congress), Nevada|803545.0
+NV|4|Congressional District 4 (115th Congress), Nevada|753060.0
+NY|1|Congressional District 1 (115th Congress), New York|718652.0
+NY|2|Congressional District 2 (115th Congress), New York|721373.0
+NY|3|Congressional District 3 (115th Congress), New York|725627.0
+NY|4|Congressional District 4 (115th Congress), New York|728807.0
+NY|5|Congressional District 5 (115th Congress), New York|798555.0
+NY|6|Congressional District 6 (115th Congress), New York|761797.0
+NY|7|Congressional District 7 (115th Congress), New York|755717.0
+NY|8|Congressional District 8 (115th Congress), New York|793532.0
+NY|9|Congressional District 9 (115th Congress), New York|750170.0
+NY|10|Congressional District 10 (115th Congress), New York|733275.0
+NY|11|Congressional District 11 (115th Congress), New York|755204.0
+NY|12|Congressional District 12 (115th Congress), New York|714279.0
+NY|13|Congressional District 13 (115th Congress), New York|802800.0
+NY|14|Congressional District 14 (115th Congress), New York|691813.0
+NY|15|Congressional District 15 (115th Congress), New York|781143.0
+NY|16|Congressional District 16 (115th Congress), New York|742552.0
+NY|17|Congressional District 17 (115th Congress), New York|746412.0
+NY|18|Congressional District 18 (115th Congress), New York|730114.0
+NY|19|Congressional District 19 (115th Congress), New York|700975.0
+NY|20|Congressional District 20 (115th Congress), New York|732130.0
+NY|21|Congressional District 21 (115th Congress), New York|705669.0
+NY|22|Congressional District 22 (115th Congress), New York|696819.0
+NY|23|Congressional District 23 (115th Congress), New York|702026.0
+NY|24|Congressional District 24 (115th Congress), New York|707889.0
+NY|25|Congressional District 25 (115th Congress), New York|719033.0
+NY|26|Congressional District 26 (115th Congress), New York|714521.0
+NY|27|Congressional District 27 (115th Congress), New York|718515.0
+OH|1|Congressional District 1 (115th Congress), Ohio|740851.0
+OH|2|Congressional District 2 (115th Congress), Ohio|728153.0
+OH|3|Congressional District 3 (115th Congress), Ohio|782878.0
+OH|4|Congressional District 4 (115th Congress), Ohio|710603.0
+OH|5|Congressional District 5 (115th Congress), Ohio|717547.0
+OH|6|Congressional District 6 (115th Congress), Ohio|696153.0
+OH|7|Congressional District 7 (115th Congress), Ohio|725665.0
+OH|8|Congressional District 8 (115th Congress), Ohio|730445.0
+OH|9|Congressional District 9 (115th Congress), Ohio|720715.0
+OH|10|Congressional District 10 (115th Congress), Ohio|721456.0
+OH|11|Congressional District 11 (115th Congress), Ohio|675475.0
+OH|12|Congressional District 12 (115th Congress), Ohio|780529.0
+OH|13|Congressional District 13 (115th Congress), Ohio|715559.0
+OH|14|Congressional District 14 (115th Congress), Ohio|724790.0
+OH|15|Congressional District 15 (115th Congress), Ohio|772776.0
+OH|16|Congressional District 16 (115th Congress), Ohio|715014.0
+OK|1|Congressional District 1 (115th Congress), Oklahoma|803883.0
+OK|2|Congressional District 2 (115th Congress), Oklahoma|744806.0
+OK|3|Congressional District 3 (115th Congress), Oklahoma|774066.0
+OK|4|Congressional District 4 (115th Congress), Oklahoma|789947.0
+OK|5|Congressional District 5 (115th Congress), Oklahoma|818162.0
+OR|1|Congressional District 1 (115th Congress), Oregon|844175.0
+OR|2|Congressional District 2 (115th Congress), Oregon|821129.0
+OR|3|Congressional District 3 (115th Congress), Oregon|842158.0
+OR|4|Congressional District 4 (115th Congress), Oregon|803611.0
+OR|5|Congressional District 5 (115th Congress), Oregon|831703.0
+PA|1|Congressional District 1 (115th Congress), Pennsylvania|728366.0
+PA|2|Congressional District 2 (115th Congress), Pennsylvania|726135.0
+PA|3|Congressional District 3 (115th Congress), Pennsylvania|691184.0
+PA|4|Congressional District 4 (115th Congress), Pennsylvania|729945.0
+PA|5|Congressional District 5 (115th Congress), Pennsylvania|696063.0
+PA|6|Congressional District 6 (115th Congress), Pennsylvania|728576.0
+PA|7|Congressional District 7 (115th Congress), Pennsylvania|725762.0
+PA|8|Congressional District 8 (115th Congress), Pennsylvania|713998.0
+PA|9|Congressional District 9 (115th Congress), Pennsylvania|687620.0
+PA|10|Congressional District 10 (115th Congress), Pennsylvania|694398.0
+PA|11|Congressional District 11 (115th Congress), Pennsylvania|701056.0
+PA|12|Congressional District 12 (115th Congress), Pennsylvania|689237.0
+PA|13|Congressional District 13 (115th Congress), Pennsylvania|728475.0
+PA|14|Congressional District 14 (115th Congress), Pennsylvania|687028.0
+PA|15|Congressional District 15 (115th Congress), Pennsylvania|734824.0
+PA|16|Congressional District 16 (115th Congress), Pennsylvania|731802.0
+PA|17|Congressional District 17 (115th Congress), Pennsylvania|697535.0
+PA|18|Congressional District 18 (115th Congress), Pennsylvania|713533.0
+RI|1|Congressional District 1 (115th Congress), Rhode Island|539250.0
+RI|2|Congressional District 2 (115th Congress), Rhode Island|520389.0
+SC|1|Congressional District 1 (115th Congress), South Carolina|782340.0
+SC|2|Congressional District 2 (115th Congress), South Carolina|713488.0
+SC|3|Congressional District 3 (115th Congress), South Carolina|687378.0
+SC|4|Congressional District 4 (115th Congress), South Carolina|731886.0
+SC|5|Congressional District 5 (115th Congress), South Carolina|718465.0
+SC|6|Congressional District 6 (115th Congress), South Carolina|670725.0
+SC|7|Congressional District 7 (115th Congress), South Carolina|720087.0
+SD|0|Congressional District (at Large) (115th Congress), South Dakota|869666.0
+TN|1|Congressional District 1 (115th Congress), Tennessee|714912.0
+TN|2|Congressional District 2 (115th Congress), Tennessee|747673.0
+TN|3|Congressional District 3 (115th Congress), Tennessee|733082.0
+TN|4|Congressional District 4 (115th Congress), Tennessee|782024.0
+TN|5|Congressional District 5 (115th Congress), Tennessee|774096.0
+TN|6|Congressional District 6 (115th Congress), Tennessee|772984.0
+TN|7|Congressional District 7 (115th Congress), Tennessee|778057.0
+TN|8|Congressional District 8 (115th Congress), Tennessee|716130.0
+TN|9|Congressional District 9 (115th Congress), Tennessee|697026.0
+TX|1|Congressional District 1 (115th Congress), Texas|717376.0
+TX|2|Congressional District 2 (115th Congress), Texas|772262.0
+TX|3|Congressional District 3 (115th Congress), Texas|870763.0
+TX|4|Congressional District 4 (115th Congress), Texas|747188.0
+TX|5|Congressional District 5 (115th Congress), Texas|769579.0
+TX|6|Congressional District 6 (115th Congress), Texas|792043.0
+TX|7|Congressional District 7 (115th Congress), Texas|800081.0
+TX|8|Congressional District 8 (115th Congress), Texas|863498.0
+TX|9|Congressional District 9 (115th Congress), Texas|789535.0
+TX|10|Congressional District 10 (115th Congress), Texas|846261.0
+TX|11|Congressional District 11 (115th Congress), Texas|759467.0
+TX|12|Congressional District 12 (115th Congress), Texas|806551.0
+TX|13|Congressional District 13 (115th Congress), Texas|713480.0
+TX|14|Congressional District 14 (115th Congress), Texas|765031.0
+TX|15|Congressional District 15 (115th Congress), Texas|790730.0
+TX|16|Congressional District 16 (115th Congress), Texas|742384.0
+TX|17|Congressional District 17 (115th Congress), Texas|771567.0
+TX|18|Congressional District 18 (115th Congress), Texas|800402.0
+TX|19|Congressional District 19 (115th Congress), Texas|734202.0
+TX|20|Congressional District 20 (115th Congress), Texas|806372.0
+TX|21|Congressional District 21 (115th Congress), Texas|809322.0
+TX|22|Congressional District 22 (115th Congress), Texas|897080.0
+TX|23|Congressional District 23 (115th Congress), Texas|769276.0
+TX|24|Congressional District 24 (115th Congress), Texas|800103.0
+TX|25|Congressional District 25 (115th Congress), Texas|789825.0
+TX|26|Congressional District 26 (115th Congress), Texas|879237.0
+TX|27|Congressional District 27 (115th Congress), Texas|740277.0
+TX|28|Congressional District 28 (115th Congress), Texas|753502.0
+TX|29|Congressional District 29 (115th Congress), Texas|761833.0
+TX|30|Congressional District 30 (115th Congress), Texas|774443.0
+TX|31|Congressional District 31 (115th Congress), Texas|853799.0
+TX|32|Congressional District 32 (115th Congress), Texas|763452.0
+TX|33|Congressional District 33 (115th Congress), Texas|753565.0
+TX|34|Congressional District 34 (115th Congress), Texas|727595.0
+TX|35|Congressional District 35 (115th Congress), Texas|830041.0
+TX|36|Congressional District 36 (115th Congress), Texas|742474.0
+UT|1|Congressional District 1 (115th Congress), Utah|763612.0
+UT|2|Congressional District 2 (115th Congress), Utah|765809.0
+UT|3|Congressional District 3 (115th Congress), Utah|767012.0
+UT|4|Congressional District 4 (115th Congress), Utah|805400.0
+VA|1|Congressional District 1 (115th Congress), Virginia|805159.0
+VA|2|Congressional District 2 (115th Congress), Virginia|741514.0
+VA|3|Congressional District 3 (115th Congress), Virginia|739840.0
+VA|4|Congressional District 4 (115th Congress), Virginia|771899.0
+VA|5|Congressional District 5 (115th Congress), Virginia|727064.0
+VA|6|Congressional District 6 (115th Congress), Virginia|752763.0
+VA|7|Congressional District 7 (115th Congress), Virginia|790084.0
+VA|8|Congressional District 8 (115th Congress), Virginia|801609.0
+VA|9|Congressional District 9 (115th Congress), Virginia|711755.0
+VA|10|Congressional District 10 (115th Congress), Virginia|850118.0
+VA|11|Congressional District 11 (115th Congress), Virginia|778215.0
+VT|0|Congressional District (at Large) (115th Congress), Vermont|623657.0
+WA|1|Congressional District 1 (115th Congress), Washington|744868.0
+WA|2|Congressional District 2 (115th Congress), Washington|745184.0
+WA|3|Congressional District 3 (115th Congress), Washington|731931.0
+WA|4|Congressional District 4 (115th Congress), Washington|724053.0
+WA|5|Congressional District 5 (115th Congress), Washington|716859.0
+WA|6|Congressional District 6 (115th Congress), Washington|713112.0
+WA|7|Congressional District 7 (115th Congress), Washington|768408.0
+WA|8|Congressional District 8 (115th Congress), Washington|757166.0
+WA|9|Congressional District 9 (115th Congress), Washington|765319.0
+WA|10|Congressional District 10 (115th Congress), Washington|738843.0
+WI|1|Congressional District 1 (115th Congress), Wisconsin|715529.0
+WI|2|Congressional District 2 (115th Congress), Wisconsin|761806.0
+WI|3|Congressional District 3 (115th Congress), Wisconsin|720944.0
+WI|4|Congressional District 4 (115th Congress), Wisconsin|708971.0
+WI|5|Congressional District 5 (115th Congress), Wisconsin|730386.0
+WI|6|Congressional District 6 (115th Congress), Wisconsin|715060.0
+WI|7|Congressional District 7 (115th Congress), Wisconsin|710385.0
+WI|8|Congressional District 8 (115th Congress), Wisconsin|732402.0
+WV|1|Congressional District 1 (115th Congress), West Virginia|611376.0
+WV|2|Congressional District 2 (115th Congress), West Virginia|621635.0
+WV|3|Congressional District 3 (115th Congress), West Virginia|582846.0
+WY|0|Congressional District (at Large) (115th Congress), Wyoming|579315.0
