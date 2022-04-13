@@ -1,0 +1,13 @@
+dask[complete]
+fastparquet
+graphviz
+jupyter
+matplotlib
+notebook
+pandas
+pyarrow
+seaborn
+nbconvert
+requests
+aiohttp
+lxml
