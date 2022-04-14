@@ -1,0 +1,1212 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	
+        Regular Expression Library
+    
+</title><meta content="Regular Expression Library provides a searchable database of regular expressions.  Users can add, edit, rate, and test regular expressions." name="description" /><meta content="perl regular expression awk sed grep library regex regx regexlib asp.net asp net dotnet  tutorial example test build find search" name="keywords" />
+    <script type="text/javascript">
+        <!--
+        // Preload the image used in overlibmws popups
+        myExit = new Image();
+        myExit.src = "/Scripts/overlibmws/exit.gif"
+
+        // Always include the width and height for any images)
+        var closeimg =
+          '<img src="/Scripts/overlibmws/exit.gif" alt="Click to Close" '
+         + 'width="12" height="11" border="0">';
+	   
+         // -->
+    </script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_draggable.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_filter.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_overtwo.js"></script>
+    <script type="text/javascript" src="/Scripts/overlibmws/overlibmws_shadow.js"></script>
+<link href="App_Themes/Green/default.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Green/Form.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Green/Tester.css" type="text/css" rel="stylesheet" /></head>
+<body>
+    <!--[if IE 6]><link href="/ie6styles.css" type="text/css" rel="stylesheet"  /><![endif]-->
+    <div id="overDiv" style="position: absolute; visibility: hidden; z-index: 10000">
+    </div>
+    <div id="backdrop" style="position: absolute; visibility: hidden;">
+    </div>
+    <form name="aspnetForm" method="post" action="./DisplayPatterns.aspx?cattabindex=5&amp;categoryId=6&amp;p=1&amp;AspxAutoDetectCookieSupport=1" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTIzNzMxNDE1OGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgIFI2N0bDAwJExvZ2luVmlldzEkTG9naW5TdGF0dXMxJGN0bDAxBSNjdGwwMCRMb2dpblZpZXcxJExvZ2luU3RhdHVzMSRjdGwwM6yfAvFQzyq3PIGx93aUJ1Uk9GjP04z7pIX6j/yn+NX6" />
+
+
+<script src="/ScriptResource.axd?d=n7oAe63vG7WYYot28aoGBPugCcUcIzol4UQMlrpDK0isGE7vdG1VUu0n4n09X90yUjXNzVlSzS27hzARaP_g4cE19a5qFBG9ciUXVAQcuUgqH_scV3jVyUk3S1pqjGYiC287Lof_KmGnTKCsBg0vF4E4bx6UGbaMah4CnzNTqUQ1&amp;t=ffffffffb0622999" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="38E1D26C" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAKXpnq7ik8Xfl08devMpsD9BWceBit8e6/TdPqOU5fZbb/53LziJlBKTHR+WkmodhUrKNMKj3DgcUcgP6gRZ3sa" />
+    
+    
+    <div id="siteTop">
+        <h1>
+            RegExLib.com - The first Regular Expression Library on the Web!</h1>
+        <div id="topNav" class="commonContainerHeader">
+            <ul>
+                <li><a href="/Default.aspx"">Home</a></li><li><a href="/Search.aspx"">Search</a></li><li><a href="/RETester.aspx"">Regex Tester</a></li><li><a href="/DisplayPatterns.aspx"">Browse Expressions</a></li><li><a href="/Add.aspx"">Add Regex</a></li>
+    
+
+
+
+                
+                        <li>
+                            <a id="ctl00_LoginView1_LoginStatus1" href="javascript:__doPostBack(&#39;ctl00$LoginView1$LoginStatus1$ctl02&#39;,&#39;&#39;)">Login</a>
+                        </li>
+                    
+            </ul>
+        </div>
+        <div class="commonContainer">
+            <div class="supportSponsors">
+                <p>
+                    Please support RegExLib Sponsors</p>
+            </div>
+            <div id="leaderboardAdTop">
+            <div class="lqm_ad" lqm_publisher="lqm.regexlib.site" lqm_zone="ron" lqm_format="728x90"></div>
+            </div>
+        </div>
+    </div>
+    <div id="siteBody">
+        <div id="sidebarLeft">
+            <div class="commonContainerHeader">
+                <h3>
+                    Subscribe</h3>
+            </div>
+            <div class="commonContainer">
+                <ul class="sidebarList">
+                    <li class="rssLink"><a href='http://feeds.feedburner.com/Regexlibcom-RecentPatterns'>
+                        Recent Expressions</a></li>
+                </ul>
+                <p style="margin-left: 17px;">
+                    <a href="http://feeds.feedburner.com/Regexlibcom-RecentPatterns">
+                        <img src="http://feeds.feedburner.com/~fc/Regexlibcom-RecentPatterns?bg=99CCFF&amp;fg=444444&amp;anim=1"
+                            height="26" width="88" style="border: 0" alt="" /></a></p>
+            </div>
+            
+
+    <div class="commonContainerHeader"><h3>Site Links</h3></div>
+    <div class="commonContainer">
+        <ul class="sidebarList">
+            
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl00_ListItem1" class="starLink"><a href='/CheatSheet.aspx'>Regex Cheat Sheet</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl02_ListItem1"><a href='/Search.aspx'>Search</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl03_ListItem1"><a href='/RETester.aspx'>Regex Tester</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl04_ListItem1"><a href='/DisplayPatterns.aspx'>Browse Expressions</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl05_ListItem1"><a href='/Add.aspx'>Add Regex</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl06_ListItem1"><a href='/UserPatterns.aspx'>Manage My Expressions</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl07_ListItem1"><a href='/Contributors.aspx'>Contributors</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl11_ListItem1"><a href='/Resources.aspx'>Regex Resources</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl12_ListItem1"><a href='/WebServices.asmx'>Web Services</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl13_ListItem1"><a href='http://lakequincy.com/advertisers/publisherinfo/regExLib.aspx'>Advertise</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl14_ListItem1"><a href='/Contact.aspx'>Contact Us</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl15_ListItem1"><a href='/Register.aspx'>Register</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl16_ListItem1" class="rssLink"><a href='http://feeds.feedburner.com/Regexlibcom-RecentPatterns'>Recent Expressions</a></li>
+                
+                    <li id="ctl00_LeftNavigation1_LeftMenu_ctl17_ListItem1" class="rssLink"><a href='http://feeds.feedburner.com/Regexlibcom-RecentComments'>Recent Comments</a></li>
+                
+        </ul>
+    </div>
+
+
+
+            
+
+    <div class="commonContainerHeader"><h3>Community</h3></div>
+    <div class="commonContainer">
+        <ul class="sidebarList">
+            
+                    <li id="ctl00_CommunityNavigation_LeftMenu_ctl08_ListItem1"><a href='http://regexadvice.com/forums/'>Regex Forums</a></li>
+                
+                    <li id="ctl00_CommunityNavigation_LeftMenu_ctl09_ListItem1"><a href='http://regexadvice.com/blogs/'>Regex Blogs</a></li>
+                
+                    <li id="ctl00_CommunityNavigation_LeftMenu_ctl10_ListItem1"><a href='http://aspadvice.com/lists/SignUp/list.aspx?l=68&c=16'>Regex Mailing List</a></li>
+                
+        </ul>
+    </div>
+
+
+
+            
+    <div class="commonContainerHeader"><h3>Top Contributors</h3></div>
+    <div class="commonContainer">
+        <ul class="sidebarList">
+            
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=8a71bef2-8e15-421e-b9da-b2af49627e73'>Cristiano Ronaldo (430)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=b6141b2b-63f0-4620-83aa-0d75a83ba9e0'>tomcruse (421)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=58e11289-0ce0-4e9e-9954-486014703459'>alex flintoff (291)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=ab27831d-8da4-4344-8dc6-4067d5a14577'>Jofra Archer (238)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=d0b854cb-85cf-4cf5-b5d3-79c740c772e4'>CRISHGAYLE (235)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=6e70f58d-10b2-4563-b9aa-a16afa5e006f'>alaska james (218)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=ec75c16d-9cff-461a-8933-1248bb82adce'>jhonphython (195)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=d457c867-643f-4cc4-84ce-9d66a0ae26ae'>brock lean (179)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=24fb0b7f-05cf-4a04-9bf6-979820980f3c'>jameschel (159)</a>
+                    </li>
+                
+                    <li>
+                        <a href='UserPatterns.aspx?authorId=9f0a65df-b886-4db3-9127-ce02d76d91c4'>davidwilliam569898@gmail.com (159)</a>
+                    </li>
+                
+                
+            <li style="margin-top: 12px; font-weight: bold;"><a id="ctl00_ucTopContributors_contributorslink" href="Contributors.aspx">All Contributors</a></li>
+        </ul>
+    </div>
+
+            <div class="commonContainerHeader">
+                <h3>
+                    Advertise with us</h3>
+            </div>
+        </div>
+        <div id="sidebarRight">
+            <div class="commonContainerHeader">
+                <h3>
+                    Sponsors</h3>
+            </div>
+            <div class="commonContainer paddingNoneSides center">
+                <div class="lqm_ad" lqm_publisher="lqm.regexlib.site" lqm_zone="ron" lqm_format="1x2"></div>
+            </div>
+            <div class="commonContainer paddingNoneSides center">
+                <div class="lqm_ad" lqm_publisher="lqm.regexlib.site" lqm_zone="ron" lqm_format="160x600"></div>
+            </div>
+        </div>
+        <div id="mainContentArea">
+            
+    
+    <div class="commonContainerHeader">
+        <h2>Browse Expressions by Category</h2>
+    </div>
+    <div class="highlightContainer searchContainer">
+        <ul class="tabnav">
+            
+                    <li><a href='DisplayPatterns.aspx?cattabindex=0&categoryId=1'>Email</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=1&categoryId=2'>Uri</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=2&categoryId=3'>Numbers</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=3&categoryId=4'>Strings</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=4&categoryId=5'>Dates and Times</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=5&categoryId=6'>Misc</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=6&categoryId=7'>Address/Phone</a></li>
+                
+                    <li><a href='DisplayPatterns.aspx?cattabindex=7&categoryId=8'>Markup/Code</a></li>
+                
+        </ul>
+        <h3><span id="ctl00_ContentPlaceHolder1_lblResultCount" style="text-decoration: underline;">173</span> regular expressions found in this category!</h3>
+    </div>
+    
+    <div class="commonContainerHeader">
+        <h2>Expressions in category: <span id="ctl00_ContentPlaceHolder1_CategoryShownLabel" style="color: #000000;">Misc</span></h2>
+    </div>
+	<div class="commonContainerSubHead">
+	    <span id="ctl00_ContentPlaceHolder1_Pager1_PagerPanel1">
+Change page:
+<a id="ctl00_ContentPlaceHolder1_Pager1_StepForwardOneHyperLink" alt="Step forward one page >" border="0" href="/DisplayPatterns.aspx?cattabindex=5&amp;categoryid=6&amp;p=2" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_1.png" alt="" border="0" /></a><a id="ctl00_ContentPlaceHolder1_Pager1_StepForwardAllHyperLink" alt="Step forward to last page >>" border="0" href="/DisplayPatterns.aspx?cattabindex=5&amp;categoryid=6&amp;p=9" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_all.png" alt="" border="0" /></a>
+&nbsp;&nbsp;|
+</span>
+&nbsp;&nbsp; Displaying page
+<span id="ctl00_ContentPlaceHolder1_Pager1_CurrentPageLabel">1</span>
+of
+<span id="ctl00_ContentPlaceHolder1_Pager1_TotalPagesLabel">9</span> pages;
+Items <span id="ctl00_ContentPlaceHolder1_Pager1_FirstItemLabel">1</span> to <span id="ctl00_ContentPlaceHolder1_Pager1_LastItemLabel">20</span>
+	</div>    
+    
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=111' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=111' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=111'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^\d{3}\s?\d{3}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This can be used to match indian style pincodes / postal codes used by the indian postal departments which are 6 digits long and may have space after the 3rd digit</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">400 099 <span class='separator'>|</span> 400099 <span class='separator'>|</span> 400050</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">2345678 <span class='separator'>|</span> 12345 <span class='separator'>|</span> asdf</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl00_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=042ccf60-da0b-49d4-b1c3-f5be6f4ace45'>
+                            anup kallingal
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=323' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=323' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=323'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">\d{2}.?\d{3}.?\d{3}/?\d{4}-?\d{2}</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This regular expressions matches CNPJ number. CNPJ is a Registration Number of Brazilian Companies.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">00.000.000/0000-00 <span class='separator'>|</span> 00000000000000</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">00-000-000-000-00 <span class='separator'>|</span> AA.AAA.AAA/AAAA-AA</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl02_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=c07ba106-aa46-4168-acfc-0fd9329f70e5'>
+                            Gabriel Fróes
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=194' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=194' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=194'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This matches an IP address, putting each number in its own group that can be retrieved by number. If you do not care about capturing the numbers, then you can make this shorter by putting everything after ^ until immediately after the first \. in a group ( ) with a {3} after it. Then put the number matching regex in once more. 
+
+It only permits numbers in the range 0-255. 
+
+</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">0.0.0.0 <span class='separator'>|</span> 255.255.255.02 <span class='separator'>|</span> 192.168.0.136</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">256.1.3.4 <span class='separator'>|</span> 023.44.33.22 <span class='separator'>|</span> 10.57.98.23.</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl04_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=d1a879d9-a6cd-49e6-bc42-f25d3afecb44'>
+                            Andrew Polshaw
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+        
+	    <div class="commonContainer paddingNoneSides marginNoneBottom center">
+		    <div class="lqm_ad" lqm_channel="1" lqm_publisher="50" lqm_format="1" lqm_zone="1"
+height="0" width="0"></div><span id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl05_LQBannerControl1"></span>
+        </div>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=45' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=45' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=45'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This RegEx requires a US phone number WITH area code. It is written to all users to enter whatever delimiters they want or no delimiters at all (i.e. 111-222-3333, or 111.222.3333, or (111) 222-3333, or 1112223333, etc...).</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">(111) 222-3333 <span class='separator'>|</span> 1112223333 <span class='separator'>|</span> 111-222-3333</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">11122223333 <span class='separator'>|</span> 11112223333 <span class='separator'>|</span> 11122233333</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl06_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=67fd2b42-57a9-43d2-b9dd-39777e635dbf'>
+                            Laurence O'Donnell
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=75' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=75' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=75'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Regular expression to evaluate dutch-style phone numbers. Possible example prefixes: +31, +31(0), (+31)(0), 0, 0031
+followed by 9 numbers (which can contain a space or -).</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">+31235256677 <span class='separator'>|</span> +31(0)235256677 <span class='separator'>|</span> 023-5256677</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">+3123525667788999 <span class='separator'>|</span> 3123525667788 <span class='separator'>|</span> 232-2566778</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl08_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=1cba45c0-45ff-498f-8470-ae0b7a18b81b'>
+                            Jon van Leuven
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=213' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=213' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=213'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([a-zA-Z0-9@*#]{8,15})$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Password matching expression. Match all alphanumeric character and predefined wild characters. Password must consists of at least 8 characters and not more than 15 characters. 
+</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">@12X*567 <span class='separator'>|</span> 1#Zv96g@*Yfasd4 <span class='separator'>|</span> #67jhgt@erd</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">$12X*567 <span class='separator'>|</span> 1#Zv_96 <span class='separator'>|</span> +678jhgt@erd</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl10_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=eeb3d23e-44d9-425b-a704-421c61e16220'>
+                            lawson law
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+        
+	    <div class="commonContainer paddingNoneSides marginNoneBottom center">
+		    <div class="lqm_ad" lqm_channel="1" lqm_publisher="50" lqm_format="1" lqm_zone="1"
+height="0" width="0"></div><span id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl11_LQBannerControl1"></span>
+        </div>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=621' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=621' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=621'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">,(?!(?&lt;=(?:^|,)\s*\x22(?:[^\x22]|\x22\x22|\\\x22)*,)(?:[^\x22]|\x22\x22|\\\x22)*\x22\s*(?:,|$))</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This regex can be used to split the values of a comma delimitted list. List elements may be quoted, unquoted or empty.  Commas inside a pair of  quotation marks are not matched. </div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">1,,3&quot;&quot;but, wait&quot;,5 <span class='separator'>|</span> 1,2,3</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">&quot;Test&quot;&quot;a,b,c,d&quot;&quot;ing&quot; <span class='separator'>|</span> no comma <span class='separator'>|</span> semi; colon</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl12_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=a31a0874-118f-4550-933e-a7c575d149ae'>
+                            Michael Ash
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=154' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=154' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=154'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This will grep for a valid MAC address , with colons seperating octets. It will ignore strings too short or long, or with invalid characters.  It will accept mixed case hexadecimal. Use extended grep.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">01:23:45:67:89:ab <span class='separator'>|</span> 01:23:45:67:89:AB <span class='separator'>|</span> fE:dC:bA:98:76:54</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">01:23:45:67:89:ab:cd <span class='separator'>|</span> 01:23:45:67:89:Az <span class='separator'>|</span> 01:23:45:56:</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl14_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=5238e2c3-3af8-4726-80a2-59a265d80fea'>
+                            Ted Rudyk
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=327' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=327' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=327'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^[0-9]{2}[-][0-9]{2}[-][0-9]{2}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Validates a UK Bank Sort code</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">09-01-29 <span class='separator'>|</span> 05-06-25</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">090125</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl16_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=577f78eb-7c50-4a5e-9fe9-1969a72379be'>
+                            Richard Slade
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=342' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=342' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=342'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(\d{5}((|-)-\d{4})?)|([A-Za-z]\d[A-Za-z][\s\.\-]?(|-)\d[A-Za-z]\d)|[A-Za-z]{1,2}\d{1,2}[A-Za-z]? \d[A-Za-z]{2}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Allows Canadian, American and UK postal/zip codes. Allowing hyphens, periods, or spaces to separate.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">N9B.1Y8 <span class='separator'>|</span> 90210-1234 <span class='separator'>|</span> NE21 6EQ</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">NN8 Y83</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl18_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=ddafd57b-3525-41a7-b902-daf57b8bc259'>
+                            Russell Anderson
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=283' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=283' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=283'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^\(?[\d]{3}\)?[\s-]?[\d]{3}[\s-]?[\d]{4}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This regular expression matches 10 digit US Phone numbers in different formats. Some examples are
+1)area code in paranthesis.
+2)space between different parts of the phone number.
+3)no space between different parts of the number.
+4)dashes between parts.
+</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">(573)8841878 <span class='separator'>|</span> 573-884-1234 <span class='separator'>|</span> 573 234 1256</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">(573)(673)2345 <span class='separator'>|</span> 573-12-2345</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl20_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=b6740171-d8dc-4162-a402-f097480b6de4'>
+                            kode kode
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=297' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=297' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=297'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">(\s*\(?0\d{4}\)?\s*\d{6}\s*)|(\s*\(?0\d{3}\)?\s*\d{3}\s*\d{4}\s*)</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">UK Phone Number Allows leading and trailing spaces and optional spaces after the dialing code.
+
+Initially the expression I posted was
+\s*0\d{4}\s*\d{6}\s*|\s*0\d{3}\s*\d{7}\s*
+
+But this didn&#39;t include optional brackets e.g. (01603) 123123 or phone numbers in a London format e.g. 0208 123 1234</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">01603 123123 <span class='separator'>|</span> 0207 1234567 <span class='separator'>|</span> (0208) 123 1234</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">123 123132</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl22_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=5eb03a59-7515-4c0a-a42b-ad0dadb2bb21'>
+                            Joe Gass
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=27' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=27' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=27'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">US Phone Number -- doesn&#39;t check to see if first digit is legal (not a 0 or 1).</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">(123) 456-7890 <span class='separator'>|</span> 123-456-7890</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">1234567890</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl24_RatingImage1_Image5" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating5.png" border="0" />
+</span>
+                        <a href='UserPatterns.aspx?authorId=26c277f9-61b2-4bf5-bb70-106880138842'>
+                            Steven Smith
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=975' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=975' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=975'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([0-1])*$
+</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Expression validating a Binary string of any length</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">10101000 <span class='separator'>|</span> 01010000 <span class='separator'>|</span> 100000001</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">01000200 <span class='separator'>|</span> 00021000 <span class='separator'>|</span> e10000000</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl26_RatingImage1_Image4" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating4.png" border="0" />
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=a8e2a731-7fed-4da6-9959-abad6405f6fd'>
+                            Cliff Wagner
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=1060' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=1060' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=1060'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^\d{3}-\d{7}[0-6]{1}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Airway bill no that allows only the format 999-99999998 and does not allow the last digit to be 7,8,9.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">999-99999995 <span class='separator'>|</span> 123-47859683 <span class='separator'>|</span> 156-78965422</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">123-47859689 <span class='separator'>|</span> 9999999999 <span class='separator'>|</span> 9588-58964</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl28_RatingImage1_Image4" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating4.png" border="0" />
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=5a603e18-4c69-4688-a76d-f93f92e16833'>
+                            DOZENROSES T
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=307' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=307' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=307'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^([A-Za-z]\d[A-Za-z][-]?\d[A-Za-z]\d)</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Regular expression to match a canadian postal code where it matches a string with or without the hyphen and in upercase or lowercase</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">a1a-1a1 <span class='separator'>|</span> A1A1A1</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">1a1-a1a <span class='separator'>|</span> aaa-aaa <span class='separator'>|</span> 111-111</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl30_RatingImage1_Image4" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating4.png" border="0" />
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=b4c95857-a9da-4f86-809f-5c7a848aa3be'>
+                            Rico lour
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=34' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=34' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=34'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">\(([0-9]{2}|0{1}((x|[0-9]){2}[0-9]{2}))\)\s*[0-9]{3,4}[- ]*[0-9]{4}</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Match diferent styles for brazilian Phone number code.
+Only DDD (12), complete DDD (012), complete DDD + Telephony Company (0xx12) plus 3 or 4 digits (city code) plus 4 digits (phone number).</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">(12) 123 1234 <span class='separator'>|</span> (01512) 123 1234 <span class='separator'>|</span> (0xx12) 1234 1234</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">12 123 1234 <span class='separator'>|</span> (012) 123/1234 <span class='separator'>|</span> (012) 123 12345</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl32_RatingImage1_Image4" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating4.png" border="0" />
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=cbd192ef-f398-4a09-be05-1a3ca06f2e71'>
+                            Samuel Mota
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=30' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=30' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=30'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?=.*\d).{4,8}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Password expression.  Password must be between 4 and 8 digits long and include at least one numeric digit.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">1234 <span class='separator'>|</span> asdf1234 <span class='separator'>|</span> asp123</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">asdf <span class='separator'>|</span> asdf12345 <span class='separator'>|</span> password</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl34_RatingImage1_Image4" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating4.png" border="0" />
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=26c277f9-61b2-4bf5-bb70-106880138842'>
+                            Steven Smith
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=225' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=225' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=225'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">(?:\d|I{1,3})?\s?\w{2,}\.?\s*\d{1,}\:\d{1,}-?,?\d{0,2}(?:,\d{0,2}){0,2}</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">This RE validates standard Bible verse notation.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">Genesis 3:3-4,6 <span class='separator'>|</span> II Sam 2:11,2 <span class='separator'>|</span> 2 Tim 3:16</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">Genesis chap 3, verse 3 <span class='separator'>|</span> 2nd Samuel 2</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl36_RatingImage1_Image4" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating4.png" border="0" />
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=4f411861-3dce-482c-821c-ae60a3eacdcd'>
+                            Scott Kahler
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+            <table border="0" cellspacing="0" cellpadding="0" class="searchResultsTable">
+                <tr valign="top" class="title">
+                    <th scope="row" width="23%">Title</th>
+                    <td width="77%">
+                        <a href='RETester.aspx?regexp_id=157' class="buttonSmall">Test</a>
+                        <a href='REDetails.aspx?regexp_id=157' class="buttonSmall">Details</a>
+                        <a href='REDetails.aspx?regexp_id=157'>
+                            Pattern Title
+                        </a>
+                    </td>
+                </tr>
+                <tr class="expression">
+                    <th scope="row">Expression</th>
+                    <td><div class="expressionDiv">^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$</div></td>
+                </tr>
+                <tr class="description">
+                    <th scope="row">Description</th>
+                    <td><div class="overflowFixDiv">Password expresion that requires one lower case letter, one upper case letter, one digit, 6-13 length, and no spaces. This is merely an extension of a previously posted expression by Steven Smith (ssmith@aspalliance.com) . The no spaces is new.</div></td>
+                </tr>
+                <tr class="matches">
+                    <th scope="row">Matches</th>
+                    <td><div class="overflowFixDiv">1agdA*$# <span class='separator'>|</span> 1agdA*$# <span class='separator'>|</span> 1agdA*$#</div></td>
+                </tr>
+                <tr class="nonmatches">
+                    <th scope="row">Non-Matches</th>
+                    <td><div class="overflowFixDiv">wyrn%@*&amp;amp;$# f <span class='separator'>|</span> mbndkfh782 <span class='separator'>|</span> BNfhjdhfjd&amp;amp;*)%#$)</div></td>
+                </tr>
+                <tr class="author">
+                    <th scope="row">Author</th>
+                    <td>
+                        <span class="rating">Rating:
+                        
+
+<img id="ctl00_ContentPlaceHolder1_SearchResultsRepeater_ctl38_RatingImage1_Image3" alt="The rating for this expression." border="0" src="App_Themes/Green/images/Rating3.png" border="0" />
+
+
+</span>
+                        <a href='UserPatterns.aspx?authorId=eb178ba7-528b-440d-bb2d-da5a0bad385d'>
+                            Jeremy Samuel
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        
+	<div class="commonContainerSubHead">
+	    <span id="ctl00_ContentPlaceHolder1_Pager2_PagerPanel1">
+Change page:
+<a id="ctl00_ContentPlaceHolder1_Pager2_StepForwardOneHyperLink" alt="Step forward one page >" border="0" href="/DisplayPatterns.aspx?cattabindex=5&amp;categoryid=6&amp;p=2" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_1.png" alt="" border="0" /></a><a id="ctl00_ContentPlaceHolder1_Pager2_StepForwardAllHyperLink" alt="Step forward to last page >>" border="0" href="/DisplayPatterns.aspx?cattabindex=5&amp;categoryid=6&amp;p=9" style="display:inline-block;"><img src="App_Themes/Green/images/arrow_forward_all.png" alt="" border="0" /></a>
+&nbsp;&nbsp;|
+</span>
+&nbsp;&nbsp; Displaying page
+<span id="ctl00_ContentPlaceHolder1_Pager2_CurrentPageLabel">1</span>
+of
+<span id="ctl00_ContentPlaceHolder1_Pager2_TotalPagesLabel">9</span> pages;
+Items <span id="ctl00_ContentPlaceHolder1_Pager2_FirstItemLabel">1</span> to <span id="ctl00_ContentPlaceHolder1_Pager2_LastItemLabel">20</span>
+	</div>
+
+    
+        
+    
+
+
+        </div>
+    </div>
+    <div id="copyrightLine">
+        <p>
+            Copyright © 2001-2019, <a href="http://regexadvice.com/">RegexAdvice.com</a>
+            | <a href="http://aspalliance.com/">ASP.NET Tutorials</a></p>
+    </div>
+    
+    </form>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        _uacct = "UA-470225-2";
+        urchinTracker();
+    </script>
+    <!-- Start Quantcast tag -->
+    <script type="text/javascript">
+        _qoptions = {
+            qacct: "p-a3-n3YcLyLJ56"
+        };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-a3-n3YcLyLJ56.gif" style="display: none;"
+            border="0" height="1" width="1" alt="Quantcast" />
+    </noscript>
+    <!-- End Quantcast tag -->
+    <script type='text/javascript' language='Javascript' src='http://s1.lqcdn.com/m.min.js?dt=2.3.110104.1'></script>
+</body>
+</html>
