@@ -137,7 +137,7 @@ Here you will use the `Dask` `Bag` and `DataFrame` APIs presented during the in-
 In this part of the lab, you will use `pyspark`, the Python API for [`Apache Spark`](https://spark.apache.org/), another parallel multi-processing framework. To better exploit the parallelism enabled by Spark, we will be giving you temporary access to a cluster to run your code. To connect to the cluster, you first need to download the SSH key pair posted on [Piazza](https://piazza.com/class/kyxiji1fchcli?cid=233) and store it in the `.ssh` directory of this lab. Then, connect to the cluster and create a working directory using the following sequence of commands (note that you should *not* replace `markakis` with your own id in the first command below):
 
 ```
-(Locally) ssh markakis@istc1.csail.mit.edu -i ./.ssh/id_6s079
+(Locally, outside docker) ssh markakis@istc1.csail.mit.edu -i ./.ssh/id_6s079
 
 (On istc1) mkdir [your-kerberos]
 (On istc1) cd [your-kerberos]
