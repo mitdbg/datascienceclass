@@ -1,6 +1,7 @@
 import argparse
 import csv
 import glob
+import html
 import multiprocessing
 import os
 import pandas as pd
@@ -9,8 +10,7 @@ import requests
 import sys
 import time
 
-from html.parser import HTMLParser
-from lxml import html
+from lxml import html as h
 from multiprocessing import Queue
 
 #VERBOSE = False
@@ -50,7 +50,7 @@ def download_html(url, out_filename):
 def scrape_html(out_queue, category, html_filename):
     with open(html_filename, 'r', encoding='utf-8') as f:
         contents = f.read()
-        tree = html.fromstring(contents)
+        tree = h.fromstring(contents)
 
         # Valid as of Apr 2022.
         scraped_regexes = tree.xpath('.//tr[@class="expression"]/*[2]')
@@ -72,7 +72,7 @@ def to_csv_row(category, scraped_regex):
     try:
         regex_bytes = bytes(scraped_regex[0].text, encoding='utf-8')
         regex_text = str(regex_bytes, encoding='utf-8')
-        unescaped_regex = HTMLParser().unescape(regex_text)
+        unescaped_regex = html.unescape(regex_text)
 
         # Data quality check: skip regexes that contain new lines.
         if "\n" in unescaped_regex:
