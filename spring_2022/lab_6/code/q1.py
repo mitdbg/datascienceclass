@@ -130,7 +130,7 @@ def main_task(urls_df, output_file, n_workers, redownload_html):
     # Enqueue all tuples of <category, html_filename> for workers to scrape.
     html_filenames = glob.glob(os.path.join('', '../data/downloaded_html/*/*.html'))
     for f in html_filenames:
-        category = f.split('/')[1]
+        category = f.split('/')[3]
         # YOUR CODE GOES HERE
         # 2. Enqueue tuples of (category, html filename) onto the task queue.
 
