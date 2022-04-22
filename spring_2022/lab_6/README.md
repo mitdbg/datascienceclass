@@ -134,7 +134,7 @@ Here you will use the `Dask` `Bag` and `DataFrame` APIs presented during the in-
 
 ## Tool 3: `pyspark`
 
-In this part of the lab, you will use `pyspark`, the Python API for [`Apache Spark`](https://spark.apache.org/), another parallel multi-processing framework. To better exploit the parallelism enabled by Spark, we will be giving you temporary access to a cluster to run your code. To connect to the cluster, you first need to download the SSH key pair posted on [Piazza](https://piazza.com/class/kyxiji1fchcli?cid=233) and store it in the `.ssh` directory of this lab. Then, connect to the cluster and create a working directory using the following sequence of commands (note that you should *not* replace `markakis` with your own id in the first command below):
+In this part of the lab, you will use `pyspark`, the Python API for [`Apache Spark`](https://spark.apache.org/), another parallel multi-processing framework. To better exploit the parallelism enabled by Spark, we will be giving you temporary access to a cluster to run your code. To connect to the cluster, you first need to download the SSH key pair posted on [Piazza](https://piazza.com/class/kyxiji1fchcli?cid=233) and store it in the `.ssh` directory of this lab. You also need to either: be on campus; be on a network that requires MIT authentication (e.g. eduroam); or use the [MIT VPN](https://ist.mit.edu/vpn). Then, connect to the cluster and create a working directory using the following sequence of commands (note that you should *not* replace `markakis` with your own id in the first command below):
 
 ```
 (Locally, outside docker) ssh markakis@istc1.csail.mit.edu -i ./.ssh/id_6s079
@@ -148,7 +148,7 @@ If you are using WSL, depending on where you have cloned the `datascienceclass` 
 To copy code and other files into and out of the cluster, you can use [`scp`](https://devhints.io/scp), like the example below:
 
 ```
-(Locally) scp -p /path/to/your/local/file markakis@istc1:~/[your-kerberos]/path/to/remote/file
+(Locally) scp -p /path/to/your/local/file markakis@istc1.csail.mit.edu:~/[your-kerberos]/path/to/remote/file
 ```
 
 The goal is to answer the same questions that you answered for `dask`, but using the `pyspark` API instead. We provide starter code in `code/q4.py` and `code/q5.py`.  You should measure and plot the total runtime for each of the configurations described below (bar plot with `x` axis as #partitions, `y` axis as runtime in milliseconds) for the each of the tasks below. Feel free to use any plotting tool of your choice, including the ones presented in Lab 5. 
