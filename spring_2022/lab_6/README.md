@@ -128,7 +128,7 @@ Run your scraper using different numbers of workers (e.g., 1, 2, and 4) and repo
 
 Here you will use the `Dask` `Bag` and `DataFrame` APIs presented during the in-class portion of the lab.  In each question, you will scale your cluster from 1 up to 8 cores (or however many cores or machine has) in multiples of 2 (as we did during the in-class portion of this lab). You should measure and plot the total runtime for each of the cluster configurations (bar plot with `x` axis as #cores, `y` axis as runtime in milliseconds) for the each of the tasks below. Feel free to use any plotting tool of your choice, including the ones presented in Lab 5. 
 
-**Q2 (10 pts)** Using the same timeseries dataframe from in-class portion, compute a rolling 5m average for all the 2021 data. Then, repeat this task for each cluster size using `pandas`. How do the min and the max runtimes you observed using `dask` compare to what you observed when using `pandas`? Submit your code as `q2.py` and your runtime plot as `q2.jpg`.
+**Q2 (10 pts)** Using the same timeseries dataframe from in-class portion, compute a rolling 5m average for all the 2021 data. Then, repeat this task using `pandas`. How do the min and the max runtimes you observed using `dask` compare to what you observed when using `pandas`? Submit your code as `q2.py` and your runtime plot as `q2.jpg`.
 
 **Q3 (10 pts)** Using the same mybinder.org JSON data from in-class portion: who are the top 3 providers of notebooks in 2022 (so far), and how many total runs does each of the 3 have? Submit your code as `q3.py` and your runtime plot as `q3.jpg`. 
 
