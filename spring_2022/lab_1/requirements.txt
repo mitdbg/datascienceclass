@@ -1,6 +1,6 @@
 asn1crypto==1.4.0
 cffi==1.15.0
-cryptography==36.0.1
+cryptography==39.0.1
 cycler==0.11.0
 fonttools==4.28.5
 idna==3.3
