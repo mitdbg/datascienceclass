@@ -16,3 +16,4 @@ spring_2022/lab_2/data/worldcup-clean.csv
 *checkpoint*
 
 ssh-keys/*
+**/*.pem
