@@ -4,11 +4,11 @@
 * **Deliverables**: Ability to `ssh` into your assigned EC2 instance (i.e. machine), create a private mirror of the course repository, and run a simple program to test that your environment is working. We will be using pre-configured EC2 instances for (at least some of) the labs in this course to ensure that everyone has a consistent environment. You are not required to turn anything in for lab 0, but you will be responsible for raising any issues with the setup of your environment to the course TAs in a timely fashion.
 
 ## 1. Accessing Your EC2 Instance
-**Please pay careful attention to security instructions (bolded) in this section.**
+**Please pay careful attention to security instructions (bolded and italicized) in this section.**
 
 To access your environment, I will email each of you a username (e.g. `user123`) and a private key via Outlook. You will need the username and private key to `ssh` into an EC2 instance. Before taking any further action, please make sure you adhere to the following guidelines:
-1. **Do not upload your private key to Github (or any other third-party service).** Even though you will create a private mirror of this Github repo (more details below), it is still good practice to never push your key(s) to services such as Github. **If you do this by accident -- do not panic**, just email the course staff as soon as possible so we can delete the compromised key and issue you a new one.
-2. **Only share your private key with a project partner via MIT's Slack or MIT's Outlook service (both encrypt data in transit). Do not share your key with anyone else.**
+1. ***Do not upload your private key to Github (or any other third-party service).*** Even though you will create a private mirror of this Github repo (more details below), it is still good practice to never push your key(s) to services such as Github. ***If you do this by accident -- do not panic***, just email the course staff as soon as possible so we can delete the compromised key and issue you a new one.
+2. ***Only share your private key with a project partner via MIT's Slack or MIT's Outlook service (both encrypt data in transit). Do not share your key with anyone else.***
 
 With these guidelines in mind, please open the email titled "Accessing Your 6.S079 Environment" from `mdrusso@mit.edu`. Make note of your username, the hostname of the machine you are supposed to access (read the email), and download the attached .pem key file. It is generally good practice to store your ssh key in the `~/.ssh/` directory on your laptop:
 ```sh
@@ -49,7 +49,7 @@ $ ssh datascience
 $ ssh -i path/to/user123.pem user123@ec2-11-1-11-11.compute-1.amazonaws.com
 ```
 
-Finally, if you are working with a project partner you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner **by sending it to them via MIT's Slack or MIT's Outlook service**. Details for how to submit your code as a group will follow at the end of this README.
+Finally, if you are working with a project partner you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner ***by sending it to them via MIT's Slack or MIT's Outlook service***. Details for how to submit your code as a group will follow at the end of this README.
 
 ## 2. Setting Up Course Environment
 In this section you will create a **private** mirror of the course repository under your user account on the EC2 instance. The steps involved are somewhat tedious, but you will only need to do them once, and then you will be able to `git pull` all future labs directly to your machine.
