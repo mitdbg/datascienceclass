@@ -16,7 +16,7 @@ With these guidelines in mind, please open the email titled "Accessing Your 6.S0
 $ mv ~/Downloads/user123.pem ~/.ssh/
 $ chmod 400 ~/.ssh/user123.pem
 ```
-The second command restricts the file's access permissions to be read-only. We strongly recommend that you create an entry in your `ssh` config for this machine to simplify your `ssh` command:
+The second command restricts the file's access permissions to be read-only. We strongly recommend that you create an entry in your `ssh` config to simplify your `ssh` command:
 ```
 # Optional, but recommended:
 # create an ssh config if you don't already have one
