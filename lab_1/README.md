@@ -51,7 +51,7 @@ $ ssh -i path/to/user123.pem user123@ec2-11-1-11-11.compute-1.amazonaws.com
 Finally, if you are working with a project partner you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner ***by sending it to them via MIT's Slack or MIT's Outlook service***. Details for how to submit your code as a group will follow at the end of this README.
 
 ## 2. Creating Mirror of Course Repository
-In this section you will create a **private** mirror of the course repository under your user account on the EC2 instance. The steps involved are somewhat tedious, but you will only need to do them once, and then you will be able to `git pull` all future labs directly to your machine.
+In this section you will create a **private** mirror of the course repository under your user account on the EC2 instance. (Do not create a public fork). The steps involved are somewhat tedious, but you will only need to do them once, and then you will be able to pull all future labs directly to your machine.
 
 1. To begin, you'll need to go to Github and create an empty **private** repository (see reference image below):
 - Do *not* add a README, gitignore, or license; this may create conflicts later
@@ -91,7 +91,6 @@ $ git config --global user.email "your_github_email@example.com"
 $ git config --global user.name "Your Name"
 
 # configure git to use vim editor for merge conflicts;
-# if you prefer using Nano as an editor you can skip this line
 $ git config --global core.editor "vim"
 
 # clone the course repository
@@ -113,14 +112,24 @@ $ cd your-private-repo
 # checkout main branch
 $ git checkout main
 ```
+5. (Optional) you may also want to have a copy of your private repository on your local machine (i.e. laptop) for developing in an IDE (more on this [below](#tip-basic-workflow-for-developing-on-remote-server)). To do this, simply run the final three commands from step 4: 
+```bash
+# --- on your local machine ---
+# clone your private repository
+$ git clone git@github.com/your-github-username/your-private-repo.git
+$ cd your-private-repo
 
-At this point you should be working on your own copy of the course repository.
+# checkout main branch
+$ git checkout main
+```
+
+At this point you should be working on your own copy of the course repository on the EC2 instance (and have a copy on your local machine if you did step 5).
 
 ## 3. Committing Changes, Pulling Updates, Resolving Conflicts, and Development Tips
 In this section we'll show how to (1) make and commit changes to your repository, (2) pull new updates from the course repository into your private mirror, and (3) resolve merge conflicts with the upstream repository.
 
 ### Committing Changes
-As you work on the lab you should commit your changes to your remote repository frequently. To do so, simply make changes as usual and then push them to the `origin` remote repository:
+As you work on the lab you should commit your changes to your remote repository frequently. To do so, simply make changes as usual and then push them to the `origin` remote repository. Do the following steps now (we will practice resolving a merge conflict with `foobar.txt` later):
 ```bash
 # --- from inside your repo ---
 # make a simple change and push to your private repo
@@ -145,27 +154,28 @@ $ git fetch upstream
 # ---
 # From https://github.com/mitdbg/datascienceclass
 #  * [new branch]      main       -> upstream/main
+#  * [new branch]      silly-ta   -> upstream/silly-ta
 
 # merge upstream changes into your main branch;
 # this should output that your branch is already up to date
 $ git merge upstream/main
 ```
-As mentioned in the comment above, there are currently no changes to the `upstream/main` branch that you do not have already. Thus, this "pull" will not update your local branch. The important takeaway here is that when we release new labs, the process for pulling those changes from the upstream repository to your EC2 instance is to perform:
+As mentioned in the comment above, there are currently no changes to the `upstream/main` branch that you do not have already. Thus, this fetch and merge will not update your local branch. The important takeaway here is that when we release new labs, the process for pulling those changes from the upstream repository to your EC2 instance is to perform:
 ```bash
 $ git checkout main
 $ git fetch upstream
 $ git merge upstream/main
 ```
-You could then commit these changes to your private remote repository by running:
+You could then commit any changes to your private remote repository by running:
 ```bash
 # push new changes from course repo to your private mirror
 $ git push origin main
 ```
 
 ### !! Resolving Merge Conflicts !!
-Contrary to popular belief, your course TAs are fallible and sometimes make mistakes. In these ~~common~~ rare occurences you may need to pull an update to your `main` branch from the upstream repository which will conflict with changes you've made. In this sub-section we are going to forcibly create a merge conflict and have you resolve it. The goal here is to simulate a national crisis and have you defuse the (fake) crisis now, this way you'll be confident in your abilities when things really hit the fan (they won't, maybe).
+Contrary to popular belief, your course TAs are fallible and sometimes make mistakes. In these ~~common~~ rare occurences you may need to pull an update to your `main` branch from the upstream repository which will conflict with changes you've made. In this sub-section we are going to forcibly create a merge conflict and have you resolve it. The goal here is to simulate a national crisis and have you defuse it now, this way you'll be confident in your abilities if/when things really hit the fan (they won't, maybe).
 
-Assuming you followed the steps under [Committing Changes](#committing-changes), you should have committed a file called `foobar.txt` at the root of your private repository and pushed it to the remote `origin`. (If you haven't, you should do so now).
+Assuming you followed the steps under [Committing Changes](#committing-changes), you should have committed a file called `foobar.txt` at the root of your private repository and pushed it to `origin main`. (If you haven't, you should do so now).
 
 Now, let's try to fetch and merge changes in the `silly-ta` branch of our upstream repository which should conflict with your copy of `foobar.txt`. (NOTE: you should normally only fetch and merge `upstream/main`, but for the purpose of manufacturing a conflict, we will merge `upstream/silly-ta` here):
 ```bash
@@ -191,11 +201,11 @@ Sensational, you've successfully simulated incorporating your TA's urgent bugfix
 The most barebones way to develop on a remote server is to use a text editor such as `vim` or `emacs` to edit files directly in the terminal. However, many programmers prefer to use an IDE such as VSCode to help them write programs. One simple way to accomplish this is to create a clone of a repository on one's local machine where they can edit files in their preferred IDE. Once changes are made, they can be committed and pushed from the local machine and then pulled down and run on the remote server. This workflow looks like the following:
 ```bash
 # --- In terminal 1, on your local machine ---
-# clone your private repository
+# clone your private repository (if you haven't already)
 $ git clone git@github.com/your-github-username/your-private-repo.git
 $ cd your-private-repo/
 
-
+# --- In terminal 1, on your local machine ---
 # push changes to your private repo from local
 $ touch script.py
 # ... make code changes ...
@@ -205,6 +215,7 @@ $ git push
 
 # --- In terminal 2, which has an ssh session open to the remote server ---
 # pull (and run) changes that were pushed from local
+$ cd your-private-repo/
 $ git pull
 $ python script.py
 ```
@@ -221,7 +232,7 @@ The download page for VSCode and instructions for setting up remote development 
 If you would like help with setting up remote development with VSCode, please come to my (Matthew Russo)'s office hours, or speak with me after class.
 
 ## 3. Setup Lab 1 Environment
-In this section you will execute a setup script to prepare your python virtual environment. You'll then write and execute a simple python script to ensure that your environment is working.
+In this section you will execute a setup script to prepare your python virtual environment for Lab 1. You'll then write and execute a simple python script to ensure that your environment is working.
 
 Inside the `lab_1` directory of your repository you should see a script called `setup.sh`. Simply execute the script as follows:
 ```bash
@@ -231,10 +242,16 @@ $ ./setup.sh
 ```
 The script may take a few minutes to complete, as it will install and setup a virtual environment to house your python dependencies. Once the script has finished you should see a virtual environment has been created in a directory called `venv`.
 
-Finally, you can activate your virtual environment to start working, as it has all of the dependencies for this lab:
+Finally, you can activate your virtual environment and test that everything is working as expected by executing `test_setup.py`:
 ```bash
 # --- on the EC2 machine ---
 $ source venv/bin/activate
+$ python test_setup.py
+# ---
+#     name  age
+# 0  hello   42
+# 1  world   24
+
 $ # begin working on lab 1
 ```
 We've included a rule in the repository's `.gitignore` which should prevent your virtual environment from being included in changes that you push to your remote repository. If for any reason you see `git` suggesting that you could/should push your `venv/` folder, we would advise you not to push it. We recommend this because virtual environments are relatively large and users should be able to recreate a virtual environment from a `requirements.txt`, `pyproject.toml`, or similar file which specifies all of a project's dependencies.
