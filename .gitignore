@@ -17,3 +17,4 @@ spring_2022/lab_2/data/worldcup-clean.csv
 
 ssh-keys/*
 **/*.pem
+**/venv/

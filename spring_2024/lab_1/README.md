@@ -128,7 +128,6 @@ $ git pull public master
 $ git push origin master # or your branch name
 ```
 
-
 ### Basic Workflow for Developing on Remote Server
 The most barebones way to develop on a remote server is to use a text editor such as `vim` or `emacs` to edit files directly in the terminal. However, many programmers prefer to use an IDE such as VSCode, Atom, Sublime, etc. to help them write programs. One simple way to accomplish this is to create a clone of a repository on one's local machine where they can edit files in their preferred IDE. Once changes are made, they can be committed and pushed from the local machine and then pulled down and run on the remote server. This workflow looks like the following:
 ```bash
@@ -184,7 +183,7 @@ Finally, you can activate your virtual environment to start working, as it has a
 $ source venv/bin/activate
 $ # begin working on the lab
 ```
-
+We've included a rule in the repository's `.gitignore` which should prevent your virtual environment from being included in changes that you push to your remote repository. If for any reason you see `git` suggesting that you could/should push your `venv/` folder, we would advise you not to push it. We recommend this because virtual environments are relatively large and users should be able to recreate a virtual environment from a `requirements.txt`, `pyproject.toml`, or similar file which specifies all of a project's dependencies.
 
 # Lab 1: Basic Tools (SQL / Pandas)
 
