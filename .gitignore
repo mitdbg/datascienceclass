@@ -18,3 +18,7 @@ spring_2022/lab_2/data/worldcup-clean.csv
 ssh-keys/*
 **/*.pem
 **/venv/
+admin-setup/sp24-lab1-setup/yelp*
+admin-setup/sp24-lab1-setup/*.pq
+admin-setup/sp24-lab1-setup/*.db
+
