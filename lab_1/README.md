@@ -1,5 +1,5 @@
 # Lab 0: Setting Up Your Environment
-
+---
 * **Learning Objective**: Learn to connect to a remote server to work on this lab.
 * **Deliverables**: Ability to `ssh` into your assigned EC2 instance (i.e. machine), create a private mirror of the course repository, and run a simple program to test that your environment is working. We will be using pre-configured EC2 instances for (at least some of) the labs in this course to ensure that everyone has a consistent environment. You are not required to turn anything in for lab 0, but you will be responsible for raising any issues with the setup of your environment to the course TAs in a timely fashion.
 
@@ -33,11 +33,11 @@ Host datascience
   IdentityFile ~/.ssh/user123.pem                   # substitute with path to your .pem key
 ```
 As a final reminder: please make sure that you set the `HostName` based on the machine you were assigned to in the "Accessing Your 6.S079 Environment" email. It is important for us to evenly distribute students to machines to minimze the likelihood that any one machine is overloaded at a given time. To summarize, if the number in your username modulo 3 equals:
-- 0 --> use instance: `ec2-11-1-11-11.compute-1.amazonaws.com`
-- 1 --> use instance: `ec2-22-2-22-22.compute-1.amazonaws.com`
-- 2 --> use instance: `ec2-33-3-33-33.compute-1.amazonaws.com`
+- 0 --> use instance: `ec2-11-1-11-11.compute-1.amazonaws.com` <TODO
+- 1 --> use instance: `ec2-22-2-22-22.compute-1.amazonaws.com` <TODO
+- 2 --> use instance: `ec2-33-3-33-33.compute-1.amazonaws.com` <TODO
 
-For example, `user123` would compute `123 % 3 = 0` and set their HostName to be `ec2-11-1-11-11.compute-1.amazonaws.com`.
+For example, `user123` would compute `123 % 3 = 0` and set their HostName to be `ec2-11-1-11-11.compute-1.amazonaws.com`. <TODO
 
 To `ssh` to your machine you can run the following:
 ```sh
@@ -45,7 +45,7 @@ To `ssh` to your machine you can run the following:
 $ ssh datascience
 
 # OR, if you did not create an entry in ~/.ssh/config:
-$ ssh -i path/to/user123.pem user123@ec2-11-1-11-11.compute-1.amazonaws.com
+$ ssh -i path/to/user123.pem user123@ec2-12-3-45-678.compute-1.amazonaws.com
 ```
 
 Finally, if you are working with a project partner you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner ***by sending it to them via MIT's Slack or MIT's Outlook service***. Details for how to submit your code as a group will follow at the end of this README.
@@ -255,56 +255,65 @@ $ python test_setup.py
 $ # begin working on lab 1
 ```
 We've included a rule in the repository's `.gitignore` which should prevent your virtual environment from being included in changes that you push to your remote repository. If for any reason you see `git` suggesting that you could/should push your `venv/` folder, we would advise you not to push it. We recommend this because virtual environments are relatively large and users should be able to recreate a virtual environment from a `requirements.txt`, `pyproject.toml`, or similar file which specifies all of a project's dependencies.
+---
+# Lab 1: SQL and Pandas
+---
+* **Learning Objective**: Learn to load data and manipulate it using both SQL and Pandas
+* **Deliverables**: Students will write queries (1) using Pandas in Python and (2) using SQL. Solutions will be submitted through Gradescope.
 
-# Lab 1: Basic Tools (SQL / Pandas)
+This lab will use both Pandas and SQL to explore a dataset of 10k Yelp reviews. The lab is split into three "parts":
+1. Part 1 provides you with an overview of how to use Pandas and SQL to perform operations such as filtering, aggregating, and joining relational data. We also provide a quick overview and pointers to resources for Common Table Expressions (CTEs), Recursive CTEs, and Window Functions. These overviews are by no means exhaustive -- and you will likely need to consult [Pandas'](https://pandas.pydata.org/docs/) and [SQLite's](https://www.sqlite.org/docs.html) documentation to complete this lab -- but we hope they give you a foundation to build on.
+2. Part 2 contains the queries you need to implement.
+3. Part 3 contains instructions for submitting your final solutions to Gradescope.
 
-* **Learning Objective**: Learn to load data and manipulate it using both Pandas and SQL
-* **Deliverables**: Students will submit python source code, SQL queries, and answer some questions. Answers will be submitted through Gradescope.
-
-This lab will use both Pandas and SQL to explore IMDB data from 2015 onwards.
-
-## Part 1. A brief walkthrough of tools
-**To get started, run ``bash setup.sh`` in the container. This installs some missing dependencies and downloads data files.**
-
-### Pandas
-One of the most popular tools for working with relatively small datasets (i.e. that fit in the main memory of a single machine) is a python library called Pandas. Pandas uses an abstraction called dataframes to manipulate tabular data. It natively supports reading data from a variety of common file formats including CSVs, fixed-width files, columnar formats, HDF5, and JSON. It also allows you to import data from common database management systems (DBMSs). A comprehensive list is [here](https://pandas.pydata.org/pandas-docs/stable/reference/io.html).
-
-#### 1. Reading and parsing files
-First, lets start up the container, and have a look at the first few lines of the data file for IMDB titles.
-
+**Note: we assume from this point forward that you have successfully completed Lab 0. As a sanity check, your `lab_1/data/` directory should look like the following:**
 ```bash
-root@27d54bf8c84b:/lab1# head data/titles.csv
-title_id,type,primary_title,original_title,is_adult,premiered,ended,runtime_minutes,genres
-tt0011216,movie,"Spanish Fiesta","La fête espagnole",0,2019,,67,Drama
-tt0011801,movie,"Tötet nicht mehr","Tötet nicht mehr",0,2019,,,"Action,Crime"
-tt0040241,short,"Color Rhapsodie","Color Rhapsodie",0,2021,,6,Short
-tt0044326,short,Abstronic,Abstronic,0,2021,,6,Short
-tt0044879,short,Mandala,Mandala,0,2021,,3,Short
-tt0056840,short,"Aufsätze","Aufsätze",0,2021,,10,Short
-tt0060220,short,"Castro Street","Castro Street",0,2020,,10,"Documentary,Short"
-tt0060366,short,"A Embalagem de Vidro","A Embalagem de Vidro",0,2020,,11,"Documentary,Short"
-tt0062336,movie,"The Tango of the Widower and Its Distorting Mirror","El Tango del Viudo y Su Espejo Deformante",0,2020,,70,Drama
+user123@ip-123-45-67-890:~/6.S079-mdrusso/lab_1$ ls -lth data/
+total 27M
+-rw-rw-r-- 1 user123 user123 8.9M Jan 26 19:19 yelp-data.tar.gz
+-rw-r--r-- 1 user123 user123  13M Jan 26 18:35 yelp_reviews_10k.db
+-rw-r--r-- 1 user123 user123 537K Jan 26 18:35 business_10k.pq
+-rw-r--r-- 1 user123 user123 4.1M Jan 26 18:35 reviews_10k.pq
+-rw-r--r-- 1 user123 user123 560K Jan 26 18:35 user_10k.pq
 ```
 
-Let's open a python shell (in our container), load the data and have a look. We have a file that contains all necessary imports. To launch python and automatically run these imports, type ``PYTHONSTARTUP=imports.py python3``
+Remember to `source` your Python virtualenv before you start working. If you ever see the following error message, it means that your environment is not activated:
+```bash
+user123@ip-123-45-67-890:~/6.S079-mdrusso/lab_1$ python
+Command 'python' not found, did you mean:
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+
+# Solution:
+user123@ip-123-45-67-890:~/6.S079-mdrusso/lab_1$ source venv/bin/activate
+(venv) user123@ip-123-45-67-890:~/6.S079-mdrusso/lab_1$ python
+Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+## Part 1: Pandas and SQL Overviews
+
+### Pandas
+The Pandas python library is one of the most popular tools for working with relatively small datasets (i.e. ones that fit in the main memory of a single machine). Pandas uses the `dataframe` abstraction to manipulate tabular data. It natively supports reading data from a variety of common file formats including CSVs, fixed-width files, columnar formats, HDF5, and JSON. It also allows you to import data from common database management systems (DBMSs). A comprehensive list can be found [here](https://pandas.pydata.org/pandas-docs/stable/reference/io.html).
+
+#### 1. Reading and Parsing Files
+To start, let's examine the dimensionality (i.e. shape) of our data file containing Yelp reviews and also print its first few rows:
 
 ```py
->>> titles = pd.read_csv("data/titles.csv")
->>> titles
-        title_id       type                 primary_title                original_title  is_adult  premiered  ended  runtime_minutes                 genres
-0        tt0011216      movie                Spanish Fiesta             La fête espagnole         0       2019    NaN             67.0                  Drama
-1        tt0011801      movie              Tötet nicht mehr              Tötet nicht mehr         0       2019    NaN              NaN           Action,Crime
-2        tt0040241      short               Color Rhapsodie               Color Rhapsodie         0       2021    NaN              6.0                  Short
-3        tt0044326      short                     Abstronic                     Abstronic         0       2021    NaN              6.0                  Short
-4        tt0044879      short                       Mandala                       Mandala         0       2021    NaN              3.0                  Short
-...            ...        ...                           ...                           ...       ...        ...    ...              ...                    ...
-2715726  tt9916778  tvEpisode                        Escape                        Escape         0       2019    NaN              NaN    Crime,Drama,Mystery
-2715727  tt9916790  tvEpisode                 Tinne Oltmans                 Tinne Oltmans         0       2019    NaN              NaN  Comedy,News,Talk-Show
-2715728  tt9916802  tvEpisode                  Luc Janssens                  Luc Janssens         0       2019    NaN              NaN  Comedy,News,Talk-Show
-2715729  tt9916810  tvEpisode  Danira Boukhriss Terkessidis  Danira Boukhriss Terkessidis         0       2019    NaN              NaN  Comedy,News,Talk-Show
-2715730  tt9916856      short                      The Wind                      The Wind         0       2015    NaN             27.0                  Short
-
-[2715731 rows x 9 columns]
+# remember to run `source venv/bin/activate` to activate your python environment
+(venv) user123@ip-123-45-67-890:~/6.S079-mdrusso/lab_1$ python
+>>> import pandas as pd
+>>> reviews_df = pd.read_parquet('data/reviews_10k.pq')
+>>> reviews_df.shape
+(10000, 9)
+>>> reviews_df.head()
+                review_id                 user_id             business_id  stars  useful  funny  cool                                               text                 date
+0  KU_O5udG6zpxOg-VcAEodg  mh_-eMZ6K5RLWhZyISBhwA  XQfwVwDr-v0ZS3_CbbE5Xw    3.0       0      0     0  If you decide to eat here, just be aware it is...  2018-07-07 22:09:11
+1  BiTunyQ73aT9WBnpR9DZGw  OyoGAe7OKpv6SyGZT5g77Q  7ATYjTIgM3jUlt4UM3IypQ    5.0       1      0     1  I've taken a lot of spin classes over the year...  2012-01-03 15:28:18
+2  saUsX_uimxRlCVr67Z4Jig  8g_iMtfSiwikVnbP2etR0A  YjUWPpI6HXG530lwP-fb2A    3.0       0      0     0  Family diner. Had the buffet. Eclectic assortm...  2014-02-05 20:30:30
+3  AqPFMleE6RsU23_auESxiA  _7bHUi9Uuf5__HHc_Q8guQ  kxX2SOes4o-D3ZQBkiMRfA    5.0       1      0     1  Wow!  Yummy, different,  delicious.   Our favo...  2015-01-04 00:01:03
+4  Sx8TMOWLNuJBWer-0pcmoA  bcjbaE6dDog4jkNY91ncLQ  e4Vwtrqf-wpJfwesgvdgxQ    4.0       1      0     1  Cute interior and owner (?) gave us tour of up...  2017-01-14 20:54:15
 ```
 
 Note that Pandas represents all strings as object types and automatically recognizes integers and floats. 
@@ -889,9 +898,6 @@ As you can see from the results, the `year_rank` column is order within each yea
 
 This captures the general idea behind window functions: compute a result in accordance with a certain partitioning of the data. Many more things can be done with this idea. A good tutorial can be found [here](https://mode.com/sql-tutorial/sql-window-functions/)
 
-
-
-
 ### Pandas + SQL
 
 One interesting feature of pandas allows you to run a query in a database and return the result as a dataframe, so you can get the best of both worlds!
@@ -916,7 +922,6 @@ with sql.connect("lab1.sqlite") as conn, open("scratch.sql") as in_query:
 You are allowed to work in pairs for this assignment. In addition, you can lookup general SQL or Pandas functionalities on the internet, but not specific solutions to our questions.
 
 For the rest of the lab we will ask you to answer a few questions using pandas and writing SQL queries. You will edit ``queries.py`` and fill in each function with a query to answer the question. The Pandas functions (e.g. Q1Pandas) have a space to fill in your code. Fill in SQL queries in the ``queries`` directory. Do not make other edits to the repository or database, except when instructed.
-
 
 For convenience, you can run queries one at a time using the python3 queries.py -q [query_num] command to run a single query (in both Pandas and SQL, whena applicable).
 
@@ -961,7 +966,7 @@ For each of these questions, you get half the points for getting each implementa
 Return the person_id, and the name ordered by name. This query should take no longer than 5 minutes to run (ours takes 2.5 minutes). Make sure you understand the difference between `UNION` and `UNION ALL` in recursive CTEs.
 
 ### Submission Instruction
-Make sure you are registered on Gradescope for this class. The course ID is `ZRE8VN`.
+Make sure you are registered on Gradescope for this class. The course ID is `TODO`.
 
 To submit responses:
 ```sh
