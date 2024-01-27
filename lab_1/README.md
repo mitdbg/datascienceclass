@@ -842,7 +842,8 @@ WHERE
         AND b.categories LIKE '%restaurant%' -- LIKE is case-insensitive by default
         AND u.fans >= 100
 ORDER BY
-        r.stars DESC
+        r.stars DESC,
+        b.name ASC
 LIMIT 10;
 
 +++++++++++++++++++++++
