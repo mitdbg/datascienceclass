@@ -734,14 +734,13 @@ AVG(stars)
 ```
 
 This matches the result we got from Pandas so we are on the right track. We can also aggregate columns simultaneously.
-
 ```sql
 SELECT
-        MAX(premiered),
-        MAX(runtime_minutes),
-        COUNT(DISTINCT genres) AS num_genres -- Compute the number of unique genres.
+        MAX(strftime('%Y', date)) AS max_year,
+        MAX(useful + funny + cool) AS max_upvotes,
+        MAX(stars) AS max_stars
 FROM
-        titles;
+        reviews;
 
 +++++++++++++++++++++++
 

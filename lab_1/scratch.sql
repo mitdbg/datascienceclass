@@ -8,6 +8,6 @@ FROM
 SELECT
         MAX(strftime('%Y', date)) AS max_year,
         MAX(useful + funny + cool) AS max_upvotes,
-        MAX(stars) AS max_stars,
+        MAX(stars) AS max_stars
 FROM
         reviews;
