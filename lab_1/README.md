@@ -755,7 +755,7 @@ Now, similar to before, above we'll group by review year again.
 ```sql
 SELECT 
         strftime('%Y', date) AS year,
-        MAX(useful + funny + cool) AS max_upvotes,
+        MAX(useful + funny + cool) AS max_upvotes
 FROM 
         reviews
 GROUP BY 
