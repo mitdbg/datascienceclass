@@ -745,21 +745,21 @@ FROM
 +++++++++++++++++++++++
 
 sqlite> .read scratch.sql
-MAX(premiered)  MAX(runtime_minutes)  num_genres
---------------  --------------------  ----------
-2029            43200                 1876
+max_year  max_upvotes  max_stars
+--------  -----------  ---------
+2018      135          5.0
 ```
 
-Now as above we'll group by release year again.
+Now, similar to before, above we'll group by review year again.
 
 ```sql
 SELECT 
-        premiered,
-        MAX(runtime_minutes)
+        strftime('%Y', date) AS year,
+        MAX(useful + funny + cool) AS max_upvotes,
 FROM 
-        titles
+        reviews
 GROUP BY 
-        premiered;
+        year;
 
 +++++++++++++++++++++++
 

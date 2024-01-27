@@ -11,3 +11,12 @@ SELECT
         MAX(stars) AS max_stars
 FROM
         reviews;
+
+/* agg. max upvotes and group by year */
+SELECT 
+        strftime('%Y', date) AS year,
+        MAX(useful + funny + cool) AS max_upvotes,
+FROM 
+        reviews
+GROUP BY 
+        year;
