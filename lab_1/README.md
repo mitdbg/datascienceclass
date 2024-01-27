@@ -380,7 +380,7 @@ We can also use `apply` to perform a transformation to a column. For example, to
 Note that we used `pd.to_datetime` to convert the `date` column (which was stored as an `Object` type) into a datetime which we could extract the `year` from.
 
 #### 3. Aggregation & Filtering
-Next, we'll show how to filter and aggregate our dataset to answer some simple questions. First, let's compute the average number of stars per review. We can do this by selecting the `starts` column and compute its mean as follows:
+Next, we'll show how to filter and aggregate our dataset to answer some simple questions. First, let's compute the average number of stars per review. We can do this by selecting the `stars` column and compute its mean as follows:
 
 ```py
 >>> reviews_df['stars'].mean()
@@ -714,29 +714,26 @@ index  user_id                 name    review_count  yelping_since        useful
 ```
 
 #### 2. Transformation
-- create `upvoted` column as before
-- create `year` column as before
+While it is possible to alter base tables to add new columns, part of the power of SQL being a declaritive query language is that it allows you to express intermediate results (e.g. `upvotes`, `year`) as part of your query without explicitly materializing those results. As mentioned above, this functionality allows the DBMS to optimize the query execution on your behalf.
 
 #### 2. Filtering & Aggregation
 
-Now let's get the same data as we did with pandas and see how it looks in SQL. For simplicity, we'll write our queries in a text file ``scratch.sql`` with a text editor and run the SQL query in the file by running ``.read scratch.sql``. We'll show both the query and results separated by ``+++++++++++++++++++++++`` below. We'll start by looking at the average duration.
+Now let's get the same data as we did with Pandas and see how it looks in SQL. For simplicity, we'll use a text editor to write our queries in a text file called `scratch.sql`. We can then execute those queries by running `.read scratch.sql`. We'll show both the query and their results separated by ``+++++++++++++++++++++++`` below. Once again, we'll start by looking at the average number of `stars` per review.
 
 ```sql
 SELECT
-        AVG(runtime_minutes)
+        AVG(stars)
 FROM
-        titles;
+        reviews;
 
 +++++++++++++++++++++++
-
 sqlite> .read scratch.sql
-AVG(runtime_minutes)
---------------------
-39.2196530669821
+AVG(stars)
+----------
+3.8543
 ```
 
-
-This matches the result we got from pandas so we are on the right track. We can also aggregate columns simultaneously.
+This matches the result we got from Pandas so we are on the right track. We can also aggregate columns simultaneously.
 
 ```sql
 SELECT
