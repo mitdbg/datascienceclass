@@ -20,3 +20,15 @@ FROM
         reviews
 GROUP BY 
         year;
+
+/* same query as above, but (desc.) order by max_upvotes and limit to first 5 rows */
+SELECT 
+        strftime('%Y', date) AS year,
+        MAX(useful + funny + cool) AS max_upvotes
+FROM 
+        reviews
+GROUP BY 
+        year
+ORDER BY
+        max_upvotes DESC
+LIMIT 5;

@@ -718,7 +718,7 @@ While it is possible to alter base tables to add new columns, part of the power 
 
 #### 2. Filtering & Aggregation
 
-Now let's get the same data as we did with Pandas and see how it looks in SQL. For simplicity, we'll use a text editor to write our queries in a text file called `scratch.sql`. We can then execute those queries by running `.read scratch.sql`. We'll show both the query and their results separated by ``+++++++++++++++++++++++`` below. Once again, we'll start by looking at the average number of `stars` per review.
+Now let's get the same data as we did with Pandas and see how it looks in SQL. For simplicity, we'll use a text editor to write our queries in a text file called `scratch.sql`. We can then execute those queries by running `.read scratch.sql`. We'll show both the query and their results separated by ``+++++++++++++++++++++++`` below. Once again, we'll start by looking at the average number of `stars` per review:
 
 ```sql
 SELECT
@@ -733,7 +733,7 @@ AVG(stars)
 3.8543
 ```
 
-This matches the result we got from Pandas so we are on the right track. We can also aggregate columns simultaneously.
+This matches the result we got from Pandas so we are on the right track. We can also aggregate columns simultaneously:
 ```sql
 SELECT
         MAX(strftime('%Y', date)) AS max_year,
@@ -750,7 +750,7 @@ max_year  max_upvotes  max_stars
 2018      135          5.0
 ```
 
-Now, similar to before, above we'll group by review year again.
+Now, similar to before, above we'll group by review year again:
 
 ```sql
 SELECT 
@@ -764,37 +764,36 @@ GROUP BY
 +++++++++++++++++++++++
 
 sqlite> .read scratch.sql
-premiered   MAX(runtime_minutes)
-----------  --------------------
-2015        6000
-2016        2070
-2017        5760
-2018        7777
-2019        28643
-2020        43200
-2021        6000
-2022        400
-2023        240
-2024        360
-2025        125
-2026        360
-2027        360
-2028
-2029        14
+year  max_upvotes
+----  -----------
+2005  10         
+2006  6          
+2007  13         
+2008  34         
+2009  38         
+2010  51         
+2011  135        
+2012  41         
+2013  68         
+2014  35         
+2015  59         
+2016  38         
+2017  32         
+2018  27 
 ```
-   
-and order by descending. Let's just get the first few rows by using ``LIMIT``;
+
+We can also order these results by `max_upvotes` in descending order. We can also limit the output to just the first few rows by using `LIMIT`:
 
 ```sql
 SELECT 
-        premiered,
-        MAX(runtime_minutes) AS max_runtime
+        strftime('%Y', date) AS year,
+        MAX(useful + funny + cool) AS max_upvotes
 FROM 
-        titles
+        reviews
 GROUP BY 
-        premiered
+        year
 ORDER BY
-        max_runtime DESC
+        max_upvotes DESC
 LIMIT 5;
 
 +++++++++++++++++++++++
