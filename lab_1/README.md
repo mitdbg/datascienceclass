@@ -818,13 +818,9 @@ FROM
 ++++++++++++++++++++++++++++
 
 sqlite> .read scratch.sql
-title_id    rating      votes
-----------  ----------  ----------
-tt10001184  9.1         1400
-tt10001588  9           155
-tt10005284  9.2         1503
-tt10008916  9.7         3321
-tt10008922  9.4         1666
+COUNT(DISTINCT name)
+--------------------
+2947
 ```
 
 Note that in Pandas we can also get the distinct number of elements in a column by computing `len(df[col].unique())`.
@@ -832,21 +828,23 @@ Note that in Pandas we can also get the distinct number of elements in a column 
 #### 3. Joining
 To join two or more tables, we first list them in the `FROM` clause. We specify how to join in the `WHERE` clause. The `WHERE` clause may further contain additional filters for each individual tables.
 
-Here is how to compute in SQL the same join we computed using pandas:
+Here is how to compute in SQL the same join we computed using Pandas:
 
 ```sql
 SELECT 
-        t.primary_title, t.premiered, r.rating, r.votes
+        b.name AS 'business', r.stars, u.name AS 'influencer'
 FROM 
-        titles AS t, ratings AS r
+        reviews AS r, businesses AS b, users as u
 WHERE
-        t.title_id = r.title_id -- Join condition 
-        AND t.type = 'movie'
-        AND r.rating >= 9 AND r.votes >= 100
+        r.business_id = b.business_id -- Join condition 
+        AND r.user_id = u.user_id     -- Join condition
+        AND r.stars >= 4
+        AND b.categories LIKE '%restaurant&' -- LIKE is case-insensitive by default
+        AND u.fans >= 100
 ORDER BY
-    r.rating DESC
+        r.stars DESC
 LIMIT 10;
-                      
+
 +++++++++++++++++++++++
 
 sqlite> .read scratch.sql

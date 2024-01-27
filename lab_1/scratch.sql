@@ -38,3 +38,18 @@ SELECT
         COUNT(DISTINCT name)
 FROM 
         users;
+
+/* 4+ star restaurant reviews by users with >= 100 fans */
+SELECT 
+        b.name AS 'business', r.stars, u.name AS 'influencer'
+FROM 
+        reviews AS r, businesses AS b, users as u
+WHERE
+        r.business_id = b.business_id -- Join condition 
+        AND r.user_id = u.user_id     -- Join condition
+        AND r.stars >= 4
+        AND b.categories LIKE '%restaurant&' -- LIKE is case-insensitive by default
+        AND u.fans >= 100
+ORDER BY
+        r.stars DESC
+LIMIT 10;
