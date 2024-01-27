@@ -839,7 +839,7 @@ WHERE
         r.business_id = b.business_id -- Join condition 
         AND r.user_id = u.user_id     -- Join condition
         AND r.stars >= 4
-        AND b.categories LIKE '%restaurant&' -- LIKE is case-insensitive by default
+        AND b.categories LIKE '%restaurant%' -- LIKE is case-insensitive by default
         AND u.fans >= 100
 ORDER BY
         r.stars DESC
