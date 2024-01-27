@@ -56,8 +56,8 @@ if __name__ == "__main__":
 
     # write dataframes to parquet
     print("writing dataframes")
-    business_df.to_parquet("business_10k.pq", index=False)
-    user_df.to_parquet("user_10k.pq", index=False)
+    business_df.to_parquet("businesses_10k.pq", index=False)
+    user_df.to_parquet("users_10k.pq", index=False)
     reviews_df.to_parquet("reviews_10k.pq", index=False)
 
     # convert columns to be valid for sqlite
