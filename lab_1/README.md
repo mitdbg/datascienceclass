@@ -799,25 +799,21 @@ LIMIT 5;
 +++++++++++++++++++++++
 
 sqlite> .read scratch.sql
-premiered   max_runtime
-----------  -----------
-2020        43200
-2019        28643
-2018        7777
-2021        6000
-2015        6000
+year  max_upvotes
+----  -----------
+2011  135        
+2013  68         
+2015  59         
+2010  51         
+2012  41   
 ```
         
-Like we did with pandas we can also find the ratings that are greater than 9 with more than 100 votes. We'll do that using a `WHERE` clause.
-
+Finally, another important piece of functionality (which we did not demonstrate with Pandas) is use of the `DISTINCT` keyword. This is often useful when we want to count the distinct number of elements in a given column. For example, we could count the distinct number of names in our `users` table:
 ```sql
 SELECT 
-        *
+        COUNT(DISTINCT name)
 FROM 
-        ratings
-WHERE 
-        rating >= 9 AND votes >= 100
-LIMIT 5;
+        users;
 
 ++++++++++++++++++++++++++++
 
@@ -831,7 +827,7 @@ tt10008916  9.7         3321
 tt10008922  9.4         1666
 ```
 
-We'll again join these ratings with their corresponding movies.
+Note that in Pandas we can also get the distinct number of elements in a column by computing `len(df[col].unique())`.
 
 #### 3. Joining
 To join two or more tables, we first list them in the `FROM` clause. We specify how to join in the `WHERE` clause. The `WHERE` clause may further contain additional filters for each individual tables.

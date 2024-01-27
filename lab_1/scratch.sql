@@ -32,3 +32,9 @@ GROUP BY
 ORDER BY
         max_upvotes DESC
 LIMIT 5;
+
+/* count distinct # of names of users */
+SELECT 
+        COUNT(DISTINCT name)
+FROM 
+        users;
