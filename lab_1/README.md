@@ -849,39 +849,49 @@ LIMIT 10;
 +++++++++++++++++++++++
 
 sqlite> .read scratch.sql
-primary_title  premiered   rating      votes
--------------  ----------  ----------  ----------
-Hulchul        2019        10          754
-Days of Géant  2019        10          205
-Days of Géant  2020        10          188
-Veyi Subhamul  2022        10          1909
-The Silence o  2021        10          4885
-Ajinkya        2021        9.9         747
-Tari Sathe     2021        9.9         446
-Rite of the S  2022        9.9         121
-Maa Kathalu    2021        9.9         708
-Half Stories   2022        9.9         1699
+business                                          stars  influencer
+------------------------------------------------  -----  ----------
+Aroy Thai                                         5.0    Kelly     
+Carrollton Market                                 5.0    Helene    
+Cheddar's Scratch Kitchen                         5.0    Patt      
+Daves Dogs - Cart                                 5.0    Ali       
+Edley's Bar-B-Que - 12 South                      5.0    Katy      
+Enjoi Sweets & Company                            5.0    Allison   
+Home Wine Kitchen                                 5.0    Julia     
+Ichicoro Ane                                      5.0    Carlos    
+In-N-Out Burger                                   5.0    Dee       
+J Gilbert's Wood-Fired Steaks & Seafood St Louis  5.0    Katie 
 ```    
 
 We now discuss a few useful SQL-only features.
 
 
 #### 4. Common Table Expressions
-Common Table Expressions (CTEs) are a useful mechanism to simplify complex queries. They allow us to precompute temporary tables that can be used in other parts of the queries. While the join above is not complex enough to warrent using CTEs, we will use it as an example to get you started. Suppose that, as in our Pandas example, we wanted to first compute the set of excellent ratings and the set of movies before joining them.
+Common Table Expressions (CTEs) are a useful mechanism to simplify complex queries. They allow us to precompute temporary tables that can be used in other parts of the queries. While the join above is not complex enough to warrent using CTEs, we will use it as an example to get you started. Suppose that, as in our Pandas example, we wanted to first compute the set of 4+ star reviews, restaurants, and influencers before joining them:
 
 ```sql
 WITH 
-excellent (title_id, rating, votes) AS ( -- Precompute excellent ratings
-        SELECT * FROM ratings WHERE rating >= 9 AND votes >= 100
+good_reviews AS ( -- Precompute 4+ star reviews
+        SELECT review_id, business_id, user_id, stars, text
+        FROM reviews
+        WHERE stars >= 4
 ),
-movies (title_id, primary_title, premiered) AS ( -- Precomputed movies
-        SELECT title_id, primary_title, premiered FROM titles WHERE type='movie'
+restaurants AS ( -- Precompute restaurants
+        SELECT business_id, name AS 'business'
+        FROM businesses
+        WHERE b.categories LIKE '%restaurant%'
+),
+influencers AS ( -- Precompute influencers
+        SELECT user_id, name AS 'influencer'
+        FROM users
+        WHERE fans >= 100
 )
 
-SELECT rating, votes, primary_title, premiered  -- Join them.
-FROM excellent AS e, movies AS m
-WHERE e.title_id = m.title_id
-ORDER BY rating LIMIT 10;
+SELECT business, stars, influencer  -- Join them.
+FROM good_reviews AS gr, restaurants AS r, influencers as i
+WHERE gr.business_id = r.business_id AND gr.user_id = i.user_id
+ORDER BY stars DESC, business ASC
+LIMIT 10;
 
 +++++++++++++++++++++++++++
 

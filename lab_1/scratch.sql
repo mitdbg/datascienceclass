@@ -54,3 +54,28 @@ ORDER BY
         r.stars DESC,
         b.name ASC
 LIMIT 10;
+
+
+/* same query as above, but using CTEs */
+WITH 
+good_reviews AS ( -- Precompute 4+ star reviews
+        SELECT review_id, business_id, user_id, stars, text
+        FROM reviews
+        WHERE stars >= 4
+),
+restaurants AS ( -- Precompute restaurants
+        SELECT business_id, name AS 'business'
+        FROM businesses
+        WHERE b.categories LIKE '%restaurant%'
+),
+influencers AS ( -- Precompute influencers
+        SELECT user_id, name AS 'influencer'
+        FROM users
+        WHERE fans >= 100
+)
+
+SELECT business, stars, influencer  -- Join them.
+FROM good_reviews AS gr, restaurants AS r, influencers as i
+WHERE gr.business_id = r.business_id AND gr.user_id = i.user_id
+ORDER BY stars DESC, business ASC
+LIMIT 10;
