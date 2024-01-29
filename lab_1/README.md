@@ -1028,7 +1028,11 @@ For each of these questions, you get half the points for getting each implementa
 3. (Simple aggregation and join, 10 pts) Find the user with the greatest number of reviews whose stars value differs from the user's average_stars by more than 2.0. If multiple users are tied, return the one with the alphabetically smallest name. Return the user_id, name, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`).
 4. (Simple subquery/CTE, 10 pts) Find the user(s) with the greatest number of reviews whose stars value differs from the user's average_stars by more than 2.0. Unlike in question (3), you should return all users who tie for most reviews meeting this criteria. Again, return the user_id, name, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`). Order by name (ascending). DO NOT use your knowledge of the answer from question (3) when writing your query for this question. (**HINT** make use of a subquery/CTE to pre-compute a value and/or result-set of interest).
 5. (Subqueries/CTEs, 10 pts) Find the Italian restaurants (`businesses.categories` contains `italian`) with the largest number of reviews in each state. The result set may contain one or many restaurants per state. Return the state, the business name, and the number of reviews (call this column `num_reviews`). Order the results by state (ascending).
-6. (Subqueries/CTEs, 15 pts) TODO.
+6. (Subqueries/CTEs, 15 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with at least 10 reviews that has/have the highest average stars (as computed from their reviews; do NOT use `business.avg_rating` for this). Return the name, the number of reviews (name this column `num_reviews`), and the average stars (name this column `avg_stars`). Order the results by `avg_stars` (descending) and then name (ascending).
+
+TODO:
+1. drop `review_count` everywhere
+2. change `businesses.stars --> businesses.avg_rating` and update `avg_rating` in Q2 above
 
 #### SQL Only
 7. (SQL Only: Simple window function, 5 pts) Rank the movies, TV Shows released in 2021 with a rating >= 8 with at least 100 votes. Movies and TV shows should receive separate rankings. Order by type (`movie` or `tvSeries`, ascending), then rating (descending), then name (ascending) to break ties. Return the type, name, rating and rank.
