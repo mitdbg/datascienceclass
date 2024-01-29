@@ -929,7 +929,7 @@ best_restaurants (business, year) AS (
                 reviews as r, businesses AS b, users AS u
         WHERE
                 r.business_id = b.business_id AND r.user_id = u.user_id -- Join condition 
-                AND r.stars >= 4
+                AND r.stars == 5
                 AND b.categories LIKE '%restaurant%'
                 AND u.fans >= 100
 )
