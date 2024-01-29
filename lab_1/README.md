@@ -239,7 +239,7 @@ Inside the `lab_1` directory of your repository you should see a script called `
 ```bash
 # --- on the EC2 machine ---
 $ cd your-private-repo/lab_1/
-$ ./setup.sh
+$ bash setup.sh # Do not use other shell tools to execute the script as python virtual environment relies on bash
 ```
 The script may take a few minutes to complete, as it will install and setup a virtual environment to house your python dependencies. Once the script has finished you should see a virtual environment has been created in a directory called `venv`.
 
