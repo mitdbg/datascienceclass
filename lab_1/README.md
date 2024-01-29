@@ -99,6 +99,7 @@ $ cd datascienceclass.git
 
 # push this to the private repository you created in step 1.
 # you will need to change the URL to the SSH URL you recorded in step 2.
+# If you encounter permission issues, make sure you have uploaded the SSH public key created in step 2 to Github by following step 3.
 $ git push --mirror git@github.com/your-github-username/your-private-repo.git
 
 # remove the public course repository
@@ -191,7 +192,7 @@ If things went well, you should have created a conflict similar to the one above
 ```bash
 $ vim foobar.txt
 # --- make edits, e.g. keep changes from silly-ta ---
-$ git add foobar.txt
+$ git add foobar.txt # mark conflict as resolved
 $ git commit -m "merging in silly-TA's changes"
 $ git push origin main
 ```
@@ -238,7 +239,7 @@ Inside the `lab_1` directory of your repository you should see a script called `
 ```bash
 # --- on the EC2 machine ---
 $ cd your-private-repo/lab_1/
-$ ./setup.sh
+$ bash setup.sh # Do not use other shell tools to execute the script as python virtual environment relies on bash
 ```
 The script may take a few minutes to complete, as it will install and setup a virtual environment to house your python dependencies. Once the script has finished you should see a virtual environment has been created in a directory called `venv`.
 
