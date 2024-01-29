@@ -99,6 +99,7 @@ $ cd datascienceclass.git
 
 # push this to the private repository you created in step 1.
 # you will need to change the URL to the SSH URL you recorded in step 2.
+# If you encounter permission issues, make sure you have uploaded the SSH public key created in step 2 to Github by following step 3.
 $ git push --mirror git@github.com/your-github-username/your-private-repo.git
 
 # remove the public course repository
