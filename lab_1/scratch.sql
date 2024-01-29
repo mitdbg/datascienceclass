@@ -79,3 +79,22 @@ FROM good_reviews AS gr, restaurants AS r, influencers as i
 WHERE gr.business_id = r.business_id AND gr.user_id = i.user_id
 ORDER BY stars DESC, business ASC
 LIMIT 10;
+
+/* use window function to compute rank w/in each year */
+WITH 
+good_restaurants (business, stars, year) AS (
+        SELECT 
+                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year,
+        FROM 
+                reviews as r, businesses AS b, users AS u
+        WHERE
+                r.business_id = b.business_id AND r.user_id = u.user_id -- Join condition 
+                AND r.stars >= 4
+                AND b.categories LIKE '%restaurant%'
+                AND u.fans >= 100
+)
+SELECT
+        business, stars, year,
+        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC)
+FROM good_restaurants
+ORDER BY year;

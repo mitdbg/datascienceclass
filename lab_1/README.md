@@ -895,21 +895,21 @@ LIMIT 10;
 
 +++++++++++++++++++++++++++
 
-rating      votes       primary_title  premiered
-----------  ----------  -------------  ----------
-10          754         Hulchul        2019
-10          205         Days of Géant  2019
-10          188         Days of Géant  2020
-10          1909        Veyi Subhamul  2022
-10          4885        The Silence o  2021
-9.9         747         Ajinkya        2021
-9.9         446         Tari Sathe     2021
-9.9         121         Rite of the S  2022
-9.9         708         Maa Kathalu    2021
-9.9         1699        Half Stories   2022
+business                                          stars  influencer
+------------------------------------------------  -----  ----------
+Aroy Thai                                         5.0    Kelly     
+Carrollton Market                                 5.0    Helene    
+Cheddar's Scratch Kitchen                         5.0    Patt      
+Daves Dogs - Cart                                 5.0    Ali       
+Edley's Bar-B-Que - 12 South                      5.0    Katy      
+Enjoi Sweets & Company                            5.0    Allison   
+Home Wine Kitchen                                 5.0    Julia     
+Ichicoro Ane                                      5.0    Carlos    
+In-N-Out Burger                                   5.0    Dee       
+J Gilbert's Wood-Fired Steaks & Seafood St Louis  5.0    Katie
 ```
 
-In this query, we first compute the table of excellent ratings and the table of movies using the construct `WITH table_name(column_names...) AS (query)`. We then perform the join using these temporary tables. 
+In this query, we first compute the tables of good reviews, restaurants, and influencers using the construct `WITH table_name AS (query)`. We then perform the join using these temporary tables. 
 
 #### 5. Recursive CTEs.
 In addition to regular CTEs, you will need recursive CTEs to answer some of the questions in this lab. SQLite has an [excellent tutorial](https://www.sqlite.org/lang_with.html) about them. You should read up to and including section 3.2 of the tutoral. The topic is too complex to provide a full overview here, but feel free to ask us questions during office hours.
@@ -917,26 +917,27 @@ In addition to regular CTEs, you will need recursive CTEs to answer some of the 
 #### 6. Window Functions
 Whereas groupby aggregations let us aggregate partitions of the data, window functions allow us to perform computations on each partition without aggregating the data.
 
-For example, suppose that for every given year, we wanted to assign a rank to the set of excellent movies according to their ratings. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
+For example, suppose that for every given year, we wanted to assign a rank to the set of good influencer reviews according to their stars. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
 
 
 ```sql
 WITH 
-excellent_movies (primary_title, premiered, rating, votes) AS (
+good_restaurants (business, stars, year) AS (
         SELECT 
-                t.primary_title, t.premiered, r.rating, r.votes
+                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year,
         FROM 
-                titles AS t, ratings AS r
+                reviews as r, businesses AS b, users AS u
         WHERE
-                t.title_id = r.title_id -- Join condition 
-                AND t.type = 'movie'
-                AND r.rating >= 9 AND r.votes >= 100
+                r.business_id = b.business_id AND r.user_id = u.user_id -- Join condition 
+                AND r.stars >= 4
+                AND b.categories LIKE '%restaurant%'
+                AND u.fans >= 100
 )
 SELECT
-        primary_title, premiered, rating, votes,
-        RANK() OVER (PARTITION BY premiered ORDER BY rating DESC)
-FROM excellent_movies
-ORDER BY premiered;
+        business, stars, year,
+        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC)
+FROM good_restaurants
+ORDER BY year;
 
 ++++++++++++++++++++++++++
 
