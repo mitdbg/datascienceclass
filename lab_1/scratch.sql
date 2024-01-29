@@ -66,7 +66,7 @@ good_reviews AS ( -- Precompute 4+ star reviews
 restaurants AS ( -- Precompute restaurants
         SELECT business_id, name AS 'business'
         FROM businesses
-        WHERE b.categories LIKE '%restaurant%'
+        WHERE categories LIKE '%restaurant%'
 ),
 influencers AS ( -- Precompute influencers
         SELECT user_id, name AS 'influencer'
