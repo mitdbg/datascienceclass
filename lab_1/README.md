@@ -1021,7 +1021,7 @@ For each question, we will specify both the order of the output columns and the 
 
 ### Questions
 #### SQL and Pandas
-For each of these questions, you get half the points for getting each implementation correctly. For full credit, both implementations should be correct.
+For each of these questions, you get half the points for getting each implementation correctly. For full credit, both implementations and outputs should be correct.
 
 1. (Simple aggregation and ordering, 5 pts) Using the `businesses` table, compute the number of distinct business names by state. Return the state and the count for each state. Order by state (ascending).
 2. (Simple filtering and join, 5 pts) Find all 5-star reviews of bars (`businesses.categories` contains `bar`) in Tennessee (state abbreviation `TN`). Return review_id, name, and the stars from the businesses table. Order by (business) stars (descending) and then name (ascending) to break ties. When ordering by name, be sure to ignore upper vs. lower case (i.e. 'Z' should not come before 'a'). (**HINT:** look at how to use `COLLATE NOCASE` when ordering in SQLite.)
