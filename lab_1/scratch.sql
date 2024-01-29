@@ -82,9 +82,9 @@ LIMIT 10;
 
 /* use window function to compute rank w/in each year */
 WITH 
-good_restaurants (business, stars, year) AS (
+best_restaurants (business, year) AS (
         SELECT 
-                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year
+                b.name AS 'business', strftime('%Y', r.date) AS year
         FROM 
                 reviews as r, businesses AS b, users AS u
         WHERE
@@ -94,7 +94,7 @@ good_restaurants (business, stars, year) AS (
                 AND u.fans >= 100
 )
 SELECT
-        business, stars, year,
-        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC)
-FROM good_restaurants
+        business, year,
+        RANK() OVER (PARTITION BY year ORDER BY business ASC)
+FROM best_restaurants
 ORDER BY year;

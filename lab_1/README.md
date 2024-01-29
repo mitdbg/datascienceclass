@@ -917,14 +917,14 @@ In addition to regular CTEs, you will need recursive CTEs to answer some of the 
 #### 6. Window Functions
 Whereas groupby aggregations let us aggregate partitions of the data, window functions allow us to perform computations on each partition without aggregating the data.
 
-For example, suppose that for every given year, we wanted to assign a rank to the set of good influencer reviews according to their stars. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
+For example, suppose that for every given year, we wanted to assign a rank to the set of 5-star influencer reviews according to the alphabetic ordering by business name. While groupbys allow to partition by year, they can only compute aggregate data for each year; they cannot assign individual ranks to each row within a partition. We need window functions for this task.
 
 
 ```sql
 WITH 
-good_restaurants (business, stars, year) AS (
+best_restaurants (business, year) AS (
         SELECT 
-                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year
+                b.name AS 'business', strftime('%Y', r.date) AS year
         FROM 
                 reviews as r, businesses AS b, users AS u
         WHERE
@@ -934,9 +934,9 @@ good_restaurants (business, stars, year) AS (
                 AND u.fans >= 100
 )
 SELECT
-        business, stars, year,
-        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC)
-FROM good_restaurants
+        business, year,
+        RANK() OVER (PARTITION BY year ORDER BY business ASC)
+FROM best_restaurants
 ORDER BY year;
 
 ++++++++++++++++++++++++++
