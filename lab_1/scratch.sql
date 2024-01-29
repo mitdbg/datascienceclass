@@ -84,7 +84,7 @@ LIMIT 10;
 WITH 
 good_restaurants (business, stars, year) AS (
         SELECT 
-                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year,
+                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year
         FROM 
                 reviews as r, businesses AS b, users AS u
         WHERE

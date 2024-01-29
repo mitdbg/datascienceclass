@@ -924,7 +924,7 @@ For example, suppose that for every given year, we wanted to assign a rank to th
 WITH 
 good_restaurants (business, stars, year) AS (
         SELECT 
-                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year,
+                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year
         FROM 
                 reviews as r, businesses AS b, users AS u
         WHERE
