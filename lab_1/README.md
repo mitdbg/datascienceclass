@@ -192,7 +192,7 @@ If things went well, you should have created a conflict similar to the one above
 ```bash
 $ vim foobar.txt
 # --- make edits, e.g. keep changes from silly-ta ---
-$ git add foobar.txt
+$ git add foobar.txt # mark conflict as resolved
 $ git commit -m "merging in silly-TA's changes"
 $ git push origin main
 ```
