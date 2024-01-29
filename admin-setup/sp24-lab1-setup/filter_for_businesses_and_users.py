@@ -54,6 +54,11 @@ if __name__ == "__main__":
 
     reviews_df = pd.DataFrame(reviews)
 
+    # drop review_count columns and rename business `stars` -> `avg_rating` to avoid confusion
+    business_df.drop(columns='review_count', inplace=True)
+    user_df.drop(columns='review_count', inplace=True)
+    business_df.rename(columns={'stars': 'avg_rating'}, inplace=True)
+
     # write dataframes to parquet
     print("writing dataframes")
     business_df.to_parquet("businesses_10k.pq", index=False)
