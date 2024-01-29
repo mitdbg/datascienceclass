@@ -935,43 +935,42 @@ good_restaurants (business, stars, year) AS (
 )
 SELECT
         business, stars, year,
-        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC)
+        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC) AS year_rank
 FROM good_restaurants
 ORDER BY year;
 
 ++++++++++++++++++++++++++
 
-primary_title  premiered   rating      votes       year_rank
--------------  ----------  ----------  ----------  ----------
-Druglawed      2015        9.5         134         1
-Red Right Ret  2015        9.4         140         2
-The Ataxian    2015        9.3         214         3
-Major!         2015        9.3         245         3
-The Epic Jour  2015        9.2         880         5
-Darkest Befor  2015        9.1         129         6
-The Call       2015        9           191         7
-The Last Tear  2015        9           145         7
-Love & Contem  2016        9.7         268         1
-Time Framed    2016        9.4         285         2
-Paint Drying   2016        9.3         444         3
-Mirror Game    2016        9.1         25499       4
-That Vitamin   2016        9.1         956         4
-O Jehovah, ..  2016        9.1         114         4
-Legends of Fr  2016        9           520         7
-Born Warriors  2016        9           744         7
-All the Rage   2016        9           273         7
-The Unnamed    2016        9           4903        7
-The Barn Thea  2017        9.4         124         1
-Genius Montis  2017        9.4         142         1
-Mama's Heart.  2017        9.3         536         3
-Behind the Al  2017        9.3         278         3
+business                                          stars  year  year_rank
+------------------------------------------------  -----  ----  ---------
+In-N-Out Burger                                   5.0    2005  1        
+Cafe Buenos Aires                                 4.0    2005  2        
+Termini Bros Bakery                               5.0    2006  1        
+St. Louis Union Station Marriott                  4.0    2007  1        
+Les Bons Temps                                    4.0    2008  1        
+Rittenhouse Grill                                 4.0    2008  2        
+Aroy Thai                                         5.0    2009  1        
+Village Whiskey                                   5.0    2009  2        
+Ghini's French Caffe                              4.0    2010  1        
+Home Wine Kitchen                                 5.0    2011  1        
+R2L                                               5.0    2011  2        
+Izakaya Ren                                       4.0    2011  3        
+Meadows Diner                                     4.0    2011  4        
+Nick's Old Original Roast Beef                    4.0    2011  5        
+Steamboat Natchez                                 4.0    2011  6        
+Sassafras Restaurant                              5.0    2012  1        
+Shephard's Beach Resort                           5.0    2012  2        
+Tasty Tomato Italian Eatery                       5.0    2012  3        
+Burger Up                                         4.0    2012  4        
+Desire Oyster Bar                                 4.0    2012  5        
+El Rey                                            4.0    2012  6
 ...
 ```
 
-In this query we first compute the table of excellent movies as a CTE to simplify the query. We then select the rows of this table in addition to a yearly ranking computed as follow:
+In this query we first compute the table of 4+ star influencer reviews as a CTE to simplify the query. We then select the rows of this table in addition to a yearly ranking computed as follow:
 
-* First partition rows by year (`PARTITION BY premiered`).
-* Order the items within each partition (`ORDER BY rating DESC`).
+* First partition rows by year (`PARTITION BY year`).
+* Order the items within each partition (`ORDER BY stars DESC, business ASC`).
 * Assign a rank to each element in accordance with their order (`RANK()`).
 
 As you can see from the results, the `year_rank` column is order within each year, and resets across different years.
@@ -982,44 +981,39 @@ This captures the general idea behind window functions: compute a result in acco
 
 One interesting feature of Pandas allows you to run a query in a database and return the result as a dataframe, so you can get the best of both worlds!
 
-Here is a simple Python program that opens the SQLite database, reads the query from the ``scratch.sql`` file, executes the query and loads the result into a data frame
-
-```python3
-import matplotlib as mpl
-mpl.use("Agg")
-import matplotlib.pyplot as plt
+Here is a simple Python program that opens the SQLite database, reads the query from the `scratch.sql` file, executes the query and loads the result into a dataframe. This example requires that `scratch.sql` only contain a single SQL statement / query, so you will need to comment out all but one query from the `scratch.sql` file before execution:
+```bash
+# you can use this to write the first query in scratch.sql into test.sql
+$ cat scratch.sql | head -n 5 > test.sql
+```
+Now we can execute the query in `test.sql` and return it as a Pandas dataframe:
+```py
 import pandas as pd
 import sqlite3 as sql
 
-with sql.connect("lab1.sqlite") as conn, open("scratch.sql") as in_query:
-    cur = conn.cursor()
+with sql.connect("data/yelp_reviews_10k.db") as conn, open("test.sql") as in_query:
     df = pd.read_sql_query(in_query.read(), conn)
     print(df)
+
+# ---
+#    AVG(stars)
+# 0      3.8543
 ```
 
 ## Part 2: Questions
 
 You are allowed to work in pairs for this assignment. In addition, you can lookup general SQL or Pandas functionalities on the internet, but not specific solutions to our questions.
 
-For the rest of the lab we will ask you to answer a few questions using Pandas and writing SQL queries. You will edit ``queries.py`` and fill in each function with a query to answer the question. The Pandas functions (e.g. Q1Pandas) have a space to fill in your code. Fill in SQL queries in the ``queries`` directory. Do not make other edits to the repository or database, except when instructed.
+For the rest of the lab we will ask you to answer a few questions by (1) querying the data using Pandas and (2) querying the data using SQL. For (1), you will edit `queries.py` and implement each function (e.g. `Q1Pandas`) such that it returns a dataframe containing the answer to the question. For (2), write SQL queries in the `sql_queries` directory (e.g., write the query for Q1 in `sql_queries/q1.sql`). You should not need to make other edits to the repository or database.
 
-For convenience, you can run queries one at a time using the python3 queries.py -q [query_num] command to run a single query (in both Pandas and SQL, when applicable).
+For convenience, you can run queries one at a time using the `queries.py` script (the script will execute your Pandas and SQL implementations, when applicable). The syntax for executing the script is as follows:
 
-In addition to your code, you will submit the results of your code for each of the questions in a PDF. Put each answer on a new page.
-Detailed submission instructions are at the bottom of this document.
-
-### Speeding up queries
-If you wish to speedup some of the queries at the expanse of additional space. Run the following SQL queries:
-```sql
-CREATE INDEX ix_people_name ON people (name);
-CREATE INDEX ix_titles_type ON titles (type);
-CREATE INDEX ix_titles_primary_title ON titles (primary_title);
-CREATE INDEX ix_titles_original_title ON titles (original_title);
-CREATE INDEX ix_akas_title_id ON akas (title_id);
-CREATE INDEX ix_akas_title ON akas (title);
-CREATE INDEX ix_crew_title_id ON crew (title_id);
-CREATE INDEX ix_crew_person_id ON crew (person_id);
+```bash
+$ python3 queries.py -q [query_num] [-s]
 ```
+
+The `-s` flag is not necessary for development, but it will store your Pandas outputs in the `submission/`folder when you're ready to submit (more details below). In addition to your code, you will submit the results of running your code for each of the questions in a PDF. Put each answer on a new page. Detailed submission instructions can be found below.
+
 
 ### Output Format
 For each question, we will specify both the order of the output columns and the order of the output rows. These must be strictly respected for the autograder to work. For Pandas, you must use `dataframe.reset_index()` before outputting the dataframe as we showed in the tutorial. It does not matter how you name the columns as long as they are in the correct order.
@@ -1044,15 +1038,16 @@ For each of these questions, you get half the points for getting each implementa
 * Actors who played in a movie with Samuel L. Jackson in 2021, played with someone who played with him in a movie in 2021, and so on.
 Return the person_id, and the name ordered by name. This query should take no longer than 5 minutes to run (ours takes 2.5 minutes). Make sure you understand the difference between `UNION` and `UNION ALL` in recursive CTEs.
 
-### Submission Instruction
+## Part 3: Submission Instructions
 Make sure you are registered on Gradescope for this class. The course ID is `TODO`.
 
 To submit responses:
 ```sh
-# Generate response for a query in the submission/ folder.
-# Do this for every query once implemented.
-python queries.py -q [query_num] -s
-# Zip the submission folder
+# Generate response for each query in the submission/ folder.
+# NOTE: running queries.py without -q runs all queries.
+python queries.py -s
+
+# Zip the contents of the submission folder
 cd submission
 zip submission.zip *.csv
 ```

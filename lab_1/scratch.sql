@@ -95,6 +95,6 @@ good_restaurants (business, stars, year) AS (
 )
 SELECT
         business, stars, year,
-        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC)
+        RANK() OVER (PARTITION BY year ORDER BY stars DESC, business ASC) as year_rank
 FROM good_restaurants
 ORDER BY year;
