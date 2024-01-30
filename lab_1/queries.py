@@ -45,7 +45,13 @@ def Q6Pandas():
     """
     return None
 
-pandas_queries = [Q1Pandas, Q2Pandas, Q3Pandas, Q4Pandas, Q5Pandas, Q6Pandas]
+def Q7Pandas():
+    """
+    TODO: Write your Pandas query here, return a dataframe to answer the question
+    """
+    return None
+
+pandas_queries = [Q1Pandas, Q2Pandas, Q3Pandas, Q4Pandas, Q5Pandas, Q6Pandas, Q7Pandas]
 df = None
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -60,7 +66,7 @@ if __name__ == "__main__":
         queries = [args.query]
     for query in queries:
         print("\nQuery {}".format(query))
-        if query <= 6:
+        if query <= len(pandas_queries):
             print("\nPandas Output")
             df = pandas_queries[query-1]()
             print(df)
