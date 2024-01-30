@@ -1020,7 +1020,31 @@ The `-s` flag is not necessary for development, but it will store your Pandas ou
 
 
 ### Output Format
-For each question, we will specify both the order of the output columns and the order of the output rows. These must be strictly respected for the autograder to work. For Pandas, you must use `dataframe.reset_index()` before outputting the dataframe as we showed in the tutorial. It does not matter how you name the columns as long as they are in the correct order.
+For each question, we will specify both the order of the output columns and the order of the output rows. These must be strictly respected for the autograder to work. For Pandas, you must use `dataframe.reset_index()` before outputting the dataframe as we showed in the tutorial. For example, **your outputs should look like:**
+```
+    col1    col2
+0      a     123
+1      b     456
+2      c     789
+...
+```
+If you see an extra `index` column, that means you need to add `drop=True` inside your call to `reset_index()`:
+```
+# BAD --> will not pass autograder
+>>> final_df.reset_index()
+    index    col1    col2
+0       7       a     123
+1       1       b     456
+2       4       c     789
+...
+
+# GOOD
+>>> final_df.reset_index(drop=True)
+    col1    col2
+0      a     123
+1      b     456
+2      c     789
+```
 
 ### Questions
 #### SQL and Pandas
