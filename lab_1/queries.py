@@ -5,7 +5,7 @@ import argparse
 def runSQL(query_num, store):
     with sql.connect("data/yelp_reviews_10k.db") as conn, open("queries/q{}.sql".format(query_num)) as in_query:
         df = pd.read_sql_query(in_query.read(), conn)
-        pd.set_option('display.max_rows', 100)
+        pd.set_option('display.max_rows', 200)
         if store: df.to_csv(f"submission/sql_sol{query_num}.csv", index=False)
         return df
 
