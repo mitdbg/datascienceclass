@@ -684,7 +684,6 @@ CREATE TABLE IF NOT EXISTS "users" (
 "index" INTEGER,
   "user_id" TEXT,
   "name" TEXT,
-  "review_count" INTEGER,
   "yelping_since" TEXT,
   "useful" INTEGER,
   "funny" INTEGER,
@@ -707,11 +706,11 @@ CREATE TABLE IF NOT EXISTS "users" (
 );
 CREATE INDEX "ix_users_index"ON "users" ("index");
 sqlite> SELECT * FROM users LIMIT 3;
-index  user_id                 name    review_count  yelping_since        useful  funny  cool   elite                          fans  average_stars  compliment_hot  compliment_more  compliment_profile  compliment_cute  compliment_list  compliment_note  compliment_plain  compliment_cool  compliment_funny  compliment_writer  compliment_photos  num_friends
------  ----------------------  ------  ------------  -------------------  ------  -----  -----  -----------------------------  ----  -------------  --------------  ---------------  ------------------  ---------------  ---------------  ---------------  ----------------  ---------------  ----------------  -----------------  -----------------  -----------
-0      2l0O1EI1m0yWjFo2zSt71w  Shiho   2837          2005-07-02 01:59:55  19237   9542   15235  2006,2007,2008,2009,2010,2011  492   3.92           1018            108              85                  79               40               350              742               1070             1070              403                258                5908       
-1      LbPkYMGmsu4snHkY-Ri1ww  David   14            2011-03-05 05:28:00  10      3      2                                     2     4.71           0               0                0                   0                0                3                1                 0                0                 0                  0                  140        
-2      K7thO1n-vZ9PFYiC7nTR2w  Yelper  1554          2007-12-26 23:05:41  11276   6580   8918   2008,2011,2012,2013,2014       326   3.68           1178            182              108                 69               58               1259             2765              1900             1900              844                105                1630       
+index  user_id                 name    yelping_since        useful  funny  cool   elite                          fans  average_stars  compliment_hot  compliment_more  compliment_profile  compliment_cute  compliment_list  compliment_note  compliment_plain  compliment_cool  compliment_funny  compliment_writer  compliment_photos  num_friends
+-----  ----------------------  ------  -------------------  ------  -----  -----  -----------------------------  ----  -------------  --------------  ---------------  ------------------  ---------------  ---------------  ---------------  ----------------  ---------------  ----------------  -----------------  -----------------  -----------
+0      2l0O1EI1m0yWjFo2zSt71w  Shiho   2005-07-02 01:59:55  19237   9542   15235  2006,2007,2008,2009,2010,2011  492   3.92           1018            108              85                  79               40               350              742               1070             1070              403                258                5908       
+1      LbPkYMGmsu4snHkY-Ri1ww  David   2011-03-05 05:28:00  10      3      2                                     2     4.71           0               0                0                   0                0                3                1                 0                0                 0                  0                  140        
+2      K7thO1n-vZ9PFYiC7nTR2w  Yelper  2007-12-26 23:05:41  11276   6580   8918   2008,2011,2012,2013,2014       326   3.68           1178            182              108                 69               58               1259             2765              1900             1900              844                105                1630        
 ```
 
 #### 2. Transformation
@@ -925,7 +924,7 @@ For example, suppose that for every given year, we wanted to assign a rank to th
 WITH 
 good_restaurants (business, stars, year) AS (
         SELECT 
-                b.name AS 'business', r.stars, strftime('%Y', r.date) AS year
+                b.name AS 'business', r.stars, CAST(strftime('%Y', r.date) AS INTEGER) AS year
         FROM 
                 reviews as r, businesses AS b, users AS u
         WHERE
@@ -1021,23 +1020,23 @@ For each question, we will specify both the order of the output columns and the 
 
 ### Questions
 #### SQL and Pandas
-For each of these questions, you get half the points for getting each implementation correctly. For full credit, both Pandas and SQL implementations should be correct.
+For each of these questions, you get half the points for getting each implementation correctly. For full credit, both Pandas and SQL implementations should be correct. **Be sure to order the columns in your results identically to how we specify the *return* order in each question**. If this is ambigious for any question, please make a post on Piazza. For example, in Q2 the columns in your result dataframe / SQL output should be ordered left-to-right as: `review_id`, `name`, `avg_rating`. (Recall that the `ORDER BY` clause determines the order in which rows in the result set are returned from top (i.e. first) to bottom (i.e. last); it does not have anything to do with the column order).
 
-1. (Simple aggregation and ordering, 5 pts) Using the `businesses` table, compute the number of distinct business names by state. Return the state and the count for each state (call this column `count`). Order by state (ascending).
-2. (Simple filtering and join, 5 pts) Find all 5-star reviews of bars (`businesses.categories` contains `bar`) in Tennessee (state abbreviation `TN`). Return review_id, name, and the stars from the businesses table. Order by (business) stars (descending) and then name (ascending) to break ties. When ordering by name, be sure to ignore upper vs. lower case (i.e. 'Z' should not come before 'a'). (**HINT:** look at how to use `COLLATE NOCASE` when ordering in SQLite.)
-3. (Simple aggregation and join, 10 pts) Find the user with the greatest number of reviews whose stars value differs from the user's average_stars by more than 2.0. If multiple users are tied, return the one with the alphabetically smallest name. Return the user_id, name, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`).
-4. (Simple subquery/CTE, 10 pts) Find the user(s) with the greatest number of reviews whose stars value differs from the user's average_stars by more than 2.0. Unlike in question (3), you should return all users who tie for most reviews meeting this criteria. Again, return the user_id, name, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`). Order by name (ascending). DO NOT use your knowledge of the answer from question (3) when writing your query for this question. (**HINT** make use of a subquery/CTE to pre-compute a value and/or result-set of interest).
-5. (Subqueries/CTEs, 10 pts) Find the Italian restaurants (`businesses.categories` contains `italian`) with the largest number of reviews in each state. The result set may contain one or many restaurants per state. Return the state, the business name, and the number of reviews (call this column `num_reviews`). Order the results by state (ascending).
-6. (Subqueries/CTEs, 15 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with at least 10 reviews that has/have the highest average stars (as computed from their reviews; do NOT use `business.avg_rating` for this). Return the name, the number of reviews (name this column `num_reviews`), and the average stars (name this column `avg_stars`). Order the results by `avg_stars` (descending) and then name (ascending).
-
-TODO:
-1. drop `review_count` everywhere
-2. change `businesses.stars --> businesses.avg_rating` and update `avg_rating` in Q2 above
+1. (Simple aggregation and ordering, 5 pts) Using the `businesses` table, compute the number of distinct business `name`s by `state`. Return the `state` and the count for each state (call this column `count`). Order by `state` (ascending).
+2. (Simple filtering and join, 5 pts) Find all 5-star reviews of bars (`businesses.categories` contains `bar`) in Tennessee (state abbreviation `TN`). Return `review_id`, `name`, and `avg_rating`. Order by `avg_rating` (descending) and then `name` (ascending) to break ties. When ordering by `name`, be sure to ignore upper vs. lower case (i.e. 'Z' should not come before 'a'). (**HINT:** look at how to use `COLLATE NOCASE` when ordering in SQLite.)
+3. (Simple aggregation and join, 10 pts) Find the user with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0. If multiple users are tied, return the one with the alphabetically smallest `name`. Return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`).
+4. (Simple subquery/CTE, 10 pts) Find the user(s) with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0. Unlike in question (3), you should return all users who tie for most reviews meeting this criteria. Again, return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`). Order by `name` (ascending). DO NOT use your knowledge of the answer from question (3) when writing your query for this question. (**HINT** make use of a subquery/CTE to pre-compute a value and/or result-set of interest).
+5. (Subqueries/CTEs, 10 pts) Find the Italian restaurants (`businesses.categories` contains `italian`) with the largest number of reviews in each state. The result set may contain one or many restaurants per state. Return the `state`, the business `name`, and the number of reviews (call this column `num_reviews`). Order the results by `state` (ascending) and then `name` (ascending).
+6. (Subqueries/CTEs, 15 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with >= 10 reviews that has/have the highest average `stars` (as computed from their reviews; do NOT use `business.avg_rating` for this). Return the `name`, the number of reviews (name this column `num_reviews`), and the average stars (name this column `avg_stars`). Order the results by `name` (ascending).
 
 #### SQL Only
-7. (SQL Only: Simple window function, 5 pts) Rank the movies, TV Shows released in 2021 with a rating >= 8 with at least 100 votes. Movies and TV shows should receive separate rankings. Order by type (`movie` or `tvSeries`, ascending), then rating (descending), then name (ascending) to break ties. Return the type, name, rating and rank.
-8. (SQL Only: Window Functions, 10 pts) For each year, find the top 3 actors that appear in the most number of above average movies (with a rating >= 5). If multiple actors are tied in the top, return all of them. Return the year, the name, number of above average movies, and the ranking. Sort by year (ascending), ranking (ascending) and name (ascending) to break ties. 
-9. (SQL Only: Recursive CTEs, 10 pts) Find the genres of movies with the highest average rating. Note that the text `Action,Thriller` should be treated as two genres (`Action` and `Thriller`). You may reuse the [recursive CTE csv parser](https://stackoverflow.com/questions/24258878/how-to-split-comma-separated-value-in-sqlite). Return the genre and the average rating. Sort by average rating (descending) and genre (ascending) to break ties. Be sure to filter out the null genre (`genres='\N'`).
+7. (SQL Only: Simple window function, 5 pts) Rank the coffee shops (`businesses.categories` contains `coffee`) in each state with an `avg_rating >= 4.5`. Coffee shops in each state should receive separate rankings. Order by `state` (ascending), then `avg_rating` (descending), then `name` (ascending) to break ties. When ordering by `name`, be sure to ignore upper vs. lower case (see hint for Q2.). Return the `state`, `name`, `avg_rating`, and `state_rank` (this should be the name of your rank column).
+8. (SQL Only: Window Functions, 10 pts) For each `year` (see [this section](#6-window-functions) above for how to compute `year`), find the top-3 businesses that received the most reviews. If multiple businesses are tied in the top, return all of them. Return the `year`, the `business_id`, the `name`, number of reviews (call this column `num_reviews`), and the ranking (call this column `year_rank`). Sort by `year` (ascending), `year_rank` (ascending) and `name` (ascending) to break ties.
+9. (SQL Only: Recursive CTEs, TODO 10/20 pts) Find the ***category*** of business with the highest average `avg_rating`. Note that the example `categories` text `Food, Delis, Italian` should be split into a `Food` category, a `Delis` category, and an `Italian` category. You may reuse the recursive CTE csv parser found [here](https://stackoverflow.com/a/65846460) or [here](https://stackoverflow.com/a/54897341). (Note that the linked answers are not the top/accepted answers on their respective posts, but they most closely resemble what you may use to solve this problem). Return the `category` and the average `avg_rating` (call this column `avg_avg_rating`). Sort by `category` (ascending) to break ties. Be sure to filter out the null category (`length(category) > 0`).
+* HINTS:
+* In your recursive query, use `length(str) > 0` or `str != ''` in the `WHERE` clause of your recursive-select (simply using `WHERE str`, as shown in the second S/O example will not work for our dataset)
+* Be sure to `trim()` your `category` to remove excess whitespace; futhermore, be careful that you also use `trim()` in the GROUP BY clause (if applicable) if you expect `"Foo "` and `"Foo"` to map to the same group! 
+---
 10. (SQL Only: Recursive CTEs, 10 pts) Degrees of separation. Recursively compute the set of actors that contains:
 * Samuel L. Jackson (person_id='nm0000168')
 * Actors who played in a movie with Samuel L. Jackson in 2021, played with someone who played with him in a movie in 2021, and so on.
