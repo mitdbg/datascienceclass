@@ -1045,7 +1045,8 @@ Return the person_id, and the name ordered by name. This query should take no lo
 ## Part 3: Submission Instructions
 Make sure you are registered on Gradescope for this class. The course ID is `TODO`.
 
-To submit responses:
+### Submitting as an Individual
+To submit responses as an individual, simply run:
 ```sh
 # Generate response for each query in the submission/ folder.
 # NOTE: running queries.py without -q runs all queries.
@@ -1057,3 +1058,18 @@ zip submission.zip *.csv
 ```
 
 Submit the generated `submission.zip` file to Gradescope.
+
+### Submitting as a Group
+To submit responses as a group, simply run:
+```sh
+# Generate response for each query in the submission/ folder.
+# NOTE: running queries.py without -q runs all queries.
+python queries.py -s
+
+# Zip the contents of the submission folder;
+# INCLUDE YOUR MIT KERB IDs IN THE FILENAME
+cd submission
+zip submission_{mit_kerb1}_{mit_kerb2}.zip *.csv
+```
+
+Have one member of the group submit the generated `submission_{mit_kerb1}_{mit_kerb2}.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
