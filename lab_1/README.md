@@ -1,3 +1,7 @@
+## Note on Generative AI for Lab 1
+For Lab 1 we ask that you refrain from using generative AI tools to assist you in writing your Pandas and SQL queries. We believe that using such tools on this lab would largely defeat the purpose of learning how to write queries on your own (which you will likely need to do in the future for datasets that Generative AI models are less familiar with). We will lift this restriction for future labs which involve more open-ended development, but we ask that you abide by this rule for Lab 1.
+
+---
 # Lab 0: Setting Up Your Environment
 ---
 * **Learning Objective**: Learn to connect to a remote server to work on this lab.
