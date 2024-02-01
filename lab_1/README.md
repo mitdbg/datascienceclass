@@ -303,6 +303,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 ### Pandas
 The Pandas python library is one of the most popular tools for working with relatively small datasets (i.e. ones that fit in the main memory of a single machine). Pandas uses the `dataframe` abstraction to manipulate tabular data. It natively supports reading data from a variety of common file formats including CSVs, fixed-width files, columnar formats, HDF5, and JSON. It also allows you to import data from common database management systems (DBMSs). A comprehensive list can be found [here](https://pandas.pydata.org/pandas-docs/stable/reference/io.html).
 
+### The Dataset
+In this lab you'll be working with a sample of the first 10k reviews from the [Yelp Dataset](https://www.yelp.com/dataset). At its core, the dataset contains a database of reviews, businesses, and users. We've included the first 10k rows from the `reviews` table, as well as all the associated businesses in the `businesses` table and users in the `users` table. Finally, we also introduced an additional table called `matts_fav_spots`, which is a small table containing information about some of the restaurants where your TA likes to eat, and his ratings for these restaurants.
+
 #### 1. Reading and Parsing Files
 To start, let's load the parquet data file containing the actual Yelp reviews and examine the dimensionality (i.e. shape) of our dataset while also printing its first few rows:
 
@@ -1052,11 +1055,11 @@ For each of these questions, you get half the points for getting each implementa
 
 1. (Simple aggregation and ordering, 5 pts) Using the `businesses` table, compute the number of distinct business `name`s by `state`. Return the `state` and the count for each state (call this column `count`). Order by `state` (ascending).
 2. (Simple filtering and join, 5 pts) Find all 5-star reviews of bars (`businesses.categories` contains `bar`) in Tennessee (state abbreviation `TN`). Return `review_id`, `name`, and `avg_rating`. Order by `avg_rating` (descending) and then `name` (ascending) to break ties.
-3. (Simple aggregation and join, 10 pts) Find the user with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0. If multiple users are tied, return the one with the alphabetically smallest `name`. Return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`).
+3. (Simple aggregation and join, 5 pts) Find the user with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0. If multiple users are tied, return the one with the alphabetically smallest `name`. Return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`).
 4. (Simple subquery/CTE, 10 pts) Find the user(s) with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0. Unlike in question (3), you should return all users who tie for most reviews meeting this criteria. Again, return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`). Order by `name` (ascending). DO NOT use your knowledge of the answer from question (3) when writing your query for this question. (**HINT** make use of a subquery/CTE to pre-compute a value and/or result-set of interest).
 5. (Subqueries/CTEs, 10 pts) Find the Italian restaurants (`businesses.categories` contains `italian`) with the largest number of reviews in each state. The result set may contain one or many restaurants per state. Return the `state`, the business `name`, and the number of reviews (call this column `num_reviews`). Order the results by `state` (ascending) and then `name` (ascending).
-6. (Subqueries/CTEs, 15 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with >= 10 reviews that has/have the highest average `stars` (as computed from their reviews; do NOT use `business.avg_rating` for this). Return the `name`, the number of reviews (name this column `num_reviews`), and the average stars (name this column `avg_stars`). Order the results by `name` (ascending).
-7. TODO
+6. (Subqueries/CTEs, 10 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with >= 10 reviews that has/have the highest average `stars` (as computed from their reviews; do NOT use `business.avg_rating` for this). Return the `name`, the number of reviews (name this column `num_reviews`), and the average stars (name this column `avg_stars`). Order the results by `name` (ascending).
+7. (Everything + Outer Join, 10 pts) For each restaurant (`business.categories` contains `restaurant`) in Illinois and Massachusetts (state abbreviations `IL` and `MA`) compute the average `stars` from all of its reviews in the `reviews` table (let's call it the `avg_stars`). Then, take the maximum of the `avg_stars` and Matt's restaurant rating (the `my_stars` column in `matts_fav_spots` table), we'll call this the `max_stars`. If a restaurant only appears in one of the `businesses` or `matts_fav_spots` tables, simply let `max_stars` be the value of the `avg_stars` or `my_stars` (whichever is present). Return the `state`, `name`, and `max_stars`. Order the results by `state` (ascending), then `max_stars` (descending), and then `name` (ascending).
 
 #### SQL Only
 8. (SQL Only: Simple window function, 5 pts) Rank the coffee shops (`businesses.categories` contains `coffee`) in each state with an `avg_rating >= 4.5`. Coffee shops in each state should receive separate rankings. Order by `state` (ascending), then `avg_rating` (descending), then `name` (ascending) to break ties. Return the `state`, `name`, `avg_rating`, and `state_rank` (this should be the name of your rank column).
@@ -1067,7 +1070,7 @@ For each of these questions, you get half the points for getting each implementa
 * Be sure to `trim()` your `category` to remove excess whitespace; futhermore, be careful that you also use `trim()` in the GROUP BY clause (if applicable) if you expect `"Foo "` and `"Foo"` to map to the same group! 
 
 ## Part 3: Submission Instructions
-Make sure you are registered on Gradescope for this class. The course ID is `TODO`.
+Make sure you are registered on Gradescope for this class. The course ID/enrollment code can be found in [this note on Piazza](https://piazza.com/class/ls1w8zxfau34kg/post/7).
 
 ### Submitting as an Individual
 To submit responses as an individual, simply run:

@@ -59,11 +59,44 @@ if __name__ == "__main__":
     user_df.drop(columns='review_count', inplace=True)
     business_df.rename(columns={'stars': 'avg_rating'}, inplace=True)
 
+    # add a table for outer join question; contains fake data of Matt's favorite restaurants
+    # columns: business_id, name, state, my_stars
+    # -------------------------------------------
+    # first get restaurants in Illinois (fewest in any state)
+    illinois_restaurant_df = business_df[
+        (business_df.state == 'IL')
+        & business_df.categories.str.contains('restaurant', case=False)
+    ].copy()
+
+    # then subsample restaurants deterministically; these rows will
+    # join with businesses table; create fake values for my_stars
+    sub_illinois_restaurant_df = illinois_restaurant_df[['business_id', 'name', 'state']].head(10)
+    sub_illinois_restaurant_df['my_stars'] = sub_illinois_restaurant_df.name.apply(lambda name: (len(name) % 5) + 1.0)
+
+    # add data for restaurants in Massachusetts; Yelp dataset has no restaurants
+    # in this state, which means it will necessitate outer join
+    matts_restaurant_df = pd.DataFrame([
+        {"business_id": "abc100", "name": "Taqueria Jalisco (East Boston)", "state": "MA", "my_stars": 5.0},
+        {"business_id": "abc101", "name": "Petit Robert Bistro (South End)", "state": "MA", "my_stars": 4.5},
+        {"business_id": "abc102", "name": "Fat Baby (South Boston)", "state": "MA", "my_stars": 4.0},
+        {"business_id": "abc103", "name": "Myers + Chang (South End)", "state": "MA", "my_stars": 4.0},
+        {"business_id": "abc104", "name": "Aquitaine (South End)", "state": "MA", "my_stars": 4.0},
+        {"business_id": "abc105", "name": "Coppa (South End)", "state": "MA", "my_stars": 4.0},
+        {"business_id": "abc106", "name": "Tambo 22 Peruvian Kitchen & Bar (Chelsea)", "state": "MA", "my_stars": 4.0},
+        {"business_id": "abc107", "name": "Aqua Pazza (North End)", "state": "MA", "my_stars": 4.0},
+        {"business_id": "abc108", "name": "South End Buttery (South End)", "state": "MA", "my_stars": 3.5},
+        {"business_id": "abc109", "name": "Tatte Bakery (Boston)", "state": "MA", "my_stars": 3.0},
+    ])
+
+    # concat restaurants into final set of matt's ratings
+    matts_fav_spots_df = pd.concat([matts_restaurant_df, sub_illinois_restaurant_df])
+
     # write dataframes to parquet
     print("writing dataframes")
     business_df.to_parquet("businesses_10k.pq", index=False)
     user_df.to_parquet("users_10k.pq", index=False)
     reviews_df.to_parquet("reviews_10k.pq", index=False)
+    matts_fav_spots_df.to_parquet("matts_fav_spots.pq", index=False)
 
     # convert columns to be valid for sqlite
     business_df.loc[:, 'attributes'] = business_df.attributes.apply(lambda d: json.dumps(d))
@@ -72,6 +105,7 @@ if __name__ == "__main__":
     # write dataframes to sqlite
     print("writing sql db")
     con = sqlite3.connect("yelp_reviews_10k.db")
-    business_df.to_sql(name="businesses", con=con, if_exists='append')
-    user_df.to_sql(name="users", con=con, if_exists='append')
-    reviews_df.to_sql(name="reviews", con=con, if_exists='append')
+    business_df.to_sql(name="businesses", con=con)
+    user_df.to_sql(name="users", con=con)
+    reviews_df.to_sql(name="reviews", con=con)
+    matts_fav_spots_df.to_sql(name="matts_fav_spots", con=con)
