@@ -6,4 +6,4 @@ This document provides a high-level description of how I created the final gzipp
 2. Filter for the first 10k reviews by executing `cat yelp_academic_dataset_review.json | head -n 10000 > yelp_reviews_10k.json`
 3. Execute `./sample_and_parse_reviews.sh` to get the business_ids and user_ids for the first 10k reviews. These are written to `yelp_business_ids_10k.txt` and `yelp_user_ids_10k.txt`, respectively.
 4. Run `python filter_for_businesses_and_users.py` to construct the parquet files and sqlite database which constitute the first 10k reviews and their respective businesses and users.
-5. Finally, run `tar -czvf yelp-data.tar.gz businesses_10k.pq reviews_10k.pq users_10k.pq yelp_reviews_10k.db` to create the tar archive.  
+5. Finally, run `tar -czvf yelp-data.tar.gz businesses_10k.pq reviews_10k.pq users_10k.pq matts_fav_spots.pq yelp_reviews_10k.db` to create the tar archive.  
