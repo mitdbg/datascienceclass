@@ -1,9 +1,10 @@
 import sqlite3 as sql
 import pandas as pd
 import argparse
+import os
 
 def runSQL(query_num, store):
-    with sql.connect("data/yelp_reviews_10k.db") as conn, open("queries/q{}.sql".format(query_num)) as in_query:
+    with sql.connect("data/yelp_reviews_10k.db") as conn, open("sql_queries/q{}.sql".format(query_num)) as in_query:
         df = pd.read_sql_query(in_query.read(), conn)
         pd.set_option('display.max_rows', 200)
         if store: df.to_csv(f"submission/sql_sol{query_num}.csv", index=False)
@@ -60,6 +61,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     store = args.store
+
+    # create submission dir if it doesn't exist
+    os.makedirs('submission', exist_ok=True)
 
     queries = range(1, 11)
     if args.query != None:
