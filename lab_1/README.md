@@ -1095,9 +1095,8 @@ To submit responses as a group, simply run:
 python queries.py -s
 
 # Zip the contents of the submission folder;
-# INCLUDE YOUR MIT KERB IDs IN THE FILENAME
 cd submission
-zip submission_{mit_kerb1}_{mit_kerb2}.zip *.csv
+zip submission.zip *.csv
 ```
 
-Have one member of the group submit the generated `submission_{mit_kerb1}_{mit_kerb2}.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
+Have one member of the group submit the generated `submission.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
