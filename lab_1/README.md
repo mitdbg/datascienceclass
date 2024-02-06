@@ -1047,7 +1047,7 @@ For convenience, you can run queries one at a time using the `queries.py` script
 $ python3 queries.py -q [query_num] [-s]
 ```
 
-The `-s` flag is not necessary for development, but it will store your Pandas outputs in the `submission/`folder when you're ready to submit. Detailed submission instructions can be found below.
+The `-s` flag is not necessary for development, but it will store your Pandas outputs in the `submission/` folder when you're ready to submit. Detailed submission instructions can be found below.
 
 
 ### Output Format
