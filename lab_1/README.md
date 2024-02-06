@@ -1,11 +1,25 @@
 ## Note on Generative AI for Lab 1
 For Lab 1 we ask that you refrain from using generative AI tools to assist you in writing your Pandas and SQL queries. We believe that using such tools on this lab would largely defeat the purpose of learning how to write queries on your own (which you will likely need to do in the future for datasets that Generative AI models are less familiar with). We will lift this restriction for future labs which involve more open-ended development, but we ask that you abide by this rule for Lab 1.
 
+Table of Contents
+=================
+- [Lab 0: Setting Up Your Environment](#lab-0-setting-up-your-environment)
+  * [1. Accessing Your EC2 Instance](#1-accessing-your-ec2-instance)
+  * [2. Creating Mirror of Course Repository](#2-creating-mirror-of-course-repository)
+  * [3. Committing Changes, Pulling Updates, Resolving Conflicts, and Development Tips](#3-committing-changes-pulling-updates-resolving-conflicts-and-development-tips)
+  * [4. Setup Lab 1 Environment](#4-setup-lab-1-environment)
+- [Lab 1: SQL and Pandas](#lab-1-sql-and-pandas)
+  * [Part 1: Pandas and SQL Overviews](#part-1-pandas-and-sql-overviews)
+  * [Part 2: Questions](#part-2-questions)
+  * [Part 3: Submission Instructions](#part-3-submission-instructions)
+
 ---
 # Lab 0: Setting Up Your Environment
 ---
 * **Learning Objective**: Learn to connect to a remote server to work on this lab.
 * **Deliverables**: Ability to `ssh` into your assigned EC2 instance (i.e. machine), create a private mirror of the course repository, and run a simple program to test that your environment is working. We will be using pre-configured EC2 instances for (at least some of) the labs in this course to ensure that everyone has a consistent environment. You are not required to turn anything in for lab 0, but you will be responsible for raising any issues with the setup of your environment to the course TAs in a timely fashion.
+
+[*Back to top*](#table-of-contents)
 
 ## 1. Accessing Your EC2 Instance
 **Please pay careful attention to security instructions (bolded and italicized) in this section.**
@@ -36,12 +50,11 @@ Host datascience
   StrictHostKeyChecking no
   IdentityFile ~/.ssh/user123.pem                   # substitute with path to your .pem key
 ```
-As a final reminder: please make sure that you set the `HostName` based on the machine you were assigned to in the "Accessing Your 6.S079 Environment" email. It is important for us to evenly distribute students to machines to minimze the likelihood that any one machine is overloaded at a given time. To summarize, if the number in your username modulo 3 equals:
-- 0 --> use instance: `ec2-11-1-11-11.compute-1.amazonaws.com` <TODO
-- 1 --> use instance: `ec2-22-2-22-22.compute-1.amazonaws.com` <TODO
-- 2 --> use instance: `ec2-33-3-33-33.compute-1.amazonaws.com` <TODO
+As a final reminder: please make sure that you set the `HostName` based on the machine you were assigned to in the "Accessing Your 6.S079 Environment" email. It is important for us to evenly distribute students to machines to minimze the likelihood that any one machine is overloaded at a given time. To summarize, if the number in your username modulo 2 equals:
+- 0 --> use instance: `ec2-3-133-220-165.us-east-2.compute.amazonaws.com`
+- 1 --> use instance: `ec2-18-218-56-187.us-east-2.compute.amazonaws.com`
 
-For example, `user123` would compute `123 % 3 = 0` and set their HostName to be `ec2-11-1-11-11.compute-1.amazonaws.com`. <TODO
+For example, `user123` would compute `123 % 2 = 1` and set their HostName to be `ec2-18-218-56-187.us-east-2.compute.amazonaws.com`.
 
 To `ssh` to your machine you can run the following:
 ```sh
@@ -53,6 +66,8 @@ $ ssh -i path/to/user123.pem user123@ec2-12-3-45-678.compute-1.amazonaws.com
 ```
 
 Finally, if you are working with a project partner you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner ***by sending it to them via MIT's Slack or MIT's Outlook service***. Details for how to submit your code as a group will follow at the end of this README.
+
+[*Back to top*](#table-of-contents)
 
 ## 2. Creating Mirror of Course Repository
 In this section you will create a **private** mirror of the course repository under your user account on the EC2 instance. (Do not create a public fork). The steps involved are somewhat tedious, but you will only need to do them once, and then you will be able to pull all future labs directly to your machine.
@@ -129,6 +144,8 @@ $ git checkout main
 ```
 
 At this point you should be working on your own copy of the course repository on the EC2 instance (and have a copy on your local machine if you did step 5).
+
+[*Back to top*](#table-of-contents)
 
 ## 3. Committing Changes, Pulling Updates, Resolving Conflicts, and Development Tips
 In this section we'll show how to (1) make and commit changes to your repository, (2) pull new updates from the course repository into your private mirror, and (3) resolve merge conflicts with the upstream repository.
@@ -236,7 +253,9 @@ The download page for VSCode and instructions for setting up remote development 
 
 If you would like help with setting up remote development with VSCode, please come to my (Matthew Russo)'s office hours, or speak with me after class.
 
-## 3. Setup Lab 1 Environment
+[*Back to top*](#table-of-contents)
+
+## 4. Setup Lab 1 Environment
 In this section you will execute a setup script to prepare your python virtual environment for Lab 1. You'll then write and execute a simple python script to ensure that your environment is working.
 
 Inside the `lab_1` directory of your repository you should see a script called `setup.sh`. Simply execute the script as follows:
@@ -261,9 +280,14 @@ $ # begin working on lab 1
 ```
 We've included a rule in the repository's `.gitignore` which should prevent your virtual environment from being included in changes that you push to your remote repository. If for any reason you see `git` suggesting that you could/should push your `venv/` folder, we would advise you not to push it. We recommend this because virtual environments are relatively large and users should be able to recreate a virtual environment from a `requirements.txt`, `pyproject.toml`, or similar file which specifies all of a project's dependencies.
 
+[*Back to top*](#table-of-contents)
+
 ---
 # Lab 1: SQL and Pandas
 ---
+*Assigned: Tuesday, February 6th.*
+*Due: Friday, February 16th, 11:59:00 PM ET.*
+
 * **Learning Objective**: Learn to load and manipulate data using both SQL and Pandas
 * **Deliverables**: Students will write queries (1) using Pandas in Python and (2) using SQL. Solutions will be submitted through Gradescope.
 
@@ -297,6 +321,8 @@ Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
+
+[*Back to top*](#table-of-contents)
 
 ## Part 1: Pandas and SQL Overviews
 
@@ -1007,6 +1033,8 @@ with sql.connect("data/yelp_reviews_10k.db") as conn, open("test.sql") as in_que
 # 0      3.8543
 ```
 
+[*Back to top*](#table-of-contents)
+
 ## Part 2: Questions
 
 You are allowed to work in pairs for this assignment. In addition, you can lookup general SQL or Pandas functionalities on the internet, but not specific solutions to our questions.
@@ -1068,10 +1096,21 @@ For each of these questions, you get half the points for getting each implementa
 10. (SQL Only: Recursive CTEs, 10 pts) Find the ***category*** of business with the highest average `avg_rating`. Note that the example `categories` text `Food, Delis, Italian` should be split into a `Food` category, a `Delis` category, and an `Italian` category. You may reuse the recursive CTE csv parser found [here](https://stackoverflow.com/a/65846460) or [here](https://stackoverflow.com/a/54897341). (Note that the linked answers are not the top/accepted answers on their respective posts, but they most closely resemble what you may use to solve this problem). Return the `category` and the average `avg_rating` (call this column `avg_avg_rating`). Sort by `category` (ascending) to break ties. Be sure to filter out the null category (`length(category) > 0`).
 * HINTS For Q10:
 * In your recursive query, use `length(str) > 0` or `str != ''` in the `WHERE` clause of your recursive-select (simply using `WHERE str`, as shown in the second S/O example will not work for our dataset)
-* Be sure to `trim()` your `category` to remove excess whitespace; futhermore, be careful that you also use `trim()` in the GROUP BY clause (if applicable) if you expect `"Foo "` and `"Foo"` to map to the same group! 
+* Be sure to `trim()` your `category` to remove excess whitespace; futhermore, be careful that you also use `trim()` in the GROUP BY clause (if applicable) if you expect `"Foo "` and `"Foo"` to map to the same group!
+
+[*Back to top*](#table-of-contents)
 
 ## Part 3: Submission Instructions
 Make sure you are registered on Gradescope for this class. The course ID/enrollment code can be found in [this note on Piazza](https://piazza.com/class/ls1w8zxfau34kg/post/7).
+
+### Before You Submit: Push Your Changes
+Please make sure to push your code to your private repository:
+```bash
+$ git add -A # or, limit to the set of files you want to keep
+$ git commit -m "pushing final state of lab 1"
+$ git push origin main
+```
+We may not use the same machine(s) from lab-to-lab so in order to keep your changes you will need to check them into your private repository. Labs are designed to be independent -- so if you forget to push your changes it should not be the end of the world -- but it's better to be safe than sorry.
 
 ### Submitting as an Individual
 To submit responses as an individual, simply run:
@@ -1100,3 +1139,5 @@ zip submission.zip *.csv
 ```
 
 Have one member of the group submit the generated `submission.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
+
+[*Back to top*](#table-of-contents)
