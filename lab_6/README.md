@@ -18,6 +18,9 @@ Table of Contents
 ---
 # Lab 6: Title Goes Here
 ---
+*Assigned: TODO.*
+*Due: TODO, 11:59:00 PM ET.*
+
 * **Learning Objective**: TODO
 * **Deliverables**: TODO
 
