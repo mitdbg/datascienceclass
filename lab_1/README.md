@@ -578,7 +578,7 @@ After aggregation, the columns of the dataframe are in a different format: group
         
 You can start to do more interesting things when you "join" data from multiple data sources together. The file `data/users_10k.pq` contains data on the users who posted each of the 10k reviews.
 
-In addition to doing aggregations like we did for the titles data, we can also filter on conditions. Let's say we wanted to list all 4+ star reviews for restaurants by users with at least 100 fans.
+In addition to doing aggregations like we did for the reviews data, we can also filter on conditions. Let's say we wanted to list all 4+ star reviews for restaurants by users with at least 100 fans.
 
 First, we can find all reviews with >= 4 stars.
 
