@@ -711,7 +711,7 @@ root@40ce47bd550e:/lab1# sqlite3 data/yelp_reviews_10k.db -column -header
 SQLite version 3.31.1 2020-01-27 19:55:54
 Enter ".help" for usage hints.
 sqlite> .tables
-businesses  reviews     users     
+businesses  matts_fav_spots  reviews  users
 sqlite> .schema users
 CREATE TABLE IF NOT EXISTS "users" (
 "index" INTEGER,
