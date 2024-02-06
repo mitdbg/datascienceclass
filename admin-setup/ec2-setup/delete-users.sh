@@ -1,5 +1,5 @@
 #!/bin/bash
-for idx in {1..60}
+for idx in {1..100}
 do
   sudo userdel -r "user${idx}"
 done

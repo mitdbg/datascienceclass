@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for idx in {1..60}
+for idx in {1..100}
 do
   # correct permissions on key file
   chmod 400 "ssh-keys/user${idx}.pem"
