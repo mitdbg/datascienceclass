@@ -136,7 +136,7 @@ $ git checkout main
 ```bash
 # --- on your local machine ---
 # clone your private repository
-$ git clone git@github.com/your-github-username/your-private-repo.git
+$ git clone git@github.com:your-github-username/your-private-repo.git
 $ cd your-private-repo
 
 # checkout main branch
@@ -224,7 +224,7 @@ The most barebones way to develop on a remote server is to use a text editor suc
 ```bash
 # --- In terminal 1, on your local machine ---
 # clone your private repository (if you haven't already)
-$ git clone git@github.com/your-github-username/your-private-repo.git
+$ git clone git@github.com:your-github-username/your-private-repo.git
 $ cd your-private-repo/
 
 # --- In terminal 1, on your local machine ---
