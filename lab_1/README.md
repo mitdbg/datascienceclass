@@ -65,7 +65,7 @@ $ ssh datascience
 $ ssh -i path/to/user123.pem user123@ec2-12-3-45-678.compute-1.amazonaws.com
 ```
 
-Finally, if you are working with a project partner you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner ***by sending it to them via MIT's Slack or MIT's Outlook service***. Details for how to submit your code as a group will follow at the end of this README.
+Finally, if you are working with a project partner (or two; we are allowing groups of up to size 3) you may choose to use just one of your usernames so that you can both work on the same copy of code. To do this, you will need to share your private key with your project partner(s) ***by sending it to them via MIT's Slack or MIT's Outlook service***. Details for how to submit your code as a group will follow at the end of this README.
 
 [*Back to top*](#table-of-contents)
 
@@ -1119,25 +1119,51 @@ To submit responses as an individual, simply run:
 # NOTE: running queries.py without -q runs all queries.
 python queries.py -s
 
+# add your final queries.py and sql_queries to the submission folder
+mkdir -p submission/sql_queries
+cp queries.py submission/
+cp sql_queries/* submission/sql_queries/
+
 # Zip the contents of the submission folder
 cd submission
-zip submission.zip *.csv
+zip -r submission.zip *.csv queries.py sql_queries
+```
+To pull the zip file from the EC2 instance down to your laptop you can then run:
+```bash
+# assuming you created an entry in your ~/.ssh/config:
+$ scp datascience:~/path/to/submission/submission.zip .
+
+# OR, if you did not create an entry in ~/.ssh/config:
+$ ssh -i path/to/user123.pem user123@<your-hostname>:~/path/to/submission/submission.zip .
 ```
 
 Submit the generated `submission.zip` file to Gradescope.
 
-### Submitting as a Group
+### Submitting as a Group (Max 3 People per Group)
 To submit responses as a group, simply run:
 ```sh
 # Generate response for each query in the submission/ folder.
 # NOTE: running queries.py without -q runs all queries.
 python queries.py -s
 
-# Zip the contents of the submission folder;
+# add your final queries.py and sql_queries to the submission folder
+mkdir -p submission/sql_queries
+cp queries.py submission/
+cp sql_queries/* submission/sql_queries/
+
+# Zip the contents of the submission folder
 cd submission
-zip submission.zip *.csv
+zip -r submission.zip *.csv queries.py sql_queries
+```
+To pull the zip file from the EC2 instance down to your laptop you can then run:
+```bash
+# assuming you created an entry in your ~/.ssh/config:
+$ scp datascience:~/path/to/submission/submission.zip .
+
+# OR, if you did not create an entry in ~/.ssh/config:
+$ ssh -i path/to/user123.pem user123@<your-hostname>:~/path/to/submission/submission.zip .
 ```
 
-Have one member of the group submit the generated `submission.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
+Have one member of the group submit the generated `submission.zip` file to Gradescope. **The member who submits the assignment must then add their partner(s) as a group member(s) on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
 
 [*Back to top*](#table-of-contents)
