@@ -126,7 +126,7 @@ $ cd ..
 $ rm -rf datascienceclass.git
 
 # now clone your private repository
-$ git clone git@github.com/your-github-username/your-private-repo.git
+$ git clone git@github.com:your-github-username/your-private-repo.git
 $ cd your-private-repo
 
 # checkout main branch
