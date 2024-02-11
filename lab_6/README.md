@@ -9,6 +9,7 @@ Table of Contents
     * [TODO: More Subsections (If Necessary)](#todo-more-subsections-if-necessary)
   * [5. Questions](#5-questions)
     * [Output Format](#output-format)
+    * [Running Updates](#running-updates)
     * [Questions](#questions)
   * [6. Submission Instructions](#6-submission-instructions)
     * [Before You Submit: Push Your Changes](#before-you-submit-push-your-changes)
@@ -94,6 +95,9 @@ TODO: more instructions (if necessary)
 
 ### Output Format
 TODO (if necessary)
+
+### Running Updates
+This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the Piazza post.
 
 ### Questions
 TODO
