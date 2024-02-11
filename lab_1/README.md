@@ -1078,15 +1078,40 @@ If you see an extra `index` column, that means you need to add `drop=True` insid
 ```
 
 ### Questions
+#### Running Updates
+This section is a rough copy of the [running updates post on Piazza](https://piazza.com/class/ls1w8zxfau34kg/post/23). Going forward, we will have one of these per-lab, and we will do our best to keep the Lab README as up-to-date as possible with the Piazza post.
+
+**General:**
+- You should not need to pip install any additional packages to complete the lab, so please refrain from doing so as the autograder will not have access to packages other than the ones installed by your `setup.sh`.
+- You are now allowed to work (and submit) in groups of up to 3 people.
+- See this post for a note about the (lack of) edge case handling you will need to do: [@22](https://piazza.com/class/ls1w8zxfau34kg/post/22)
+- See this post for tips on how to validate / sanity check queries, and a clarification on ordering: [@29](https://piazza.com/class/ls1w8zxfau34kg/post/29)
+- If you would like to get only the first `k` record(s) from a dataframe (similar to how you might want to use a `LIMIT` on a SQL query), you should use `df.head(k)`.
+- Remember that users and businesses are uniquely identified by their `user_id` and `business_id`s, respectively. Not their `name`s!
+
+**Q2:**
+- The `name` and `avg_rating` we want you to return are specifically: `businesses.name` and the `businesses.avg_rating`
+
+**Q3 and Q4:**
+- The text “differs from the user’s `average_stars` by more than 2.0” is intended to mean that the **absolute value** of the difference is more than 2.0.
+- See the thread in the follow-up discussion for post @34 for some clarification(s) on what we’re expecting.
+
+**Q6:**
+- If you are a bit unsure about what exactly we want, please see post @44 and the follow-up discussion.
+
 #### SQL and Pandas
 For each of these questions, you get half the points for getting each implementation correctly. For full credit, both Pandas and SQL implementations should be correct. **Be sure to order the columns in your results identically to how we specify the *return* order in each question**. If this is ambigious for any question, please make a post on Piazza. For example, in Q2 the columns in your result dataframe / SQL output should be ordered left-to-right as: `review_id`, `name`, `avg_rating`. (Recall that the `ORDER BY` clause determines the order in which rows in the result set are returned from top (i.e. first) to bottom (i.e. last); it does not have anything to do with the column order).
 
 1. (Simple aggregation and ordering, 5 pts) Using the `businesses` table, compute the number of distinct business `name`s by `state`. Return the `state` and the count for each state (call this column `count`). Order by `state` (ascending).
 2. (Simple filtering and join, 5 pts) Find all 5-star reviews of bars (`businesses.categories` contains `bar`) in Tennessee (state abbreviation `TN`). Return `review_id`, `name`, and `avg_rating`. Order by `avg_rating` (descending), then `name` (ascending), then `review_id` (ascending) to break ties.
+- See clarification(s) above
 3. (Simple aggregation and join, 5 pts) Find the user with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0 (Do not calculate average stars from the `reviews` table. Instead, use the `average_stars` computed in the `users` table ). If multiple users are tied, return the one with the alphabetically smallest `name`. Return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`).
+- See clarification(s) above
 4. (Simple subquery/CTE, 10 pts) Find the user(s) with the greatest number of reviews where the `stars` value differs from the user's `average_stars` by more than 2.0. Unlike in question (3), you should return all users who tie for most reviews meeting this criteria. Again, return the `user_id`, `name`, and number of reviews that differ by more than 2.0 stars (call this column `num_diff`). Order by `name` (ascending). DO NOT use your knowledge of the answer from question (3) when writing your query for this question. (**HINT** make use of a subquery/CTE to pre-compute a value and/or result-set of interest).
+- See clarification(s) above
 5. (Subqueries/CTEs, 10 pts) Find the Italian restaurants (`businesses.categories` contains `italian`) with the largest number of reviews in each state. The result set may contain one or many restaurants per state. Return the `state`, the business `name`, and the number of reviews (call this column `num_reviews`). Order the results by `state` (ascending) and then `name` (ascending).
 6. (Subqueries/CTEs, 10 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with >= 10 reviews that has/have the maximum-mininum (i.e. max-min) number of `stars` as computed from their reviews. For example, pretend our dataset had three restaurants `A`, `B`, and `C`, with reviews `stars=[4.0, 3.0]`, `stars=[3.0]`, and `stars=[5.0, 2.0]`. The minimum number of stars for the restaurants would be `3.0`, `3.0`, and `2.0`, respectively. Thus, you compute the max-min stars value to be `3.0`, and return the information (see the next sentence) for restaurants `A` and `B`. Return the `name`, the number of reviews (name this column `num_reviews`), and the max-min stars (name this column `max_min_stars`). Order the results by `num_reviews` (descending) and then `name` (ascending).
+- See clarification(s) above
 7. (Everything + Outer Join, 10 pts) **You must use an outer join in your SQL solution to get full credit for this question**. For each restaurant in `matts_fav_spots`, compute the average `stars` (let's call this quantity `avg_stars`) of all its reviews in the `reviews` table and take the max of this value and Matt's restaurant rating (the `my_stars` column in `matts_fav_spots` table), we'll call this the `max_stars`. More succinctly, compute `max_stars = MAX(avg_stars, matts_fav_spots.my_stars)` for each restaurant in `matts_fav_spots` (you can assume every row in `matts_fav_spots` is a restaurant). If a restaurant only appears in the `matts_fav_spots` table, simply let `max_stars` be the value of `my_stars`. Return the `state`, `name`, and `max_stars`. Order the results by `state` (ascending), then `max_stars` (descending), and then `name` (ascending).
 * HINT FOR Q7: You may find it useful to use SQLite's `COALESCE` function to deal with NULLs
 
