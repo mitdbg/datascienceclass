@@ -1094,10 +1094,10 @@ This section is a rough copy of the [running updates post on Piazza](https://pia
 
 **Q3 and Q4:**
 - The text “differs from the user’s `average_stars` by more than 2.0” is intended to mean that the **absolute value** of the difference is more than 2.0.
-- See the thread in the follow-up discussion for post @34 for some clarification(s) on what we’re expecting.
+- See the thread in the follow-up discussion for post [@34](https://piazza.com/class/ls1w8zxfau34kg/post/34) for some clarification(s) on what we’re expecting.
 
 **Q6:**
-- If you are a bit unsure about what exactly we want, please see post @44 and the follow-up discussion.
+- If you are a bit unsure about what exactly we want, please see post [@44](https://piazza.com/class/ls1w8zxfau34kg/post/44) and the follow-up discussion.
 
 #### SQL and Pandas
 For each of these questions, you get half the points for getting each implementation correctly. For full credit, both Pandas and SQL implementations should be correct. **Be sure to order the columns in your results identically to how we specify the *return* order in each question**. If this is ambigious for any question, please make a post on Piazza. For example, in Q2 the columns in your result dataframe / SQL output should be ordered left-to-right as: `review_id`, `name`, `avg_rating`. (Recall that the `ORDER BY` clause determines the order in which rows in the result set are returned from top (i.e. first) to bottom (i.e. last); it does not have anything to do with the column order).
