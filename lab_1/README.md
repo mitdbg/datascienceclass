@@ -1111,7 +1111,37 @@ For each of these questions, you get half the points for getting each implementa
 - See clarification(s) above
 5. (Subqueries/CTEs, 10 pts) Find the Italian restaurants (`businesses.categories` contains `italian`) with the largest number of reviews in each state. The result set may contain one or many restaurants per state. Return the `state`, the business `name`, and the number of reviews (call this column `num_reviews`). Order the results by `state` (ascending) and then `name` (ascending).
 6. (Subqueries/CTEs, 10 pts) Find the restaurant(s) (`businesses.categories` contains `restaurant`) with >= 10 reviews that has/have the maximum-mininum (i.e. max-min) number of `stars` as computed from their reviews. For example, pretend our dataset had three restaurants `A`, `B`, and `C`, with reviews `stars=[4.0, 3.0]`, `stars=[3.0]`, and `stars=[5.0, 2.0]`. The minimum number of stars for the restaurants would be `3.0`, `3.0`, and `2.0`, respectively. Thus, you compute the max-min stars value to be `3.0`, and return the information (see the next sentence) for restaurants `A` and `B`. Return the `name`, the number of reviews (name this column `num_reviews`), and the max-min stars (name this column `max_min_stars`). Order the results by `num_reviews` (descending) and then `name` (ascending).
-- See clarification(s) above
+- See clarification(s) above and below
+- Here is a toy example which is meant to show (a) how to compute the `max(min(stars)` and (b) the expected output
+
+```
+name   stars
+------------
+biz_A   4.0
+biz_A   4.0
+biz_A   3.0  -> min_stars = 3.0
+biz_A   5.0
+--
+biz_B   5.0
+biz_B   4.0
+biz_B   2.0  -> min_stars = 2.0
+--
+biz_C   5.0
+biz_C   4.0
+biz_C   3.0  -> min_stars = 3.0    ==> max(min_stars) = 3.0
+--
+biz_Z   3.0  -> min_stars = 3.0
+biz_Z   4.0
+biz_Z   5.0
+
+Output
+------
+name   num_reviews  max_min_stars
+biz_A     4.0           3.0
+biz_C     3.0           3.0
+biz_Z     3.0           3.0
+```
+
 7. (Everything + Outer Join, 10 pts) **You must use an outer join in your SQL solution to get full credit for this question**. For each restaurant in `matts_fav_spots`, compute the average `stars` (let's call this quantity `avg_stars`) of all its reviews in the `reviews` table and take the max of this value and Matt's restaurant rating (the `my_stars` column in `matts_fav_spots` table), we'll call this the `max_stars`. More succinctly, compute `max_stars = MAX(avg_stars, matts_fav_spots.my_stars)` for each restaurant in `matts_fav_spots` (you can assume every row in `matts_fav_spots` is a restaurant). If a restaurant only appears in the `matts_fav_spots` table, simply let `max_stars` be the value of `my_stars`. Return the `state`, `name`, and `max_stars`. Order the results by `state` (ascending), then `max_stars` (descending), and then `name` (ascending).
 * HINT FOR Q7: You may find it useful to use SQLite's `COALESCE` function to deal with NULLs
 
