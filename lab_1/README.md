@@ -286,7 +286,7 @@ We've included a rule in the repository's `.gitignore` which should prevent your
 # Lab 1: SQL and Pandas
 ---
 * **Assigned: Tuesday, February 6th.**
-* **Due: Friday, February 16th, 11:59:00 PM ET.**
+* **Due: Monday, February 19th, 11:59:00 PM ET.**
 
 * **Learning Objective**: Learn to load and manipulate data using both SQL and Pandas
 * **Deliverables**: Students will write queries (1) using Pandas in Python and (2) using SQL. Solutions will be submitted through Gradescope.
