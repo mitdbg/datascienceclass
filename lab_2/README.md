@@ -149,7 +149,7 @@ DJ:Claire Traweek
 [*Back to top*](#table-of-contents)
 
 ### Running Updates
-This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the Piazza post.
+This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the [Piazza post](https://piazza.com/class/ls1w8zxfau34kg/post/112).
 
 ### Part 1: Data Cleaning using Unix tools (30 points)
 
