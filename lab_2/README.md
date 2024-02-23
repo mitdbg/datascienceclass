@@ -180,7 +180,7 @@ $ zgrep "created\_at" ../data/twitter.json.gz \
   | sort \
   | uniq -c \
   | sort -n \
-  | tail -5"
+  | tail -5
 ```
 
 To get into some details:
