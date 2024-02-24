@@ -389,16 +389,16 @@ zymurgy,the branch of chemistry concerned with fermentation (as in making wine o
 
 In the dataset, there could be multiple words (space-separated) that correspond to a shared set of meanings (semicolon-separated). For example,
 ```
-22,angstrom angstrom_unit A,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron);used to specify wavelengths of electromagnetic radiation
+22,angstrom angstrom_unit A,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron); used to specify wavelengths of electromagnetic radiation
 ```
 You should break them into 3x2=6 word-meaning pairs
 ```
 angstrom,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-angstrom,used to specify wavelengths of electromagnetic radiation
+angstrom, used to specify wavelengths of electromagnetic radiation
 angstrom_unit,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-angstrom_unit,used to specify wavelengths of electromagnetic radiation
+angstrom_unit, used to specify wavelengths of electromagnetic radiation
 A,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-A,used to specify wavelengths of electromagnetic radiation
+A, used to specify wavelengths of electromagnetic radiation
 ```
 
 Your output order for these word-meaning pairs should adhere to the order of their appearance in the dataset. For example, suppose the dataset is the following
