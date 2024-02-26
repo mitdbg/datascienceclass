@@ -151,6 +151,37 @@ DJ:Claire Traweek
 ### Running Updates
 This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the [Piazza post](https://piazza.com/class/ls1w8zxfau34kg/post/112).
 
+#### General
+1. See [this follow-up](https://piazza.com/class/ls1w8zxfau34kg/post/118_f2) for a handy script to automatically run, zip, and copy down your solution. (You are meant to run this script on your local machine – i.e. your laptop).
+
+#### Q1
+1. See [this note on leading/trailing space](https://piazza.com/class/ls1w8zxfau34kg/post/114) in your solution.
+
+#### Q2
+
+#### Q3
+
+#### Q4
+
+#### Q5
+
+#### Q6
+
+#### Q7
+1. See [this clarification](https://piazza.com/class/ls1w8zxfau34kg/post/119) on how we expect you to compute the `annual_bonus`.
+
+#### Q8
+
+#### Q9
+
+#### Q10
+
+#### Q11
+
+#### Q12
+
+#### Q13
+
 ### Part 1: Data Cleaning using Unix tools (30 points)
 
 The set of three `UNIX` tools we saw in class, `sed`, `awk`, and `grep`, can be very useful for quickly cleaning up and transforming data for further analysis (and have been around since the inception of UNIX). 
