@@ -162,7 +162,8 @@ This section is a rough copy of the running updates post on Piazza. We will do o
 #### Q3
 
 #### Q4
-
+1. Do not list countries that did not finish in second place in your output.
+    
 #### Q5
 
 #### Q6
