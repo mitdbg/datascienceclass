@@ -625,13 +625,11 @@ num_love_song_plays
 
 *NOTE: use `index=False` (e.g., `df.to_csv('q9.csv', index=False)`) when writing your output (if using Python).*
 
-**Q10 (5 pts):** Find the DJ that played the most songs off of [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) album. Output your answer to `q10.csv` in the `submission/` directory, with one record per line. Each record should have two columns - the DJ name, and the number of times they have played a track from Stranger Things (see example output below). Sort first by number of tracks played in descending order, and then by DJ name in ascending lexicographical order. Submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas (also in the `submission/` directory). An example output is as follows:
+**Q10 (5 pts):** Find **the** DJ that played the most songs off of [Stranger Things](https://en.wikipedia.org/wiki/Stranger_Things) album. Output your answer to `q10.csv` in the `submission/` directory, with one record per line. Each record should have two columns - the DJ name, and the number of times they have played a track from Stranger Things (see example output below). If there are multiple DJ that played the most songs, sort by DJ name in ascending lexicographical order. Submit your code as `q10.sh` if you used command line tools, or as `q10.py` if you used Pandas (also in the `submission/` directory). An example output is as follows:
 ```csv
 dj,num_plays
 asdf,10
 bcd,10
-xyz,9
-def,8
 ...
 ```
 
