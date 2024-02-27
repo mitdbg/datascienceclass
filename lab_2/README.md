@@ -491,7 +491,7 @@ Save your script as `q3.sh` in the `submission/` directory. Make sure you includ
 
 *Hints for Q3: You will likely want to draw inspiration from the techniques shown in the [examples subsection](#examples). This is a tricky problem, so if you pass the autograder with a non-trivial script, you are guaranteed to get full credit. Come to OH and/or ask questions on Piazza if you're stuck!*
 
-**Q4 (5 pts):** How often has each country finished in second place at the World Cup? Write a script to compute this, by generating output sorted by country codename (ascending) as follows and outputting it to `q4.csv` in the `submission/` directory:
+**Q4 (5 pts):** How often has each country finished in second place at the World Cup? Write a script to compute this, by generating output sorted by country codename (ascending) as follows and outputting it to `q4.csv` in the `submission/` directory. Your final output should **not** include a country that has never won second place. 
 
 ```
 ARG,3
