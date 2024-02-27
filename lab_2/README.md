@@ -451,7 +451,7 @@ Save your script as `q1.sh` in the `submission/` directory and execute it to gen
 - How to loop over array: [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html).
 
 
-**Q2 (7 pts):** Write another script that uses `q1.csv` as input and outputs a list of the first characters that appear in the words (i.e., the first column) of `q1.csv`, along with their character frequencies in descending order. Write the output to `q2.csv` in the `submission/` directory. Save your script as `q2.sh` (also in the `submission/` directory). Make sure you include comments describing your approach. Your output should look something like this (note this is might not be part of the the correct answer):
+**Q2 (7 pts):** Write another script that uses `q1.csv` as input and outputs a list of the first characters that appear in the words (i.e., the first column) of `q1.csv`, along with their character frequencies in descending order. Write the output to `q2.csv` in the `submission/` directory. Save your script as `q2.sh` (also in the `submission/` directory). Make sure you include comments describing your approach. Your output should look something like this (note this might not be part of the the correct answer):
 ```
 17957 s
 15167 c
