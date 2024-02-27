@@ -630,7 +630,6 @@ num_love_song_plays
 ```csv
 dj,num_plays
 asdf,10
-bcd,10
 ```
 
 *NOTE: use `index=False` (e.g., `df.to_csv('q10.csv', index=False)`) when writing your output (if using Python).*
