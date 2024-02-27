@@ -475,6 +475,7 @@ Then your script should output
 **Q3 (10 pts):** Starting with `../data/worldcup-semiclean.txt`, write a script that uses the above tools as appropriate to generate output as follows and outputs it to `q3.csv` in the `submission/` directory. Each line in the output should contain a country, a year, and the position/place the country finished at the world cup in that year (if it finished within the top 4). Order your output on country (ascending), position (ascending), and then year(ascending). Your final output should **not** include a line for places in which it has not finished (e.g. you should **not** have a line like `KOR,0,1`):
 
 ```
+...
 BRA,1958,1
 BRA,1962,1
 BRA,1970,1
