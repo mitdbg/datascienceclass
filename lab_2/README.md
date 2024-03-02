@@ -395,7 +395,7 @@ We provided the last example to show how powerful `awk` can be. However if you n
 
 *Tip: If you're not sure how to get started, try `cat`'ing the dataset you need to process and using `head` or `grep` to filter for a subset of the lines (which will print to the terminal). Then use `grep`, `sed`, and/or `awk` to transform that subset. Once you've got something working on the subset, try it out on the full dataset.*
 
-**Q1 (8 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. Store the results in `q1.csv` in the `submission/` directory.
+**Q1 (8 pts):** Starting with `synsets.txt`, write a script that uses the above tools as appropriate to generate a list of word-meaning pairs. Your script should write the results in `q1.csv` in the `submission/` directory.
 
 The output should look like:
 ```
@@ -452,7 +452,7 @@ Save your script as `q1.sh` in the `submission/` directory and execute it to gen
 - How to loop over array: [arrays in awk](http://www.math.utah.edu/docs/info/gawk_12.html).
 
 
-**Q2 (7 pts):** Write another script that uses `q1.csv` as input and outputs a list of the first characters that appear in the words (i.e., the first column) of `q1.csv`, along with their character frequencies in descending order. Write the output to `q2.csv` in the `submission/` directory. Save your script as `q2.sh` (also in the `submission/` directory). Make sure you include comments describing your approach. Your output should look something like this (note this might not be part of the the correct answer):
+**Q2 (7 pts):** Write another script that uses `q1.csv` as input and outputs a list of the first characters that appear in the words (i.e., the first column) of `q1.csv`, along with their character frequencies in descending order. Your script should write to `q2.csv` in the `submission/` directory. Save your script as `q2.sh` (also in the `submission/` directory). Make sure you include comments describing your approach. Your output should look something like this (note this might not be part of the the correct answer):
 ```
 17957 s
 15167 c
