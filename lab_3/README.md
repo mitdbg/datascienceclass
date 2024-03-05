@@ -1,122 +1,56 @@
 Table of Contents
 =================
-- [Lab 3: Title Goes Here](#lab-0-setting-up-your-environment)
-  * [1. Accessing Your EC2 Instance](#1-accessing-your-ec2-instance)
-  * [2. Additional Setup](#2-additional-setup)
-  * [3. Setup Lab 3 Environment](#3-setup-lab-2-environment)
-  * [4. Lab Overview](#4-lab-overview)
-    * [The Dataset](#the-dataset)
-    * [TODO: More Subsections (If Necessary)](#todo-more-subsections-if-necessary)
-  * [5. Questions](#5-questions)
-    * [Output Format](#output-format)
-    * [Running Updates](#running-updates)
-    * [Questions](#questions)
-  * [6. Submission Instructions](#6-submission-instructions)
-    * [Before You Submit: Push Your Changes](#before-you-submit-push-your-changes)
+- [Lab 3: Machine Learning with Python](#machine-learning-with-python)
+  * [1. Colab Setup](#1-colab-setup)
+  * [2. Lab Overview](#2-lab-overview)
+  * [3. Submission Instructions](#3-submission-instructions)
     * [Submitting as an Individual](#submitting-as-an-individual)
     * [Submitting as a Group](#submitting-as-a-group)
 
 ---
-# Lab 3: Title Goes Here
+# Lab 3: Machine Learning With Python
 ---
-* **Assigned: TODO.**
-* **Due: TODO, 11:59:00 PM ET.**
+* **Assigned: Tuesday, March 5th.**
+* **Due: Wednesday, Marth 13th 11:59:00 PM ET.**
 
-* **Learning Objective**: TODO
-* **Deliverables**: TODO
 
-## 1. Accessing Your EC2 Instance
-First, please read the post announcing the release of Lab 3 on Piazza (TODO: link to post when lab is released). If the number in your username modulo 2 equals:
-- 0 --> use instance: `ec2-3-133-220-165.us-east-2.compute.amazonaws.com`
-- 1 --> use instance: `ec2-18-218-56-187.us-east-2.compute.amazonaws.com`
+## 1. Colab Setup
+For this lab, we will be using [Google Colab](https://colab.google/), which is a free hosted Jupyter Notebook service.
 
-For example, `user123` would compute `123 % 2 = 1` and set the HostName in their `~/.ssh/config` entry for `datascience` to be `ec2-18-218-56-187.us-east-2.compute.amazonaws.com`.
+Please read the brief instructions in the first cell of the Lab 3 notebook (linked below). **You will need to create a copy of our notebook in your personal Google account.** You can then work on the copy. (Note that MIT offers a free Google workspace account with your MIT email).
 
-To `ssh` to your machine you can run the following:
-```sh
-# assuming you created an entry in your ~/.ssh/config:
-$ ssh datascience
-
-# OR, if you did not create an entry in ~/.ssh/config:
-$ ssh -i path/to/user123.pem user123@ec2-12-3-45-678.compute-1.amazonaws.com
-```
+The Colab notebook [for Lab 3 can be found here](https://colab.research.google.com/drive/11DuvUNfECCoTzU7BDlN1R-_J3FhFantG#scrollTo=fG9jiyOITqdU).
 
 [*Back to top*](#table-of-contents)
 
-## 2. Additional Setup
-Execute the following commands in order to pull lab 3 down onto your machine:
-```bash
-# ssh to EC2
-$ ssh datascience
+## 2. Lab Overview
+The aim of this lab is to implement a complete ML project in python. We will go through the steps of data exploration, cleaning and transformation, and finally model training and selection.
 
-# navigate to your private repository
-$ cd your-private-repo
+The lab consists of two parts. The first part is an interactive tutorial adapted from [Aurélien Géron's excellent ML book](https://github.com/ageron/handson-ml2) with some modifications to make it a classification tutorial instead of a regression one. We will learn to classify neighborhoods by median house value. The tutorial will contain conceptual questions as well as fill-in code that we'll give you a few minutes to write.
 
-# fetch and merge lab 3
-$ git checkout main
-$ git fetch upstream
-$ git merge upstream/main
-```
-If you also have a clone of your private repo on your local machine, be sure to update it as well using the "fetch and merge" instructions above. Remember than you can then commit any changes to your private remote repository by running:
-```bash
-# add any new changes and make a commit message
-$ git add some-file.txt another-file.txt
-$ git commit -m "adding my files"
-
-# push new changes from course repo to your private mirror
-$ git push origin main
-```
+In the second part of this lab, we expect you to pick a dataset of your choosing and go through the steps mentioned above. You should try at least 3 different classes of models, and one of them should be an `xgboost` classifier or regressor. We recommend that you pick a dataset from [Kaggle](https://www.kaggle.com/) or you may wish to use one of the datasets from the [suggested class projects](https://docs.google.com/document/d/1SeMe16GsJZ4hODnZMq0XIOmoaKqcZGEqZt6vUkDbVCw/edit#heading=h.3yq3z6uw5bnz). We will be very flexible in grading this lab; we just need to see that you've taken the right steps. You should submit your notebook to gradescope. Submission instructions will be given on Piazza.
 
 [*Back to top*](#table-of-contents)
 
-## 3. Setup Lab 3 Environment
-Inside the `lab_3` directory of your repository you should see a script called `setup.sh`. Simply execute the script as follows:
-```bash
-# --- on the EC2 machine ---
-$ cd your-private-repo/lab_3/
-$ bash setup.sh
-```
+## 3. Submission Instructions
+When you've finished your ML adventure and are ready to submit, you will first need to download your .ipynb file. To do this, go to `File > Download > Download .ipynb`. See the reference image below:
 
-[*Back to top*](#table-of-contents)
+![download-ipynb](readme-imgs/download_ipynb.png)
 
-## 4. Lab Overview
-TODO
+Once you've done that, you will also want to download any data files that you may have copied into your Colab folder. If you manually uploaded your data file(s) to Colab, then you should have a local copy already. If you used `wget`, `curl`, or `urllib.requests` to fetch the file, then you may need to manually download the file. To do this, open the Colab folder, click on the three vertical dots next to the filename (see reference image below), and click `Download`:
 
-### The Dataset
-TODO
+![download-data](readme-imgs/download_data.png)
 
-### TODO: More Subsections (If Necessary)
-
-## 5. Questions
-
-You are allowed to work in pairs for this assignment. In addition, you can lookup general tool functionalities on the internet, but not specific solutions to our questions.
-
-TODO: more instructions (if necessary)
-
-### Output Format
-TODO (if necessary)
-
-### Running Updates
-This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the Piazza post.
-
-### Questions
-TODO
-
-## 6. Submission Instructions
-
-### Before You Submit: Push Your Changes
-Please make sure to push your code to your private repository:
-```bash
-$ git add -A # or, limit to the set of files you want to keep
-$ git commit -m "pushing final state of lab 3"
-$ git push origin main
-```
-We may not use the same machine(s) from lab-to-lab so in order to keep your changes you will need to check them into your private repository. Labs are designed to be independent -- so if you forget to push your changes it should not be the end of the world -- but it's better to be safe than sorry.
+You will then create a `submission.zip` (see instructions below).
 
 ### Submitting as an Individual
-To submit responses as an individual, simply run:
+To submit as an individual, simply run:
 ```sh
-# TODO: add instruction(s) to generate final output files
+# copy your .ipynb and any data files into a directory named submission
+mkdir submission
+cp path/to/your.ipynb submission
+cp your-data-file.csv submission
+...
 
 # Zip the contents of the submission folder
 cd submission
@@ -128,9 +62,13 @@ Submit the generated `submission.zip` file to Gradescope.
 ### Submitting as a Group
 To submit responses as a group, simply run:
 ```sh
-# TODO: add instruction(s) to generate final output files
+# copy your .ipynb and any data files into a directory named submission
+mkdir submission
+cp path/to/your.ipynb submission
+cp your-data-file.csv submission
+...
 
-# Zip the contents of the submission folder;
+# Zip the contents of the submission folder
 cd submission
 zip submission.zip *.csv
 ```
