@@ -1,29 +1,22 @@
 Table of Contents
 =================
-- [Lab 4: Title Goes Here](#lab-0-setting-up-your-environment)
+- [Lab 4: Text Processing and Similarity Search](#lab-0-setting-up-your-environment)
   * [1. Accessing Your EC2 Instance](#1-accessing-your-ec2-instance)
-  * [2. Additional Setup](#2-additional-setup)
-  * [3. Setup Lab 4 Environment](#3-setup-lab-2-environment)
-  * [4. Lab Overview](#4-lab-overview)
-    * [The Dataset](#the-dataset)
-    * [TODO: More Subsections (If Necessary)](#todo-more-subsections-if-necessary)
-  * [5. Questions](#5-questions)
-    * [Output Format](#output-format)
-    * [Running Updates](#running-updates)
-    * [Questions](#questions)
-  * [6. Submission Instructions](#6-submission-instructions)
+  * [2. Colab Setup](#2-additional-setup)
+  * [3. Lab Overview](#4-lab-overview)
+  * [4. Submission Instructions](#6-submission-instructions)
     * [Before You Submit: Push Your Changes](#before-you-submit-push-your-changes)
     * [Submitting as an Individual](#submitting-as-an-individual)
     * [Submitting as a Group](#submitting-as-a-group)
 
 ---
-# Lab 4: Title Goes Here
+# Lab 4: Text Processing and Similarity Search
 ---
 * **Assigned: TODO.**
-* **Due: TODO, 11:59:00 PM ET.**
+* **Due: Apr. 3rd, 11:59:59 PM ET.**
 
-* **Learning Objective**: TODO
-* **Deliverables**: TODO
+* **Learning Objective**: Learn basic text processing, basic similarity metrics, and use similarity search to build a Q/A system.
+* **Deliverables**: You will build a simple Q/A system using various similarity metrics and search tools.
 
 ## 1. Accessing Your EC2 Instance
 First, please read the post announcing the release of Lab 4 on Piazza (TODO: link to post when lab is released). If the number in your username modulo 2 equals:
@@ -43,66 +36,24 @@ $ ssh -i path/to/user123.pem user123@ec2-12-3-45-678.compute-1.amazonaws.com
 
 [*Back to top*](#table-of-contents)
 
-## 2. Additional Setup
-Execute the following commands in order to pull lab 4 down onto your machine:
-```bash
-# ssh to EC2
-$ ssh datascience
+## 2. Colab Setup
 
-# navigate to your private repository
-$ cd your-private-repo
+For this lab, we will be using Google Colab, which is a free hosted Jupyter Notebook service.
 
-# fetch and merge lab 4
-$ git checkout main
-$ git fetch upstream
-$ git merge upstream/main
-```
-If you also have a clone of your private repo on your local machine, be sure to update it as well using the "fetch and merge" instructions above. Remember than you can then commit any changes to your private remote repository by running:
-```bash
-# add any new changes and make a commit message
-$ git add some-file.txt another-file.txt
-$ git commit -m "adding my files"
+Please read the brief instructions in the first cell of the Lab 4 notebook (linked below). You will need to create a copy of our notebook in your personal Google account. You can then work on the copy. (Note that MIT offers a free Google workspace account with your MIT email).
 
-# push new changes from course repo to your private mirror
-$ git push origin main
-```
+The Colab notebook for Lab 4 can be found [here](https://drive.google.com/file/d/1uI0D6wpPJJF8zNEldt5cCZXrKgGS6108/view?usp=sharing).
 
 [*Back to top*](#table-of-contents)
 
-## 3. Setup Lab 4 Environment
-Inside the `lab_4` directory of your repository you should see a script called `setup.sh`. Simply execute the script as follows:
-```bash
-# --- on the EC2 machine ---
-$ cd your-private-repo/lab_4/
-$ bash setup.sh
-```
-
-[*Back to top*](#table-of-contents)
-
-## 4. Lab Overview
-TODO
-
-### The Dataset
-TODO
-
-### TODO: More Subsections (If Necessary)
-
-## 5. Questions
-
-You are allowed to work in pairs for this assignment. In addition, you can lookup general tool functionalities on the internet, but not specific solutions to our questions.
-
-TODO: more instructions (if necessary)
-
-### Output Format
-TODO (if necessary)
+## 3. Lab Overview
+In this lab, you will use some of the text similarity concepts presented in the lecture to build a basic question-and-answer service.
+All the tasks and questions are described in `6.S079_Lab4.ipynb`. Your job is to fill out the notebook.
 
 ### Running Updates
 This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the Piazza post.
 
-### Questions
-TODO
-
-## 6. Submission Instructions
+## 4. Submission Instructions
 
 ### Before You Submit: Push Your Changes
 Please make sure to push your code to your private repository:
@@ -114,25 +65,8 @@ $ git push origin main
 We may not use the same machine(s) from lab-to-lab so in order to keep your changes you will need to check them into your private repository. Labs are designed to be independent -- so if you forget to push your changes it should not be the end of the world -- but it's better to be safe than sorry.
 
 ### Submitting as an Individual
-To submit responses as an individual, simply run:
-```sh
-# TODO: add instruction(s) to generate final output files
 
-# Zip the contents of the submission folder
-cd submission
-zip submission.zip *.csv
-```
-
-Submit the generated `submission.zip` file to Gradescope.
+Submit the filled and executed `6.S079_Lab4.ipynb` file to Gradescope.
 
 ### Submitting as a Group
-To submit responses as a group, simply run:
-```sh
-# TODO: add instruction(s) to generate final output files
-
-# Zip the contents of the submission folder;
-cd submission
-zip submission.zip *.csv
-```
-
-Have one member of the group submit the generated `submission.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
+Have one member of the group submit the `6.S079_Lab4.ipynb` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
