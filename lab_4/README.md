@@ -54,15 +54,9 @@ All the tasks and questions are described in `6.S079_Lab4.ipynb`. Your job is to
 This section is a rough copy of the running updates post on Piazza. We will do our best to keep the Lab README as up-to-date as possible with the Piazza post.
 
 ## 4. Submission Instructions
+When you've finished Lab 4 and are ready to submit, you will first need to download your .ipynb file. To do this, go to `File > Download > Download .ipynb`. See the reference image below:
 
-### Before You Submit: Push Your Changes
-Please make sure to push your code to your private repository:
-```bash
-$ git add -A # or, limit to the set of files you want to keep
-$ git commit -m "pushing final state of lab 4"
-$ git push origin main
-```
-We may not use the same machine(s) from lab-to-lab so in order to keep your changes you will need to check them into your private repository. Labs are designed to be independent -- so if you forget to push your changes it should not be the end of the world -- but it's better to be safe than sorry.
+![download-ipynb](../lab_3/readme-imgs/download_ipynb.png)
 
 ### Submitting as an Individual
 
