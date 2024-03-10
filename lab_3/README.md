@@ -33,11 +33,13 @@ In the second part of this lab, we expect you to pick a dataset of your choosing
 [*Back to top*](#table-of-contents)
 
 ## 3. Submission Instructions
+**UPDATE:** Gradescope cannot accept file uploads greater than 100 MiB, as a result, if your data file(s) are larger than 100 MiB, please leave a comment near the top of your notebook letting us know where you got the data file(s) from. Your note should be specific enough such that we could fetch the data file(s) ourselves if needed.
+
 When you've finished your ML adventure and are ready to submit, you will first need to download your .ipynb file. To do this, go to `File > Download > Download .ipynb`. See the reference image below:
 
 ![download-ipynb](readme-imgs/download_ipynb.png)
 
-Once you've done that, you will also want to download any data files that you may have copied into your Colab folder. If you manually uploaded your data file(s) to Colab, then you should have a local copy already. If you used `wget`, `curl`, or `urllib.requests` to fetch the file, then you may need to manually download the file. To do this, open the Colab folder, click on the three vertical dots next to the filename (see reference image below), and click `Download`:
+Once you've done that, you will also want to download any data files that you may have copied into your Colab folder. (**Update**: if your data file(s) are larger than 100 MiB, you can skip this step and simply leave us a comment in your notebook). If you manually uploaded your data file(s) to Colab, then you should have a local copy already. If you used `wget`, `curl`, or `urllib.requests` to fetch the file, then you may need to manually download the file. To do this, open the Colab folder, click on the three vertical dots next to the filename (see reference image below), and click `Download`:
 
 ![download-data](readme-imgs/download_data.png)
 
