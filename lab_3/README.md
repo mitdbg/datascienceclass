@@ -56,7 +56,7 @@ cp your-data-file.csv submission
 
 # Zip the contents of the submission folder
 cd submission
-zip submission.zip *.csv
+zip submission.zip *.csv *.ipynb
 ```
 
 Submit the generated `submission.zip` file to Gradescope.
@@ -72,7 +72,7 @@ cp your-data-file.csv submission
 
 # Zip the contents of the submission folder
 cd submission
-zip submission.zip *.csv
+zip submission.zip *.csv *.ipynb
 ```
 
 Have one member of the group submit the generated `submission.zip` file to Gradescope. **The member who submits the assignment must then add their partner as a group member on the Gradescope submission: [details](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).**
