@@ -14,10 +14,10 @@ Table of Contents
 * **Due: April 10th, 11:59:59 PM ET.**
 
 * **Learning Objective**:
-- Basic prompt engineering / hacking
-- How to fine-tune a 7B parameter open-source LLM
-- How to incorporate human feedback using DPO (an RLHF technique without the RL)
-- How to make use of the token log-probabilities for visualizing/contextualizing LLM outputs
+    - Basic prompt engineering / hacking
+    - How to fine-tune a 7B parameter open-source LLM
+    - How to incorporate human feedback using DPO (an RLHF technique without the RL)
+    - How to make use of the token log-probabilities for visualizing/contextualizing LLM outputs
 * **Deliverables**: You will ruin Dr. McCrimsonHuggingFace's life's work.
 
 ## 1. Colab Setup
