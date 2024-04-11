@@ -80,7 +80,60 @@ $ bash setup.sh
 [*Back to top*](#table-of-contents)
 
 ## 4. Lab Overview
-TODO
+
+
+**Task 1** Filling the blanks in `code/Task1.py` which is Spark program that output the top-100 most frequent words in Dune novel series by Frank Herbert using with Spark's RDD (https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-operations) APIs.
+Your program should replace the set of punctuations (in bracket) with whitespace before start counting: [:=,!'".?] .
+Then your program should turn all the words into lower case.
+
+Output the top-100 words along with their frequency in the following format to standard output:
+    
+    word,freq
+    ...
+    thought, 1092
+    will, 1080
+    fremen, 1053
+    leto, 1036
+    alia, 1033
+    now, 997
+    ...
+    
+
+Note that if two words have the same frequency, break tie by outputting the lexigraphically smaller word first.
+
+**Task 2**  Building on top of Task 1, Filling the blanks in `code/Task2.py` that output the top-100 most frenquent words in the novel that are not stop-words using Spark's RDD and DataFrame APIs.Your program should replace the set of punctuations (in bracket) with whitespace before start counting: [:=,!'".?]. Then your program should turn all the words into lower case.
+    
+Output the top-100 words along with their frequency in the following format to standard output:
+    
+    word,freq
+    ...
+    thought, 1092
+    fremen, 1053
+    leto, 1036
+    alia, 1033
+    would, 970
+    stilgar, 932
+    know, 829
+    must, 827
+    asked, 817
+    ...
+    
+Note that if two words have the same frequency, break  tie by outputting the lexigraphically smaller word first.
+
+**How to submit Spark programs to our Spark Cluster**
+
+Assuming the current directory is `lab_6/`, run the following script
+```bash
+bash submit-spark-job.sh code/Task1.py
+```
+This script submits `code/Task1.py` to our Spark cluster and stores the program standard output to `code/Task1.py.stdout` and error output to `code/Task1.py.stderr`.
+
+Submission of Task2 can be done similarly.
+
+**What to submit for grading**
+
+Zip the `code` folder which includes the stdout/stderr log files of the programs along with the code. 
+Submit the zip file to gradescope.
 
 ### The Dataset
 TODO
