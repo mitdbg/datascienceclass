@@ -1,0 +1,2 @@
+pip: ["dune-rivals"]
+working_dir: "dune/"
