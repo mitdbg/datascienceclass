@@ -26,3 +26,6 @@ admin-setup/sp24-lab1-setup/*.pq
 admin-setup/sp24-lab1-setup/*.db
 lab_1/data/*.pq
 lab_1/data/*.db
+
+# sp24 lab 6
+lab_6/rivals
