@@ -14,11 +14,11 @@ SLEEP_SECONDS_READ_FROM_S3     = 0.100
 SLEEP_SECONDS_NOT_ON_SPICE     = 1.000
 
 
-class BaseFedaykin:
+class BaseActor:
     """
     DO NOT MODIFY
 
-    Base class with common functionality shared across all Fedaykin Actors.
+    Base class with common functionality shared across all Fedaykin and Rival Actors.
     """
     def __init__(self, payload: str):
         self.payload = payload
@@ -111,9 +111,8 @@ class BaseFedaykin:
         self.j = new_j
 
 
-
 @ray.remote(num_cpus=0.8, name="Fedaykin1", resources={"worker1": 1e-4})
-class Fedaykin1(BaseFedaykin):
+class Fedaykin1(BaseActor):
     """
     Fedaykin warrior/actor running on Worker 1 on one of its two CPUs.
     """
@@ -168,7 +167,7 @@ class Fedaykin1(BaseFedaykin):
 
 
 @ray.remote(num_cpus=0.8, name="Fedaykin2", resources={"worker1": 1e-4})
-class Fedaykin2(BaseFedaykin):
+class Fedaykin2(BaseActor):
     """
     Fedaykin warrior/actor running on Worker 1 on one of its two CPUs.
     """
@@ -191,7 +190,7 @@ class Fedaykin2(BaseFedaykin):
 
 
 @ray.remote(num_cpus=0.8, name="Fedaykin3", resources={"worker2": 1e-4})
-class Fedaykin3(BaseFedaykin):
+class Fedaykin3(BaseActor):
     """
     Fedaykin warrior running on Worker 2 on one of its two CPUs.
     """
@@ -214,7 +213,7 @@ class Fedaykin3(BaseFedaykin):
 
 
 @ray.remote(num_cpus=0.8, name="Fedaykin4", resources={"worker2": 1e-4})
-class Fedaykin4(BaseFedaykin):
+class Fedaykin4(BaseActor):
     """
     Fedaykin warrior running on Worker 2 on one of its two CPUs.
     """

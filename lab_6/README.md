@@ -18,6 +18,20 @@ Table of Contents
 * **Assigned: April 11th**
 * **Due: April 23rd, 11:59:00 PM ET.**
 
+#### Foreword
+The goal of this lab is to teach you a bit about:
+1. large-scale parallel execution (Spark and Ray)
+2. distributed asynchronous programming (Ray), and
+3. to familiarize you with (parts of) Ray, which is a popular Python framework for distributed parallel computation, model training, model serving, and more
+
+We will not be covering what Ray is probably most popular for, which is its model training and dataset pre-processing libraries (notably, it has been reported that OpenAI uses Ray for training its models).
+
+We won't be covering these because:
+1. Setting up the infrastructure, sharing it amongst you, and debugging issues would be even more difficult than Lab 5
+2. There are a multitude of tutorials on the internet which can help you get started w/model training and dataset pre-processing in Ray
+3. And most importantly, **if you understand the lower-level concepts of distributed asynchronous programming (i.e. Ray Core) then using the Ray libraries (Ray Train, Ray Data, etc.) will be easy by comparison**
+
+With that out of the way, let's begin!
 
 ![dune](dune.jpeg)
 
@@ -38,6 +52,10 @@ The plan is simple: **destroy the Spice fields.**
 The destruction of Spice will bring an end to The Great Houses' war over Arrakis and allow peace to prevail on your home planet. However, in an effort to maximize the chances of the plan's success, the Bene Gesserit have gone behind your back and secretly funded another Fremen warrior -- **your rival**.
 
 You and your rival are given instructions to destroy the planet's Spice fields in opposite hemispheres (you in the northern hemisphere, your rival in the southern hemisphere). That being said, it is clear that the Bene Gesserit only intend for one of you to become the leader once the destruction is over. **In order to prevail as the leader of the Fremen, you must destroy more Spice fields than your rival.** Failure to do so will likely result in permanent exile from Arrakis.
+
+***At some point after everyone has submitted their lab, we will run your submissions head-to-head in a March Madness-style bracket -- possibly even live in-class!***
+
+***There will be prizes for 1st, 2nd, and 3rd place, and eternal bragging rights. See the [Ray section of the lab](#ray-70-pts) for more details.***
 
 ---
 Credit for [the inspiration of this lab](https://www.cs.cornell.edu/courses/cs3410/2016sp/projects/pa3/pa3.html) belongs to the CS 3410 course staff at Cornell
@@ -99,7 +117,7 @@ $ bash setup.sh
 ## 4. The Battle for Arrakis
 
 ### Spark (30 pts)
-Before you and your Fremen warriors can leave to destroy the Spice fields of Arrakis, you decide it would be a good idea to read up on the planet's history. Unfortunately, your warriors are not great readers and are in a rush to leave, so you decide to create a condensed summary of the history for them.
+Before you and your Fremen warriors can leave to destroy the Spice fields of Arrakis, you decide it would be a good idea to read up on the planet's history. Unfortunately, your Fedaykin warriors are not great readers and are in a rush to leave, so you decide to create a condensed summary of the history for them.
 
 **Task 1** Fill in the blanks in `spark-code/Task1.py` which is Spark program that outputs the top-100 most frequent words in Dune novel series by Frank Herbert using [Spark's RDD APIs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-operations).
 
@@ -161,8 +179,90 @@ Submission of Task2 can be done similarly.
 When it's time to submit, you will need to zip the `spark-code` folder which includes the stdout/stderr log files of the programs along with the code. See the [section 5](#5-submission-instructions) for more detailed instructions.
 
 ### Ray (70 pts)
-TODO
+#### What to Do
+To complete this lab you only need to implelent 4 functions: the `start()` methods in each of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` Actors (i.e. classes).
 
+#### Grading Scheme
+The grading scheme is transparent:
+- `70/70`: your implementation beats all 4 of the rivals we have implemented
+- `60/70`: your implementation beats 3 out of 4 of the rivals we have implemented
+- `55/70`: your implementation beats 2 out of 4 of the rivals we have implemented
+- `50/70`: your implementation beats 1 out of 4 of the rivals we have implemented
+- `0/70`: you didn't submit anything
+
+The four rivals, in increasing level of difficulty, are:
+```
+- noop
+```
+
+To "beat" a rival implementation, your code must win at least 3 out of 5 games when we run your code against it head-to-head. We run multiple trials because each game starts with a randomly initialized state.
+
+Getting at least a `50/70` is almost guaranteed because one of the rivals is a no-op; meaning it literally does nothing.
+
+### How to Run the Game
+After ssh'ing to your EC2 instance, you can submit a run of your game to the Ray cluster by executing the following command from the root of the `lab6` directory:
+```
+# from the root of the lab6 directory
+$ ray job submit --address http://172.31.22.245:8265 --runtime-env runtime-env.yaml -- python dune_game.py --rival rival-name-goes-here
+```
+You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `glossu-rabban`, or `feyd-rautha`.
+
+### Game Overview
+**The Objective:** destroy more Spice fields than your rival.
+
+**System Setup:** the game will be run on a Ray cluster with the following specification:
+- 1 head node (an m5ad.2xlarge instance) which will run the `GameState` Actor, and only that Actor (i.e., none of your code will run there).
+- 4 worker nodes (m5.large instances):
+  - Each worker node has 2 CPUs and 8 GiB of memory
+  - Two of the worker nodes (4 CPUs total) will run your code
+  - The other two worker nodes (also 4 CPUs total) will run your rival's code
+- Each worker node has 4 GiB of available for Ray's Object Store
+- Each worker node has 64 GiB of disk
+
+**Gameplay:** The game is played between two players, you and the "rival". Each player controls 4 Ray Actors -- i.e. stateful classes with functions -- and each Actor runs on a single CPU. (Your Actors are the classes `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` in the `dune/dune_game.py` file.) 
+
+Each Actor has a `start()` method which you will implement. When the game starts, the `GameState` will call the `start()` method for all 4 of your Ray Actors and all 4 of your rival's Actors. Inside of the `start()` method, the Actors will move around a 2D map and destroy as many Spice fields as they can. The challenge is that many Spice fields will require coordination between your Actors to destroy them, and some Spice fields will take more time to destroy than others. At the end of 30 seconds, the game will end and the `GameState` will determine whether you or your rival destroyed more total Spice fields. The player who destroyed the most Spice fields wins!
+
+**Game Details:**
+Each Actor (i.e. Fedaykin) has a `start()` method which will be passed 3 inputs at the start of the game:
+1. `spice_loc_map`: the first input is a 2D numpy array representing a boolean map (i.e. every entry is 1 or 0) containing the locations of the Spice fields
+    - (if `spice_loc_map[i,j] == 1` it means that cell `[i,j]` contains a Spice field).
+2. `spice_file_map`: the second input is a 2D numpy array map which informs you about how long it will take to fetch the data for the Spice field.
+    - if `spice_value_map[i,j] == 2` it means that Spice field's data is stored on S3 (remote storage) which incurs a penalty of 100ms to fetch.
+    - if `spice_value_map[i,j] == 1` it means that Spice field's data is stored in Ray's Object Store, which typically takes <10ms to fetch.
+    - (Minor detail: in reality, every Spice field is stored in Ray's Object Store, but we simulate the extra time it takes to read from S3 by adding a 100ms penalty when fetching data for Spice fields that are "stored on S3.")
+3. `order_map`: the third input is a dictionary mapping Spice field locations `(i,j)` to the order in which your Fedaykin Actors must call `_destroy_spice_field()` in order to fully destroy a Spice field.
+    - For example, `order_map[(i,j)]` might look like any one of:
+        - `array([2])`
+        - `array([3,1,4])`
+        - `array([4,3,1,2])`
+    - The array specifies (left-to-right) the order in which your Fedaykin Actors must call `_destroy_spice_field()` to actually destroy the field
+    - For example, if `order_map[(i,j)]` == `array([3,1,4])`, then in order to destroy the Spice field at location `(i,j)`:
+        - first, `Fedaykin3` must move to `(i,j)` and execute `_destroy_spice_field()`
+        - second, `Fedaykin1` must move to `(i,j)` and execute `_destroy_spice_field()`
+        - finally, `Fedaykin4` must move to `(i,j)` and execute `_destroy_spice_field()`
+
+We have already implemented the functions `_destroy_spice_field()` and `_ride_sandworm(i,j)` (which moves your Fedaykin to point `(i,j)`) for you in the class `BaseActor` which your Fedaykin inherit from.
+
+Movement incurs a cost of 0.001 seconds per map coordinate travelled. We use Manhattan distance to compute the travel distance between two coordinates `(x,y)` and `(i,j)`. In brief, the time cost in seconds is: `0.001 * (abs(x-i) + abs(y-j))`.
+
+Each Fedaykin starts the game at a randomly initialized point `(i,j)` on the map.
+
+Each game lasts 30 seconds.
+
+### Ray Crash Course
+- What is an Actor
+- What is a future
+- how do you call an actor's method? (it returns a future)
+- how do you get the result of that future?
+- what blocks and what doesn't?
+- how can I get a handle to a different actor so I can call its method?
+- what is the Object Store, how do I put something in it? how do I get something from it?
+
+### Ray Resources
+- Key Concepts
+- Actors User Guide
+- Objects User Guide
 
 ## 5. Submission Instructions
 ### Before You Submit: Push Your Changes
