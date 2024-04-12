@@ -24,8 +24,8 @@ from pyspark.sql import SparkSession
 if __name__ == "__main__":
     ## The following files are stored on HDFS 
     # /user/hadoop/lab6-data/dune-1.txt
-    # /user/hadoop/lab6-data/dune-1.txt
-    # /user/hadoop/lab6-data/dune-1.txt
+    # /user/hadoop/lab6-data/dune-2.txt
+    # /user/hadoop/lab6-data/dune-3.txt
 
     spark = SparkSession\
         .builder\

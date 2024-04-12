@@ -122,10 +122,20 @@ $ bash setup.sh
 ### Spark (30 pts)
 Before you and your Fremen warriors can leave to destroy the Spice fields of Arrakis, you decide it would be a good idea to read up on the planet's history. Unfortunately, your Fedaykin warriors are not great readers and are in a rush to leave, so you decide to create a condensed summary of the history for them.
 
-**Task 1** Fill in the blanks in `spark-code/Task1.py` which is Spark program that outputs the top-100 most frequent words in Dune novel series by Frank Herbert using [Spark's RDD APIs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-operations).
+**How to submit Spark programs to our Spark Cluster**
+
+Assuming the current directory is `lab_6/`, run the following script
+```bash
+bash submit-spark-job.sh spark-code/Task1.py
+```
+This script submits `spark-code/Task1.py` to our Spark cluster and stores the program standard output to `spark-code/Task1.py.stdout` and error output to `spark-code/Task1.py.stderr`.
+
+Submission of Task2 can be done similarly.
+
+**Task 1** Fill in the blanks in `spark-code/Task1.py` which is Spark program that outputs the top-100 most frequent words in Dune novel series by Frank Herbert using [Spark's RDD APIs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-operations). We provide the first line of the program which reads the files for you.
 
 Your program should:
-1. first, replace the following set of punctuation [:=,!'".?] with whitespace
+1. first, replace the following set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
 2. then, lower case all of the words
 3. finally, compute the word frequencies
 
@@ -141,12 +151,12 @@ Output the top-100 words along with their frequency in the following format to s
     now, 997
     ...
 
-Note that if two words have the same frequency, break the tie by outputting the lexigraphically smaller word first.
+Note that if two words have the same frequency, you should break the tie by outputting the lexigraphically smaller word first.
 
 **Task 2**  Building on top of Task 1, fill in the blanks in `spark-code/Task2.py` to output the top-100 most frequent words in the novel that are NOT stop-words using Spark's RDD and DataFrame APIs.
 
 Your program should:
-1. first, replace the set of punctuation [:=,!'".?] with whitespace
+1. first, replace the set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
 2. then, lower case all of the words
 3. then, remove stop-words
 4. finally, compute the word frequencies
@@ -166,24 +176,14 @@ Output the top-100 words along with their frequency in the following format to s
     asked, 817
     ...
     
-Note that if two words have the same frequency, break the tie by outputting the lexigraphically smaller word first.
-
-**How to submit Spark programs to our Spark Cluster**
-
-Assuming the current directory is `lab_6/`, run the following script
-```bash
-bash submit-spark-job.sh spark-code/Task1.py
-```
-This script submits `spark-code/Task1.py` to our Spark cluster and stores the program standard output to `spark-code/Task1.py.stdout` and error output to `spark-code/Task1.py.stderr`.
-
-Submission of Task2 can be done similarly.
+Note that if two words have the same frequency, you should break the tie by outputting the lexigraphically smaller word first.
 
 **Note about submission**
 When it's time to submit, you will need to zip the `spark-code` folder which includes the stdout/stderr log files of the programs along with the code. See the [section 5](#5-submission-instructions) for more detailed instructions.
 
 ### Ray (70 pts)
 #### What to Do
-To complete this lab you only need to implelent 4 functions: the `start()` methods in each of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` Actors (i.e. classes).
+To complete this part of the lab you only need to implement 4 functions: the `start()` methods in each of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` Actors (i.e. classes). (You will likely want to create and use additional methods inside of these Actors, but implementing `start()` is a must).
 
 #### Grading Scheme
 The grading scheme is transparent:
@@ -222,7 +222,7 @@ You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `gl
   - Each worker node has 2 CPUs and 8 GiB of memory
   - Two of the worker nodes (4 CPUs total) will run your code
   - The other two worker nodes (also 4 CPUs total) will run your rival's code
-- Each worker node has 4 GiB of available for Ray's Object Store
+- Each worker node has 4 GiB of memory available for Ray's Object Store
 - Each worker node has 64 GiB of disk
 
 **Gameplay:** The game is played between two players, you and the "rival". Each player controls 4 Ray Actors -- i.e. stateful classes with functions -- and each Actor runs on a single CPU. (Your Actors are the classes `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` in the `dune/dune_game.py` file.) 
@@ -236,12 +236,13 @@ Each Actor (i.e. Fedaykin) has a `start()` method which will be passed 3 inputs 
 2. `spice_file_map`: the second input is a 2D numpy array map which informs you about how long it will take to fetch the data for the Spice field.
     - if `spice_value_map[i,j] == 2` it means that Spice field's data is stored on S3 (remote storage) which incurs a penalty of 100ms to fetch.
     - if `spice_value_map[i,j] == 1` it means that Spice field's data is stored in Ray's Object Store, which typically takes <10ms to fetch.
-    - (Minor detail: in reality, every Spice field is stored in Ray's Object Store, but we simulate the extra time it takes to read from S3 by adding a 100ms penalty when fetching data for Spice fields that are "stored on S3.")
+    - (Minor detail: in reality, every Spice field is stored in Ray's Object Store, but we simulate the extra time it takes to read from S3 by sleeping for 100ms when fetching data for Spice fields that are "stored on S3.")
 3. `order_map`: the third input is a dictionary mapping Spice field locations `(i,j)` to the order in which your Fedaykin Actors must call `_destroy_spice_field()` in order to fully destroy a Spice field.
     - For example, `order_map[(i,j)]` might look like any one of:
         - `array([2])`
         - `array([3,1,4])`
         - `array([4,3,1,2])`
+        - etc.
     - The array specifies (left-to-right) the order in which your Fedaykin Actors must call `_destroy_spice_field()` to actually destroy the field
     - For example, if `order_map[(i,j)]` == `array([3,1,4])`, then in order to destroy the Spice field at location `(i,j)`:
         - first, `Fedaykin3` must move to `(i,j)` and execute `_destroy_spice_field()`
@@ -250,7 +251,7 @@ Each Actor (i.e. Fedaykin) has a `start()` method which will be passed 3 inputs 
 
 We have already implemented the functions `_destroy_spice_field()` and `_ride_sandworm(i,j)` (which moves your Fedaykin to point `(i,j)`) for you in the class `BaseActor` which your Fedaykin inherit from.
 
-Movement incurs a cost of 0.001 seconds per map coordinate travelled. We use Manhattan distance to compute the travel distance between two coordinates `(x,y)` and `(i,j)`. In brief, the time cost in seconds is: `0.001 * (abs(x-i) + abs(y-j))`.
+Movement incurs a cost of 1ms per map coordinate travelled. We use Manhattan distance to compute the travel distance between two coordinates `(x,y)` and `(i,j)`. In brief, the time cost in seconds is: `0.001 * (abs(x-i) + abs(y-j))`.
 
 Each Fedaykin starts the game at a randomly initialized point `(i,j)` on the map.
 
@@ -293,7 +294,7 @@ dog = Dog.remote(name="Ada")
 ```
 Similar to a task, this Actor can be placed on any node in the cluster. However, unlike a task, its function outputs are dependent on state such as `self.name` and `self.age` which must be stored somewhere (i.e. in memory) so that they can be accessed across different function calls. A consequence of this is that an Actor must live in its own process, which in Ray means that it cannot easily be transferred from one node to another. In general, once a Ray Actor is instantiated and placed on a node, it will stay there until it dies (e.g. because the program which created the Actor completes).
 
-***Note that to create an Actor -- and to call its method(s) -- we must use Ray's `.remote()` syntax. You likely won't need to create an Actor, but you will definitely need to call Actors' functions. Here is an example showing how to call the methods for the Dog Actor defined above:***
+***Note that to create an Actor -- and to call its method(s) -- you must use Ray's `.remote()` syntax. You likely won't need to create an Actor, but you will definitely need to call Actors' functions. Here is an example showing how to call the methods for the Dog Actor defined above:***
 ```python
 # create the actor; I don't think you will need to do this in lab6
 dog = Dog.remote()
@@ -328,7 +329,7 @@ print(f"bday_msg1 is: {bday_msg1}")
 
 You can think of a future (sometimes called a "promise" or a "reference") as a variable which will hold the value of an asynchronous computation once that computation is done.
 
-When you execute an Actor method or a task asynchronously -- e.g. you call `square.remote(2)` or `dog.has_birthday.remote()` -- that line of code ***instantly returns a reference, even before any actual computation is done.*** This means that your program will not "block" on that line while it waits wait for the computation to finish. While this will likely cause you numerous bugs and headaches the first time you write asynchronous programs, it will become a powerful paradigm once you become familiar with it.
+When you execute an Actor method or a task asynchronously -- e.g. you call `square.remote(2)` or `dog.has_birthday.remote()` -- that line of code ***instantly returns a reference, even before any actual computation is done.*** This means that your program will not "block" on that line while it waits wait for the computation to finish. While this may cause you some bugs and headaches the first time you write asynchronous programs, it will become a powerful paradigm once you become familiar with it.
 
 Consider the following program (assume we have 10 CPUs that can execute each task in parallel):
 ```python
@@ -357,9 +358,11 @@ t1 - t0: 0.000001
 t2 - t1: 1.0001
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
-The key takeaway is that the calls to `sleep_one_second.remote(idx)` do not actually execute the function `sleep_one_second` and sleep. Instead, these remote function calls effectively dispatch `sleep_one_second` to be executed somewhere on the Ray cluster, and they immediately return a future which is a variable that will be filled with the result of that computation once it is actually finished. For this reason, futures are sometimes called "references" as they can be passed around programs with the understanding that they refer to the eventual result of some computation.
+Notice that the time it takes to invoke `sleep_one_second.remote(idx)` 10 times is diminutively small, and the time it takes to collect the results of the computation with `ray.get(refs)` is ~1 second. The latter outcome results from parallelizing 10 operations taking 1 second each across 10 CPUs. (If we had run 11 operations instead of 10, this would have taken 2 seconds by the pigeonhole principle). The more surprising outcome (if you have never seen an asynchronous program before) is that the invocation of `sleep_one_second.remote(idx)` takes almost no time at all.
 
-In Ray, when you are actually ready to get the result of your computation, you can use `ray.get(some_ref)` on any reference to get the computation result. ***As a result, `ray.get(some_ref)` is a "blocking" function -- i.e. your program will not proceed past that line of code until the result for the reference is computed and returned.***
+This happens because the calls to `sleep_one_second.remote(idx)` do not actually execute the function `sleep_one_second` and sleep. Instead, these *remote* function calls effectively dispatch `sleep_one_second` to be executed somewhere on the Ray cluster, and they immediately return a future which is a variable that will be filled with the result of that computation once it is actually finished. For this reason, futures are sometimes called "references", and they can be passed around programs with the understanding that they refer to the eventual result of some computation.
+
+In Ray, when you are ready to get the result of your computation, you can use `ray.get(some_ref)` on any reference (or list of references) to get the computation result. ***As a result, `ray.get(some_ref)` is a "blocking" function -- i.e. your program will not proceed past that line of code until the result for the reference is computed and returned.***
 
 This means you need to be intentional about where you use `ray.get()`. For example, a slightly modified version of the code above would have 10x worse performance:
 ```python
@@ -393,8 +396,7 @@ fd2 = ray.get_actor("Fedaykin2")
 fd2_location = ray.get(fd2.get_coords.remote())
 ...
 ```
-Obviously you would need to implement a method `.get_coords()` on Fedaykin2 for this to work, but I hope this shows you a simple way you can achieve communication amongst your Fedaykin.
-
+Obviously you would need to implement the method `.get_coords()` in Fedaykin2 for this to work, but I hope this illustrates a simple way you can achieve communication amongst your Fedaykin.
 
 ### Ray Resources
 First, the developers of Ray also have their own crash course which you should take a look at if you read the section above and want to see some more hands-on details:

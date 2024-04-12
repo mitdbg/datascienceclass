@@ -88,7 +88,7 @@ class BaseActor:
             return False
 
 
-    def _move(self, new_i: int, new_j: int) -> None:
+    def _ride_sandworm(self, new_i: int, new_j: int) -> None:
         """
         DO NOT MODIFY
 
@@ -157,13 +157,7 @@ class Fedaykin1(BaseActor):
         self.order_map = order_map
 
         # TODO: YOUR CODE GOES HERE
-        out = np.where(spice_loc_map==1)
-        for i, j in zip(out[0], out[1]):
-            if np.array_equal([self.id], self.order_map[(i,j)]):
-                break
-
-        self._move(i, j)
-        self._destroy_spice_field()
+        pass
 
 
 @ray.remote(num_cpus=0.8, name="Fedaykin2", resources={"worker1": 1e-4})
@@ -287,7 +281,7 @@ if __name__ == "__main__":
     start_time = ray.get(start_time_ref)
 
     # let the game run for 100 seconds
-    while time.time() - start_time < 5.0:
+    while time.time() - start_time < 30.0:
         time.sleep(1.0)
 
     # end the game and return total spice destroyed by each player
