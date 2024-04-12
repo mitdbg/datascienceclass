@@ -294,7 +294,7 @@ dog = Dog.remote(name="Ada")
 ```
 Similar to a task, this Actor can be placed on any node in the cluster. However, unlike a task, its function outputs are dependent on state such as `self.name` and `self.age` which must be stored somewhere (i.e. in memory) so that they can be accessed across different function calls. A consequence of this is that an Actor must live in its own process, which in Ray means that it cannot easily be transferred from one node to another. In general, once a Ray Actor is instantiated and placed on a node, it will stay there until it dies (e.g. because the program which created the Actor completes).
 
-***Note that to create an Actor -- and to call its method(s) -- you must use Ray's `.remote()` syntax. You likely won't need to create an Actor, but you will definitely need to call Actors' functions. Here is an example showing how to call the methods for the Dog Actor defined above:***
+***Note that to create an Actor -- and to call its method(s) from outside of the Actor -- you must use Ray's `.remote()` syntax. You likely won't need to create an Actor, but you will definitely need to call Actors' functions. Here is an example showing how to call the methods for the Dog Actor defined above:***
 ```python
 # create the actor; I don't think you will need to do this in lab6
 dog = Dog.remote()
@@ -324,6 +324,29 @@ print(f"bday_msg1 is: {bday_msg1}")
 "new_age is: 1"
 "bday_msg1 is: happy birthday Ada from Matthew!"
 ```
+The one exception to the example shown above is that if you are calling an Actor method from within the same Actor, you do not need to use the `.remote()` syntax (in fact, I believe Ray will throw an exception if you do). For example:
+```python
+@ray.remote
+class Cat:
+    def __init__(self, name):
+        self.name = name
+
+    def meow(self):
+        return "meow"
+
+    def check_how_cat_is_doing(self):
+        return self.meow()
+
+# create Cat
+cat = Cat.remote()
+status = ray.get(cat.check_how_cat_is_doing.remote())
+print(status)
+###############
+#   output    #
+###############
+"meow"
+```
+Notice how inside of the function `check_how_cat_is_doing()` we simply call and return `self.meow()` instead of executing `ray.get(self.meow.remote())`. Intuitively, we can drop the `.remote()` syntax because since the Actor lives within a process, it does not (and should not) need to to execute a remote call to execute its own method which is also defined within the process.
 
 **Future:**
 

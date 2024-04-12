@@ -1,2 +1,2 @@
-pip: ["dune-rivals"]
+pip: ["dune-rivals>=0.2.9"]
 working_dir: "dune/"

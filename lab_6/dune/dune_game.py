@@ -272,6 +272,13 @@ if __name__ == "__main__":
             Noop34.remote("rival"),
             Noop34.remote("rival"),
         ]
+    elif args.rival == "silly-goose":
+        rival_actors = [
+            SillyGoose1.remote("rival"),
+            SillyGoose2.remote("rival"),
+            SillyGoose3.remote("rival"),
+            SillyGoose4.remote("rival"),
+        ]
 
     # set actors in gamestate
     gs.set_actors.remote(fedaykin_actors, rival_actors)
