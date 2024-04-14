@@ -272,6 +272,7 @@ if __name__ == "__main__":
 
     # print Ray job id in all caps
     print(f"JOB ID IS: {ray.runtime_context.get_runtime_context().get_job_id()}")
+    print(f"WAITING FOR CLUSTER TO BE AVAILABLE")
 
     # create game state
     gs = GameState.remote()
