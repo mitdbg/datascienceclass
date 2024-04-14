@@ -416,6 +416,7 @@ t1 - t0: 10.00
 As each loop iteration would effectively be made synchronous by the call to `ray.get(ref)`.
 
 **Named Actors, Deadlock, and Message Passing:**
+
 Ray allows you to name Actors by passing in a `name="something"` to the `ray.remote()` decorator. If you look at `dune/dune_game.py`, you will notice that I have named each of your Fedaykin Actors: `"Fedaykin1"`, ..., `"Fedaykin4"`.
 
 In Ray, you can get a handle to an Actor that has been named from anywhere in your program by running:
