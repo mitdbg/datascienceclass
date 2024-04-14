@@ -227,6 +227,7 @@ You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `gl
 - Each worker node has 64 GiB of disk
 
 **The Rules:** there are only a few rules limiting what you can do in your implementation:
+
 0. You may not call the `self.gamestate` directly from your code. We have provided helper methods for interacting with the `GameState` and you must use those helpers. If there is some `GameState` you would like us to expose to you which we have not already, please send us a note on Piazza.
 1. You must write all of your code inside of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` actor classes. When we test your implementation, we will only pull these 4 classes from your source code, so if you modify the `GameState` or driver code (i.e. the stuff in `__main__`) your submission will probably crash and burn.
 2. This should be guaranteed by following rule (1.), but for this lab you are not allowed to implement a Ray Task which runs outside of your Actor process(es). We are disallowing this in order to guarantee that we can run multiple submissions in parallel on the cluster, thus allowing you all to test your code more frequently.
