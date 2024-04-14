@@ -10,6 +10,8 @@ Table of Contents
     * [How to Run the Game](#how-to-run-the-game)
     * [Game Overview](#game-overview)
     * [Ray Crash Course](#ray-crash-course)
+    * [Recommended Strategy](#recommended-strategy)
+    * [Ray Resources](#ray-resources)
   * [5. Submission Instructions](#5-submission-instructions)
     * [Before You Submit: Push Your Changes](#before-you-submit-push-your-changes)
     * [Submitting as an Individual](#submitting-as-an-individual)
@@ -230,7 +232,7 @@ You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `gl
 
 0. You may not call the `self.gamestate` directly from your code. We have provided helper methods for interacting with the `GameState` and you must use those helpers. If there is some `GameState` you would like us to expose to you which we have not already, please send us a note on Piazza.
 1. You must write all of your code inside of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` actor classes. When we test your implementation, we will only pull these 4 classes from your source code, so if you modify the `GameState` or driver code (i.e. the stuff in `__main__`) your submission will probably crash and burn.
-2. This should be guaranteed by following rule (1.), but for this lab you are not allowed to implement a Ray Task which runs outside of your Actor process(es). We are disallowing this in order to guarantee that we can run multiple submissions in parallel on the cluster, thus allowing you all to test your code more frequently.
+2. This should be guaranteed by following rule (1.), but for this lab you are not allowed to implement a Ray Task which runs outside of your Actor process(es). We are disallowing this in order to guarantee that we can run some submissions in parallel on the cluster, thus allowing you all to test your code more frequently.
 
 **Gameplay:** The game is played between two players, you and the "rival". Each player controls 4 Ray Actors -- i.e. stateful classes with functions -- and each Actor runs on a single CPU. (Your Actors are the classes `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` in the `dune/dune_game.py` file.) 
 
@@ -238,7 +240,7 @@ Each Actor has a `start()` method which you will implement. When the game starts
 
 **Game Details:**
 Each Actor (i.e. Fedaykin) has a `start()` method which will be passed 3 inputs at the start of the game:
-1. `spice_loc_map`: the first input is a 2D numpy array representing a boolean map (i.e. every entry is 1 or 0) containing the locations of the Spice fields
+1. `spice_loc_map`: the first input is a 2D numpy array representing a boolean map (i.e. every entry is 0 or 1) containing the locations of the Spice fields
     - (if `spice_loc_map[i,j] == 1` it means that cell `[i,j]` contains a Spice field).
 2. `spice_file_map`: the second input is a 2D numpy array map which informs you about how long it will take to fetch the data for the Spice field.
     - if `spice_value_map[i,j] == 2` it means that Spice field's data is stored on S3 (remote storage) which incurs a penalty of 100ms to fetch.
@@ -258,7 +260,9 @@ Each Actor (i.e. Fedaykin) has a `start()` method which will be passed 3 inputs 
 
 We have already implemented the functions `_destroy_spice_field()` and `_ride_sandworm(i,j)` (which moves your Fedaykin to point `(i,j)`) for you in the class `BaseActor` which your Fedaykin inherit from.
 
-Movement incurs a cost of 1ms per map coordinate travelled. We use Manhattan distance to compute the travel distance between two coordinates `(x,y)` and `(i,j)`. In brief, the time cost in seconds is: `0.001 * (abs(x-i) + abs(y-j))`.
+We've also implemented two functions `_send_message()` and `_get_new_messages()` which will enable you to pass messages (dictionaries) between workers for communication. Please see the last part of the [Ray Crash Course](#ray-crash-course) for an example of using a broadcast-style communcation between actors.
+
+Movement incurs a cost of 10 miroseconds (`1e-5` seconds) per map coordinate travelled. We use Manhattan distance to compute the travel distance between two coordinates `(x,y)` and `(i,j)`. In brief, the time cost in seconds is: `0.00001 * (abs(x-i) + abs(y-j))`.
 
 Each Fedaykin starts the game at a randomly initialized point `(i,j)` on the map.
 
