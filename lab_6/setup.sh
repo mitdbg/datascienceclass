@@ -2,4 +2,4 @@
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
-pip install "ray[default]" numpy
+pip install "ray[default]" numpy scipy

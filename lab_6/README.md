@@ -209,6 +209,7 @@ Getting at least a `50/70` is almost guaranteed because one of the rivals is a n
 After ssh'ing to your EC2 instance, you can submit a run of your game to the Ray cluster by executing the following command from the root of the `lab6` directory:
 ```
 # from the root of the lab6 directory
+$ source venv/bin/activate
 $ ray job submit --address http://172.31.22.245:8265 --runtime-env runtime-env.yaml -- python dune_game.py --rival rival-name-goes-here
 ```
 You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `glossu-rabban`, or `feyd-rautha`.
@@ -225,6 +226,11 @@ You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `gl
 - Each worker node has 4 GiB of memory available for Ray's Object Store
 - Each worker node has 64 GiB of disk
 
+**The Rules:** there are only a few rules limiting what you can do in your implementation:
+0. You may not call the `self.gamestate` directly from your code. We have provided helper methods for interacting with the `GameState` and you must use those helpers. If there is some `GameState` you would like us to expose to you which we have not already, please send us a note on Piazza.
+1. You must write all of your code inside of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` actor classes. When we test your implementation, we will only pull these 4 classes from your source code, so if you modify the `GameState` or driver code (i.e. the stuff in `__main__`) your submission will probably crash and burn.
+2. This should be guaranteed by following rule (1.), but for this lab you are not allowed to implement a Ray Task which runs outside of your Actor process(es). We are disallowing this in order to guarantee that we can run multiple submissions in parallel on the cluster, thus allowing you all to test your code more frequently.
+
 **Gameplay:** The game is played between two players, you and the "rival". Each player controls 4 Ray Actors -- i.e. stateful classes with functions -- and each Actor runs on a single CPU. (Your Actors are the classes `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` in the `dune/dune_game.py` file.) 
 
 Each Actor has a `start()` method which you will implement. When the game starts, the `GameState` will call the `start()` method for all 4 of your Ray Actors and all 4 of your rival's Actors. Inside of the `start()` method, the Actors will move around a 2D map and destroy as many Spice fields as they can. The challenge is that many Spice fields will require coordination between your Actors to destroy them, and some Spice fields will take more time to destroy than others. At the end of 30 seconds, the game will end and the `GameState` will determine whether you or your rival destroyed more total Spice fields. The player who destroyed the most Spice fields wins!
@@ -235,7 +241,7 @@ Each Actor (i.e. Fedaykin) has a `start()` method which will be passed 3 inputs 
     - (if `spice_loc_map[i,j] == 1` it means that cell `[i,j]` contains a Spice field).
 2. `spice_file_map`: the second input is a 2D numpy array map which informs you about how long it will take to fetch the data for the Spice field.
     - if `spice_value_map[i,j] == 2` it means that Spice field's data is stored on S3 (remote storage) which incurs a penalty of 100ms to fetch.
-    - if `spice_value_map[i,j] == 1` it means that Spice field's data is stored in Ray's Object Store, which typically takes <10ms to fetch.
+    - if `spice_value_map[i,j] == 1` it means that Spice field's data is stored in Ray's Object Store, which typically takes 1-10ms to fetch.
     - (Minor detail: in reality, every Spice field is stored in Ray's Object Store, but we simulate the extra time it takes to read from S3 by sleeping for 100ms when fetching data for Spice fields that are "stored on S3.")
 3. `order_map`: the third input is a dictionary mapping Spice field locations `(i,j)` to the order in which your Fedaykin Actors must call `_destroy_spice_field()` in order to fully destroy a Spice field.
     - For example, `order_map[(i,j)]` might look like any one of:
@@ -404,22 +410,90 @@ t1 - t0: 10.00
 ```
 As each loop iteration would effectively be made synchronous by the call to `ray.get(ref)`.
 
-**Named Actors:**
-
-As a final note, Ray allows you to name Actors by passing in a `name="something"` to the `ray.remote()` decorator. If you look at `dune/dune_game.py`, you will notice that I have named each of your Fedaykin Actors: `"Fedaykin1"`, ..., `"Fedaykin4"`.
+**Named Actors, Deadlock, and Message Passing:**
+Ray allows you to name Actors by passing in a `name="something"` to the `ray.remote()` decorator. If you look at `dune/dune_game.py`, you will notice that I have named each of your Fedaykin Actors: `"Fedaykin1"`, ..., `"Fedaykin4"`.
 
 In Ray, you can get a handle to an Actor that has been named from anywhere in your program by running:
 ```python
 actor = ray.get_actor("ActorName")
 ```
-***In order to communicate effectively between your Fedaykin Actors, you may find this useful as it will allow you to call methods from other Fedaykin within each Fedaykin. For example:***
+*In a setup where you have a single actor making centralized decisions*, you may be able to use this approach to have the centralized leader call methods for other Fedaykin. For example:
 ```python
 # inside the .start() method of Fedaykin1
 fd2 = ray.get_actor("Fedaykin2")
 fd2_location = ray.get(fd2.get_coords.remote())
 ...
 ```
-Obviously you would need to implement the method `.get_coords()` in Fedaykin2 for this to work, but I hope this illustrates a simple way you can achieve communication amongst your Fedaykin.
+Obviously you would need to implement the method `.get_coords()` in Fedaykin2 for this to work.
+
+***The downside to the approach above is that it can easily lead to deadlock in situations where actors may call each others' methods.*** This is because method calls for an actor run sequentially, and each of your actors will already be running its `.start()` method. Thus, if you tried somethign like the following:
+```python
+@ray.remote
+class Fedaykin1:
+    ...
+    def start(...):
+        fd2 = ray.get_actor("Fedaykin2")
+        fd2_location = ray.get(fd2.get_coords.remote())  # DEADLOCK
+
+@ray.remote
+class Fedaykin2:
+    ...
+    def start(...):
+        fd1 = ray.get_actor("Fedaykin1")
+        fd1_location = ray.get(fd1.get_coords.remote())  # DEADLOCK
+```
+This would create a deadlock. `Fedaykin1` would block as it waits for `Fedakyin2` to execute `.get_coords()`, but `Fedaykin2` cannot execute `.get_coords()` until it finishes executing `.start()`. `Fedaykin2` is in a similar situation waiting on `Fedaykin1`, thus we reach a deadlock.
+
+In order to enable your Fedaykin to communicate, we have added a push-pull message passing framework within the `GameState`. Any actor can send a message to any other actor (including itself) by calling `self._send_message(to_id, msg)`. It can also read all *new* messages it's received by calling `self._get_new_messages(from_id)`. To implement the example above, we could do the following:
+```python
+@ray.remote
+class Fedaykin1:
+    ...
+    def start(...):
+        # broadcast location to all Fedaykin
+        for to_id in range(1, 5):
+            msg = {"location_i": self.i, "location_j": self.j}
+            self._send_message(to_id, msg)
+
+        # receive locations from all other Fedaykin
+        fd_locations = {id: None for id in range(1, 5)}
+        for from_id in range(1, 5):
+            while fd_locations[id] is None:
+                new_msgs = self._get_new_messages(from_id)
+                if len(new_msgs) > 0:
+                    i = new_msgs[-1]["location_i"]
+                    j = new_msgs[-1]["location_i"]
+                    fd_locations[from_id] = (i, j)
+
+        # continue doing things...
+
+@ray.remote
+class Fedaykin2:
+    ...
+    def start(...):
+        # broadcast location to all Fedaykin
+        for to_id in range(1, 5):
+            msg = {"location_i": self.i, "location_j": self.j}
+            self._send_message(to_id, msg)
+
+        # receive locations from all other Fedaykin
+        fd_locations = {id: None for id in range(1, 5)}
+        for from_id in range(1, 5):
+            while fd_locations[id] is None:
+                new_msgs = self._get_new_messages(from_id)
+                if len(new_msgs) > 0:
+                    i = new_msgs[-1]["location_i"]
+                    j = new_msgs[-1]["location_i"]
+                    fd_locations[from_id] = (i, j)
+
+        # continue doing things...
+```
+
+### RECOMMENDED STRATEGY
+Writing (and debugging) parallel distributed code is much more difficult than writing non-parallel non-distributed code. As a result, here is how I would advise you go about building your solution:
+
+1. **Start Centralized:** You should be able to beat the `noop` and `silly-goose` (and possibly even `glossu-rabban`) rivals by writing an implementation in which one Fedaykin (the leader) is a centralized decision maker who decides which spice field(s) to destroy. Once the leader picks a field to destroy, it can use `fd = ray.get_actor(f"Fedaykin{some_id}")` to get references to the other Fedaykin and then call their `_ride_sandworm()` and `_destroy_spice_field()` methods *remotely*. Note that the leader may need to avoid a race condition by ensuring that the other Fedaykin have actually stored their inputs before it starts calling remote methods.
+2. **Go Distributed One Step at a Time:** To beat `feyd-rautha`, you will (likely) need to write a distributed parallel implementation in which each Fedaykin is acting independently for at least some portion of its start method. DO NOT TRY THE MOST COMPLICATED IMPLEMENTATION YOU CAN THINK OF FIRST: distributed programming is kryptonite for programmers who try to optimize their code too early. Start by implementing a simple form of message passing first. Use print statements as needed to ensure that your messages are being sent and received as you would expect. You may want to set `RAY_DEDUP_LOGS: "0"` in your `runtime-env.yaml` and pipe your output to a file (e.g. `ray job submit ... -- python dune_game.py --rival noop > logs.txt`) so that you can use tools like `grep` and `sed` to parse your logs. Once you are confident that your Fedaykin are passing messages as expected, then test out your ideas in an incremental fashion.
 
 ### Ray Resources
 First, the developers of Ray also have their own crash course which you should take a look at if you read the section above and want to see some more hands-on details:

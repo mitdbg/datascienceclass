@@ -23,6 +23,10 @@ class GameState:
         self.fedaykin_actors = None
         self.rival_actors = None
 
+        # initialize dictionary containing messages passed between workers
+        self.fedaykin_messages = {to_id: {from_id: [] for from_id in range(1, 5)} for to_id in range(1, 5)}
+        self.rival_messages = {to_id: {from_id: [] for from_id in range(1, 5)} for to_id in range(1, 5)}
+
         # create northern and southern spice field maps
         self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map = self._create_map("northern")
         self.s_spice_loc_map, self.s_spice_file_map, self.s_order_map = self._create_map("southern")
@@ -36,10 +40,25 @@ class GameState:
         self.fedaykin_actors = fedaykin_actors
         self.rival_actors = rival_actors
 
+    def get_spice_field_ref(self, hemisphere, i, j):
+        spice_field_refs = self.n_spice_field_refs if hemisphere == "northern" else self.s_spice_field_refs
+        return spice_field_refs[(i, j)]
 
-    def get_spice_field_refs(self, hemisphere):
-        return self.n_spice_field_refs if hemisphere == "northern" else self.s_spice_field_refs
+    def send_message(self, to_id, from_id, msg, fedaykin_or_rival):
+        if fedaykin_or_rival == "fedaykin":
+            self.fedaykin_messages[to_id][from_id].append(msg)
+        else:
+            self.rival_messages[to_id][from_id].append(msg)
 
+    def get_new_messages(self, to_id, from_id, fedaykin_or_rival):
+        if fedaykin_or_rival == "fedaykin":
+            msgs = self.fedaykin_messages[to_id][from_id]
+            self.fedaykin_messages[to_id][from_id] = []
+            return msgs
+        else:
+            msgs = self.rival_messages[to_id][from_id]
+            self.rival_messages[to_id][from_id] = []
+            return msgs
 
     def update_spice_field_ref(self, spice_field, i, j, hemisphere):
         spice_field_ref = ray.put(spice_field)
@@ -47,7 +66,6 @@ class GameState:
             self.n_spice_field_refs[(i,j)] = spice_field_ref
         else:
             self.s_spice_field_refs[(i,j)] = spice_field_ref
-
 
     def _create_map(self, hemisphere):
         print(f"Creating {hemisphere} spice map")
@@ -68,7 +86,6 @@ class GameState:
 
         return spice_loc_map, spice_file_map, order_map
 
-
     def _create_spice_fields(self, hemisphere):
         print(f"Creating {hemisphere} spice fields")
         spice_loc_map = self.n_spice_loc_map if hemisphere == "northern" else self.s_spice_loc_map
@@ -82,7 +99,6 @@ class GameState:
 
         return spice_field_refs
 
-
     def start_game(self) -> float:
         """
         Starts the game and returns the start time to the driver.
@@ -94,7 +110,6 @@ class GameState:
             self.fedaykin_actors[idx].start.remote(self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map)
 
         return start_time
-
 
     def end_game(self) -> bool:
         # stop all the actors

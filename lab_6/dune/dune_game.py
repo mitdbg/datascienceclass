@@ -3,13 +3,13 @@ import ray
 import time
 
 import numpy as np
+import scipy as sp
 
 from dune_helpers import *
 from dune_rivals import *
 
-# TODO: double check that obj. store read is < 0.1 (S3 read time)
 # DEFINITIONS
-SLEEP_SECONDS_PER_TRAVEL_COORD = 0.001
+SLEEP_SECONDS_PER_TRAVEL_COORD = 1e-5
 SLEEP_SECONDS_READ_FROM_S3     = 0.100
 SLEEP_SECONDS_NOT_ON_SPICE     = 1.000
 
@@ -63,8 +63,8 @@ class BaseActor:
             print(f"Fedaykin{self.id} fetching spice field object from OBJECT STORE for {(self.i, self.j)}")
 
         # get spice field object
-        spice_field_refs = ray.get(self.gamestate.get_spice_field_refs.remote("northern"))
-        spice_field = ray.get(spice_field_refs[(self.i, self.j)])
+        spice_field_ref = ray.get(self.gamestate.get_spice_field_ref.remote("northern", self.i, self.j))
+        spice_field = ray.get(spice_field_ref)
 
         # check if spice field object can be written to
         write_order = self.order_map[(self.i, self.j)]
@@ -72,6 +72,7 @@ class BaseActor:
             write_idx = np.where(write_order == self.id)[0][0]
         except:
             print(f"Fedaykin{self.id} tried to destroy spice at {(self.i, self.j)} but is not a valid destroyer ({list(write_order)})")
+            return False
 
         if np.array_equal(spice_field["writes"], write_order[:write_idx]):
             spice_field["writes"].append(self.id)
@@ -84,7 +85,7 @@ class BaseActor:
             return True
 
         else:
-            print(f"Fedaykin{self.id} tried to destroy spice at {(self.i, self.j)} but current vs. destruction is: ({spice_writes}) vs. ({list(write_order)})")
+            print(f"Fedaykin{self.id} tried to destroy spice at {(self.i, self.j)} but current vs. destruction is: ({spice_field['writes']}) vs. ({list(write_order)})")
             return False
 
 
@@ -109,6 +110,26 @@ class BaseActor:
         # update coordinates
         self.i = new_i
         self.j = new_j
+
+
+    def _send_message(self, to_id: int, msg: dict):
+        """
+        DO NOT MODIFY
+
+        Send a message to another Fedayking via the gamestate. Messages will be placed in
+        a list which can be retrieved via a call to self._get_new_messages()
+        """
+        self.gamestate.send_message.remote(to_id, self.id, msg, "fedaykin")
+
+
+    def _get_new_messages(self, from_id: int) -> list:
+        """
+        DO NOT MODIFY
+
+        Returns the messages accumulated for this worker (self.id) which were sent by
+        worker from_id since the last time this method was called.
+        """
+        return ray.get(self.gamestate.get_new_messages.remote(self.id, from_id, "fedaykin"))
 
 
 @ray.remote(num_cpus=0.8, name="Fedaykin1", resources={"worker1": 1e-4})
@@ -235,7 +256,6 @@ if __name__ == "__main__":
     """
     # parse arguments
     parser = argparse.ArgumentParser(description='Run an iteration of the Dune Game')
-    parser.add_argument('--verbose', default=True, action='store_true', help='Print verbose output')
     parser.add_argument('--rival', type=str, help='The rival algorithm')
     args = parser.parse_args()
 
@@ -264,6 +284,8 @@ if __name__ == "__main__":
         Fedaykin4.remote("fedaykin"),
     ]
 
+    # NOTE: your code interpreter might complain that it doesn't recognize
+    #       the rival classes, but they will be installed at runtime by Ray 
     # create rival warriors
     if args.rival == "noop":
         rival_actors = [
@@ -278,6 +300,20 @@ if __name__ == "__main__":
             SillyGoose2.remote("rival"),
             SillyGoose3.remote("rival"),
             SillyGoose4.remote("rival"),
+        ]
+    elif args.rival == "glossu-rabban":
+        rival_actors = [
+            GlossuRabban1.remote("rival"),
+            GlossuRabban2.remote("rival"),
+            GlossuRabban3.remote("rival"),
+            GlossuRabban4.remote("rival"),
+        ]
+    elif args.rival == "feyd-rautha":
+        rival_actors = [
+            FeydRautha1.remote("rival"),
+            FeydRautha2.remote("rival"),
+            FeydRautha3.remote("rival"),
+            FeydRautha4.remote("rival"),
         ]
 
     # set actors in gamestate
