@@ -106,6 +106,10 @@ class GameState:
         print("Starting Game")
         start_time = time.time()
         for idx in range(NUM_ACTORS):
+            self.rival_actors[idx]._set_fields.remote(self.s_spice_loc_map, self.s_spice_file_map, self.s_order_map)
+            self.fedaykin_actors[idx]._set_fields.remote(self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map)
+
+        for idx in range(NUM_ACTORS):
             self.rival_actors[idx].start.remote(self.s_spice_loc_map, self.s_spice_file_map, self.s_order_map)
             self.fedaykin_actors[idx].start.remote(self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map)
 

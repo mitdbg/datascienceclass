@@ -29,6 +29,14 @@ class BaseActor:
         self.spice_file_map = None
         self.order_map = None
 
+    def _set_fields(self, spice_loc_map: np.ndarray, spice_file_map: np.ndarray, order_map: dict) -> None:
+        """
+        This is technically not necessary but it will save a lot of people issues with a race condition.
+        """
+        self.spice_loc_map = spice_loc_map
+        self.spice_file_map = spice_file_map
+        self.order_map = order_map
+
     def _destroy_spice_field(self) -> bool:
         """
         DO NOT MODIFY
