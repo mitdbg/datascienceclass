@@ -183,7 +183,7 @@ When it's time to submit, you will need to zip the `spark-code` folder which inc
 
 ### Ray (70 pts)
 #### What to Do
-To complete this part of the lab you only need to implement 4 functions: the `start()` methods in each of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` Actors (i.e. classes). (You will likely want to create and use additional methods inside of these Actors, but implementing `start()` is a must).
+To complete this part of the lab you only need to implement 4 functions: the `start()` methods in each of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` Actors (i.e. classes). (You will likely want to create and use additional methods inside of these Actors).
 
 #### Grading Scheme
 The grading scheme is transparent:
