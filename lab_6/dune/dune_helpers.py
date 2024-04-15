@@ -29,7 +29,7 @@ class GameState:
 
         # create northern and southern spice field maps
         n_spice_loc_map, n_spice_file_map, n_order_map = self._create_map("northern and southern")
-        s_spice_loc_map, s_spice_file_map, s_order_map = np.copy(n_spice_loc_map), np.copy(n_spice_file_map), np.copy(n_order_map)
+        s_spice_loc_map, s_spice_file_map, s_order_map = np.copy(n_spice_loc_map), np.copy(n_spice_file_map), dict(n_order_map)
         self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map = n_spice_loc_map, n_spice_file_map, n_order_map
         self.s_spice_loc_map, self.s_spice_file_map, self.s_order_map = s_spice_loc_map, s_spice_file_map, s_order_map
 
