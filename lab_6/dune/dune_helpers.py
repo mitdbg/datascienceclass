@@ -28,8 +28,10 @@ class GameState:
         self.rival_messages = {to_id: {from_id: [] for from_id in range(1, 5)} for to_id in range(1, 5)}
 
         # create northern and southern spice field maps
-        self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map = self._create_map("northern")
-        self.s_spice_loc_map, self.s_spice_file_map, self.s_order_map = self._create_map("southern")
+        n_spice_loc_map, n_spice_file_map, n_order_map = self._create_map("northern and southern")
+        s_spice_loc_map, s_spice_file_map, s_order_map = np.copy(n_spice_loc_map), np.copy(n_spice_file_map), np.copy(n_order_map)
+        self.n_spice_loc_map, self.n_spice_file_map, self.n_order_map = n_spice_loc_map, n_spice_file_map, n_order_map
+        self.s_spice_loc_map, self.s_spice_file_map, self.s_order_map = s_spice_loc_map, s_spice_file_map, s_order_map
 
         # create (and put) ray objects for both spice fields
         self.n_spice_field_refs = self._create_spice_fields("northern")
