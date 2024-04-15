@@ -137,20 +137,21 @@ Submission of Task2 can be done similarly.
 **Task 1** Fill in the blanks in `spark-code/Task1.py` which is Spark program that outputs the top-100 most frequent words in Dune novel series by Frank Herbert using [Spark's RDD APIs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-operations). We provide the first line of the program which reads the files for you.
 
 Your program should:
-1. first, replace the following set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
-2. then, lower case all of the words
-3. finally, compute the word frequencies
+1. first, split lines into words by whitespace
+2. then, replace the following set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
+3. then, lower case all of the words
+4. finally, compute the word frequencies
 
 Output the top-100 words along with their frequency in the following format to standard output:
     
     word,freq
     ...
-    thought, 1092
-    will, 1080
-    fremen, 1053
-    leto, 1036
-    alia, 1033
-    now, 997
+    thought,1092
+    will,1080
+    fremen,1053
+    leto,1036
+    alia,1033
+    now,997
     ...
 
 Note that if two words have the same frequency, you should break the tie by outputting the lexigraphically smaller word first.
@@ -158,24 +159,25 @@ Note that if two words have the same frequency, you should break the tie by outp
 **Task 2**  Building on top of Task 1, fill in the blanks in `spark-code/Task2.py` to output the top-100 most frequent words in the novel that are NOT stop-words using Spark's RDD and DataFrame APIs.
 
 Your program should:
-1. first, replace the set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
-2. then, lower case all of the words
-3. then, remove stop-words
-4. finally, compute the word frequencies
+1. first, split lines into words by whitespace
+2. then, replace the set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
+3. then, lower case all of the words
+4. then, remove stop-words
+5. finally, compute the word frequencies
 
 Output the top-100 words along with their frequency in the following format to standard output:
     
     word,freq
     ...
-    thought, 1092
-    fremen, 1053
-    leto, 1036
-    alia, 1033
-    would, 970
-    stilgar, 932
-    know, 829
-    must, 827
-    asked, 817
+    thought,1092
+    fremen,1053
+    leto,1036
+    alia,1033
+    would,970
+    stilgar,932
+    know,829
+    must,827
+    asked,817
     ...
     
 Note that if two words have the same frequency, you should break the tie by outputting the lexigraphically smaller word first.
