@@ -1,4 +1,4 @@
-pip: ["scipy", "dune-rivals>=0.4.1"]
+pip: ["scipy", "dune-rivals>=0.4.2"]
 working_dir: "dune/"
 env_vars:
   RAY_DEDUP_LOGS: "1"
