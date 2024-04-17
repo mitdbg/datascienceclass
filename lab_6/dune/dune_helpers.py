@@ -84,7 +84,8 @@ class GameState:
         order_map = {}
         out = np.where(spice_loc_map==1)
         for i, j in zip(out[0], out[1]):
-            order_map[(i,j)] = np.random.choice([1,2,3,4], size=np.random.choice([1,2,3,4]), replace=False)
+            size = np.random.choice([1,2,3,4], p=[0.2, 0.3, 0.3, 0.2])
+            order_map[(i,j)] = np.random.choice([1,2,3,4], size=size, replace=False)
 
         return spice_loc_map, spice_file_map, order_map
 

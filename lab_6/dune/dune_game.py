@@ -333,7 +333,7 @@ if __name__ == "__main__":
     start_time = ray.get(start_time_ref)
 
     # let the game run for 100 seconds
-    while time.time() - start_time < 30.0:
+    while time.time() - start_time < 60.0:
         time.sleep(1.0)
 
     # end the game and return total spice destroyed by each player
