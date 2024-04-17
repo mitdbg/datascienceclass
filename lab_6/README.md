@@ -137,8 +137,8 @@ Submission of Task2 can be done similarly.
 **Task 1** Fill in the blanks in `spark-code/Task1.py` which is Spark program that outputs the top-100 most frequent words in Dune novel series by Frank Herbert using [Spark's RDD APIs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-operations). We provide the first line of the program which reads the files for you.
 
 Your program should:
-1. first, split lines into words by whitespace
-2. then, replace the following set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
+1. first, replace the following set of punctuation [:=,!'".?] (not including '[' and ']') in every line of text with whitespace
+2. then, split lines into words by whitespace
 3. then, lower case all of the words
 4. finally, compute the word frequencies
 
@@ -159,8 +159,8 @@ Note that if two words have the same frequency, you should break the tie by outp
 **Task 2**  Building on top of Task 1, fill in the blanks in `spark-code/Task2.py` to output the top-100 most frequent words in the novel that are NOT stop-words using Spark's RDD and DataFrame APIs.
 
 Your program should:
-1. first, split lines into words by whitespace
-2. then, replace the set of punctuation [:=,!'".?] (not including '[' and ']') with whitespace
+1. first, replace the following set of punctuation [:=,!'".?] (not including '[' and ']') in every line of text with whitespace
+2. then, split lines into words by whitespace
 3. then, lower case all of the words
 4. then, remove stop-words
 5. finally, compute the word frequencies
