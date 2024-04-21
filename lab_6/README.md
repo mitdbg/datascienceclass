@@ -191,7 +191,7 @@ To complete this part of the lab you only need to implement 4 functions: the `st
 
 #### Grading Scheme
 The grading scheme is transparent:
-- `85/70`: your implementation beats all 4 of the rivals we have implemented AND the bonus `sardaukar` rival
+- `80/70`: your implementation beats all 4 of the rivals we have implemented AND the bonus `sardaukar` rival
 - `70/70`: your implementation beats all 4 of the rivals we have implemented
 - `60/70`: your implementation beats 3 out of 4 of the rivals we have implemented
 - `55/70`: your implementation beats 2 out of 4 of the rivals we have implemented
