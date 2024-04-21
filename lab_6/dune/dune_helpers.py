@@ -71,7 +71,7 @@ class GameState:
 
     def _create_map(self, hemisphere):
         print(f"Creating {hemisphere} spice map")
-        
+
         # create locations of spice fields
         spice_loc_map = np.random.binomial(1, p=SPICE_FIELD_PROB, size=(MAP_DIM, MAP_DIM))
 

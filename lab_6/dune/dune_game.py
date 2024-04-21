@@ -16,11 +16,12 @@ SLEEP_SECONDS_NOT_ON_SPICE     = 1.000
 
 class BaseActor:
     """
-    DO NOT MODIFY
-
     Base class with common functionality shared across all Fedaykin and Rival Actors.
     """
     def __init__(self, payload: str):
+        """
+        DO NOT MODIFY
+        """
         self.payload = payload
         self.i = np.random.randint(0, MAP_DIM - 1)
         self.j = np.random.randint(0, MAP_DIM - 1)
@@ -31,6 +32,8 @@ class BaseActor:
 
     def _set_fields(self, spice_loc_map: np.ndarray, spice_file_map: np.ndarray, order_map: dict) -> None:
         """
+        DO NOT MODIFY
+        
         This is technically not necessary but it will save a lot of people issues with a race condition.
         """
         self.spice_loc_map = spice_loc_map
@@ -272,8 +275,8 @@ if __name__ == "__main__":
         print("Please provide a rival")
         exit(1)
 
-    elif args.rival not in ["noop", "silly-goose", "glossu-rabban", "feyd-rautha"]:
-        print(f"You specified rival: {args.rival}, but --rival must be one of ['noop', 'glossu-rabban', 'feyd-rautha', 'sardaukar']")
+    elif args.rival not in ["noop", "silly-goose", "glossu-rabban", "feyd-rautha", "sardaukar"]:
+        print(f"You specified rival: {args.rival}, but --rival must be one of ['noop', 'silly-goose', 'glossu-rabban', 'feyd-rautha', 'sardaukar']")
 
     # connect to ray cluster
     ray.init()
@@ -323,6 +326,13 @@ if __name__ == "__main__":
             FeydRautha2.remote("rival"),
             FeydRautha3.remote("rival"),
             FeydRautha4.remote("rival"),
+        ]
+    elif args.rival == "sardaukar":
+        rival_actors = [
+            Sardaukar1.remote("rival"),
+            Sardaukar2.remote("rival"),
+            Sardaukar3.remote("rival"),
+            Sardaukar4.remote("rival"),
         ]
 
     # set actors in gamestate

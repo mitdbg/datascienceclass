@@ -191,18 +191,20 @@ To complete this part of the lab you only need to implement 4 functions: the `st
 
 #### Grading Scheme
 The grading scheme is transparent:
+- `85/70`: your implementation beats all 4 of the rivals we have implemented AND the bonus `sardaukar` rival
 - `70/70`: your implementation beats all 4 of the rivals we have implemented
 - `60/70`: your implementation beats 3 out of 4 of the rivals we have implemented
 - `55/70`: your implementation beats 2 out of 4 of the rivals we have implemented
 - `50/70`: your implementation beats 1 out of 4 of the rivals we have implemented
 - `0/70`: you didn't submit anything
 
-The four rivals, in increasing level of difficulty, are:
+The four rivals (and bonus rival), in increasing level of difficulty, are:
 ```
 - noop
 - silly-goose
 - glossu-rabban
 - feyd-rautha
+- sardaukar
 ```
 
 To "beat" a rival implementation, your code must win at least 3 out of 5 games when we run your code against it head-to-head. We run multiple trials because each game starts with a randomly initialized state.
@@ -216,7 +218,7 @@ After ssh'ing to your EC2 instance, you can submit a run of your game to the Ray
 $ source venv/bin/activate
 $ ray job submit --address http://172.31.22.245:8265 --runtime-env runtime-env.yaml -- python dune_game.py --rival rival-name-goes-here
 ```
-You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `glossu-rabban`, or `feyd-rautha`.
+You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `glossu-rabban`, `feyd-rautha`, or `sardaukar`.
 
 ### Game Overview
 **The Objective:** destroy more Spice fields than your rival.
@@ -233,7 +235,7 @@ You should replace `rival-name-goes-here` with one of `noop`, `silly-goose`, `gl
 **The Rules:** there are only a few rules limiting what you can do in your implementation:
 
 0. You may not call the `self.gamestate` directly from your code. We have provided helper methods for interacting with the `GameState` and you must use those helpers. If there is some `GameState` you would like us to expose to you which we have not already, please send us a note on Piazza.
-1. You must write all of your code inside of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` actor classes. When we test your implementation, we will only pull these 4 classes from your source code, so if you modify the `GameState` or driver code (i.e. the stuff in `__main__`) your submission will probably crash and burn.
+1. You must write all of your code inside of the `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` actor classes. You may also add new methods in the `BaseActor` class -- but you cannot modify the existing methods and constructor. When we test your implementation, we will only pull these 4 classes (plus the base class) from your source code, so if you modify the `GameState` or driver code (i.e. the stuff in `__main__`) your submission will probably crash and burn.
 2. This should be guaranteed by following rule (1.), but for this lab you are not allowed to implement a Ray Task which runs outside of your Actor process(es). We are disallowing this in order to guarantee that we can run some submissions in parallel on the cluster, thus allowing you all to test your code more frequently.
 
 **Gameplay:** The game is played between two players, you and the "rival". Each player controls 4 Ray Actors -- i.e. stateful classes with functions -- and each Actor runs on a single CPU. (Your Actors are the classes `Fedaykin1`, `Fedaykin2`, `Fedaykin3`, and `Fedaykin4` in the `dune/dune_game.py` file.) 
