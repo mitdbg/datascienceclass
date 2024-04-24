@@ -23,6 +23,7 @@ class BaseActor:
         DO NOT MODIFY
         """
         self.payload = payload
+        self.user = user
         self.i = np.random.randint(0, MAP_DIM - 1)
         self.j = np.random.randint(0, MAP_DIM - 1)
         self.gamestate = ray.get_actor("GameState", namespace=user)
