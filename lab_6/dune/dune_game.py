@@ -281,7 +281,8 @@ if __name__ == "__main__":
 
     # connect to ray cluster
     import os
-    user = os.getlogin()
+    # user = os.getlogin()
+    user = "your-username-here"
     ray.init(namespace=user)
 
     # print Ray job id in all caps
