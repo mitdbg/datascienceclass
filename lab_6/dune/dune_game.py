@@ -18,14 +18,14 @@ class BaseActor:
     """
     Base class with common functionality shared across all Fedaykin and Rival Actors.
     """
-    def __init__(self, payload: str):
+    def __init__(self, payload: str, user: str):
         """
         DO NOT MODIFY
         """
         self.payload = payload
         self.i = np.random.randint(0, MAP_DIM - 1)
         self.j = np.random.randint(0, MAP_DIM - 1)
-        self.gamestate = ray.get_actor("GameState")
+        self.gamestate = ray.get_actor("GameState", namespace=user)
         self.spice_loc_map = None
         self.spice_file_map = None
         self.order_map = None
@@ -143,13 +143,13 @@ class BaseActor:
         return ray.get(self.gamestate.get_new_messages.remote(self.id, from_id, "fedaykin"))
 
 
-@ray.remote(num_cpus=0.8, name="Fedaykin1", resources={"worker1": 1e-4})
+@ray.remote
 class Fedaykin1(BaseActor):
     """
     Fedaykin warrior/actor running on Worker 1 on one of its two CPUs.
     """
-    def __init__(self, payload: str):
-        super().__init__(payload)
+    def __init__(self, payload: str, user: str):
+        super().__init__(payload, user)
         self.id = 1
 
 
@@ -192,13 +192,13 @@ class Fedaykin1(BaseActor):
         pass
 
 
-@ray.remote(num_cpus=0.8, name="Fedaykin2", resources={"worker1": 1e-4})
+@ray.remote
 class Fedaykin2(BaseActor):
     """
     Fedaykin warrior/actor running on Worker 1 on one of its two CPUs.
     """
-    def __init__(self, payload: str):
-        super().__init__(payload)
+    def __init__(self, payload: str, user: str):
+        super().__init__(payload, user)
         self.id = 2
 
 
@@ -215,13 +215,13 @@ class Fedaykin2(BaseActor):
         pass
 
 
-@ray.remote(num_cpus=0.8, name="Fedaykin3", resources={"worker2": 1e-4})
+@ray.remote
 class Fedaykin3(BaseActor):
     """
     Fedaykin warrior running on Worker 2 on one of its two CPUs.
     """
-    def __init__(self, payload: str):
-        super().__init__(payload)
+    def __init__(self, payload: str, user: str):
+        super().__init__(payload, user)
         self.id = 3
 
 
@@ -238,13 +238,13 @@ class Fedaykin3(BaseActor):
         pass
 
 
-@ray.remote(num_cpus=0.8, name="Fedaykin4", resources={"worker2": 1e-4})
+@ray.remote
 class Fedaykin4(BaseActor):
     """
     Fedaykin warrior running on Worker 2 on one of its two CPUs.
     """
-    def __init__(self, payload: str):
-        super().__init__(payload)
+    def __init__(self, payload: str, user: str):
+        super().__init__(payload, user)
         self.id = 4
 
 
@@ -279,21 +279,23 @@ if __name__ == "__main__":
         print(f"You specified rival: {args.rival}, but --rival must be one of ['noop', 'silly-goose', 'glossu-rabban', 'feyd-rautha', 'sardaukar']")
 
     # connect to ray cluster
-    ray.init()
+    import os
+    user = os.getlogin()
+    ray.init(namespace=user)
 
     # print Ray job id in all caps
     print(f"JOB ID IS: {ray.runtime_context.get_runtime_context().get_job_id()}")
     print(f"WAITING FOR CLUSTER TO BE AVAILABLE")
 
     # create game state
-    gs = GameState.remote()
+    gs = GameState.options(resources={"head": 0.9}, name="GameState", namespace=user).remote()
 
     # create fedaykin warriors
     fedaykin_actors = [
-        Fedaykin1.remote("fedaykin"),
-        Fedaykin2.remote("fedaykin"),
-        Fedaykin3.remote("fedaykin"),
-        Fedaykin4.remote("fedaykin"),
+        Fedaykin1.options(num_cpus=0.8, name="Fedaykin1", namespace=user, resources={"worker1": 1e-4}).remote("fedaykin", user),
+        Fedaykin2.options(num_cpus=0.8, name="Fedaykin2", namespace=user, resources={"worker1": 1e-4}).remote("fedaykin", user),
+        Fedaykin3.options(num_cpus=0.8, name="Fedaykin3", namespace=user, resources={"worker2": 1e-4}).remote("fedaykin", user),
+        Fedaykin4.options(num_cpus=0.8, name="Fedaykin4", namespace=user, resources={"worker2": 1e-4}).remote("fedaykin", user),
     ]
 
     # NOTE: your code interpreter might complain that it doesn't recognize
@@ -301,38 +303,38 @@ if __name__ == "__main__":
     # create rival warriors
     if args.rival == "noop":
         rival_actors = [
-            Noop12.remote("rival"),
-            Noop12.remote("rival"),
-            Noop34.remote("rival"),
-            Noop34.remote("rival"),
+            Noop12.options(num_cpus=0.1, namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            Noop12.options(num_cpus=0.1, namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            Noop34.options(num_cpus=0.1, namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
+            Noop34.options(num_cpus=0.1, namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
         ]
     elif args.rival == "silly-goose":
         rival_actors = [
-            SillyGoose1.remote("rival"),
-            SillyGoose2.remote("rival"),
-            SillyGoose3.remote("rival"),
-            SillyGoose4.remote("rival"),
+            SillyGoose1.options(num_cpus=0.8, name="SillyGoose1", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            SillyGoose2.options(num_cpus=0.8, name="SillyGoose2", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            SillyGoose3.options(num_cpus=0.8, name="SillyGoose3", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
+            SillyGoose4.options(num_cpus=0.8, name="SillyGoose4", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
         ]
     elif args.rival == "glossu-rabban":
         rival_actors = [
-            GlossuRabban1.remote("rival"),
-            GlossuRabban2.remote("rival"),
-            GlossuRabban3.remote("rival"),
-            GlossuRabban4.remote("rival"),
+            GlossuRabban1.options(num_cpus=0.8, name="GlossuRabban1", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            GlossuRabban2.options(num_cpus=0.8, name="GlossuRabban2", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            GlossuRabban3.options(num_cpus=0.8, name="GlossuRabban3", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
+            GlossuRabban4.options(num_cpus=0.8, name="GlossuRabban4", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
         ]
     elif args.rival == "feyd-rautha":
         rival_actors = [
-            FeydRautha1.remote("rival"),
-            FeydRautha2.remote("rival"),
-            FeydRautha3.remote("rival"),
-            FeydRautha4.remote("rival"),
+            FeydRautha1.options(num_cpus=0.8, name="FeydRautha1", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            FeydRautha2.options(num_cpus=0.8, name="FeydRautha2", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            FeydRautha3.options(num_cpus=0.8, name="FeydRautha3", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
+            FeydRautha4.options(num_cpus=0.8, name="FeydRautha4", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
         ]
     elif args.rival == "sardaukar":
         rival_actors = [
-            Sardaukar1.remote("rival"),
-            Sardaukar2.remote("rival"),
-            Sardaukar3.remote("rival"),
-            Sardaukar4.remote("rival"),
+            Sardaukar1.options(num_cpus=0.8, name="Sardaukar1", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            Sardaukar2.options(num_cpus=0.8, name="Sardaukar2", namespace=user, resources={"worker3": 1e-4}).remote("rival", user),
+            Sardaukar3.options(num_cpus=0.8, name="Sardaukar3", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
+            Sardaukar4.options(num_cpus=0.8, name="Sardaukar4", namespace=user, resources={"worker4": 1e-4}).remote("rival", user),
         ]
 
     # set actors in gamestate

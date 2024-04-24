@@ -11,7 +11,7 @@ OBJ_FILE = 1
 NUM_ACTORS = 4
 
 
-@ray.remote(resources={"head": 0.9}, name="GameState")
+@ray.remote
 class GameState:
     """
     DO NOT MODIFY
